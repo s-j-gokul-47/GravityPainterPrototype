@@ -6,8 +6,11 @@ public class TileZone : MonoBehaviour
 {
     public ZoneType zoneType = ZoneType.None;
 
-    [Tooltip("If enabled, colors always push the same way on the board: Red = world +Z, Blue = world -X, Yellow = world +X. Turn off only if you rotate tiles and want forces to follow each tile.")]
-    [SerializeField] private bool useWorldSpaceDirections = true;
+    [Tooltip("Off (default): directions follow this tile’s yaw on the floor (see Scene gizmo when selected).\nOn: fixed world axes (+Z / −X / +X) — only for an unrotated grid.")]
+    [SerializeField] private bool useWorldSpaceDirections = false;
+
+    [Tooltip("Draw planar force arrows in Scene view when this object is selected.")]
+    [SerializeField] private bool drawDirectionGizmos = true;
 
     public Material redMat;
     public Material blueMat;
@@ -50,7 +53,6 @@ public class TileZone : MonoBehaviour
         return redMat != null && blueMat != null && yellowMat != null && noneMat != null;
     }
 
-    /// <summary>Prefer the instance that owns material refs (duplicate components on one tile).</summary>
     public static TileZone GetPrimaryZone(GameObject go)
     {
         if (go == null)
@@ -96,7 +98,6 @@ public class TileZone : MonoBehaviour
         }
     }
 
-    /// <summary>Tap order: Grey → Red → Blue → Yellow → Grey.</summary>
     public void CycleZone()
     {
         TileZone[] zones = GetComponents<TileZone>();
@@ -169,16 +170,57 @@ public class TileZone : MonoBehaviour
             }
         }
 
+        GetPlanarForwardLeftRight(out Vector3 planarForward, out Vector3 planarLeft, out Vector3 planarRight);
+
         switch (zoneType)
         {
             case ZoneType.Red:
-                return GetPlanarDirection(transform.forward);
+                return planarForward;
             case ZoneType.Blue:
-                return GetPlanarDirection(-transform.right);
+                return planarLeft;
             case ZoneType.Yellow:
-                return GetPlanarDirection(transform.right);
+                return planarRight;
             default:
                 return Vector3.zero;
+        }
+    }
+
+    /// <summary>
+    /// Build a right-handed basis on the XZ plane: forward from tile, then left/right via cross with world up.
+    /// This keeps Blue = geometric left of Red and Yellow = geometric right for any Y rotation (fixes Y=90 swap from using raw transform.right).
+    /// </summary>
+    private void GetPlanarForwardLeftRight(out Vector3 planarForward, out Vector3 planarLeft, out Vector3 planarRight)
+    {
+        planarForward = GetPlanarDirection(transform.forward);
+
+        if (planarForward.sqrMagnitude < 1e-8f)
+        {
+            // Tilted or degenerate: try mesh “up” projected, else world +Z
+            planarForward = GetPlanarDirection(transform.up);
+            if (planarForward.sqrMagnitude < 1e-8f)
+            {
+                planarForward = Vector3.forward;
+            }
+        }
+
+        planarLeft = Vector3.Cross(Vector3.up, planarForward);
+        if (planarLeft.sqrMagnitude < 1e-8f)
+        {
+            planarLeft = Vector3.left;
+        }
+        else
+        {
+            planarLeft.Normalize();
+        }
+
+        planarRight = Vector3.Cross(planarForward, Vector3.up);
+        if (planarRight.sqrMagnitude < 1e-8f)
+        {
+            planarRight = Vector3.right;
+        }
+        else
+        {
+            planarRight.Normalize();
         }
     }
 
@@ -191,5 +233,24 @@ public class TileZone : MonoBehaviour
         }
 
         return planar.normalized;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (!drawDirectionGizmos || useWorldSpaceDirections)
+        {
+            return;
+        }
+
+        GetPlanarForwardLeftRight(out Vector3 f, out Vector3 l, out Vector3 r);
+        Vector3 o = transform.position + Vector3.up * 0.15f;
+        const float len = 0.85f;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(o, o + f * len);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(o, o + l * len);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(o, o + r * len);
     }
 }

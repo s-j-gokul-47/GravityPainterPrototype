@@ -11,6 +11,8 @@ public class BallController : MonoBehaviour
     public float idlePlanarDamping = 8f;
     public float zoneProbeRadius = 0.48f;
     public float zoneRetentionTime = 0.15f;
+    [Tooltip("On red only: if the tile’s push opposes current horizontal motion, flip so the ball keeps going forward along travel (forgiving wrong-side placement).")]
+    public bool redAlignWithMotion = true;
 
     private Rigidbody rb;
     private TileZone currentZone;
@@ -33,6 +35,7 @@ public class BallController : MonoBehaviour
         if (onPaintedTile)
         {
             Vector3 direction = currentZone.GetForceDirection();
+            direction = AdjustRedDirectionForContinuity(direction);
             if (direction.sqrMagnitude > 0.0001f)
             {
                 rb.AddForce(direction * forceStrength, ForceMode.Acceleration);
@@ -56,75 +59,16 @@ public class BallController : MonoBehaviour
     }
 
     /// <summary>
-    /// Pick the tile the ball is standing on by scanning under the ball and choosing the closest on XZ.
-    /// Avoids raycasts that grab a neighbor's tall trigger first.
+    /// Resolve the tile under the ball. Ray down through solid colliders first (skips ball + triggers)
+    /// so we get the real floor tile — not a neighbor chosen by "closest tile center" on XZ.
     /// </summary>
     private void ResolveCurrentTileZone()
     {
-        float probeR = Mathf.Max(0.35f, zoneProbeRadius);
-        Vector3 sphereCenter = transform.position + Vector3.down * 0.35f;
-
-        Collider[] cols = Physics.OverlapSphere(
-            sphereCenter,
-            probeR,
-            Physics.DefaultRaycastLayers,
-            QueryTriggerInteraction.Collide);
-
-        TileZone best = null;
-        float bestDistSq = float.MaxValue;
-        Vector3 ballXZ = transform.position;
-        ballXZ.y = 0f;
-
-        for (int i = 0; i < cols.Length; i++)
-        {
-            Collider col = cols[i];
-            if (col == null || col.attachedRigidbody == rb || col.GetComponentInParent<BallController>() != null)
-            {
-                continue;
-            }
-
-            TileZone hit = col.GetComponent<TileZone>() ?? col.GetComponentInParent<TileZone>();
-            if (hit == null)
-            {
-                continue;
-            }
-
-            TileZone primary = TileZone.GetPrimaryZone(hit.gameObject) ?? hit;
-            Vector3 tileXZ = primary.transform.position;
-            tileXZ.y = 0f;
-            float d = (tileXZ - ballXZ).sqrMagnitude;
-            if (d < bestDistSq)
-            {
-                bestDistSq = d;
-                best = primary;
-            }
-        }
+        TileZone best = TryResolveTileByGroundRay();
 
         if (best == null)
         {
-            RaycastHit[] hits = Physics.RaycastAll(
-                transform.position + Vector3.up * 0.15f,
-                Vector3.down,
-                2.5f,
-                Physics.DefaultRaycastLayers,
-                QueryTriggerInteraction.Collide);
-
-            Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
-            for (int i = 0; i < hits.Length; i++)
-            {
-                Collider col = hits[i].collider;
-                if (col == null || col.attachedRigidbody == rb || col.GetComponentInParent<BallController>() != null)
-                {
-                    continue;
-                }
-
-                TileZone z = col.GetComponent<TileZone>() ?? col.GetComponentInParent<TileZone>();
-                if (z != null)
-                {
-                    best = TileZone.GetPrimaryZone(z.gameObject) ?? z;
-                    break;
-                }
-            }
+            best = TryResolveTileBySolidOverlap();
         }
 
         if (best != null)
@@ -140,6 +84,128 @@ public class BallController : MonoBehaviour
                 currentZone = null;
             }
         }
+    }
+
+    private TileZone TryResolveTileByGroundRay()
+    {
+        // Start well above the ball so the ray is stable; skip self and trigger volumes.
+        Vector3 origin = transform.position + Vector3.up * 2.5f;
+        const float maxDist = 6f;
+
+        RaycastHit[] hits = Physics.RaycastAll(
+            origin,
+            Vector3.down,
+            maxDist,
+            Physics.DefaultRaycastLayers,
+            QueryTriggerInteraction.Collide);
+
+        if (hits == null || hits.Length == 0)
+        {
+            return null;
+        }
+
+        Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+        for (int i = 0; i < hits.Length; i++)
+        {
+            Collider col = hits[i].collider;
+            if (col == null)
+            {
+                continue;
+            }
+
+            if (col.isTrigger)
+            {
+                continue;
+            }
+
+            if (col.attachedRigidbody == rb || col.GetComponentInParent<BallController>() != null)
+            {
+                continue;
+            }
+
+            TileZone z = col.GetComponent<TileZone>() ?? col.GetComponentInParent<TileZone>();
+            if (z != null)
+            {
+                return TileZone.GetPrimaryZone(z.gameObject) ?? z;
+            }
+        }
+
+        return null;
+    }
+
+    private TileZone TryResolveTileBySolidOverlap()
+    {
+        float probeR = Mathf.Max(0.35f, zoneProbeRadius);
+        Vector3 sphereCenter = transform.position + Vector3.down * 0.35f;
+
+        Collider[] cols = Physics.OverlapSphere(
+            sphereCenter,
+            probeR,
+            Physics.DefaultRaycastLayers,
+            QueryTriggerInteraction.Collide);
+
+        TileZone best = null;
+        float bestDistSq = float.MaxValue;
+        Vector3 ballPos = transform.position;
+
+        for (int i = 0; i < cols.Length; i++)
+        {
+            Collider col = cols[i];
+            if (col == null || col.isTrigger)
+            {
+                continue;
+            }
+
+            if (col.attachedRigidbody == rb || col.GetComponentInParent<BallController>() != null)
+            {
+                continue;
+            }
+
+            TileZone hit = col.GetComponent<TileZone>() ?? col.GetComponentInParent<TileZone>();
+            if (hit == null)
+            {
+                continue;
+            }
+
+            TileZone primary = TileZone.GetPrimaryZone(hit.gameObject) ?? hit;
+            Vector3 closest = col.ClosestPoint(ballPos);
+            float d = (closest - ballPos).sqrMagnitude;
+            if (d < bestDistSq)
+            {
+                bestDistSq = d;
+                best = primary;
+            }
+        }
+
+        return best;
+    }
+
+    private Vector3 AdjustRedDirectionForContinuity(Vector3 zoneDirection)
+    {
+        if (!redAlignWithMotion || currentZone == null || currentZone.zoneType != ZoneType.Red)
+        {
+            return zoneDirection;
+        }
+
+        if (zoneDirection.sqrMagnitude < 1e-8f)
+        {
+            return zoneDirection;
+        }
+
+        Vector3 planarVel = rb.linearVelocity;
+        planarVel.y = 0f;
+        if (planarVel.sqrMagnitude < 0.02f)
+        {
+            return zoneDirection;
+        }
+
+        if (Vector3.Dot(zoneDirection, planarVel.normalized) < 0f)
+        {
+            return -zoneDirection;
+        }
+
+        return zoneDirection;
     }
 
     private void ApplyPlanarDrag()
