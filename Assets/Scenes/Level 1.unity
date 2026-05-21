@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientSkyColor: {r: 0.22, g: 0.22, b: 0.24, a: 1}
+  m_AmbientEquatorColor: {r: 0.22, g: 0.22, b: 0.24, a: 1}
+  m_AmbientGroundColor: {r: 0.22, g: 0.22, b: 0.24, a: 1}
+  m_AmbientIntensity: 0.85
+  m_AmbientMode: 2
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 12ccb828343c3405fb94289774b51aad, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -35,7 +35,7 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0.35
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_UseRadianceAmbientProbe: 0
@@ -408,6 +408,58 @@ MonoBehaviour:
   blueMat: {fileID: 2100000, guid: c993970d56c1b40258e3c6bf7d91c3c9, type: 2}
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
+--- !u!1 &192285288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 192285290}
+  - component: {fileID: 192285289}
+  m_Layer: 0
+  m_Name: LevelEnvironment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &192285289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192285288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70137acb64da4ebeaf76ce6ee465c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelEnvironment
+  createPlanetSurface: 1
+  planetSurfaceY: -12
+  planetSize: {x: 80, y: 80}
+  planetMaterial: {fileID: 2100000, guid: 4bbf8890428ec4f89a5e0d3f4726127f, type: 2}
+  createPlatformDeck: 1
+  deckLocalPosition: {x: 0, y: -0.55, z: 0}
+  deckScale: {x: 28, y: 0.12, z: 40}
+  deckMaterial: {fileID: 2100000, guid: 4852222f5cc4740d885531e07f3785a8, type: 2}
+--- !u!4 &192285290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192285288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &229164349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -803,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 553668215}
-  offset: {x: 0, y: 8, z: -10}
+  offset: {x: 0, y: 4, z: -15}
   smoothTime: 0.2
 --- !u!1001 &376738713
 PrefabInstance:
@@ -1243,6 +1295,9 @@ MonoBehaviour:
   zoneProbeRadius: 0.48
   zoneRetentionTime: 0.15
   redAlignWithMotion: 1
+  restartOnFall: 1
+  fallYThreshold: -2
+  fallRestartDelay: 5
 --- !u!135 &553668212
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4695,3 +4750,4 @@ SceneRoots:
   - {fileID: 924826649}
   - {fileID: 1540361033}
   - {fileID: 325424375}
+  - {fileID: 192285290}

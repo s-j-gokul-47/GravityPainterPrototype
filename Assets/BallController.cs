@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallController : MonoBehaviour
 {
@@ -14,15 +15,62 @@ public class BallController : MonoBehaviour
     [Tooltip("On red only: if the tile’s push opposes current horizontal motion, flip so the ball keeps going forward along travel (forgiving wrong-side placement).")]
     public bool redAlignWithMotion = true;
 
+    [Header("Fall restart")]
+    [Tooltip("Reload the current level when the ball falls below the platform.")]
+    [SerializeField] private bool restartOnFall = true;
+    [Tooltip("World Y below this = fell off (tiles are usually near Y = 0).")]
+    [SerializeField] private float fallYThreshold = -2f;
+    [Tooltip("Seconds after falling before the level reloads.")]
+    [SerializeField] private float fallRestartDelay = 5f;
+
     private Rigidbody rb;
     private TileZone currentZone;
     private float timeSinceLastZoneContact;
+    private bool _restarting;
+    private float _fallElapsed;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.WakeUp();
         timeSinceLastZoneContact = 999f;
+    }
+
+    private void Update()
+    {
+        if (!restartOnFall || _restarting || Time.timeScale <= 0f)
+        {
+            return;
+        }
+
+        if (transform.position.y < fallYThreshold)
+        {
+            _fallElapsed += Time.deltaTime;
+            if (_fallElapsed >= fallRestartDelay)
+            {
+                RestartCurrentLevel();
+            }
+        }
+        else
+        {
+            _fallElapsed = 0f;
+        }
+    }
+
+    private void RestartCurrentLevel()
+    {
+        _restarting = true;
+        Time.timeScale = 1f;
+
+        Scene active = SceneManager.GetActiveScene();
+        if (active.buildIndex >= 0)
+        {
+            SceneManager.LoadScene(active.buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(active.name);
+        }
     }
 
     private void FixedUpdate()
