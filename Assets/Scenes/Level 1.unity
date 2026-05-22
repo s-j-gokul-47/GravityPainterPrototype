@@ -855,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
   target: {fileID: 553668215}
-  offset: {x: 0, y: 4, z: -15}
+  offset: {x: 0, y: 4, z: -10}
   smoothTime: 0.2
 --- !u!1001 &376738713
 PrefabInstance:
