@@ -13,7 +13,3 @@ MemoryCaptures/
 
 # Unity package installers — import locally, do not commit
 *.unitypackage
-
-# Rolling Balls URP installer bundle (project uses SRP_Build assets only)
-Assets/Rolling_Balls-Sci-fi_Pack/Rolling_Balls-Sci-fi_Pack_URP_Build/
-Assets/Rolling_Balls-Sci-fi_Pack/Rolling_Balls-Sci-fi_Pack_URP_Build.meta

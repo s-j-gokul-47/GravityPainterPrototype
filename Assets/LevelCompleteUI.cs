@@ -1,9 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 /// <summary>
 /// Level-complete overlay on LevelCompleteCanvas: Restart, Next Level, Home (image buttons).
@@ -13,9 +10,9 @@ public class LevelCompleteUI : MonoBehaviour
 {
     private const string ButtonsRootName = "ActionButtons";
     private const string TitleObjectName = "Text (TMP)";
-    private const string RestartSpritePath = "Assets/Sprites/UI/restart.png";
-    private const string NextLevelSpritePath = "Assets/Sprites/UI/nextlevel.png";
-    private const string HomeSpritePath = "Assets/Sprites/UI/home.png";
+    private const string RestartResource = "LevelCompleteUI/restart";
+    private const string NextLevelResource = "LevelCompleteUI/nextlevel";
+    private const string HomeResource = "LevelCompleteUI/home";
 
     [SerializeField] private int currentLevel;
     [SerializeField] private Sprite restartButtonSprite;
@@ -59,41 +56,19 @@ public class LevelCompleteUI : MonoBehaviour
 
     private void LoadDefaultSpritesIfNeeded()
     {
-        restartButtonSprite = EnsureSprite(restartButtonSprite, RestartSpritePath);
-        nextLevelButtonSprite = EnsureSprite(nextLevelButtonSprite, NextLevelSpritePath);
-        homeButtonSprite = EnsureSprite(homeButtonSprite, HomeSpritePath);
+        restartButtonSprite = EnsureSprite(restartButtonSprite, RestartResource);
+        nextLevelButtonSprite = EnsureSprite(nextLevelButtonSprite, NextLevelResource);
+        homeButtonSprite = EnsureSprite(homeButtonSprite, HomeResource);
     }
 
-    private static Sprite EnsureSprite(Sprite assigned, string assetPath)
+    private static Sprite EnsureSprite(Sprite assigned, string resourcesPath)
     {
         if (assigned != null)
         {
             return assigned;
         }
 
-        return LoadUiSprite(assetPath);
-    }
-
-    private static Sprite LoadUiSprite(string assetPath)
-    {
-#if UNITY_EDITOR
-        Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
-        if (sprite != null)
-        {
-            return sprite;
-        }
-
-        Texture2D texture = AssetDatabase.LoadAssetAtPath<Texture2D>(assetPath);
-        if (texture != null)
-        {
-            return Sprite.Create(
-                texture,
-                new Rect(0f, 0f, texture.width, texture.height),
-                new Vector2(0.5f, 0.5f),
-                100f);
-        }
-#endif
-        return null;
+        return Resources.Load<Sprite>(resourcesPath);
     }
 
     private void LayoutTitleText()

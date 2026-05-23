@@ -304,7 +304,8 @@
               "Assets/Scenes/Level 2.unity",
               "Assets/Scenes/Level 3.unity",
               "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity"
+              "Assets/Scenes/Level 5.unity",
+              "Assets/Scenes/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -316,7 +317,8 @@
               "Assets/Scenes/Level 2.unity",
               "Assets/Scenes/Level 3.unity",
               "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity"
+              "Assets/Scenes/Level 5.unity",
+              "Assets/Scenes/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -328,7 +330,8 @@
               "Assets/Scenes/Level 2.unity",
               "Assets/Scenes/Level 3.unity",
               "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity"
+              "Assets/Scenes/Level 5.unity",
+              "Assets/Scenes/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1027,7 +1030,8 @@
           {
             "name": "Rigidbody",
             "scenes": [
-              "Assets/Scenes/Level 1.unity"
+              "Assets/Scenes/Level 1.unity",
+              "Assets/Scenes/Level 2.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1035,7 +1039,8 @@
           {
             "name": "SphereCollider",
             "scenes": [
-              "Assets/Scenes/Level 1.unity"
+              "Assets/Scenes/Level 1.unity",
+              "Assets/Scenes/Level 2.unity"
             ],
             "dependencyType": 0,
             "icon": null

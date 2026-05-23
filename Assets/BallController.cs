@@ -23,10 +23,11 @@ public class BallController : MonoBehaviour
     [Tooltip("Seconds after falling before the level reloads.")]
     [SerializeField] private float fallRestartDelay = 5f;
 
-    [Header("Sci-Fi ball visual")]
+    [Header("Ball visual (GLB mesh)")]
     [SerializeField] private bool useSciFiBallVisual = true;
     [SerializeField] private GameObject sciFiBallVisualPrefab;
     private const string SciFiVisualChildName = "SciFiBallVisual";
+    private const string DefaultVisualPrefabResource = "SciFiBallVisual";
 
     private Rigidbody rb;
     private TileZone currentZone;
@@ -36,7 +37,17 @@ public class BallController : MonoBehaviour
 
     private void Awake()
     {
-        if (useSciFiBallVisual && sciFiBallVisualPrefab != null)
+        if (!useSciFiBallVisual)
+        {
+            return;
+        }
+
+        if (sciFiBallVisualPrefab == null)
+        {
+            sciFiBallVisualPrefab = Resources.Load<GameObject>(DefaultVisualPrefabResource);
+        }
+
+        if (sciFiBallVisualPrefab != null)
         {
             EnsureSciFiBallVisual();
         }
@@ -50,9 +61,9 @@ public class BallController : MonoBehaviour
     }
 
     /// <summary>
-    /// Replaces the default sphere mesh with RollingBalls_Sci-fi_4_4, fitted to the SphereCollider diameter.
+    /// Hides the Unity sphere mesh and parents the GLB visual, scaled to the SphereCollider diameter.
     /// </summary>
-    public void EnsureSciFiBallVisual()
+    public void EnsureSciFiBallVisual(bool replaceExisting = false)
     {
         if (sciFiBallVisualPrefab == null)
         {
@@ -62,7 +73,19 @@ public class BallController : MonoBehaviour
         Transform existing = transform.Find(SciFiVisualChildName);
         if (existing != null)
         {
-            return;
+            if (!replaceExisting)
+            {
+                return;
+            }
+
+            if (Application.isPlaying)
+            {
+                Destroy(existing.gameObject);
+            }
+            else
+            {
+                DestroyImmediate(existing.gameObject);
+            }
         }
 
         MeshRenderer rootRenderer = GetComponent<MeshRenderer>();
@@ -76,7 +99,26 @@ public class BallController : MonoBehaviour
 
         foreach (Collider col in visual.GetComponentsInChildren<Collider>(true))
         {
-            Destroy(col);
+            if (Application.isPlaying)
+            {
+                Destroy(col);
+            }
+            else
+            {
+                DestroyImmediate(col);
+            }
+        }
+
+        foreach (Rigidbody childBody in visual.GetComponentsInChildren<Rigidbody>(true))
+        {
+            if (Application.isPlaying)
+            {
+                Destroy(childBody);
+            }
+            else
+            {
+                DestroyImmediate(childBody);
+            }
         }
 
         FitVisualToSphereCollider(visual);
