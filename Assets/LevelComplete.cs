@@ -1,19 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Legacy helper used by older level scenes. Prefer LevelCompleteUI on the finish-line overlay.
+/// </summary>
 public class LevelComplete : MonoBehaviour
 {
     public int currentLevel;
 
     public void CompleteLevel()
     {
-        int nextLevel = currentLevel + 1;
-
-        if (nextLevel > PlayerPrefs.GetInt("UnlockedLevel", 1))
+        if (currentLevel < 1)
         {
-            PlayerPrefs.SetInt("UnlockedLevel", nextLevel);
+            currentLevel = LevelProgress.GetActiveLevelNumber();
         }
 
-        SceneManager.LoadScene("LevelSelection");
+        LevelProgress.UnlockThrough(currentLevel);
+        Time.timeScale = 1f;
+        MainMenu.RequestOpenLevelSelect();
+        SceneManager.LoadScene("MainMenu");
     }
 }

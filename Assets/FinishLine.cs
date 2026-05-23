@@ -25,6 +25,7 @@ public class FinishLine : MonoBehaviour
         }
 
         _completed = true;
+        LevelProgress.UnlockThrough(LevelProgress.GetActiveLevelNumber());
 
         if (levelCompletePanel != null)
         {

@@ -23,17 +23,106 @@ public class BallController : MonoBehaviour
     [Tooltip("Seconds after falling before the level reloads.")]
     [SerializeField] private float fallRestartDelay = 5f;
 
+    [Header("Sci-Fi ball visual")]
+    [SerializeField] private bool useSciFiBallVisual = true;
+    [SerializeField] private GameObject sciFiBallVisualPrefab;
+    private const string SciFiVisualChildName = "SciFiBallVisual";
+
     private Rigidbody rb;
     private TileZone currentZone;
     private float timeSinceLastZoneContact;
     private bool _restarting;
     private float _fallElapsed;
 
+    private void Awake()
+    {
+        if (useSciFiBallVisual && sciFiBallVisualPrefab != null)
+        {
+            EnsureSciFiBallVisual();
+        }
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.WakeUp();
         timeSinceLastZoneContact = 999f;
+    }
+
+    /// <summary>
+    /// Replaces the default sphere mesh with RollingBalls_Sci-fi_4_4, fitted to the SphereCollider diameter.
+    /// </summary>
+    public void EnsureSciFiBallVisual()
+    {
+        if (sciFiBallVisualPrefab == null)
+        {
+            return;
+        }
+
+        Transform existing = transform.Find(SciFiVisualChildName);
+        if (existing != null)
+        {
+            return;
+        }
+
+        MeshRenderer rootRenderer = GetComponent<MeshRenderer>();
+        if (rootRenderer != null)
+        {
+            rootRenderer.enabled = false;
+        }
+
+        GameObject visual = Instantiate(sciFiBallVisualPrefab, transform);
+        visual.name = SciFiVisualChildName;
+
+        foreach (Collider col in visual.GetComponentsInChildren<Collider>(true))
+        {
+            Destroy(col);
+        }
+
+        FitVisualToSphereCollider(visual);
+    }
+
+    private void FitVisualToSphereCollider(GameObject visual)
+    {
+        visual.transform.localPosition = Vector3.zero;
+        visual.transform.localRotation = Quaternion.identity;
+        visual.transform.localScale = Vector3.one;
+
+        SphereCollider sphere = GetComponent<SphereCollider>();
+        float targetDiameter = 1f;
+        if (sphere != null)
+        {
+            float scale = Mathf.Max(
+                Mathf.Abs(transform.lossyScale.x),
+                Mathf.Abs(transform.lossyScale.y),
+                Mathf.Abs(transform.lossyScale.z));
+            targetDiameter = sphere.radius * 2f * scale;
+        }
+
+        Renderer[] renderers = visual.GetComponentsInChildren<Renderer>(true);
+        if (renderers.Length == 0)
+        {
+            return;
+        }
+
+        Bounds bounds = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            bounds.Encapsulate(renderers[i].bounds);
+        }
+
+        float maxExtent = Mathf.Max(bounds.size.x, bounds.size.y, bounds.size.z);
+        float uniformScale = targetDiameter / Mathf.Max(maxExtent, 0.0001f);
+        visual.transform.localScale = Vector3.one * uniformScale;
+
+        bounds = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            bounds.Encapsulate(renderers[i].bounds);
+        }
+
+        Vector3 centerOffsetLocal = transform.InverseTransformPoint(bounds.center);
+        visual.transform.localPosition -= centerOffsetLocal;
     }
 
     private void Update()

@@ -17,11 +17,18 @@ public class TileZone : MonoBehaviour
     public Material yellowMat;
     public Material noneMat;
 
+    [Tooltip("When Floor5Visual exists: keep floor texture and show colored edge strips for red/blue/yellow.")]
+    [SerializeField] private bool useEdgeIndicatorsWithFloorMesh = true;
+
     private Renderer tileRenderer;
+    private Renderer floorRenderer;
+    private Material floorBaseMaterial;
+    private TileZoneIndicator zoneIndicator;
 
     private void Awake()
     {
-        tileRenderer = GetComponent<Renderer>();
+        ResolveRenderer();
+        ResolveFloorVisual();
 
         if (HasAllMaterials())
         {
@@ -74,10 +81,8 @@ public class TileZone : MonoBehaviour
 
     private void Start()
     {
-        if (tileRenderer == null)
-        {
-            tileRenderer = GetComponent<Renderer>();
-        }
+        ResolveRenderer();
+        ResolveFloorVisual();
 
         SyncZoneTypeFromPrimary();
         UpdateVisual();
@@ -134,9 +139,23 @@ public class TileZone : MonoBehaviour
 
     public void UpdateVisual()
     {
-        if (tileRenderer == null)
+        ResolveRenderer();
+        ResolveFloorVisual();
+
+        if (useEdgeIndicatorsWithFloorMesh && floorRenderer != null)
         {
-            tileRenderer = GetComponent<Renderer>();
+            if (floorBaseMaterial != null)
+            {
+                floorRenderer.sharedMaterial = floorBaseMaterial;
+            }
+
+            if (zoneIndicator == null)
+            {
+                zoneIndicator = TileZoneIndicator.Ensure(transform);
+            }
+
+            zoneIndicator.SetZone(zoneType, redMat, blueMat, yellowMat);
+            return;
         }
 
         Material next = zoneType switch
@@ -147,7 +166,7 @@ public class TileZone : MonoBehaviour
             _ => noneMat,
         };
 
-        if (next != null)
+        if (next != null && tileRenderer != null)
         {
             tileRenderer.material = next;
         }
@@ -221,6 +240,36 @@ public class TileZone : MonoBehaviour
         else
         {
             planarRight.Normalize();
+        }
+    }
+
+    private void ResolveRenderer()
+    {
+        if (tileRenderer != null)
+        {
+            return;
+        }
+
+        tileRenderer = GetComponent<Renderer>();
+    }
+
+    private void ResolveFloorVisual()
+    {
+        if (floorRenderer != null)
+        {
+            return;
+        }
+
+        Transform floor = transform.Find("Floor5Visual");
+        if (floor == null)
+        {
+            return;
+        }
+
+        floorRenderer = floor.GetComponentInChildren<Renderer>();
+        if (floorRenderer != null && floorBaseMaterial == null)
+        {
+            floorBaseMaterial = floorRenderer.sharedMaterial;
         }
     }
 
