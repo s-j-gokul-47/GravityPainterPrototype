@@ -51,12 +51,12 @@
           {
             "name": "AudioBehaviour",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -70,12 +70,12 @@
           {
             "name": "AudioListener",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -118,12 +118,12 @@
           {
             "name": "Camera",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -143,12 +143,12 @@
           {
             "name": "Cubemap",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -168,12 +168,12 @@
           {
             "name": "EditorExtension",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -187,12 +187,12 @@
           {
             "name": "GameObject",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -224,12 +224,12 @@
           {
             "name": "LevelGameManager",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -237,12 +237,12 @@
           {
             "name": "Light",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -268,12 +268,12 @@
           {
             "name": "LightmapSettings",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -287,12 +287,12 @@
           {
             "name": "Material",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -300,12 +300,12 @@
           {
             "name": "Mesh",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -313,12 +313,12 @@
           {
             "name": "MeshFilter",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -326,12 +326,12 @@
           {
             "name": "MeshRenderer",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -339,12 +339,12 @@
           {
             "name": "MonoBehaviour",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -358,12 +358,12 @@
           {
             "name": "MonoScript",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -371,12 +371,12 @@
           {
             "name": "NamedObject",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -414,12 +414,12 @@
           {
             "name": "RectTransform",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -433,12 +433,12 @@
           {
             "name": "RenderSettings",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -470,12 +470,12 @@
           {
             "name": "Shader",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -501,12 +501,12 @@
           {
             "name": "Sprite",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1006,11 +1006,11 @@
           {
             "name": "BoxCollider",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1030,8 +1030,8 @@
           {
             "name": "Rigidbody",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1039,8 +1039,8 @@
           {
             "name": "SphereCollider",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1439,12 +1439,12 @@
           {
             "name": "Font",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1493,12 +1493,12 @@
           {
             "name": "Canvas",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1512,12 +1512,12 @@
           {
             "name": "CanvasRenderer",
             "scenes": [
-              "Assets/Scenes/Level 1.unity",
-              "Assets/Scenes/Level 2.unity",
-              "Assets/Scenes/Level 3.unity",
-              "Assets/Scenes/Level 4.unity",
-              "Assets/Scenes/Level 5.unity",
-              "Assets/Scenes/MainMenu.unity"
+              "Assets/Scenes/Levels/Level 1.unity",
+              "Assets/Scenes/Levels/Level 2.unity",
+              "Assets/Scenes/Levels/Level 3.unity",
+              "Assets/Scenes/Levels/Level 4.unity",
+              "Assets/Scenes/Levels/Level 5.unity",
+              "Assets/Scenes/Menus/MainMenu.unity"
             ],
             "dependencyType": 0,
             "icon": null

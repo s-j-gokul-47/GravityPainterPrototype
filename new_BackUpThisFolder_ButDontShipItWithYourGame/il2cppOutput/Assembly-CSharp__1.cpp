@@ -144,6 +144,7 @@ struct TMP_StyleSheet_t70C71699F5CB2D855C361DBB78A44C901236C859;
 struct TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9;
 struct TMP_TextElement_t262A55214F712D4274485ABE5676E5254B84D0A5;
 struct TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D;
+struct TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5;
 struct TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2;
 struct TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8;
 struct TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E;
@@ -167,6 +168,7 @@ struct FontTextureRebuildCallback_t76D5E172DF8AA57E67763D453AAC40F0961D09B1;
 struct CullStateChangedEvent_t6073CD0D951EC1256BF74B8F9107D68FC89B99B8;
 struct ReapplyDrivenProperties_t3482EA130A01FF7EE2EEFE37F66A5215D08CFE24;
 struct MissingCharacterEventCallback_t955241181324E0FEF9A9BDBA400E8780F8979DE6;
+struct U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75;
 struct U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9;
 struct U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8;
 struct U3CDisplayTextMeshFloatingTextU3Ed__16_t5CBD7868EB4D3D561D539B99B4541CC014DFF5F0;
@@ -202,6 +204,7 @@ IL2CPP_EXTERN_C RuntimeClass* U3CDisplayTextMeshFloatingTextU3Ed__16_t5CBD7868EB
 IL2CPP_EXTERN_C RuntimeClass* U3CDisplayTextMeshProFloatingTextU3Ed__15_tDFD30981C9C1189D2AC3AA6C07DA7EFE7E1694F3_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CU3Ec__DisplayClass10_0_t62C0E1CEED92DDFC3DD4C58EC8806FC7D82A7FB7_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* U3CWarpTextU3Ed__8_tF1A14DF86D48AE9144155D4BF8E31E63471F358E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D_il2cpp_TypeInfo_var;
@@ -211,8 +214,10 @@ IL2CPP_EXTERN_C RuntimeClass* VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78
 IL2CPP_EXTERN_C RuntimeClass* WaitForEndOfFrame_tE38D80923E3F8380069B423968C25ABE50A46663_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* WaitForSecondsU5BU5D_t2A9038ECB6E643745AEF2AD9A4F7FFD3D272186E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C String_t* _stringLiteral0133981053AC767ED98F641B459173B5499F4EB0;
 IL2CPP_EXTERN_C String_t* _stringLiteral15196F05B117690F3E12E56AA0C43803EA0D2A46;
 IL2CPP_EXTERN_C String_t* _stringLiteral488BBD09F4A1A1F043A936DD66A4830B2FFA8FFC;
+IL2CPP_EXTERN_C String_t* _stringLiteral5225EE496AAB278285733EDA00B46385A27F58CC;
 IL2CPP_EXTERN_C String_t* _stringLiteral9D329ACFC4F7EECCB821A7FEF99A0F23E1C721B7;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisRenderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF_mC91ACC92AD57CA6CA00991DAF1DB3830BCE07AF8_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5_RuntimeMethod_var;
@@ -243,6 +248,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* U3CDisplayTextMeshFloatingTextU3Ed__16_Syst
 IL2CPP_EXTERN_C const RuntimeMethod* U3CDisplayTextMeshProFloatingTextU3Ed__15_System_Collections_IEnumerator_Reset_mCCE19093B7355F3E23834E27A8517661DF833797_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CRevealCharactersU3Ed__7_System_Collections_IEnumerator_Reset_mD12057609EFCBCA8E7B61B0421D4A7C5A206C8C3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CRevealWordsU3Ed__8_System_Collections_IEnumerator_Reset_mE5E0678716735BDF0D632FE43E392981E75A1C4D_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* U3CStartU3Ed__4_System_Collections_IEnumerator_Reset_m9B7AEE80C1E70D2D2FF5811A54AFD6189CD7F5A9_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CU3Ec__DisplayClass10_0_U3CAnimateVertexColorsU3Eb__0_m8E51A05E012CCFA439DCF10A8B5C4FA196E4344A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* U3CWarpTextU3Ed__8_System_Collections_IEnumerator_Reset_m07746C332D2D8CE5DEA59873C26F2FAD4B369B42_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* VertexJitter_ON_TEXT_CHANGED_m0CF9C49A1033B4475C04A417440F39490FED64A8_RuntimeMethod_var;
@@ -361,6 +367,14 @@ struct YieldInstruction_tFCE35FD0907950EFEE9BC2890AC664E41C53728D_marshaled_pinv
 };
 struct YieldInstruction_tFCE35FD0907950EFEE9BC2890AC664E41C53728D_marshaled_com
 {
+};
+struct U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75  : public RuntimeObject
+{
+	int32_t ___U3CU3E1__state;
+	RuntimeObject* ___U3CU3E2__current;
+	TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* ___U3CU3E4__this;
+	int32_t ___U3CtotalVisibleCharactersU3E5__2;
+	int32_t ___U3CcounterU3E5__3;
 };
 struct U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9  : public RuntimeObject
 {
@@ -794,7 +808,7 @@ struct __StaticArrayInitTypeSizeU3D1763_t2EC21FB942C2C4118CCD4E902608CC09D55E509
 };
 #pragma pack(pop, tp)
 #pragma pack(push, tp, 1)
-struct __StaticArrayInitTypeSizeU3D3062_t7539403F5123273BFF5836D9416C35A9D3C15E31 
+struct __StaticArrayInitTypeSizeU3D3642_tFF7B1CEB89358A911AED23A42C52947A9AD998AA 
 {
 	union
 	{
@@ -804,7 +818,7 @@ struct __StaticArrayInitTypeSizeU3D3062_t7539403F5123273BFF5836D9416C35A9D3C15E3
 			{
 			};
 		};
-		uint8_t __StaticArrayInitTypeSizeU3D3062_t7539403F5123273BFF5836D9416C35A9D3C15E31__padding[3062];
+		uint8_t __StaticArrayInitTypeSizeU3D3642_tFF7B1CEB89358A911AED23A42C52947A9AD998AA__padding[3642];
 	};
 };
 #pragma pack(pop, tp)
@@ -1114,6 +1128,10 @@ struct WrapMode_t6C6EABC32662DF078C3C977196618603C2F3A079
 	int32_t ___value__;
 };
 struct TextInputSources_t41387D6C9CB16E60390F47A15AEB8185BE966D26 
+{
+	int32_t ___value__;
+};
+struct FpsCounterAnchorPositions_t70AFF825629F4309C78468FD5C8C246ADE4735CA 
 {
 	int32_t ___value__;
 };
@@ -1644,6 +1662,12 @@ struct MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71  : public Behavio
 struct RectTransform_t6C5DA5E41A89E0F488B001E45E58963480E543A5  : public Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1
 {
 };
+struct TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	String_t* ___label01;
+	String_t* ___label02;
+	TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* ___m_textMeshPro;
+};
 struct TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
 	TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* ___m_TextComponent;
@@ -2009,8 +2033,8 @@ struct List_1_tE3A859FDD017A2D25E8161269BA1167C22EC7EB9_StaticFields
 };
 struct U3CPrivateImplementationDetailsU3E_t0F5473E849A5A5185A9F4C5246F0C32816C49FCA_StaticFields
 {
-	__StaticArrayInitTypeSizeU3D3062_t7539403F5123273BFF5836D9416C35A9D3C15E31 ___7DCF729F3F4196B4A6C85941EFB8CA6321361C543187BD27E49BA13878D245BF;
-	__StaticArrayInitTypeSizeU3D1763_t2EC21FB942C2C4118CCD4E902608CC09D55E509C ___B5D1E05E948BB26BEDBF3C004BD0E2AF7F3CC828E15A5529BFE6C471C1C15967;
+	__StaticArrayInitTypeSizeU3D1763_t2EC21FB942C2C4118CCD4E902608CC09D55E509C ___3342966CCC9367EB3B3B80E7A6BC302CC7562FE1C5058DA62988D0EE83D44A51;
+	__StaticArrayInitTypeSizeU3D3642_tFF7B1CEB89358A911AED23A42C52947A9AD998AA ___3EDB9993E1FB39A405DFC1FAEFF8BB9A841B74721ED95652EA758A2705F5DBB6;
 };
 struct String_t_StaticFields
 {
@@ -2675,6 +2699,7 @@ struct Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C  : public RuntimeAr
 };
 
 
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameObject_GetComponent_TisRuntimeObject_m6EAED4AA356F0F48288F67899E5958792395563B_gshared (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Action_1__ctor_m2E1DFA67718FC1A0B6E5DFEB78831FFE9C059EB4_gshared (Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* __this, RuntimeObject* ___0_object, intptr_t ___1_method, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FastAction_1_Add_mAFBAB8BEFC425D727FF303611342E6D1E6E82D86_gshared (FastAction_1_t30779A2821DCE05CA702D5800B30CABF67687135* __this, Action_1_t6F9EB113EB3F16226AEF811A2744F4111C116C87* ___0_rhs, const RuntimeMethod* method) ;
@@ -2682,7 +2707,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FastAction_1_Remove_m0C649E2173AA0370C08
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* GameObject_AddComponent_TisRuntimeObject_m69B93700FACCF372F5753371C6E8FB780800B824_gshared (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void List_1_Clear_mFC867868ADBBCFB53B69A0F294ADBEB9856E4D6C_gshared_inline (List_1_tE3A859FDD017A2D25E8161269BA1167C22EC7EB9* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Resources_Load_TisRuntimeObject_mD1AF6299B14F87ED1D1A6199A51480919F7C79D7_gshared (String_t* ___0_path, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float List_1_get_Item_mFE556F47C4CD09EAC6C898EF39D4A8EC112CFC50_gshared (List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* __this, int32_t ___0_index, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void List_1__ctor_mC29D3D824786832A31096310B3B3016B8B42B802_gshared (List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void List_1__ctor_m17F501B5A5C289ECE1B4F3D6EBF05DFA421433F8_gshared (List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* __this, const RuntimeMethod* method) ;
@@ -2696,6 +2720,19 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void List_1_Sort_m90CDC07AEBE737318A490F4C2BC
 IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void List_1_AddWithResize_m446487BF7F55E757E7D552B2436AD74AC354EA99_gshared (List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* __this, float ___0_item, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_NO_INLINE IL2CPP_METHOD_ATTR void List_1_AddWithResize_m378B392086AAB6F400944FA9839516326B3F7BB8_gshared (List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* __this, int32_t ___0_item, const RuntimeMethod* method) ;
 
+inline TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5 (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method)
+{
+	return ((  TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared)(__this, method);
+}
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TMP_Text_set_textWrappingMode_mBD3A313CC85C9BB85F924D589A33A500E21DCA3D (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TMP_Text_set_alignment_mE5216A28797987CC19927ED3CB8DFAC438C6B95A (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CStartU3Ed__4__ctor_m7CB9C7DF4657B7B70F6ED6EEB00C0F422D8B0CAA (U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E (MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2 (RuntimeObject* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TMP_Text_set_maxVisibleCharacters_mEDD8DCB11D204F3FC10BFAC49BF6E8E09548358A (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* __this, float ___0_seconds, const RuntimeMethod* method) ;
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 inline TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* GameObject_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_mA59A63181077B821132B53D44724D7F86C6FECB3 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
@@ -2717,12 +2754,6 @@ inline void FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F (FastA
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealCharactersU3Ed__7__ctor_m40A144070AB46560F2B3919EA5CB8BD51F8DDF45 (U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealWordsU3Ed__8__ctor_mDF8D4C69F022D088AFC0E109FC0DBE0C9B938CAC (U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E (MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2 (RuntimeObject* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* __this, float ___0_seconds, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TMP_Text_set_maxVisibleCharacters_mEDD8DCB11D204F3FC10BFAC49BF6E8E09548358A (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, int32_t ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371 (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Concat_m9E3155FB84015C823606188F53B47CB44C444991 (String_t* ___0_str0, String_t* ___1_str1, const RuntimeMethod* method) ;
@@ -2740,7 +2771,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2* __this, float ___0_x, float ___1_y, float ___2_z, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_a, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___1_b, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___0_value, const RuntimeMethod* method) ;
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TMP_Text_set_alignment_mE5216A28797987CC19927ED3CB8DFAC438C6B95A (TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68 (int32_t ___0_minInclusive, int32_t ___1_maxExclusive, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void Color32__ctor_mC9C6B443F0C7CA3F8B174158B2AF6F05E18EAC4E_inline (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B* __this, uint8_t ___0_r, uint8_t ___1_g, uint8_t ___2_b, uint8_t ___3_a, const RuntimeMethod* method) ;
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F Color32_op_Implicit_m47CBB138122B400E0B1F4BFD7C30A6C2C00FCA3E_inline (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B ___0_c, const RuntimeMethod* method) ;
@@ -2794,10 +2824,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameObject__ctor_m7D0340DE160786E6EFA8DA
 inline TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* GameObject_AddComponent_TisTextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_m3DBA7F56D8D880227B1D70FAA3DF6988A4EE69F1 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method)
 {
 	return ((  TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* (*) (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, const RuntimeMethod*))GameObject_AddComponent_TisRuntimeObject_m69B93700FACCF372F5753371C6E8FB780800B824_gshared)(__this, method);
-}
-inline TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5 (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3* __this, const RuntimeMethod* method)
-{
-	return ((  TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* (*) (Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3*, const RuntimeMethod*))Component_GetComponent_TisRuntimeObject_m7181F81CAEC2CF53F5D2BC79B7425C16E1F80D33_gshared)(__this, method);
 }
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexColorCycler_AnimateVertexColors_m16733B3DFF4C0F625AA66B5DF9D3B04D723E49CC (VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* __this, const RuntimeMethod* method) ;
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__3__ctor_m0245999D5FAAF8855583609DB16CAF48E9450262 (U3CAnimateVertexColorsU3Ed__3_t88CF335125784EBBA1DA65AF7B815F1814D31264* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) ;
@@ -2909,7 +2935,315 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR float Vector3_get_magnitude_mF0D6
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// Method Definition Index: 91486
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TeleType_Awake_m8D56A3C1E06AD96B35B88C3AA8C61FB2A03E627D (TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:25>
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0;
+		L_0 = Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5(__this, Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5_RuntimeMethod_var);
+		__this->___m_textMeshPro = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_textMeshPro), (void*)L_0);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:26>
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_1 = __this->___m_textMeshPro;
+		String_t* L_2 = __this->___label01;
+		NullCheck(L_1);
+		VirtualActionInvoker1< String_t* >::Invoke(66, L_1, L_2);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:27>
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_3 = __this->___m_textMeshPro;
+		NullCheck(L_3);
+		TMP_Text_set_textWrappingMode_mBD3A313CC85C9BB85F924D589A33A500E21DCA3D(L_3, 1, NULL);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:28>
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_4 = __this->___m_textMeshPro;
+		NullCheck(L_4);
+		TMP_Text_set_alignment_mE5216A28797987CC19927ED3CB8DFAC438C6B95A(L_4, ((int32_t)258), NULL);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:44>
+		return;
+	}
+}
+// Method Definition Index: 91487
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TeleType_Start_m3BFE1E2B1BB5ED247DED9DBEF293FCCBD63760C6 (TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* L_0 = (U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75*)il2cpp_codegen_object_new(U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75_il2cpp_TypeInfo_var);
+		U3CStartU3Ed__4__ctor_m7CB9C7DF4657B7B70F6ED6EEB00C0F422D8B0CAA(L_0, 0, NULL);
+		U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* L_1 = L_0;
+		NullCheck(L_1);
+		L_1->___U3CU3E4__this = __this;
+		Il2CppCodeGenWriteBarrier((void**)(&L_1->___U3CU3E4__this), (void*)__this);
+		return L_1;
+	}
+}
+// Method Definition Index: 91488
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TeleType__ctor_m824BBE09CC217EB037FFB36756726A9C946526D0 (TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral0133981053AC767ED98F641B459173B5499F4EB0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral5225EE496AAB278285733EDA00B46385A27F58CC);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:15>
+		__this->___label01 = _stringLiteral5225EE496AAB278285733EDA00B46385A27F58CC;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___label01), (void*)_stringLiteral5225EE496AAB278285733EDA00B46385A27F58CC);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:16>
+		__this->___label02 = _stringLiteral0133981053AC767ED98F641B459173B5499F4EB0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___label02), (void*)_stringLiteral0133981053AC767ED98F641B459173B5499F4EB0);
+		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
+		return;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// Method Definition Index: 91489
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CStartU3Ed__4__ctor_m7CB9C7DF4657B7B70F6ED6EEB00C0F422D8B0CAA (U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
+{
+	{
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
+		int32_t L_0 = ___0_U3CU3E1__state;
+		__this->___U3CU3E1__state = L_0;
+		return;
+	}
+}
+// Method Definition Index: 91490
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CStartU3Ed__4_System_IDisposable_Dispose_mA57DA4D469190B581B5DCB406E9FB70DD33511F2 (U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* __this, const RuntimeMethod* method) 
+{
+	{
+		return;
+	}
+}
 // Method Definition Index: 91491
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CStartU3Ed__4_MoveNext_mE1C3343B7258BAADC74C1A060E71C28951D39D45 (U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	int32_t V_0 = 0;
+	TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* V_1 = NULL;
+	int32_t V_2 = 0;
+	{
+		int32_t L_0 = __this->___U3CU3E1__state;
+		V_0 = L_0;
+		TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* L_1 = __this->___U3CU3E4__this;
+		V_1 = L_1;
+		int32_t L_2 = V_0;
+		switch (L_2)
+		{
+			case 0:
+			{
+				goto IL_002a;
+			}
+			case 1:
+			{
+				goto IL_009e;
+			}
+			case 2:
+			{
+				goto IL_00cf;
+			}
+			case 3:
+			{
+				goto IL_0100;
+			}
+			case 4:
+			{
+				goto IL_012e;
+			}
+		}
+	}
+	{
+		return (bool)0;
+	}
+
+IL_002a:
+	{
+		__this->___U3CU3E1__state = (-1);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:51>
+		TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* L_3 = V_1;
+		NullCheck(L_3);
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_4 = L_3->___m_textMeshPro;
+		NullCheck(L_4);
+		VirtualActionInvoker2< bool, bool >::Invoke(106, L_4, (bool)0, (bool)0);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:54>
+		TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* L_5 = V_1;
+		NullCheck(L_5);
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_6 = L_5->___m_textMeshPro;
+		NullCheck(L_6);
+		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_7;
+		L_7 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_6, NULL);
+		NullCheck(L_7);
+		int32_t L_8 = L_7->___characterCount;
+		__this->___U3CtotalVisibleCharactersU3E5__2 = L_8;
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:55>
+		__this->___U3CcounterU3E5__3 = 0;
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:56>
+		V_2 = 0;
+	}
+
+IL_005d:
+	{
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:60>
+		int32_t L_9 = __this->___U3CcounterU3E5__3;
+		int32_t L_10 = __this->___U3CtotalVisibleCharactersU3E5__2;
+		V_2 = ((int32_t)(L_9%((int32_t)il2cpp_codegen_add(L_10, 1))));
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:62>
+		TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* L_11 = V_1;
+		NullCheck(L_11);
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_12 = L_11->___m_textMeshPro;
+		int32_t L_13 = V_2;
+		NullCheck(L_12);
+		TMP_Text_set_maxVisibleCharacters_mEDD8DCB11D204F3FC10BFAC49BF6E8E09548358A(L_12, L_13, NULL);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:65>
+		int32_t L_14 = V_2;
+		int32_t L_15 = __this->___U3CtotalVisibleCharactersU3E5__2;
+		if ((((int32_t)L_14) < ((int32_t)L_15)))
+		{
+			goto IL_0107;
+		}
+	}
+	{
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:67>
+		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_16 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
+		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_16, (1.0f), NULL);
+		__this->___U3CU3E2__current = L_16;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)L_16);
+		__this->___U3CU3E1__state = 1;
+		return (bool)1;
+	}
+
+IL_009e:
+	{
+		__this->___U3CU3E1__state = (-1);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:68>
+		TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* L_17 = V_1;
+		NullCheck(L_17);
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_18 = L_17->___m_textMeshPro;
+		TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* L_19 = V_1;
+		NullCheck(L_19);
+		String_t* L_20 = L_19->___label02;
+		NullCheck(L_18);
+		VirtualActionInvoker1< String_t* >::Invoke(66, L_18, L_20);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:69>
+		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_21 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
+		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_21, (1.0f), NULL);
+		__this->___U3CU3E2__current = L_21;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)L_21);
+		__this->___U3CU3E1__state = 2;
+		return (bool)1;
+	}
+
+IL_00cf:
+	{
+		__this->___U3CU3E1__state = (-1);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:70>
+		TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* L_22 = V_1;
+		NullCheck(L_22);
+		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_23 = L_22->___m_textMeshPro;
+		TeleType_tA6F2E696EFE0B4124756D8810A7AAFB7829EE2F5* L_24 = V_1;
+		NullCheck(L_24);
+		String_t* L_25 = L_24->___label01;
+		NullCheck(L_23);
+		VirtualActionInvoker1< String_t* >::Invoke(66, L_23, L_25);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:71>
+		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_26 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
+		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_26, (1.0f), NULL);
+		__this->___U3CU3E2__current = L_26;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)L_26);
+		__this->___U3CU3E1__state = 3;
+		return (bool)1;
+	}
+
+IL_0100:
+	{
+		__this->___U3CU3E1__state = (-1);
+	}
+
+IL_0107:
+	{
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:74>
+		int32_t L_27 = __this->___U3CcounterU3E5__3;
+		__this->___U3CcounterU3E5__3 = ((int32_t)il2cpp_codegen_add(L_27, 1));
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:76>
+		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_28 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
+		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_28, (0.0500000007f), NULL);
+		__this->___U3CU3E2__current = L_28;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)L_28);
+		__this->___U3CU3E1__state = 4;
+		return (bool)1;
+	}
+
+IL_012e:
+	{
+		__this->___U3CU3E1__state = (-1);
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TeleType.cs:58>
+		goto IL_005d;
+	}
+}
+// Method Definition Index: 91492
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CStartU3Ed__4_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m1819CF068B92E7EA9EEFD7F93CA316F38DF644BA (U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* __this, const RuntimeMethod* method) 
+{
+	{
+		RuntimeObject* L_0 = __this->___U3CU3E2__current;
+		return L_0;
+	}
+}
+// Method Definition Index: 91493
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CStartU3Ed__4_System_Collections_IEnumerator_Reset_m9B7AEE80C1E70D2D2FF5811A54AFD6189CD7F5A9 (U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* __this, const RuntimeMethod* method) 
+{
+	{
+		NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* L_0 = (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A_il2cpp_TypeInfo_var)));
+		NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF(L_0, NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CStartU3Ed__4_System_Collections_IEnumerator_Reset_m9B7AEE80C1E70D2D2FF5811A54AFD6189CD7F5A9_RuntimeMethod_var)));
+	}
+}
+// Method Definition Index: 91494
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CStartU3Ed__4_System_Collections_IEnumerator_get_Current_m5C22C5D235424F0613697F05E72ADB4D1A3420C8 (U3CStartU3Ed__4_t34C4F7117E4A5E63F9D03A9DD3C2493CEB376E75* __this, const RuntimeMethod* method) 
+{
+	{
+		RuntimeObject* L_0 = __this->___U3CU3E2__current;
+		return L_0;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// Method Definition Index: 91495
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_Awake_m55D28DC1F590D98621B0284B53C8A22D07CD3F7C (TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2919,7 +3253,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_Awake_m55D28DC1F590
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:14>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:14>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0;
 		L_0 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_0);
@@ -2927,25 +3261,25 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_Awake_m55D28DC1F590
 		L_1 = GameObject_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_mA59A63181077B821132B53D44724D7F86C6FECB3(L_0, GameObject_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_mA59A63181077B821132B53D44724D7F86C6FECB3_RuntimeMethod_var);
 		__this->___m_TextComponent = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_TextComponent), (void*)L_1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:15>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:15>
 		return;
 	}
 }
-// Method Definition Index: 91492
+// Method Definition Index: 91496
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_Start_m5667F64AE1F48EBA2FF1B3D2D53E2AFCAB738B39 (TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:20>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:20>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0 = __this->___m_TextComponent;
 		RuntimeObject* L_1;
 		L_1 = TextConsoleSimulator_RevealCharacters_mAA4D3653F05692839313CE180250A44378024E52(__this, L_0, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_2;
 		L_2 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_1, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:22>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:22>
 		return;
 	}
 }
-// Method Definition Index: 91493
+// Method Definition Index: 91497
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_OnEnable_mDF58D349E4D62866410AAA376BE5BBAE4153FF95 (TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2958,18 +3292,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_OnEnable_mDF58D349E
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:28>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:28>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)TextConsoleSimulator_ON_TEXT_CHANGED_m050ECF4852B6A82000133662D6502577DFD57C3A_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6(L_0, L_1, FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:29>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:29>
 		return;
 	}
 }
-// Method Definition Index: 91494
+// Method Definition Index: 91498
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_OnDisable_m4B3A741D6C5279590453148419B422E8D7314689 (TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2982,28 +3316,28 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_OnDisable_m4B3A741D
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:33>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:33>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)TextConsoleSimulator_ON_TEXT_CHANGED_m050ECF4852B6A82000133662D6502577DFD57C3A_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F(L_0, L_1, FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:34>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:34>
 		return;
 	}
 }
-// Method Definition Index: 91495
+// Method Definition Index: 91499
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator_ON_TEXT_CHANGED_m050ECF4852B6A82000133662D6502577DFD57C3A (TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* __this, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_obj, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:40>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:40>
 		__this->___hasTextChanged = (bool)1;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:41>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:41>
 		return;
 	}
 }
-// Method Definition Index: 91496
+// Method Definition Index: 91500
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TextConsoleSimulator_RevealCharacters_mAA4D3653F05692839313CE180250A44378024E52 (TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* __this, TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* ___0_textComponent, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3027,7 +3361,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TextConsoleSimulator_RevealCha
 		return L_2;
 	}
 }
-// Method Definition Index: 91497
+// Method Definition Index: 91501
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TextConsoleSimulator_RevealWords_m0E52802FD4239665709F086E6E0B235CDE67E9B1 (TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* __this, TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* ___0_textComponent, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3047,7 +3381,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TextConsoleSimulator_RevealWor
 		return L_1;
 	}
 }
-// Method Definition Index: 91498
+// Method Definition Index: 91502
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator__ctor_mBDDE8A2DCED8B140D78D5FE560897665753AB025 (TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3063,7 +3397,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextConsoleSimulator__ctor_mBDDE8A2DCED8
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91499
+// Method Definition Index: 91503
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealCharactersU3Ed__7__ctor_m40A144070AB46560F2B3919EA5CB8BD51F8DDF45 (U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -3073,14 +3407,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealCharactersU3Ed__7__ctor_m40A144
 		return;
 	}
 }
-// Method Definition Index: 91500
+// Method Definition Index: 91504
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealCharactersU3Ed__7_System_IDisposable_Dispose_m7942532282ACF3B429FAD926284352907FFE087B (U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91501
+// Method Definition Index: 91505
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CRevealCharactersU3Ed__7_MoveNext_m2D07AF9391894BCE39624FA2DCFA87AC6F8119AE (U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3120,29 +3454,29 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CRevealCharactersU3Ed__7_MoveNext_m2D0
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:50>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:50>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_3 = __this->___textComponent;
 		NullCheck(L_3);
 		VirtualActionInvoker2< bool, bool >::Invoke(106, L_3, (bool)0, (bool)0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:52>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:52>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_4 = __this->___textComponent;
 		NullCheck(L_4);
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_5;
 		L_5 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_4, NULL);
 		__this->___U3CtextInfoU3E5__2 = L_5;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtextInfoU3E5__2), (void*)L_5);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:54>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:54>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_6 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_6);
 		int32_t L_7 = L_6->___characterCount;
 		__this->___U3CtotalVisibleCharactersU3E5__3 = L_7;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:55>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:55>
 		__this->___U3CvisibleCountU3E5__4 = 0;
 	}
 
 IL_005f:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:59>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:59>
 		TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* L_8 = V_1;
 		NullCheck(L_8);
 		bool L_9 = L_8->___hasTextChanged;
@@ -3152,12 +3486,12 @@ IL_005f:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:61>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:61>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_10 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_10);
 		int32_t L_11 = L_10->___characterCount;
 		__this->___U3CtotalVisibleCharactersU3E5__3 = L_11;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:62>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:62>
 		TextConsoleSimulator_t986082F574CD2A38D6E40D856C6A9926D7EF49D2* L_12 = V_1;
 		NullCheck(L_12);
 		L_12->___hasTextChanged = (bool)0;
@@ -3165,7 +3499,7 @@ IL_005f:
 
 IL_007f:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:65>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:65>
 		int32_t L_13 = __this->___U3CvisibleCountU3E5__4;
 		int32_t L_14 = __this->___U3CtotalVisibleCharactersU3E5__3;
 		if ((((int32_t)L_13) <= ((int32_t)L_14)))
@@ -3174,7 +3508,7 @@ IL_007f:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:67>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:67>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_15 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_15, (1.0f), NULL);
 		__this->___U3CU3E2__current = L_15;
@@ -3186,21 +3520,21 @@ IL_007f:
 IL_00a6:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:68>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:68>
 		__this->___U3CvisibleCountU3E5__4 = 0;
 	}
 
 IL_00b4:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:71>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:71>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_16 = __this->___textComponent;
 		int32_t L_17 = __this->___U3CvisibleCountU3E5__4;
 		NullCheck(L_16);
 		TMP_Text_set_maxVisibleCharacters_mEDD8DCB11D204F3FC10BFAC49BF6E8E09548358A(L_16, L_17, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:73>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:73>
 		int32_t L_18 = __this->___U3CvisibleCountU3E5__4;
 		__this->___U3CvisibleCountU3E5__4 = ((int32_t)il2cpp_codegen_add(L_18, 1));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:75>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:75>
 		__this->___U3CU3E2__current = NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)NULL);
 		__this->___U3CU3E1__state = 2;
@@ -3210,11 +3544,11 @@ IL_00b4:
 IL_00e3:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:57>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:57>
 		goto IL_005f;
 	}
 }
-// Method Definition Index: 91502
+// Method Definition Index: 91506
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevealCharactersU3Ed__7_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m754C680B2751A9F05DBF253431A3CB42885F7854 (U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3222,7 +3556,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevealCharactersU3Ed__7_Sys
 		return L_0;
 	}
 }
-// Method Definition Index: 91503
+// Method Definition Index: 91507
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealCharactersU3Ed__7_System_Collections_IEnumerator_Reset_mD12057609EFCBCA8E7B61B0421D4A7C5A206C8C3 (U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3231,7 +3565,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealCharactersU3Ed__7_System_Collec
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CRevealCharactersU3Ed__7_System_Collections_IEnumerator_Reset_mD12057609EFCBCA8E7B61B0421D4A7C5A206C8C3_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91504
+// Method Definition Index: 91508
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevealCharactersU3Ed__7_System_Collections_IEnumerator_get_Current_m9FD7DAB922AE6A58166112C295ABFF6E19E1D186 (U3CRevealCharactersU3Ed__7_tB14F85C7FC57BEFD555A1A9CD8D3FF41E0F676F9* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3247,7 +3581,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevealCharactersU3Ed__7_Sys
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91505
+// Method Definition Index: 91509
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealWordsU3Ed__8__ctor_mDF8D4C69F022D088AFC0E109FC0DBE0C9B938CAC (U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -3257,14 +3591,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealWordsU3Ed__8__ctor_mDF8D4C69F02
 		return;
 	}
 }
-// Method Definition Index: 91506
+// Method Definition Index: 91510
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealWordsU3Ed__8_System_IDisposable_Dispose_m2F2F21F38D2DD8AE3D066E64850D404497A131C5 (U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91507
+// Method Definition Index: 91511
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CRevealWordsU3Ed__8_MoveNext_mC5102728A86DCB2171E54CFEDFA7BE6F29AB355C (U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3302,11 +3636,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CRevealWordsU3Ed__8_MoveNext_mC5102728
 IL_001b:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:86>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:86>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_2 = __this->___textComponent;
 		NullCheck(L_2);
 		VirtualActionInvoker2< bool, bool >::Invoke(106, L_2, (bool)0, (bool)0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:88>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:88>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_3 = __this->___textComponent;
 		NullCheck(L_3);
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_4;
@@ -3314,7 +3648,7 @@ IL_001b:
 		NullCheck(L_4);
 		int32_t L_5 = L_4->___wordCount;
 		__this->___U3CtotalWordCountU3E5__2 = L_5;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:89>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:89>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_6 = __this->___textComponent;
 		NullCheck(L_6);
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_7;
@@ -3322,21 +3656,21 @@ IL_001b:
 		NullCheck(L_7);
 		int32_t L_8 = L_7->___characterCount;
 		__this->___U3CtotalVisibleCharactersU3E5__3 = L_8;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:90>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:90>
 		__this->___U3CcounterU3E5__4 = 0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:91>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:91>
 		V_1 = 0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:92>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:92>
 		__this->___U3CvisibleCountU3E5__5 = 0;
 	}
 
 IL_006b:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:96>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:96>
 		int32_t L_9 = __this->___U3CcounterU3E5__4;
 		int32_t L_10 = __this->___U3CtotalWordCountU3E5__2;
 		V_1 = ((int32_t)(L_9%((int32_t)il2cpp_codegen_add(L_10, 1))));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:99>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:99>
 		int32_t L_11 = V_1;
 		if (L_11)
 		{
@@ -3344,14 +3678,14 @@ IL_006b:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:100>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:100>
 		__this->___U3CvisibleCountU3E5__5 = 0;
 		goto IL_00cc;
 	}
 
 IL_0087:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:101>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:101>
 		int32_t L_12 = V_1;
 		int32_t L_13 = __this->___U3CtotalWordCountU3E5__2;
 		if ((((int32_t)L_12) >= ((int32_t)L_13)))
@@ -3360,7 +3694,7 @@ IL_0087:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:102>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:102>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_14 = __this->___textComponent;
 		NullCheck(L_14);
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_15;
@@ -3376,7 +3710,7 @@ IL_0087:
 
 IL_00b7:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:103>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:103>
 		int32_t L_19 = V_1;
 		int32_t L_20 = __this->___U3CtotalWordCountU3E5__2;
 		if ((!(((uint32_t)L_19) == ((uint32_t)L_20))))
@@ -3385,19 +3719,19 @@ IL_00b7:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:104>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:104>
 		int32_t L_21 = __this->___U3CtotalVisibleCharactersU3E5__3;
 		__this->___U3CvisibleCountU3E5__5 = L_21;
 	}
 
 IL_00cc:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:106>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:106>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_22 = __this->___textComponent;
 		int32_t L_23 = __this->___U3CvisibleCountU3E5__5;
 		NullCheck(L_22);
 		TMP_Text_set_maxVisibleCharacters_mEDD8DCB11D204F3FC10BFAC49BF6E8E09548358A(L_22, L_23, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:109>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:109>
 		int32_t L_24 = __this->___U3CvisibleCountU3E5__5;
 		int32_t L_25 = __this->___U3CtotalVisibleCharactersU3E5__3;
 		if ((((int32_t)L_24) < ((int32_t)L_25)))
@@ -3406,7 +3740,7 @@ IL_00cc:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:111>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:111>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_26 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_26, (1.0f), NULL);
 		__this->___U3CU3E2__current = L_26;
@@ -3422,10 +3756,10 @@ IL_0104:
 
 IL_010b:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:114>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:114>
 		int32_t L_27 = __this->___U3CcounterU3E5__4;
 		__this->___U3CcounterU3E5__4 = ((int32_t)il2cpp_codegen_add(L_27, 1));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:116>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:116>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_28 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_28, (0.100000001f), NULL);
 		__this->___U3CU3E2__current = L_28;
@@ -3437,11 +3771,11 @@ IL_010b:
 IL_0132:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:94>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextConsoleSimulator.cs:94>
 		goto IL_006b;
 	}
 }
-// Method Definition Index: 91508
+// Method Definition Index: 91512
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevealWordsU3Ed__8_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m4D9A6269831C00345D245D0EED2E5FC20BBF4683 (U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3449,7 +3783,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevealWordsU3Ed__8_System_C
 		return L_0;
 	}
 }
-// Method Definition Index: 91509
+// Method Definition Index: 91513
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealWordsU3Ed__8_System_Collections_IEnumerator_Reset_mE5E0678716735BDF0D632FE43E392981E75A1C4D (U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3458,7 +3792,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CRevealWordsU3Ed__8_System_Collections
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CRevealWordsU3Ed__8_System_Collections_IEnumerator_Reset_mE5E0678716735BDF0D632FE43E392981E75A1C4D_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91510
+// Method Definition Index: 91514
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevealWordsU3Ed__8_System_Collections_IEnumerator_get_Current_m3E9D4960A972BD7601F6454E6F9A614AA21D553E (U3CRevealWordsU3Ed__8_t912CFD430C602C79AE6BC1BC6C4AEBF101B4D7C8* __this, const RuntimeMethod* method) 
 {
 	{
@@ -3474,7 +3808,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CRevealWordsU3Ed__8_System_C
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91511
+// Method Definition Index: 91515
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Awake_m600F1825C26BB683047156FD815AE4376D2672F2 (TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3485,12 +3819,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Awake_m600F1825C
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:39>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:39>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_0;
 		L_0 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(__this, NULL);
 		__this->___m_transform = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_transform), (void*)L_0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:40>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:40>
 		String_t* L_1;
 		L_1 = Object_get_name_mAC2F6B897CF1303BA4249B4CB55271AFACBB6392(__this, NULL);
 		String_t* L_2;
@@ -3499,7 +3833,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Awake_m600F1825C
 		GameObject__ctor_m37D512B05D292F954792225E6C6EEE95293A9B88(L_3, L_2, NULL);
 		__this->___m_floatingText = L_3;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_floatingText), (void*)L_3);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:46>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:46>
 		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_4;
 		L_4 = Camera_get_main_m52C992F18E05355ABB9EEB64A4BF2215E12762DF(NULL);
 		NullCheck(L_4);
@@ -3507,11 +3841,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Awake_m600F1825C
 		L_5 = Component_get_transform_m2919A1D81931E6932C7F06D4C2F0AB8DDA9A5371(L_4, NULL);
 		__this->___m_cameraTransform = L_5;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_cameraTransform), (void*)L_5);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:47>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:47>
 		return;
 	}
 }
-// Method Definition Index: 91512
+// Method Definition Index: 91516
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Start_m8121246A4310A0014ECA36144B9DCE093FE8AE49 (TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3526,7 +3860,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Start_m8121246A4
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:51>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:51>
 		int32_t L_0 = __this->___SpawnType;
 		if (L_0)
 		{
@@ -3534,14 +3868,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Start_m8121246A4
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:54>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:54>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1 = __this->___m_floatingText;
 		NullCheck(L_1);
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_2;
 		L_2 = GameObject_AddComponent_TisTextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E_mD3BE0A75BBE971456A1D7C8C6F6688A094A81C9C(L_1, GameObject_AddComponent_TisTextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E_mD3BE0A75BBE971456A1D7C8C6F6688A094A81C9C_RuntimeMethod_var);
 		__this->___m_textMeshPro = L_2;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_textMeshPro), (void*)L_2);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:55>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:55>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_3 = __this->___m_textMeshPro;
 		NullCheck(L_3);
 		RectTransform_t6C5DA5E41A89E0F488B001E45E58963480E543A5* L_4;
@@ -3551,14 +3885,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Start_m8121246A4
 		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&L_5), (3.0f), (3.0f), NULL);
 		NullCheck(L_4);
 		RectTransform_set_sizeDelta_mC9A980EA6036E6725EF24CEDF3EE80A9B2B50EE5(L_4, L_5, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:57>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:57>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_6 = __this->___m_floatingText;
 		NullCheck(L_6);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_7;
 		L_7 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_6, NULL);
 		__this->___m_floatingText_Transform = L_7;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_floatingText_Transform), (void*)L_7);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:58>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:58>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_8 = __this->___m_floatingText_Transform;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_9 = __this->___m_transform;
 		NullCheck(L_9);
@@ -3571,11 +3905,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Start_m8121246A4
 		L_12 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_10, L_11, NULL);
 		NullCheck(L_8);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_8, L_12, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:63>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:63>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_13 = __this->___m_textMeshPro;
 		NullCheck(L_13);
 		TMP_Text_set_alignment_mE5216A28797987CC19927ED3CB8DFAC438C6B95A(L_13, ((int32_t)514), NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:64>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:64>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_14 = __this->___m_textMeshPro;
 		int32_t L_15;
 		L_15 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)255), NULL);
@@ -3590,28 +3924,28 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Start_m8121246A4
 		L_19 = Color32_op_Implicit_m47CBB138122B400E0B1F4BFD7C30A6C2C00FCA3E_inline(L_18, NULL);
 		NullCheck(L_14);
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23, L_14, L_19);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:65>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:65>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_20 = __this->___m_textMeshPro;
 		NullCheck(L_20);
 		TMP_Text_set_fontSize_m1C3A3BA2BC88E5E1D89375FD35A0AA91E75D3AAD(L_20, (24.0f), NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:68>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:68>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_21 = __this->___m_textMeshPro;
 		NullCheck(L_21);
 		List_1_t3A076A19AF26E22A128C32B5C19804DDD2877607* L_22;
 		L_22 = TMP_Text_get_fontFeatures_mB68611B8CC517E049004F25EB9966F1CC3830499_inline(L_21, NULL);
 		NullCheck(L_22);
 		List_1_Clear_mF99932B21C9883F8D329D36A63CB886718B9C18E_inline(L_22, List_1_Clear_mF99932B21C9883F8D329D36A63CB886718B9C18E_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:69>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:69>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_23 = __this->___m_textMeshPro;
 		String_t* L_24 = ((String_t_StaticFields*)il2cpp_codegen_static_fields_for(il2cpp_defaults.string_class))->___Empty;
 		NullCheck(L_23);
 		VirtualActionInvoker1< String_t* >::Invoke(66, L_23, L_24);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:70>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:70>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_25 = __this->___m_textMeshPro;
 		bool L_26 = __this->___IsTextObjectScaleStatic;
 		NullCheck(L_25);
 		TMP_Text_set_isTextObjectScaleStatic_m8436FC38400ABE08F513770AF9C8CC6743DBE092(L_25, L_26, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:72>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:72>
 		RuntimeObject* L_27;
 		L_27 = TextMeshProFloatingText_DisplayTextMeshProFloatingText_mA1E370089458CD380E9BA7740C2BC2032F084148(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_28;
@@ -3621,7 +3955,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText_Start_m8121246A4
 
 IL_0118:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:74>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:74>
 		int32_t L_29 = __this->___SpawnType;
 		if ((!(((uint32_t)L_29) == ((uint32_t)1))))
 		{
@@ -3629,14 +3963,14 @@ IL_0118:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:78>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:78>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_30 = __this->___m_floatingText;
 		NullCheck(L_30);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_31;
 		L_31 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_30, NULL);
 		__this->___m_floatingText_Transform = L_31;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_floatingText_Transform), (void*)L_31);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:79>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:79>
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_32 = __this->___m_floatingText_Transform;
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_33 = __this->___m_transform;
 		NullCheck(L_33);
@@ -3649,20 +3983,20 @@ IL_0118:
 		L_36 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_34, L_35, NULL);
 		NullCheck(L_32);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_32, L_36, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:81>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:81>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_37 = __this->___m_floatingText;
 		NullCheck(L_37);
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_38;
 		L_38 = GameObject_AddComponent_TisTextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8_mFAD74D91BCACF9C3FAE6960EB58D5C346DDBD9C2(L_37, GameObject_AddComponent_TisTextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8_mFAD74D91BCACF9C3FAE6960EB58D5C346DDBD9C2_RuntimeMethod_var);
 		__this->___m_textMesh = L_38;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_textMesh), (void*)L_38);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:82>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:82>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_39 = __this->___m_textMesh;
 		Font_tC95270EA3198038970422D78B74A7F2E218A96B6* L_40;
 		L_40 = Resources_Load_TisFont_tC95270EA3198038970422D78B74A7F2E218A96B6_m2B532BE5E14BE59B8F59F82BF8193EEEE249DC6D(_stringLiteral9D329ACFC4F7EECCB821A7FEF99A0F23E1C721B7, Resources_Load_TisFont_tC95270EA3198038970422D78B74A7F2E218A96B6_m2B532BE5E14BE59B8F59F82BF8193EEEE249DC6D_RuntimeMethod_var);
 		NullCheck(L_39);
 		TextMesh_set_font_m7E407CAEDBB382B95B70069D8FAB8A9E74EAAA74(L_39, L_40, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:83>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:83>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_41 = __this->___m_textMesh;
 		NullCheck(L_41);
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_42;
@@ -3676,7 +4010,7 @@ IL_0118:
 		L_45 = Font_get_material_m61ABDEC14C6D659DDC5A4F080023699116C17364(L_44, NULL);
 		NullCheck(L_42);
 		Renderer_set_sharedMaterial_m5E842F9A06CFB7B77656EB319881CB4B3E8E4288(L_42, L_45, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:84>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:84>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_46 = __this->___m_textMesh;
 		int32_t L_47;
 		L_47 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)255), NULL);
@@ -3691,15 +4025,15 @@ IL_0118:
 		L_51 = Color32_op_Implicit_m47CBB138122B400E0B1F4BFD7C30A6C2C00FCA3E_inline(L_50, NULL);
 		NullCheck(L_46);
 		TextMesh_set_color_mF08F30C3CD797C16289225B567724B9F07DC641E(L_46, L_51, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:85>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:85>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_52 = __this->___m_textMesh;
 		NullCheck(L_52);
 		TextMesh_set_anchor_m3FCB7C4B1FF66CE189B56076C0306AFE984FCD32(L_52, 7, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:86>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:86>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_53 = __this->___m_textMesh;
 		NullCheck(L_53);
 		TextMesh_set_fontSize_mAB9F7FFC0E4DB759B786F6A9357B18C86015498B(L_53, ((int32_t)24), NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:88>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:88>
 		RuntimeObject* L_54;
 		L_54 = TextMeshProFloatingText_DisplayTextMeshFloatingText_mA02B20CF33E43FE99FD5F1B90F7F350262F0BEBE(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_55;
@@ -3709,13 +4043,13 @@ IL_0118:
 
 IL_020f:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:90>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:90>
 		int32_t L_56 = __this->___SpawnType;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:95>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:95>
 		return;
 	}
 }
-// Method Definition Index: 91513
+// Method Definition Index: 91517
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TextMeshProFloatingText_DisplayTextMeshProFloatingText_mA1E370089458CD380E9BA7740C2BC2032F084148 (TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3734,7 +4068,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TextMeshProFloatingText_Displa
 		return L_1;
 	}
 }
-// Method Definition Index: 91514
+// Method Definition Index: 91518
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TextMeshProFloatingText_DisplayTextMeshFloatingText_mA02B20CF33E43FE99FD5F1B90F7F350262F0BEBE (TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3753,15 +4087,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TextMeshProFloatingText_Displa
 		return L_1;
 	}
 }
-// Method Definition Index: 91515
+// Method Definition Index: 91519
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText__ctor_mD08AF0FB6944A51BC6EA15D6BE4E33AA4A916E3E (TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:20>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:20>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_0;
 		L_0 = Vector3_get_zero_m0C1249C3F25B1C70EAD3CC8B31259975A457AE39_inline(NULL);
 		__this->___lastPOS = L_0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:21>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:21>
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_1;
 		L_1 = Quaternion_get_identity_m7E701AE095ED10FD5EA0B50ABCFDE2EEFF2173A5_inline(NULL);
 		__this->___lastRotation = L_1;
@@ -3769,7 +4103,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText__ctor_mD08AF0FB6
 		return;
 	}
 }
-// Method Definition Index: 91516
+// Method Definition Index: 91520
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText__cctor_m272097816057A64A9FFE16F69C6844DCF88E9557 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3782,18 +4116,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText__cctor_m27209781
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:28>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:28>
 		WaitForEndOfFrame_tE38D80923E3F8380069B423968C25ABE50A46663* L_0 = (WaitForEndOfFrame_tE38D80923E3F8380069B423968C25ABE50A46663*)il2cpp_codegen_object_new(WaitForEndOfFrame_tE38D80923E3F8380069B423968C25ABE50A46663_il2cpp_TypeInfo_var);
 		WaitForEndOfFrame__ctor_m4AF7E576C01E6B04443BB898B1AE5D645F7D45AB(L_0, NULL);
 		((TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_StaticFields*)il2cpp_codegen_static_fields_for(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var))->___k_WaitForEndOfFrame = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&((TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_StaticFields*)il2cpp_codegen_static_fields_for(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var))->___k_WaitForEndOfFrame), (void*)L_0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:29>
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:30>
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:31>
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:32>
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:33>
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:34>
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:35>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:29>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:30>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:31>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:32>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:33>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:34>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:35>
 		WaitForSecondsU5BU5D_t2A9038ECB6E643745AEF2AD9A4F7FFD3D272186E* L_1 = (WaitForSecondsU5BU5D_t2A9038ECB6E643745AEF2AD9A4F7FFD3D272186E*)(WaitForSecondsU5BU5D_t2A9038ECB6E643745AEF2AD9A4F7FFD3D272186E*)SZArrayNew(WaitForSecondsU5BU5D_t2A9038ECB6E643745AEF2AD9A4F7FFD3D272186E_il2cpp_TypeInfo_var, (uint32_t)((int32_t)20));
 		WaitForSecondsU5BU5D_t2A9038ECB6E643745AEF2AD9A4F7FFD3D272186E* L_2 = L_1;
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_3 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
@@ -3908,7 +4242,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshProFloatingText__cctor_m27209781
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91517
+// Method Definition Index: 91521
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshFloatingTextU3Ed__16__ctor_m1ECB51A93EE3B236301948784A3260FD72814923 (U3CDisplayTextMeshFloatingTextU3Ed__16_t5CBD7868EB4D3D561D539B99B4541CC014DFF5F0* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -3918,14 +4252,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshFloatingTextU3Ed__16__
 		return;
 	}
 }
-// Method Definition Index: 91518
+// Method Definition Index: 91522
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshFloatingTextU3Ed__16_System_IDisposable_Dispose_m461761745A9C5FF4F7995C3DB33DB43848AEB05B (U3CDisplayTextMeshFloatingTextU3Ed__16_t5CBD7868EB4D3D561D539B99B4541CC014DFF5F0* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91519
+// Method Definition Index: 91523
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDisplayTextMeshFloatingTextU3Ed__16_MoveNext_m1FC162511DF31A9CDBD0101083FBCB11380554C4 (U3CDisplayTextMeshFloatingTextU3Ed__16_t5CBD7868EB4D3D561D539B99B4541CC014DFF5F0* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -3968,16 +4302,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDisplayTextMeshFloatingTextU3Ed__16_M
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:171>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:171>
 		__this->___U3CCountDurationU3E5__2 = (2.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:172>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:172>
 		float L_3;
 		L_3 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((5.0f), (20.0f), NULL);
 		__this->___U3Cstarting_CountU3E5__3 = L_3;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:173>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:173>
 		float L_4 = __this->___U3Cstarting_CountU3E5__3;
 		__this->___U3Ccurrent_CountU3E5__4 = L_4;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:175>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:175>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_5 = V_1;
 		NullCheck(L_5);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_6 = L_5->___m_floatingText_Transform;
@@ -3985,7 +4319,7 @@ IL_0022:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
 		L_7 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_6, NULL);
 		__this->___U3Cstart_posU3E5__5 = L_7;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:176>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:176>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_8 = V_1;
 		NullCheck(L_8);
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_9 = L_8->___m_textMesh;
@@ -3995,11 +4329,11 @@ IL_0022:
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_11;
 		L_11 = Color32_op_Implicit_m79AF5E0BDE9CE041CAC4D89CBFA66E71C6DD1B70_inline(L_10, NULL);
 		__this->___U3Cstart_colorU3E5__6 = L_11;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:177>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:177>
 		__this->___U3CalphaU3E5__7 = (255.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:178>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:178>
 		V_2 = 0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:180>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:180>
 		float L_12 = __this->___U3Cstarting_CountU3E5__3;
 		float L_13 = __this->___U3CCountDurationU3E5__2;
 		__this->___U3CfadeDurationU3E5__8 = ((float)il2cpp_codegen_multiply(((float)((3.0f)/L_12)), L_13));
@@ -4008,14 +4342,14 @@ IL_0022:
 
 IL_00a7:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:184>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:184>
 		float L_14 = __this->___U3Ccurrent_CountU3E5__4;
 		float L_15;
 		L_15 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
 		float L_16 = __this->___U3CCountDurationU3E5__2;
 		float L_17 = __this->___U3Cstarting_CountU3E5__3;
 		__this->___U3Ccurrent_CountU3E5__4 = ((float)il2cpp_codegen_subtract(L_14, ((float)il2cpp_codegen_multiply(((float)(L_15/L_16)), L_17))));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:186>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:186>
 		float L_18 = __this->___U3Ccurrent_CountU3E5__4;
 		if ((!(((float)L_18) <= ((float)(3.0f)))))
 		{
@@ -4023,7 +4357,7 @@ IL_00a7:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:189>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:189>
 		float L_19 = __this->___U3CalphaU3E5__7;
 		float L_20;
 		L_20 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
@@ -4035,10 +4369,10 @@ IL_00a7:
 
 IL_0102:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:192>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:192>
 		float L_23 = __this->___U3Ccurrent_CountU3E5__4;
 		V_2 = il2cpp_codegen_cast_double_to_int<int32_t>(L_23);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:193>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:193>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_24 = V_1;
 		NullCheck(L_24);
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_25 = L_24->___m_textMesh;
@@ -4046,7 +4380,7 @@ IL_0102:
 		L_26 = Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5((&V_2), NULL);
 		NullCheck(L_25);
 		TextMesh_set_text_mDF79D39638ED82797D0B0B3BB9E6B10712F8EA9E(L_25, L_26, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:196>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:196>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_27 = V_1;
 		NullCheck(L_27);
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_28 = L_27->___m_textMesh;
@@ -4064,7 +4398,7 @@ IL_0102:
 		L_37 = Color32_op_Implicit_m47CBB138122B400E0B1F4BFD7C30A6C2C00FCA3E_inline(L_36, NULL);
 		NullCheck(L_28);
 		TextMesh_set_color_mF08F30C3CD797C16289225B567724B9F07DC641E(L_28, L_37, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:199>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:199>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_38 = V_1;
 		NullCheck(L_38);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_39 = L_38->___m_floatingText_Transform;
@@ -4082,7 +4416,7 @@ IL_0102:
 		L_45 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_41, L_44, NULL);
 		NullCheck(L_40);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_40, L_45, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:202>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:202>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_46 = V_1;
 		NullCheck(L_46);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_47 = L_46->___lastPOS;
@@ -4119,7 +4453,7 @@ IL_0102:
 
 IL_01c4:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:204>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:204>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_58 = V_1;
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_59 = V_1;
 		NullCheck(L_59);
@@ -4129,7 +4463,7 @@ IL_01c4:
 		L_61 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_60, NULL);
 		NullCheck(L_58);
 		L_58->___lastPOS = L_61;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:205>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:205>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_62 = V_1;
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_63 = V_1;
 		NullCheck(L_63);
@@ -4139,7 +4473,7 @@ IL_01c4:
 		L_65 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_64, NULL);
 		NullCheck(L_62);
 		L_62->___lastRotation = L_65;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:206>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:206>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_66 = V_1;
 		NullCheck(L_66);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_67 = L_66->___m_floatingText_Transform;
@@ -4148,7 +4482,7 @@ IL_01c4:
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_69 = L_68->___lastRotation;
 		NullCheck(L_67);
 		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_67, L_69, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:207>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:207>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_70 = V_1;
 		NullCheck(L_70);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_71 = L_70->___m_transform;
@@ -4161,7 +4495,7 @@ IL_01c4:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_75;
 		L_75 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_72, L_74, NULL);
 		V_3 = L_75;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:208>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:208>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_76 = V_1;
 		NullCheck(L_76);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_77 = L_76->___m_transform;
@@ -4178,7 +4512,7 @@ IL_01c4:
 
 IL_022f:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:211>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:211>
 		il2cpp_codegen_runtime_class_init_inline(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var);
 		WaitForEndOfFrame_tE38D80923E3F8380069B423968C25ABE50A46663* L_83 = ((TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_StaticFields*)il2cpp_codegen_static_fields_for(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var))->___k_WaitForEndOfFrame;
 		__this->___U3CU3E2__current = L_83;
@@ -4194,7 +4528,7 @@ IL_0243:
 
 IL_024a:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:182>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:182>
 		float L_84 = __this->___U3Ccurrent_CountU3E5__4;
 		if ((((float)L_84) > ((float)(0.0f))))
 		{
@@ -4202,7 +4536,7 @@ IL_024a:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:216>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:216>
 		il2cpp_codegen_runtime_class_init_inline(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var);
 		WaitForSecondsU5BU5D_t2A9038ECB6E643745AEF2AD9A4F7FFD3D272186E* L_85 = ((TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_StaticFields*)il2cpp_codegen_static_fields_for(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var))->___k_WaitForSecondsRandom;
 		int32_t L_86;
@@ -4219,14 +4553,14 @@ IL_024a:
 IL_0277:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:218>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:218>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_89 = V_1;
 		NullCheck(L_89);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_90 = L_89->___m_floatingText_Transform;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_91 = __this->___U3Cstart_posU3E5__5;
 		NullCheck(L_90);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_90, L_91, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:220>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:220>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_92 = V_1;
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_93 = V_1;
 		NullCheck(L_93);
@@ -4235,11 +4569,11 @@ IL_0277:
 		NullCheck(L_92);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_95;
 		L_95 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(L_92, L_94, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:221>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:221>
 		return (bool)0;
 	}
 }
-// Method Definition Index: 91520
+// Method Definition Index: 91524
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDisplayTextMeshFloatingTextU3Ed__16_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m6A5E330ACDAD25422A7D642301F58E6C1EE1B041 (U3CDisplayTextMeshFloatingTextU3Ed__16_t5CBD7868EB4D3D561D539B99B4541CC014DFF5F0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4247,7 +4581,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDisplayTextMeshFloatingText
 		return L_0;
 	}
 }
-// Method Definition Index: 91521
+// Method Definition Index: 91525
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshFloatingTextU3Ed__16_System_Collections_IEnumerator_Reset_m5A7148435B35A0A84329416FF765D45F6AA0F4E1 (U3CDisplayTextMeshFloatingTextU3Ed__16_t5CBD7868EB4D3D561D539B99B4541CC014DFF5F0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4256,7 +4590,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshFloatingTextU3Ed__16_S
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CDisplayTextMeshFloatingTextU3Ed__16_System_Collections_IEnumerator_Reset_m5A7148435B35A0A84329416FF765D45F6AA0F4E1_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91522
+// Method Definition Index: 91526
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDisplayTextMeshFloatingTextU3Ed__16_System_Collections_IEnumerator_get_Current_m066140B8D4CD5DE3527A3A05183AE89B487B5D55 (U3CDisplayTextMeshFloatingTextU3Ed__16_t5CBD7868EB4D3D561D539B99B4541CC014DFF5F0* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4272,7 +4606,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDisplayTextMeshFloatingText
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91523
+// Method Definition Index: 91527
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshProFloatingTextU3Ed__15__ctor_mD3C24C6814482113FD231827E550FBBCC91424A0 (U3CDisplayTextMeshProFloatingTextU3Ed__15_tDFD30981C9C1189D2AC3AA6C07DA7EFE7E1694F3* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -4282,14 +4616,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshProFloatingTextU3Ed__1
 		return;
 	}
 }
-// Method Definition Index: 91524
+// Method Definition Index: 91528
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshProFloatingTextU3Ed__15_System_IDisposable_Dispose_m83285E807FA4462B99B68D1EB12B2360238C53EB (U3CDisplayTextMeshProFloatingTextU3Ed__15_tDFD30981C9C1189D2AC3AA6C07DA7EFE7E1694F3* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91525
+// Method Definition Index: 91529
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDisplayTextMeshProFloatingTextU3Ed__15_MoveNext_m588E025C05E03684A11ABC91B50734A349D28CC8 (U3CDisplayTextMeshProFloatingTextU3Ed__15_tDFD30981C9C1189D2AC3AA6C07DA7EFE7E1694F3* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4332,16 +4666,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDisplayTextMeshProFloatingTextU3Ed__1
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:115>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:115>
 		__this->___U3CCountDurationU3E5__2 = (2.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:116>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:116>
 		float L_3;
 		L_3 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((5.0f), (20.0f), NULL);
 		__this->___U3Cstarting_CountU3E5__3 = L_3;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:117>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:117>
 		float L_4 = __this->___U3Cstarting_CountU3E5__3;
 		__this->___U3Ccurrent_CountU3E5__4 = L_4;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:119>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:119>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_5 = V_1;
 		NullCheck(L_5);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_6 = L_5->___m_floatingText_Transform;
@@ -4349,7 +4683,7 @@ IL_0022:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_7;
 		L_7 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_6, NULL);
 		__this->___U3Cstart_posU3E5__5 = L_7;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:120>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:120>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_8 = V_1;
 		NullCheck(L_8);
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_9 = L_8->___m_textMeshPro;
@@ -4359,11 +4693,11 @@ IL_0022:
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_11;
 		L_11 = Color32_op_Implicit_m79AF5E0BDE9CE041CAC4D89CBFA66E71C6DD1B70_inline(L_10, NULL);
 		__this->___U3Cstart_colorU3E5__6 = L_11;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:121>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:121>
 		__this->___U3CalphaU3E5__7 = (255.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:122>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:122>
 		V_2 = 0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:125>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:125>
 		float L_12 = __this->___U3Cstarting_CountU3E5__3;
 		float L_13 = __this->___U3CCountDurationU3E5__2;
 		__this->___U3CfadeDurationU3E5__8 = ((float)il2cpp_codegen_multiply(((float)((3.0f)/L_12)), L_13));
@@ -4372,14 +4706,14 @@ IL_0022:
 
 IL_00a7:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:129>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:129>
 		float L_14 = __this->___U3Ccurrent_CountU3E5__4;
 		float L_15;
 		L_15 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
 		float L_16 = __this->___U3CCountDurationU3E5__2;
 		float L_17 = __this->___U3Cstarting_CountU3E5__3;
 		__this->___U3Ccurrent_CountU3E5__4 = ((float)il2cpp_codegen_subtract(L_14, ((float)il2cpp_codegen_multiply(((float)(L_15/L_16)), L_17))));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:131>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:131>
 		float L_18 = __this->___U3Ccurrent_CountU3E5__4;
 		if ((!(((float)L_18) <= ((float)(3.0f)))))
 		{
@@ -4387,7 +4721,7 @@ IL_00a7:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:134>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:134>
 		float L_19 = __this->___U3CalphaU3E5__7;
 		float L_20;
 		L_20 = Time_get_deltaTime_mC3195000401F0FD167DD2F948FD2BC58330D0865(NULL);
@@ -4399,10 +4733,10 @@ IL_00a7:
 
 IL_0102:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:137>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:137>
 		float L_23 = __this->___U3Ccurrent_CountU3E5__4;
 		V_2 = il2cpp_codegen_cast_double_to_int<int32_t>(L_23);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:138>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:138>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_24 = V_1;
 		NullCheck(L_24);
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_25 = L_24->___m_textMeshPro;
@@ -4410,7 +4744,7 @@ IL_0102:
 		L_26 = Int32_ToString_m030E01C24E294D6762FB0B6F37CB541581F55CA5((&V_2), NULL);
 		NullCheck(L_25);
 		VirtualActionInvoker1< String_t* >::Invoke(66, L_25, L_26);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:141>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:141>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_27 = V_1;
 		NullCheck(L_27);
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_28 = L_27->___m_textMeshPro;
@@ -4428,7 +4762,7 @@ IL_0102:
 		L_37 = Color32_op_Implicit_m47CBB138122B400E0B1F4BFD7C30A6C2C00FCA3E_inline(L_36, NULL);
 		NullCheck(L_28);
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23, L_28, L_37);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:144>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:144>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_38 = V_1;
 		NullCheck(L_38);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_39 = L_38->___m_floatingText_Transform;
@@ -4446,7 +4780,7 @@ IL_0102:
 		L_45 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_41, L_44, NULL);
 		NullCheck(L_40);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_40, L_45, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:147>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:147>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_46 = V_1;
 		NullCheck(L_46);
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_47 = L_46->___lastPOS;
@@ -4483,7 +4817,7 @@ IL_0102:
 
 IL_01c4:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:149>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:149>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_58 = V_1;
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_59 = V_1;
 		NullCheck(L_59);
@@ -4493,7 +4827,7 @@ IL_01c4:
 		L_61 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_60, NULL);
 		NullCheck(L_58);
 		L_58->___lastPOS = L_61;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:150>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:150>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_62 = V_1;
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_63 = V_1;
 		NullCheck(L_63);
@@ -4503,7 +4837,7 @@ IL_01c4:
 		L_65 = Transform_get_rotation_m32AF40CA0D50C797DA639A696F8EAEC7524C179C(L_64, NULL);
 		NullCheck(L_62);
 		L_62->___lastRotation = L_65;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:151>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:151>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_66 = V_1;
 		NullCheck(L_66);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_67 = L_66->___m_floatingText_Transform;
@@ -4512,7 +4846,7 @@ IL_01c4:
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_69 = L_68->___lastRotation;
 		NullCheck(L_67);
 		Transform_set_rotation_m61340DE74726CF0F9946743A727C4D444397331D(L_67, L_69, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:152>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:152>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_70 = V_1;
 		NullCheck(L_70);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_71 = L_70->___m_transform;
@@ -4525,7 +4859,7 @@ IL_01c4:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_75;
 		L_75 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_72, L_74, NULL);
 		V_3 = L_75;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:153>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:153>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_76 = V_1;
 		NullCheck(L_76);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_77 = L_76->___m_transform;
@@ -4542,7 +4876,7 @@ IL_01c4:
 
 IL_022f:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:156>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:156>
 		il2cpp_codegen_runtime_class_init_inline(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var);
 		WaitForEndOfFrame_tE38D80923E3F8380069B423968C25ABE50A46663* L_83 = ((TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_StaticFields*)il2cpp_codegen_static_fields_for(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var))->___k_WaitForEndOfFrame;
 		__this->___U3CU3E2__current = L_83;
@@ -4558,7 +4892,7 @@ IL_0243:
 
 IL_024a:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:127>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:127>
 		float L_84 = __this->___U3Ccurrent_CountU3E5__4;
 		if ((((float)L_84) > ((float)(0.0f))))
 		{
@@ -4566,7 +4900,7 @@ IL_024a:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:161>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:161>
 		il2cpp_codegen_runtime_class_init_inline(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var);
 		WaitForSecondsU5BU5D_t2A9038ECB6E643745AEF2AD9A4F7FFD3D272186E* L_85 = ((TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_StaticFields*)il2cpp_codegen_static_fields_for(TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_il2cpp_TypeInfo_var))->___k_WaitForSecondsRandom;
 		int32_t L_86;
@@ -4583,14 +4917,14 @@ IL_024a:
 IL_0277:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:163>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:163>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_89 = V_1;
 		NullCheck(L_89);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_90 = L_89->___m_floatingText_Transform;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_91 = __this->___U3Cstart_posU3E5__5;
 		NullCheck(L_90);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_90, L_91, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:165>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:165>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_92 = V_1;
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_93 = V_1;
 		NullCheck(L_93);
@@ -4599,11 +4933,11 @@ IL_0277:
 		NullCheck(L_92);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_95;
 		L_95 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(L_92, L_94, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:166>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshProFloatingText.cs:166>
 		return (bool)0;
 	}
 }
-// Method Definition Index: 91526
+// Method Definition Index: 91530
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDisplayTextMeshProFloatingTextU3Ed__15_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m2412DC176F8CA3096658EB0E27AC28218DAEC03A (U3CDisplayTextMeshProFloatingTextU3Ed__15_tDFD30981C9C1189D2AC3AA6C07DA7EFE7E1694F3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4611,7 +4945,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDisplayTextMeshProFloatingT
 		return L_0;
 	}
 }
-// Method Definition Index: 91527
+// Method Definition Index: 91531
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshProFloatingTextU3Ed__15_System_Collections_IEnumerator_Reset_mCCE19093B7355F3E23834E27A8517661DF833797 (U3CDisplayTextMeshProFloatingTextU3Ed__15_tDFD30981C9C1189D2AC3AA6C07DA7EFE7E1694F3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4620,7 +4954,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDisplayTextMeshProFloatingTextU3Ed__1
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CDisplayTextMeshProFloatingTextU3Ed__15_System_Collections_IEnumerator_Reset_mCCE19093B7355F3E23834E27A8517661DF833797_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91528
+// Method Definition Index: 91532
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDisplayTextMeshProFloatingTextU3Ed__15_System_Collections_IEnumerator_get_Current_mE53E0B4DBE6AF5DAC110C3F626B34C5965845E54 (U3CDisplayTextMeshProFloatingTextU3Ed__15_tDFD30981C9C1189D2AC3AA6C07DA7EFE7E1694F3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4636,15 +4970,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDisplayTextMeshProFloatingT
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91529
+// Method Definition Index: 91533
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshSpawner_Awake_m9A84A570D2582918A6B1287139527E9AB2CF088D (TextMeshSpawner_tB6905931E9BE4D7A2A2E37A51E221A7B462D75BB* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:21>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:21>
 		return;
 	}
 }
-// Method Definition Index: 91530
+// Method Definition Index: 91534
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshSpawner_Start_m3EE98071CA27A18904B859A0A6B215BDFEB50A66 (TextMeshSpawner_tB6905931E9BE4D7A2A2E37A51E221A7B462D75BB* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4662,14 +4996,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshSpawner_Start_m3EE98071CA27A1890
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_1 = NULL;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_2 = NULL;
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:26>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:26>
 		V_0 = 0;
 		goto IL_0159;
 	}
 
 IL_0007:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:28>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:28>
 		int32_t L_0 = __this->___SpawnType;
 		if (L_0)
 		{
@@ -4677,11 +5011,11 @@ IL_0007:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:32>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:32>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1 = (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)il2cpp_codegen_object_new(GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
 		GameObject__ctor_m7D0340DE160786E6EFA8DABD39EC3B694DA30AAD(L_1, NULL);
 		V_1 = L_1;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:33>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:33>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_2 = V_1;
 		NullCheck(L_2);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3;
@@ -4695,20 +5029,20 @@ IL_0007:
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_6), L_4, (0.5f), L_5, NULL);
 		NullCheck(L_3);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_3, L_6, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:40>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:40>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_7 = V_1;
 		NullCheck(L_7);
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_8;
 		L_8 = GameObject_AddComponent_TisTextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E_mD3BE0A75BBE971456A1D7C8C6F6688A094A81C9C(L_7, GameObject_AddComponent_TisTextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E_mD3BE0A75BBE971456A1D7C8C6F6688A094A81C9C_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:43>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:43>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_9 = L_8;
 		NullCheck(L_9);
 		TMP_Text_set_fontSize_m1C3A3BA2BC88E5E1D89375FD35A0AA91E75D3AAD(L_9, (96.0f), NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:45>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:45>
 		TextMeshPro_t4560AB28A3EAF503895A781A9C625273D833270E* L_10 = L_9;
 		NullCheck(L_10);
 		VirtualActionInvoker1< String_t* >::Invoke(66, L_10, _stringLiteral15196F05B117690F3E12E56AA0C43803EA0D2A46);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:46>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:46>
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_11;
 		memset((&L_11), 0, sizeof(L_11));
 		Color32__ctor_mC9C6B443F0C7CA3F8B174158B2AF6F05E18EAC4E_inline((&L_11), (uint8_t)((int32_t)255), (uint8_t)((int32_t)255), (uint8_t)0, (uint8_t)((int32_t)255), NULL);
@@ -4716,14 +5050,14 @@ IL_0007:
 		L_12 = Color32_op_Implicit_m47CBB138122B400E0B1F4BFD7C30A6C2C00FCA3E_inline(L_11, NULL);
 		NullCheck(L_10);
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23, L_10, L_12);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:51>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:51>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_13 = V_1;
 		NullCheck(L_13);
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_14;
 		L_14 = GameObject_AddComponent_TisTextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_m3DBA7F56D8D880227B1D70FAA3DF6988A4EE69F1(L_13, GameObject_AddComponent_TisTextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_m3DBA7F56D8D880227B1D70FAA3DF6988A4EE69F1_RuntimeMethod_var);
 		__this->___floatingText_Script = L_14;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___floatingText_Script), (void*)L_14);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:52>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:52>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_15 = __this->___floatingText_Script;
 		NullCheck(L_15);
 		L_15->___SpawnType = 0;
@@ -4732,11 +5066,11 @@ IL_0007:
 
 IL_00a3:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:57>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:57>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_16 = (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)il2cpp_codegen_object_new(GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
 		GameObject__ctor_m7D0340DE160786E6EFA8DABD39EC3B694DA30AAD(L_16, NULL);
 		V_2 = L_16;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:58>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:58>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_17 = V_2;
 		NullCheck(L_17);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_18;
@@ -4750,12 +5084,12 @@ IL_00a3:
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_21), L_19, (0.5f), L_20, NULL);
 		NullCheck(L_18);
 		Transform_set_position_mA1A817124BB41B685043DED2A9BA48CDF37C4156(L_18, L_21, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:62>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:62>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_22 = V_2;
 		NullCheck(L_22);
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_23;
 		L_23 = GameObject_AddComponent_TisTextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8_mFAD74D91BCACF9C3FAE6960EB58D5C346DDBD9C2(L_22, GameObject_AddComponent_TisTextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8_mFAD74D91BCACF9C3FAE6960EB58D5C346DDBD9C2_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:63>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:63>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_24 = L_23;
 		NullCheck(L_24);
 		Renderer_t320575F223BCB177A982E5DDB5DB19FAA89E7FBF* L_25;
@@ -4766,20 +5100,20 @@ IL_00a3:
 		L_27 = Font_get_material_m61ABDEC14C6D659DDC5A4F080023699116C17364(L_26, NULL);
 		NullCheck(L_25);
 		Renderer_set_sharedMaterial_m5E842F9A06CFB7B77656EB319881CB4B3E8E4288(L_25, L_27, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:64>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:64>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_28 = L_24;
 		Font_tC95270EA3198038970422D78B74A7F2E218A96B6* L_29 = __this->___TheFont;
 		NullCheck(L_28);
 		TextMesh_set_font_m7E407CAEDBB382B95B70069D8FAB8A9E74EAAA74(L_28, L_29, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:65>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:65>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_30 = L_28;
 		NullCheck(L_30);
 		TextMesh_set_anchor_m3FCB7C4B1FF66CE189B56076C0306AFE984FCD32(L_30, 7, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:66>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:66>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_31 = L_30;
 		NullCheck(L_31);
 		TextMesh_set_fontSize_mAB9F7FFC0E4DB759B786F6A9357B18C86015498B(L_31, ((int32_t)96), NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:68>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:68>
 		TextMesh_t7E1981C7B03E50D5CA5A3AD5B0D9BB0AB6EE91F8* L_32 = L_31;
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_33;
 		memset((&L_33), 0, sizeof(L_33));
@@ -4788,17 +5122,17 @@ IL_00a3:
 		L_34 = Color32_op_Implicit_m47CBB138122B400E0B1F4BFD7C30A6C2C00FCA3E_inline(L_33, NULL);
 		NullCheck(L_32);
 		TextMesh_set_color_mF08F30C3CD797C16289225B567724B9F07DC641E(L_32, L_34, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:69>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:69>
 		NullCheck(L_32);
 		TextMesh_set_text_mDF79D39638ED82797D0B0B3BB9E6B10712F8EA9E(L_32, _stringLiteral15196F05B117690F3E12E56AA0C43803EA0D2A46, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:72>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:72>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_35 = V_2;
 		NullCheck(L_35);
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_36;
 		L_36 = GameObject_AddComponent_TisTextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_m3DBA7F56D8D880227B1D70FAA3DF6988A4EE69F1(L_35, GameObject_AddComponent_TisTextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31_m3DBA7F56D8D880227B1D70FAA3DF6988A4EE69F1_RuntimeMethod_var);
 		__this->___floatingText_Script = L_36;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___floatingText_Script), (void*)L_36);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:73>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:73>
 		TextMeshProFloatingText_t833773B79A4826E78EDF2799C157B0EC3ACACB31* L_37 = __this->___floatingText_Script;
 		NullCheck(L_37);
 		L_37->___SpawnType = 1;
@@ -4806,14 +5140,14 @@ IL_00a3:
 
 IL_0155:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:26>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:26>
 		int32_t L_38 = V_0;
 		V_0 = ((int32_t)il2cpp_codegen_add(L_38, 1));
 	}
 
 IL_0159:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:26>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:26>
 		int32_t L_39 = V_0;
 		int32_t L_40 = __this->___NumberOfNPC;
 		if ((((int32_t)L_39) < ((int32_t)L_40)))
@@ -4822,15 +5156,15 @@ IL_0159:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:76>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:76>
 		return;
 	}
 }
-// Method Definition Index: 91531
+// Method Definition Index: 91535
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshSpawner__ctor_m8409A62C31C4A6B6CEC2F48F1DC9777460C28233 (TextMeshSpawner_tB6905931E9BE4D7A2A2E37A51E221A7B462D75BB* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:12>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/TextMeshSpawner.cs:12>
 		__this->___NumberOfNPC = ((int32_t)12);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -4844,7 +5178,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TextMeshSpawner__ctor_m8409A62C31C4A6B6C
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91532
+// Method Definition Index: 91536
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexColorCycler_Awake_m8895A9C06DB3EC4379334601DC726F1AFAF543C1 (VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4854,29 +5188,29 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexColorCycler_Awake_m8895A9C06DB3EC4
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:15>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:15>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0;
 		L_0 = Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5(__this, Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5_RuntimeMethod_var);
 		__this->___m_TextComponent = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_TextComponent), (void*)L_0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:16>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:16>
 		return;
 	}
 }
-// Method Definition Index: 91533
+// Method Definition Index: 91537
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexColorCycler_Start_m36846DA72BFC7FDFA944A368C9DB62D17A15917B (VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:21>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:21>
 		RuntimeObject* L_0;
 		L_0 = VertexColorCycler_AnimateVertexColors_m16733B3DFF4C0F625AA66B5DF9D3B04D723E49CC(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_1;
 		L_1 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_0, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:22>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:22>
 		return;
 	}
 }
-// Method Definition Index: 91534
+// Method Definition Index: 91538
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexColorCycler_AnimateVertexColors_m16733B3DFF4C0F625AA66B5DF9D3B04D723E49CC (VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4895,7 +5229,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexColorCycler_AnimateVerte
 		return L_1;
 	}
 }
-// Method Definition Index: 91535
+// Method Definition Index: 91539
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexColorCycler__ctor_m673CA077DC5E935BABCEA79E5E70116E9934F4C1 (VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* __this, const RuntimeMethod* method) 
 {
 	{
@@ -4911,7 +5245,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexColorCycler__ctor_m673CA077DC5E935
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91536
+// Method Definition Index: 91540
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__3__ctor_m0245999D5FAAF8855583609DB16CAF48E9450262 (U3CAnimateVertexColorsU3Ed__3_t88CF335125784EBBA1DA65AF7B815F1814D31264* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -4921,14 +5255,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__3__ctor_m024
 		return;
 	}
 }
-// Method Definition Index: 91537
+// Method Definition Index: 91541
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__3_System_IDisposable_Dispose_mF965F484C619EFA1359F7DB6495C1C79A89001BF (U3CAnimateVertexColorsU3Ed__3_t88CF335125784EBBA1DA65AF7B815F1814D31264* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91538
+// Method Definition Index: 91542
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__3_MoveNext_m5C44B8CC0AB09A205BB1649931D2AC7C6F016E60 (U3CAnimateVertexColorsU3Ed__3_t88CF335125784EBBA1DA65AF7B815F1814D31264* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -4974,13 +5308,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__3_MoveNext_m
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:32>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:32>
 		VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* L_3 = V_1;
 		NullCheck(L_3);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_4 = L_3->___m_TextComponent;
 		NullCheck(L_4);
 		VirtualActionInvoker2< bool, bool >::Invoke(106, L_4, (bool)0, (bool)0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:34>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:34>
 		VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* L_5 = V_1;
 		NullCheck(L_5);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_6 = L_5->___m_TextComponent;
@@ -4989,9 +5323,9 @@ IL_0022:
 		L_7 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_6, NULL);
 		__this->___U3CtextInfoU3E5__2 = L_7;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtextInfoU3E5__2), (void*)L_7);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:35>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:35>
 		__this->___U3CcurrentCharacterU3E5__3 = 0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:38>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:38>
 		VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* L_8 = V_1;
 		NullCheck(L_8);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_9 = L_8->___m_TextComponent;
@@ -5005,12 +5339,12 @@ IL_0022:
 
 IL_005f:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:42>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:42>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_12 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_12);
 		int32_t L_13 = L_12->___characterCount;
 		V_4 = L_13;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:45>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:45>
 		int32_t L_14 = V_4;
 		if (L_14)
 		{
@@ -5018,7 +5352,7 @@ IL_005f:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:47>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:47>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_15 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_15, (0.25f), NULL);
 		__this->___U3CU3E2__current = L_15;
@@ -5030,13 +5364,13 @@ IL_005f:
 IL_0089:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:48>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:48>
 		goto IL_005f;
 	}
 
 IL_0092:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:52>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:52>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_16 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_16);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_17 = L_16->___characterInfo;
@@ -5044,7 +5378,7 @@ IL_0092:
 		NullCheck(L_17);
 		int32_t L_19 = ((L_17)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_18)))->___materialReferenceIndex;
 		V_5 = L_19;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:55>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:55>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_20 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_20);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_21 = L_20->___meshInfo;
@@ -5052,7 +5386,7 @@ IL_0092:
 		NullCheck(L_21);
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_23 = ((L_21)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_22)))->___colors32;
 		V_2 = L_23;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:58>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:58>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_24 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_24);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_25 = L_24->___characterInfo;
@@ -5060,7 +5394,7 @@ IL_0092:
 		NullCheck(L_25);
 		int32_t L_27 = ((L_25)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_26)))->___vertexIndex;
 		V_6 = L_27;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:61>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:61>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_28 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_28);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_29 = L_28->___characterInfo;
@@ -5073,7 +5407,7 @@ IL_0092:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:63>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:63>
 		int32_t L_32;
 		L_32 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)255), NULL);
 		int32_t L_33;
@@ -5081,31 +5415,31 @@ IL_0092:
 		int32_t L_34;
 		L_34 = Random_Range_m6763D9767F033357F88B6637F048F4ACA4123B68(0, ((int32_t)255), NULL);
 		Color32__ctor_mC9C6B443F0C7CA3F8B174158B2AF6F05E18EAC4E_inline((&V_3), (uint8_t)((int32_t)(uint8_t)L_32), (uint8_t)((int32_t)(uint8_t)L_33), (uint8_t)((int32_t)(uint8_t)L_34), (uint8_t)((int32_t)255), NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:65>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:65>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_35 = V_2;
 		int32_t L_36 = V_6;
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_37 = V_3;
 		NullCheck(L_35);
 		(L_35)->SetAt(static_cast<il2cpp_array_size_t>(L_36), (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B)L_37);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:66>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:66>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_38 = V_2;
 		int32_t L_39 = V_6;
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_40 = V_3;
 		NullCheck(L_38);
 		(L_38)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_39, 1))), (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B)L_40);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:67>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:67>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_41 = V_2;
 		int32_t L_42 = V_6;
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_43 = V_3;
 		NullCheck(L_41);
 		(L_41)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_42, 2))), (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B)L_43);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:68>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:68>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_44 = V_2;
 		int32_t L_45 = V_6;
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_46 = V_3;
 		NullCheck(L_44);
 		(L_44)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_45, 3))), (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B)L_46);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:71>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:71>
 		VertexColorCycler_t527535DC3F38CBB70E8A4B35907DA8EC4FC62C8D* L_47 = V_1;
 		NullCheck(L_47);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_48 = L_47->___m_TextComponent;
@@ -5115,11 +5449,11 @@ IL_0092:
 
 IL_0168:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:77>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:77>
 		int32_t L_49 = __this->___U3CcurrentCharacterU3E5__3;
 		int32_t L_50 = V_4;
 		__this->___U3CcurrentCharacterU3E5__3 = ((int32_t)(((int32_t)il2cpp_codegen_add(L_49, 1))%L_50));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:79>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:79>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_51 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_51, (0.0500000007f), NULL);
 		__this->___U3CU3E2__current = L_51;
@@ -5131,11 +5465,11 @@ IL_0168:
 IL_0192:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:40>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexColorCycler.cs:40>
 		goto IL_005f;
 	}
 }
-// Method Definition Index: 91539
+// Method Definition Index: 91543
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__3_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF9600944C968C16121129C479F8B25D8E8B7FDD1 (U3CAnimateVertexColorsU3Ed__3_t88CF335125784EBBA1DA65AF7B815F1814D31264* __this, const RuntimeMethod* method) 
 {
 	{
@@ -5143,7 +5477,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__3_
 		return L_0;
 	}
 }
-// Method Definition Index: 91540
+// Method Definition Index: 91544
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__3_System_Collections_IEnumerator_Reset_m319AC50F2DE1572FB7D7AF4F5F65958D01477899 (U3CAnimateVertexColorsU3Ed__3_t88CF335125784EBBA1DA65AF7B815F1814D31264* __this, const RuntimeMethod* method) 
 {
 	{
@@ -5152,7 +5486,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__3_System_Col
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CAnimateVertexColorsU3Ed__3_System_Collections_IEnumerator_Reset_m319AC50F2DE1572FB7D7AF4F5F65958D01477899_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91541
+// Method Definition Index: 91545
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__3_System_Collections_IEnumerator_get_Current_mC19EC9CE0C245B49D987C18357571FF3462F1D2C (U3CAnimateVertexColorsU3Ed__3_t88CF335125784EBBA1DA65AF7B815F1814D31264* __this, const RuntimeMethod* method) 
 {
 	{
@@ -5168,7 +5502,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__3_
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91542
+// Method Definition Index: 91546
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_Awake_m0DF2AC9C728A15EEB427F1FE2426E3C31FBA544C (VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5178,16 +5512,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_Awake_m0DF2AC9C728A15EEB427
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:30>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:30>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0;
 		L_0 = Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5(__this, Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5_RuntimeMethod_var);
 		__this->___m_TextComponent = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_TextComponent), (void*)L_0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:31>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:31>
 		return;
 	}
 }
-// Method Definition Index: 91543
+// Method Definition Index: 91547
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_OnEnable_mCD5C1FDDBA809B04AC6F6CB00562D0AA45BC4354 (VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5200,18 +5534,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_OnEnable_mCD5C1FDDBA809B04A
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:36>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:36>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)VertexJitter_ON_TEXT_CHANGED_m0CF9C49A1033B4475C04A417440F39490FED64A8_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6(L_0, L_1, FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:37>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:37>
 		return;
 	}
 }
-// Method Definition Index: 91544
+// Method Definition Index: 91548
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_OnDisable_mB670406B3982BFC44CB6BB05A73F1BE877FDFAF2 (VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5224,31 +5558,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_OnDisable_mB670406B3982BFC4
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:41>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:41>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)VertexJitter_ON_TEXT_CHANGED_m0CF9C49A1033B4475C04A417440F39490FED64A8_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F(L_0, L_1, FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:42>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:42>
 		return;
 	}
 }
-// Method Definition Index: 91545
+// Method Definition Index: 91549
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_Start_mDE6155803CF2B1E6CE0EBAE8DF7DB93601E1DD76 (VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:47>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:47>
 		RuntimeObject* L_0;
 		L_0 = VertexJitter_AnimateVertexColors_m2A69F06CF58FA46B689BD4166DEF5AD15FA2FA88(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_1;
 		L_1 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_0, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:48>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:48>
 		return;
 	}
 }
-// Method Definition Index: 91546
+// Method Definition Index: 91550
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_ON_TEXT_CHANGED_m0CF9C49A1033B4475C04A417440F39490FED64A8 (VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* __this, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5258,7 +5592,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_ON_TEXT_CHANGED_m0CF9C49A10
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:53>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:53>
 		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_0 = ___0_obj;
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_1 = __this->___m_TextComponent;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -5270,17 +5604,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter_ON_TEXT_CHANGED_m0CF9C49A10
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:54>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:54>
 		__this->___hasTextChanged = (bool)1;
 	}
 
 IL_0015:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:55>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:55>
 		return;
 	}
 }
-// Method Definition Index: 91547
+// Method Definition Index: 91551
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexJitter_AnimateVertexColors_m2A69F06CF58FA46B689BD4166DEF5AD15FA2FA88 (VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5299,15 +5633,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexJitter_AnimateVertexColo
 		return L_1;
 	}
 }
-// Method Definition Index: 91548
+// Method Definition Index: 91552
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter__ctor_m41E4682405B3C0B19779BA8CB77156D65D64716D (VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:11>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:11>
 		__this->___AngleMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:12>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:12>
 		__this->___SpeedMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:13>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:13>
 		__this->___CurveScale = (1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -5329,7 +5663,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexJitter__ctor_m41E4682405B3C0B19779
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91549
+// Method Definition Index: 91553
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11__ctor_m10C4D98A634474BAA883419ED308835B7D91C01A (U3CAnimateVertexColorsU3Ed__11_t2EF4BA1F3569F2C4ECDD4AD4980AAC251CD1D956* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -5339,14 +5673,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11__ctor_m10
 		return;
 	}
 }
-// Method Definition Index: 91550
+// Method Definition Index: 91554
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11_System_IDisposable_Dispose_mB3756FBFDD731F3CC1EFF9AB132FF5075C8411F8 (U3CAnimateVertexColorsU3Ed__11_t2EF4BA1F3569F2C4ECDD4AD4980AAC251CD1D956* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91551
+// Method Definition Index: 91555
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__11_MoveNext_mD694A3145B54B9C5EB351853752B9292DBFF0273 (U3CAnimateVertexColorsU3Ed__11_t2EF4BA1F3569F2C4ECDD4AD4980AAC251CD1D956* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5401,13 +5735,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__11_MoveNext_
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:66>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:66>
 		VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* L_3 = V_1;
 		NullCheck(L_3);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_4 = L_3->___m_TextComponent;
 		NullCheck(L_4);
 		VirtualActionInvoker2< bool, bool >::Invoke(106, L_4, (bool)0, (bool)0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:68>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:68>
 		VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* L_5 = V_1;
 		NullCheck(L_5);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_6 = L_5->___m_TextComponent;
@@ -5416,45 +5750,45 @@ IL_0022:
 		L_7 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_6, NULL);
 		__this->___U3CtextInfoU3E5__2 = L_7;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtextInfoU3E5__2), (void*)L_7);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:72>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:72>
 		__this->___U3CloopCountU3E5__3 = 0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:73>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:73>
 		VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* L_8 = V_1;
 		NullCheck(L_8);
 		L_8->___hasTextChanged = (bool)1;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:76>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:76>
 		VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78E1D5CF38* L_9 = (VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78E1D5CF38*)(VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78E1D5CF38*)SZArrayNew(VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78E1D5CF38_il2cpp_TypeInfo_var, (uint32_t)((int32_t)1024));
 		__this->___U3CvertexAnimU3E5__4 = L_9;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CvertexAnimU3E5__4), (void*)L_9);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:77>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:77>
 		V_3 = 0;
 		goto IL_00ad;
 	}
 
 IL_0069:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:79>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:79>
 		VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78E1D5CF38* L_10 = __this->___U3CvertexAnimU3E5__4;
 		int32_t L_11 = V_3;
 		NullCheck(L_10);
 		float L_12;
 		L_12 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((10.0f), (25.0f), NULL);
 		((L_10)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_11)))->___angleRange = L_12;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:80>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:80>
 		VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78E1D5CF38* L_13 = __this->___U3CvertexAnimU3E5__4;
 		int32_t L_14 = V_3;
 		NullCheck(L_13);
 		float L_15;
 		L_15 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((1.0f), (3.0f), NULL);
 		((L_13)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_14)))->___speed = L_15;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:77>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:77>
 		int32_t L_16 = V_3;
 		V_3 = ((int32_t)il2cpp_codegen_add(L_16, 1));
 	}
 
 IL_00ad:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:77>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:77>
 		int32_t L_17 = V_3;
 		if ((((int32_t)L_17) < ((int32_t)((int32_t)1024))))
 		{
@@ -5462,7 +5796,7 @@ IL_00ad:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:84>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:84>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_18 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_18);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_19;
@@ -5473,7 +5807,7 @@ IL_00ad:
 
 IL_00c6:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:89>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:89>
 		VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* L_20 = V_1;
 		NullCheck(L_20);
 		bool L_21 = L_20->___hasTextChanged;
@@ -5483,14 +5817,14 @@ IL_00c6:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:92>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:92>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_22 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_22);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_23;
 		L_23 = TMP_TextInfo_CopyMeshInfoVertexData_mF66E2F8821470E68D95FEB53D456CFA86241C0CA(L_22, NULL);
 		__this->___U3CcachedMeshInfoU3E5__5 = L_23;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CcachedMeshInfoU3E5__5), (void*)L_23);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:94>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:94>
 		VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* L_24 = V_1;
 		NullCheck(L_24);
 		L_24->___hasTextChanged = (bool)0;
@@ -5498,12 +5832,12 @@ IL_00c6:
 
 IL_00e6:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:97>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:97>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_25 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_25);
 		int32_t L_26 = L_25->___characterCount;
 		V_4 = L_26;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:100>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:100>
 		int32_t L_27 = V_4;
 		if (L_27)
 		{
@@ -5511,7 +5845,7 @@ IL_00e6:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:102>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:102>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_28 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_28, (0.25f), NULL);
 		__this->___U3CU3E2__current = L_28;
@@ -5523,20 +5857,20 @@ IL_00e6:
 IL_0110:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:103>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:103>
 		goto IL_00c6;
 	}
 
 IL_0119:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:107>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:107>
 		V_5 = 0;
 		goto IL_03de;
 	}
 
 IL_0121:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:109>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:109>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_29 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_29);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_30 = L_29->___characterInfo;
@@ -5544,7 +5878,7 @@ IL_0121:
 		NullCheck(L_30);
 		int32_t L_32 = L_31;
 		TMP_CharacterInfo_t8B8FF32D6AACE251F2E7835AA5BC6608D535D9F8 L_33 = (L_30)->GetAt(static_cast<il2cpp_array_size_t>(L_32));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:112>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:112>
 		bool L_34 = L_33.___isVisible;
 		if (!L_34)
 		{
@@ -5552,14 +5886,14 @@ IL_0121:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:116>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:116>
 		VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78E1D5CF38* L_35 = __this->___U3CvertexAnimU3E5__4;
 		int32_t L_36 = V_5;
 		NullCheck(L_35);
 		int32_t L_37 = L_36;
 		VertexAnim_tFF5399F548EE5426E46DEB662F561DDE129E20D7 L_38 = (L_35)->GetAt(static_cast<il2cpp_array_size_t>(L_37));
 		V_6 = L_38;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:119>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:119>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_39 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_39);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_40 = L_39->___characterInfo;
@@ -5567,7 +5901,7 @@ IL_0121:
 		NullCheck(L_40);
 		int32_t L_42 = ((L_40)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_41)))->___materialReferenceIndex;
 		V_7 = L_42;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:122>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:122>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_43 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_43);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_44 = L_43->___characterInfo;
@@ -5575,13 +5909,13 @@ IL_0121:
 		NullCheck(L_44);
 		int32_t L_46 = ((L_44)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_45)))->___vertexIndex;
 		V_8 = L_46;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:125>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:125>
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_47 = __this->___U3CcachedMeshInfoU3E5__5;
 		int32_t L_48 = V_7;
 		NullCheck(L_47);
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_49 = ((L_47)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_48)))->___vertices;
 		V_9 = L_49;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:130>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:130>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_50 = V_9;
 		int32_t L_51 = V_8;
 		NullCheck(L_50);
@@ -5598,11 +5932,11 @@ IL_0121:
 		L_59 = Vector3_op_Division_mCC6BB24E372AB96B8380D1678446EF6A8BAE13BB_inline(L_58, (2.0f), NULL);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_60;
 		L_60 = Vector2_op_Implicit_mE8EBEE9291F11BB02F062D6E000F4798968CBD96_inline(L_59, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:134>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:134>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_61;
 		L_61 = Vector2_op_Implicit_m6D9CABB2C791A192867D7A4559D132BE86DD3EB7_inline(L_60, NULL);
 		V_10 = L_61;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:136>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:136>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_62 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_62);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_63 = L_62->___meshInfo;
@@ -5610,7 +5944,7 @@ IL_0121:
 		NullCheck(L_63);
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_65 = ((L_63)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_64)))->___vertices;
 		V_11 = L_65;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:138>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:138>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_66 = V_11;
 		int32_t L_67 = V_8;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_68 = V_9;
@@ -5623,7 +5957,7 @@ IL_0121:
 		L_73 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_71, L_72, NULL);
 		NullCheck(L_66);
 		(L_66)->SetAt(static_cast<il2cpp_array_size_t>(L_67), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_73);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:139>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:139>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_74 = V_11;
 		int32_t L_75 = V_8;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_76 = V_9;
@@ -5636,7 +5970,7 @@ IL_0121:
 		L_81 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_79, L_80, NULL);
 		NullCheck(L_74);
 		(L_74)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_75, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_81);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:140>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:140>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_82 = V_11;
 		int32_t L_83 = V_8;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_84 = V_9;
@@ -5649,7 +5983,7 @@ IL_0121:
 		L_89 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_87, L_88, NULL);
 		NullCheck(L_82);
 		(L_82)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_83, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_89);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:141>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:141>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_90 = V_11;
 		int32_t L_91 = V_8;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_92 = V_9;
@@ -5662,7 +5996,7 @@ IL_0121:
 		L_97 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_95, L_96, NULL);
 		NullCheck(L_90);
 		(L_90)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_91, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_97);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:143>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:143>
 		VertexAnim_tFF5399F548EE5426E46DEB662F561DDE129E20D7 L_98 = V_6;
 		float L_99 = L_98.___angleRange;
 		VertexAnim_tFF5399F548EE5426E46DEB662F561DDE129E20D7 L_100 = V_6;
@@ -5675,7 +6009,7 @@ IL_0121:
 		float L_106;
 		L_106 = Mathf_SmoothStep_mEFDC738EB0AA162D71013BDBBDD157B080A8E524_inline(((-L_99)), L_101, L_105, NULL);
 		(&V_6)->___angle = L_106;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:144>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:144>
 		float L_107;
 		L_107 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((-0.25f), (0.25f), NULL);
 		float L_108;
@@ -5683,7 +6017,7 @@ IL_0121:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_109;
 		memset((&L_109), 0, sizeof(L_109));
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_109), L_107, L_108, (0.0f), NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:146>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:146>
 		VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* L_110 = V_1;
 		NullCheck(L_110);
 		float L_111 = L_110->___CurveScale;
@@ -5701,7 +6035,7 @@ IL_0121:
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_118;
 		L_118 = Matrix4x4_TRS_mCC04FD47347234B451ACC6CCD2CE6D02E1E0E1E3_inline(L_112, L_116, L_117, NULL);
 		V_2 = L_118;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:148>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:148>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_119 = V_11;
 		int32_t L_120 = V_8;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_121 = V_11;
@@ -5713,7 +6047,7 @@ IL_0121:
 		L_125 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_124, NULL);
 		NullCheck(L_119);
 		(L_119)->SetAt(static_cast<il2cpp_array_size_t>(L_120), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_125);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:149>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:149>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_126 = V_11;
 		int32_t L_127 = V_8;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_128 = V_11;
@@ -5725,7 +6059,7 @@ IL_0121:
 		L_132 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_131, NULL);
 		NullCheck(L_126);
 		(L_126)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_127, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_132);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:150>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:150>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_133 = V_11;
 		int32_t L_134 = V_8;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_135 = V_11;
@@ -5737,7 +6071,7 @@ IL_0121:
 		L_139 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_138, NULL);
 		NullCheck(L_133);
 		(L_133)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_134, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_139);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:151>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:151>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_140 = V_11;
 		int32_t L_141 = V_8;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_142 = V_11;
@@ -5749,7 +6083,7 @@ IL_0121:
 		L_146 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_145, NULL);
 		NullCheck(L_140);
 		(L_140)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_141, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_146);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:153>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:153>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_147 = V_11;
 		int32_t L_148 = V_8;
 		NullCheck(L_147);
@@ -5759,7 +6093,7 @@ IL_0121:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_152;
 		L_152 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_150, L_151, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_149 = L_152;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:154>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:154>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_153 = V_11;
 		int32_t L_154 = V_8;
 		NullCheck(L_153);
@@ -5769,7 +6103,7 @@ IL_0121:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_158;
 		L_158 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_156, L_157, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_155 = L_158;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:155>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:155>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_159 = V_11;
 		int32_t L_160 = V_8;
 		NullCheck(L_159);
@@ -5779,7 +6113,7 @@ IL_0121:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_164;
 		L_164 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_162, L_163, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_161 = L_164;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:156>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:156>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_165 = V_11;
 		int32_t L_166 = V_8;
 		NullCheck(L_165);
@@ -5789,7 +6123,7 @@ IL_0121:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_170;
 		L_170 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_168, L_169, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_167 = L_170;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:158>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:158>
 		VertexAnimU5BU5D_tC74236D4EB454A8EF2CE1E6145CE5F78E1D5CF38* L_171 = __this->___U3CvertexAnimU3E5__4;
 		int32_t L_172 = V_5;
 		VertexAnim_tFF5399F548EE5426E46DEB662F561DDE129E20D7 L_173 = V_6;
@@ -5799,14 +6133,14 @@ IL_0121:
 
 IL_03d8:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:107>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:107>
 		int32_t L_174 = V_5;
 		V_5 = ((int32_t)il2cpp_codegen_add(L_174, 1));
 	}
 
 IL_03de:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:107>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:107>
 		int32_t L_175 = V_5;
 		int32_t L_176 = V_4;
 		if ((((int32_t)L_175) < ((int32_t)L_176)))
@@ -5815,14 +6149,14 @@ IL_03de:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:162>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:162>
 		V_12 = 0;
 		goto IL_0449;
 	}
 
 IL_03ec:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:164>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:164>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_177 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_177);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_178 = L_177->___meshInfo;
@@ -5837,7 +6171,7 @@ IL_03ec:
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_184 = ((L_182)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_183)))->___vertices;
 		NullCheck(L_180);
 		Mesh_set_vertices_m5BB814D89E9ACA00DBF19F7D8E22CB73AC73FE5C(L_180, L_184, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:165>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:165>
 		VertexJitter_t5D8689E23D1DD2CCF81ACE6FFC9E34797E8AE4C7* L_185 = V_1;
 		NullCheck(L_185);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_186 = L_185->___m_TextComponent;
@@ -5850,14 +6184,14 @@ IL_03ec:
 		int32_t L_191 = V_12;
 		NullCheck(L_186);
 		VirtualActionInvoker2< Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4*, int32_t >::Invoke(107, L_186, L_190, L_191);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:162>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:162>
 		int32_t L_192 = V_12;
 		V_12 = ((int32_t)il2cpp_codegen_add(L_192, 1));
 	}
 
 IL_0449:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:162>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:162>
 		int32_t L_193 = V_12;
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_194 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_194);
@@ -5869,10 +6203,10 @@ IL_0449:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:168>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:168>
 		int32_t L_196 = __this->___U3CloopCountU3E5__3;
 		__this->___U3CloopCountU3E5__3 = ((int32_t)il2cpp_codegen_add(L_196, 1));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:170>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:170>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_197 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_197, (0.100000001f), NULL);
 		__this->___U3CU3E2__current = L_197;
@@ -5884,11 +6218,11 @@ IL_0449:
 IL_0481:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:86>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexJitter.cs:86>
 		goto IL_00c6;
 	}
 }
-// Method Definition Index: 91552
+// Method Definition Index: 91556
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__11_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m79C3A529011A51B9A994106D3C1271548B02D405 (U3CAnimateVertexColorsU3Ed__11_t2EF4BA1F3569F2C4ECDD4AD4980AAC251CD1D956* __this, const RuntimeMethod* method) 
 {
 	{
@@ -5896,7 +6230,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__11
 		return L_0;
 	}
 }
-// Method Definition Index: 91553
+// Method Definition Index: 91557
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11_System_Collections_IEnumerator_Reset_m15291DCCCEC264095634B26DD6F24D52360BDAF0 (U3CAnimateVertexColorsU3Ed__11_t2EF4BA1F3569F2C4ECDD4AD4980AAC251CD1D956* __this, const RuntimeMethod* method) 
 {
 	{
@@ -5905,7 +6239,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11_System_Co
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CAnimateVertexColorsU3Ed__11_System_Collections_IEnumerator_Reset_m15291DCCCEC264095634B26DD6F24D52360BDAF0_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91554
+// Method Definition Index: 91558
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__11_System_Collections_IEnumerator_get_Current_m0B8F21A4589C68BA16A8340938BB44C980260CC9 (U3CAnimateVertexColorsU3Ed__11_t2EF4BA1F3569F2C4ECDD4AD4980AAC251CD1D956* __this, const RuntimeMethod* method) 
 {
 	{
@@ -5921,7 +6255,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__11
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91555
+// Method Definition Index: 91559
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_Awake_m092957B0A67A153E7CD56A75A438087DE4806867 (VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5931,16 +6265,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_Awake_m092957B0A67A153E7CD5
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:22>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:22>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0;
 		L_0 = Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5(__this, Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5_RuntimeMethod_var);
 		__this->___m_TextComponent = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_TextComponent), (void*)L_0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:23>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:23>
 		return;
 	}
 }
-// Method Definition Index: 91556
+// Method Definition Index: 91560
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_OnEnable_m52E2A036C9EB2C1D633BA7F43E31C36983972304 (VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5953,18 +6287,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_OnEnable_m52E2A036C9EB2C1D6
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:28>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:28>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)VertexShakeA_ON_TEXT_CHANGED_mE7A41CEFDB0008A1CD15F156EFEE1C895A92EE77_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6(L_0, L_1, FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:29>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:29>
 		return;
 	}
 }
-// Method Definition Index: 91557
+// Method Definition Index: 91561
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_OnDisable_m52F58AF9438377D222543AA67CFF7B30FCCB0F23 (VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -5977,31 +6311,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_OnDisable_m52F58AF9438377D2
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:33>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:33>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)VertexShakeA_ON_TEXT_CHANGED_mE7A41CEFDB0008A1CD15F156EFEE1C895A92EE77_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F(L_0, L_1, FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:34>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:34>
 		return;
 	}
 }
-// Method Definition Index: 91558
+// Method Definition Index: 91562
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_Start_mDD8B5538BDFBC2BA242B997B879E7ED64ACAFC5E (VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:39>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:39>
 		RuntimeObject* L_0;
 		L_0 = VertexShakeA_AnimateVertexColors_m5FD933D6BF976B64FC0B80614DE5112377D1DC38(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_1;
 		L_1 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_0, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:40>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:40>
 		return;
 	}
 }
-// Method Definition Index: 91559
+// Method Definition Index: 91563
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_ON_TEXT_CHANGED_mE7A41CEFDB0008A1CD15F156EFEE1C895A92EE77 (VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* __this, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6011,7 +6345,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_ON_TEXT_CHANGED_mE7A41CEFDB
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:45>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:45>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0 = __this->___m_TextComponent;
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_1 = L_0;
 		___0_obj = L_1;
@@ -6024,17 +6358,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA_ON_TEXT_CHANGED_mE7A41CEFDB
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:46>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:46>
 		__this->___hasTextChanged = (bool)1;
 	}
 
 IL_0017:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:47>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:47>
 		return;
 	}
 }
-// Method Definition Index: 91560
+// Method Definition Index: 91564
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexShakeA_AnimateVertexColors_m5FD933D6BF976B64FC0B80614DE5112377D1DC38 (VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6053,17 +6387,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexShakeA_AnimateVertexColo
 		return L_1;
 	}
 }
-// Method Definition Index: 91561
+// Method Definition Index: 91565
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA__ctor_m63ED483A292CA310B90144E0779C0472AAC22CBB (VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:11>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:11>
 		__this->___AngleMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:12>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:12>
 		__this->___SpeedMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:13>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:13>
 		__this->___ScaleMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:14>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:14>
 		__this->___RotationMultiplier = (1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -6077,7 +6411,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeA__ctor_m63ED483A292CA310B901
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91562
+// Method Definition Index: 91566
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11__ctor_m440985E6DF2F1B461E2964101EA242FFD472A25A (U3CAnimateVertexColorsU3Ed__11_t2E62EF65D8AE7185E18D8711E582A76E45AC843E* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -6087,14 +6421,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11__ctor_m44
 		return;
 	}
 }
-// Method Definition Index: 91563
+// Method Definition Index: 91567
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11_System_IDisposable_Dispose_m74112773E1FD645722BC221FA5256331C068EAE7 (U3CAnimateVertexColorsU3Ed__11_t2E62EF65D8AE7185E18D8711E582A76E45AC843E* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91564
+// Method Definition Index: 91568
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__11_MoveNext_mA6858F6CA14AAE3DFB7EA13748E10E063BBAB934 (U3CAnimateVertexColorsU3Ed__11_t2E62EF65D8AE7185E18D8711E582A76E45AC843E* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6154,13 +6488,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__11_MoveNext_
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:58>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:58>
 		VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* L_3 = V_1;
 		NullCheck(L_3);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_4 = L_3->___m_TextComponent;
 		NullCheck(L_4);
 		VirtualActionInvoker2< bool, bool >::Invoke(106, L_4, (bool)0, (bool)0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:60>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:60>
 		VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* L_5 = V_1;
 		NullCheck(L_5);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_6 = L_5->___m_TextComponent;
@@ -6169,11 +6503,11 @@ IL_0022:
 		L_7 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_6, NULL);
 		__this->___U3CtextInfoU3E5__2 = L_7;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtextInfoU3E5__2), (void*)L_7);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:63>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:63>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_8 = (Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D*)(Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D*)SZArrayNew(Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D_il2cpp_TypeInfo_var, (uint32_t)0);
 		__this->___U3CcopyOfVerticesU3E5__3 = L_8;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CcopyOfVerticesU3E5__3), (void*)L_8);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:65>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:65>
 		VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* L_9 = V_1;
 		NullCheck(L_9);
 		L_9->___hasTextChanged = (bool)1;
@@ -6181,7 +6515,7 @@ IL_0022:
 
 IL_005a:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:70>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:70>
 		VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* L_10 = V_1;
 		NullCheck(L_10);
 		bool L_11 = L_10->___hasTextChanged;
@@ -6191,7 +6525,7 @@ IL_005a:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:72>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:72>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_12 = __this->___U3CcopyOfVerticesU3E5__3;
 		NullCheck(L_12);
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_13 = __this->___U3CtextInfoU3E5__2;
@@ -6204,7 +6538,7 @@ IL_005a:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:73>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:73>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_15 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_15);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_16 = L_15->___meshInfo;
@@ -6216,14 +6550,14 @@ IL_005a:
 
 IL_0091:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:75>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:75>
 		V_4 = 0;
 		goto IL_00c7;
 	}
 
 IL_0096:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:77>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:77>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_18 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_18);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_19 = L_18->___meshInfo;
@@ -6232,21 +6566,21 @@ IL_0096:
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_21 = ((L_19)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_20)))->___vertices;
 		NullCheck(L_21);
 		V_5 = ((int32_t)(((RuntimeArray*)L_21)->max_length));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:78>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:78>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_22 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_23 = V_4;
 		int32_t L_24 = V_5;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_25 = (Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C*)(Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C*)SZArrayNew(Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C_il2cpp_TypeInfo_var, (uint32_t)L_24);
 		NullCheck(L_22);
 		(L_22)->SetAt(static_cast<il2cpp_array_size_t>(L_23), (Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C*)L_25);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:75>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:75>
 		int32_t L_26 = V_4;
 		V_4 = ((int32_t)il2cpp_codegen_add(L_26, 1));
 	}
 
 IL_00c7:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:75>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:75>
 		int32_t L_27 = V_4;
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_28 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_28);
@@ -6258,7 +6592,7 @@ IL_00c7:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:81>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:81>
 		VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* L_30 = V_1;
 		NullCheck(L_30);
 		L_30->___hasTextChanged = (bool)0;
@@ -6266,18 +6600,18 @@ IL_00c7:
 
 IL_00df:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:84>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:84>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_31 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_31);
 		int32_t L_32 = L_31->___characterCount;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:87>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:87>
 		if (L_32)
 		{
 			goto IL_0111;
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:89>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:89>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_33 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_33, (0.25f), NULL);
 		__this->___U3CU3E2__current = L_33;
@@ -6289,25 +6623,25 @@ IL_00df:
 IL_0105:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:90>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:90>
 		goto IL_005a;
 	}
 
 IL_0111:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:93>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:93>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_34 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_34);
 		int32_t L_35 = L_34->___lineCount;
 		V_3 = L_35;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:96>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:96>
 		V_6 = 0;
 		goto IL_0448;
 	}
 
 IL_0125:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:99>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:99>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_36 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_36);
 		TMP_LineInfoU5BU5D_tE485ECF6A7A96441C72B53D75E7A5A5461A2CA0E* L_37 = L_36->___lineInfo;
@@ -6315,7 +6649,7 @@ IL_0125:
 		NullCheck(L_37);
 		int32_t L_39 = ((L_37)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_38)))->___firstCharacterIndex;
 		V_7 = L_39;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:100>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:100>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_40 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_40);
 		TMP_LineInfoU5BU5D_tE485ECF6A7A96441C72B53D75E7A5A5461A2CA0E* L_41 = L_40->___lineInfo;
@@ -6323,7 +6657,7 @@ IL_0125:
 		NullCheck(L_41);
 		int32_t L_43 = ((L_41)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_42)))->___lastCharacterIndex;
 		V_8 = L_43;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:103>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:103>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_44 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_44);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_45 = L_44->___characterInfo;
@@ -6341,7 +6675,7 @@ IL_0125:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_53;
 		L_53 = Vector3_op_Division_mCC6BB24E372AB96B8380D1678446EF6A8BAE13BB_inline(L_52, (2.0f), NULL);
 		V_9 = L_53;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:104>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:104>
 		float L_54;
 		L_54 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((-0.25f), (0.25f), NULL);
 		VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* L_55 = V_1;
@@ -6350,7 +6684,7 @@ IL_0125:
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_57;
 		L_57 = Quaternion_Euler_m9262AB29E3E9CE94EF71051F38A28E82AEC73F90_inline((0.0f), (0.0f), ((float)il2cpp_codegen_multiply(L_54, L_56)), NULL);
 		V_10 = L_57;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:107>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:107>
 		int32_t L_58 = V_7;
 		V_11 = L_58;
 		goto IL_0439;
@@ -6358,7 +6692,7 @@ IL_0125:
 
 IL_01c6:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:110>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:110>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_59 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_59);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_60 = L_59->___characterInfo;
@@ -6371,7 +6705,7 @@ IL_01c6:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:114>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:114>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_63 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_63);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_64 = L_63->___characterInfo;
@@ -6379,7 +6713,7 @@ IL_01c6:
 		NullCheck(L_64);
 		int32_t L_66 = ((L_64)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_65)))->___materialReferenceIndex;
 		V_12 = L_66;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:117>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:117>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_67 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_67);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_68 = L_67->___characterInfo;
@@ -6387,7 +6721,7 @@ IL_01c6:
 		NullCheck(L_68);
 		int32_t L_70 = ((L_68)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_69)))->___vertexIndex;
 		V_13 = L_70;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:120>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:120>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_71 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_71);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_72 = L_71->___meshInfo;
@@ -6395,7 +6729,7 @@ IL_01c6:
 		NullCheck(L_72);
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_74 = ((L_72)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_73)))->___vertices;
 		V_14 = L_74;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:124>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:124>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_75 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_76 = V_12;
 		NullCheck(L_75);
@@ -6412,7 +6746,7 @@ IL_01c6:
 		L_85 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_83, L_84, NULL);
 		NullCheck(L_78);
 		(L_78)->SetAt(static_cast<il2cpp_array_size_t>(L_79), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_85);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:125>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:125>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_86 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_87 = V_12;
 		NullCheck(L_86);
@@ -6429,7 +6763,7 @@ IL_01c6:
 		L_96 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_94, L_95, NULL);
 		NullCheck(L_89);
 		(L_89)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_90, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_96);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:126>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:126>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_97 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_98 = V_12;
 		NullCheck(L_97);
@@ -6446,7 +6780,7 @@ IL_01c6:
 		L_107 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_105, L_106, NULL);
 		NullCheck(L_100);
 		(L_100)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_101, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_107);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:127>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:127>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_108 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_109 = V_12;
 		NullCheck(L_108);
@@ -6463,7 +6797,7 @@ IL_01c6:
 		L_118 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_116, L_117, NULL);
 		NullCheck(L_111);
 		(L_111)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_112, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_118);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:130>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:130>
 		VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* L_119 = V_1;
 		NullCheck(L_119);
 		float L_120 = L_119->___ScaleMultiplier;
@@ -6473,7 +6807,7 @@ IL_01c6:
 		float L_123;
 		L_123 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494(((float)il2cpp_codegen_subtract((0.995000005f), ((float)il2cpp_codegen_multiply((0.00100000005f), L_120)))), ((float)il2cpp_codegen_add((1.005f), ((float)il2cpp_codegen_multiply((0.00100000005f), L_122)))), NULL);
 		V_15 = L_123;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:133>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:133>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_124;
 		L_124 = Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline(NULL);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_125 = V_10;
@@ -6485,7 +6819,7 @@ IL_01c6:
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_129;
 		L_129 = Matrix4x4_TRS_mCC04FD47347234B451ACC6CCD2CE6D02E1E0E1E3_inline(L_124, L_125, L_128, NULL);
 		V_2 = L_129;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:136>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:136>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_130 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_131 = V_12;
 		NullCheck(L_130);
@@ -6505,7 +6839,7 @@ IL_01c6:
 		L_142 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_141, NULL);
 		NullCheck(L_133);
 		(L_133)->SetAt(static_cast<il2cpp_array_size_t>(L_134), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_142);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:137>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:137>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_143 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_144 = V_12;
 		NullCheck(L_143);
@@ -6525,7 +6859,7 @@ IL_01c6:
 		L_155 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_154, NULL);
 		NullCheck(L_146);
 		(L_146)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_147, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_155);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:138>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:138>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_156 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_157 = V_12;
 		NullCheck(L_156);
@@ -6545,7 +6879,7 @@ IL_01c6:
 		L_168 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_167, NULL);
 		NullCheck(L_159);
 		(L_159)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_160, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_168);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:139>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:139>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_169 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_170 = V_12;
 		NullCheck(L_169);
@@ -6565,7 +6899,7 @@ IL_01c6:
 		L_181 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_180, NULL);
 		NullCheck(L_172);
 		(L_172)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_173, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_181);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:142>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:142>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_182 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_183 = V_12;
 		NullCheck(L_182);
@@ -6579,7 +6913,7 @@ IL_01c6:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_190;
 		L_190 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_188, L_189, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_187 = L_190;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:143>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:143>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_191 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_192 = V_12;
 		NullCheck(L_191);
@@ -6593,7 +6927,7 @@ IL_01c6:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_199;
 		L_199 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_197, L_198, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_196 = L_199;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:144>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:144>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_200 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_201 = V_12;
 		NullCheck(L_200);
@@ -6607,7 +6941,7 @@ IL_01c6:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_208;
 		L_208 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_206, L_207, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_205 = L_208;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:145>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:145>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_209 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_210 = V_12;
 		NullCheck(L_209);
@@ -6625,14 +6959,14 @@ IL_01c6:
 
 IL_0433:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:107>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:107>
 		int32_t L_218 = V_11;
 		V_11 = ((int32_t)il2cpp_codegen_add(L_218, 1));
 	}
 
 IL_0439:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:107>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:107>
 		int32_t L_219 = V_11;
 		int32_t L_220 = V_8;
 		if ((((int32_t)L_219) <= ((int32_t)L_220)))
@@ -6641,14 +6975,14 @@ IL_0439:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:96>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:96>
 		int32_t L_221 = V_6;
 		V_6 = ((int32_t)il2cpp_codegen_add(L_221, 1));
 	}
 
 IL_0448:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:96>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:96>
 		int32_t L_222 = V_6;
 		int32_t L_223 = V_3;
 		if ((((int32_t)L_222) < ((int32_t)L_223)))
@@ -6657,14 +6991,14 @@ IL_0448:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:150>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:150>
 		V_16 = 0;
 		goto IL_04a4;
 	}
 
 IL_0455:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:152>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:152>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_224 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_224);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_225 = L_224->___meshInfo;
@@ -6678,7 +7012,7 @@ IL_0455:
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_231 = (L_228)->GetAt(static_cast<il2cpp_array_size_t>(L_230));
 		NullCheck(L_227);
 		Mesh_set_vertices_m5BB814D89E9ACA00DBF19F7D8E22CB73AC73FE5C(L_227, L_231, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:153>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:153>
 		VertexShakeA_t0915AA60878050D69BA28697506CF5CF6F789E8F* L_232 = V_1;
 		NullCheck(L_232);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_233 = L_232->___m_TextComponent;
@@ -6691,14 +7025,14 @@ IL_0455:
 		int32_t L_238 = V_16;
 		NullCheck(L_233);
 		VirtualActionInvoker2< Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4*, int32_t >::Invoke(107, L_233, L_237, L_238);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:150>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:150>
 		int32_t L_239 = V_16;
 		V_16 = ((int32_t)il2cpp_codegen_add(L_239, 1));
 	}
 
 IL_04a4:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:150>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:150>
 		int32_t L_240 = V_16;
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_241 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_241);
@@ -6710,7 +7044,7 @@ IL_04a4:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:156>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:156>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_243 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_243, (0.100000001f), NULL);
 		__this->___U3CU3E2__current = L_243;
@@ -6722,11 +7056,11 @@ IL_04a4:
 IL_04ce:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:67>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeA.cs:67>
 		goto IL_005a;
 	}
 }
-// Method Definition Index: 91565
+// Method Definition Index: 91569
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__11_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m8DD4F3768C9025EFAC0BFDBB942FEF7953FB20BE (U3CAnimateVertexColorsU3Ed__11_t2E62EF65D8AE7185E18D8711E582A76E45AC843E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -6734,7 +7068,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__11
 		return L_0;
 	}
 }
-// Method Definition Index: 91566
+// Method Definition Index: 91570
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11_System_Collections_IEnumerator_Reset_m2F84864A089CBA0B878B7AC1EA39A49B82682A90 (U3CAnimateVertexColorsU3Ed__11_t2E62EF65D8AE7185E18D8711E582A76E45AC843E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -6743,7 +7077,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__11_System_Co
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CAnimateVertexColorsU3Ed__11_System_Collections_IEnumerator_Reset_m2F84864A089CBA0B878B7AC1EA39A49B82682A90_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91567
+// Method Definition Index: 91571
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__11_System_Collections_IEnumerator_get_Current_m3106DAC17EF56701CBC9812DD031932B04BB730B (U3CAnimateVertexColorsU3Ed__11_t2E62EF65D8AE7185E18D8711E582A76E45AC843E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -6759,7 +7093,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__11
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91568
+// Method Definition Index: 91572
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_Awake_mFA9A180BD1769CC79E6325314B5652D605ABE58E (VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6769,16 +7103,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_Awake_mFA9A180BD1769CC79E63
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:21>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:21>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0;
 		L_0 = Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5(__this, Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5_RuntimeMethod_var);
 		__this->___m_TextComponent = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_TextComponent), (void*)L_0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:22>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:22>
 		return;
 	}
 }
-// Method Definition Index: 91569
+// Method Definition Index: 91573
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_OnEnable_m4999DF4598174EDA2A47F4F667B5CE061DF97C21 (VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6791,18 +7125,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_OnEnable_m4999DF4598174EDA2
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:27>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:27>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)VertexShakeB_ON_TEXT_CHANGED_mF8641640C828A9664AE03AF01CB4832E14EF436D_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6(L_0, L_1, FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:28>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:28>
 		return;
 	}
 }
-// Method Definition Index: 91570
+// Method Definition Index: 91574
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_OnDisable_m2FB32CBD277A271400BF8AF2A35294C09FE9B8E5 (VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6815,31 +7149,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_OnDisable_m2FB32CBD277A2714
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:32>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:32>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)VertexShakeB_ON_TEXT_CHANGED_mF8641640C828A9664AE03AF01CB4832E14EF436D_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F(L_0, L_1, FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:33>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:33>
 		return;
 	}
 }
-// Method Definition Index: 91571
+// Method Definition Index: 91575
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_Start_m58786A0944340EF16E024ADB596C9AB5686C2AF1 (VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:38>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:38>
 		RuntimeObject* L_0;
 		L_0 = VertexShakeB_AnimateVertexColors_m06D25FE7F9F3EFF693DDC889BF725F01D0CF2A6F(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_1;
 		L_1 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_0, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:39>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:39>
 		return;
 	}
 }
-// Method Definition Index: 91572
+// Method Definition Index: 91576
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_ON_TEXT_CHANGED_mF8641640C828A9664AE03AF01CB4832E14EF436D (VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* __this, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6849,7 +7183,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_ON_TEXT_CHANGED_mF8641640C8
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:44>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:44>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0 = __this->___m_TextComponent;
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_1 = L_0;
 		___0_obj = L_1;
@@ -6862,17 +7196,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB_ON_TEXT_CHANGED_mF8641640C8
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:45>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:45>
 		__this->___hasTextChanged = (bool)1;
 	}
 
 IL_0017:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:46>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:46>
 		return;
 	}
 }
-// Method Definition Index: 91573
+// Method Definition Index: 91577
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexShakeB_AnimateVertexColors_m06D25FE7F9F3EFF693DDC889BF725F01D0CF2A6F (VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6891,15 +7225,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexShakeB_AnimateVertexColo
 		return L_1;
 	}
 }
-// Method Definition Index: 91574
+// Method Definition Index: 91578
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB__ctor_m9D068774503CF8642CC0BAC0E909ECE91E4E2198 (VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:11>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:11>
 		__this->___AngleMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:12>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:12>
 		__this->___SpeedMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:13>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:13>
 		__this->___CurveScale = (1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -6913,7 +7247,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexShakeB__ctor_m9D068774503CF8642CC0
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91575
+// Method Definition Index: 91579
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10__ctor_mBE5C0E4A0F65F07A7510D171683AD319F76E6C6D (U3CAnimateVertexColorsU3Ed__10_tD6C6C3147726423C8C82952A638432E12AA2C91E* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -6923,14 +7257,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10__ctor_mBE
 		return;
 	}
 }
-// Method Definition Index: 91576
+// Method Definition Index: 91580
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10_System_IDisposable_Dispose_m4DD41FA568ABBC327FA38C0E345EFB6F1A71C2C8 (U3CAnimateVertexColorsU3Ed__10_tD6C6C3147726423C8C82952A638432E12AA2C91E* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91577
+// Method Definition Index: 91581
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__10_MoveNext_mDD84A4116FCAAF920F86BA72F890CE0BE76AF348 (U3CAnimateVertexColorsU3Ed__10_tD6C6C3147726423C8C82952A638432E12AA2C91E* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -6992,13 +7326,13 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__10_MoveNext_
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:57>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:57>
 		VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* L_3 = V_1;
 		NullCheck(L_3);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_4 = L_3->___m_TextComponent;
 		NullCheck(L_4);
 		VirtualActionInvoker2< bool, bool >::Invoke(106, L_4, (bool)0, (bool)0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:59>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:59>
 		VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* L_5 = V_1;
 		NullCheck(L_5);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_6 = L_5->___m_TextComponent;
@@ -7007,11 +7341,11 @@ IL_0022:
 		L_7 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_6, NULL);
 		__this->___U3CtextInfoU3E5__2 = L_7;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtextInfoU3E5__2), (void*)L_7);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:62>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:62>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_8 = (Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D*)(Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D*)SZArrayNew(Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D_il2cpp_TypeInfo_var, (uint32_t)0);
 		__this->___U3CcopyOfVerticesU3E5__3 = L_8;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CcopyOfVerticesU3E5__3), (void*)L_8);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:64>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:64>
 		VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* L_9 = V_1;
 		NullCheck(L_9);
 		L_9->___hasTextChanged = (bool)1;
@@ -7019,7 +7353,7 @@ IL_0022:
 
 IL_005a:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:69>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:69>
 		VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* L_10 = V_1;
 		NullCheck(L_10);
 		bool L_11 = L_10->___hasTextChanged;
@@ -7029,7 +7363,7 @@ IL_005a:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:71>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:71>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_12 = __this->___U3CcopyOfVerticesU3E5__3;
 		NullCheck(L_12);
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_13 = __this->___U3CtextInfoU3E5__2;
@@ -7042,7 +7376,7 @@ IL_005a:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:72>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:72>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_15 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_15);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_16 = L_15->___meshInfo;
@@ -7054,14 +7388,14 @@ IL_005a:
 
 IL_0091:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:74>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:74>
 		V_4 = 0;
 		goto IL_00c7;
 	}
 
 IL_0096:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:76>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:76>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_18 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_18);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_19 = L_18->___meshInfo;
@@ -7070,21 +7404,21 @@ IL_0096:
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_21 = ((L_19)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_20)))->___vertices;
 		NullCheck(L_21);
 		V_5 = ((int32_t)(((RuntimeArray*)L_21)->max_length));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:77>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:77>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_22 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_23 = V_4;
 		int32_t L_24 = V_5;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_25 = (Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C*)(Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C*)SZArrayNew(Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C_il2cpp_TypeInfo_var, (uint32_t)L_24);
 		NullCheck(L_22);
 		(L_22)->SetAt(static_cast<il2cpp_array_size_t>(L_23), (Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C*)L_25);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:74>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:74>
 		int32_t L_26 = V_4;
 		V_4 = ((int32_t)il2cpp_codegen_add(L_26, 1));
 	}
 
 IL_00c7:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:74>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:74>
 		int32_t L_27 = V_4;
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_28 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_28);
@@ -7096,7 +7430,7 @@ IL_00c7:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:80>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:80>
 		VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* L_30 = V_1;
 		NullCheck(L_30);
 		L_30->___hasTextChanged = (bool)0;
@@ -7104,18 +7438,18 @@ IL_00c7:
 
 IL_00df:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:83>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:83>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_31 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_31);
 		int32_t L_32 = L_31->___characterCount;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:86>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:86>
 		if (L_32)
 		{
 			goto IL_0111;
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:88>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:88>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_33 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_33, (0.25f), NULL);
 		__this->___U3CU3E2__current = L_33;
@@ -7127,25 +7461,25 @@ IL_00df:
 IL_0105:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:89>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:89>
 		goto IL_005a;
 	}
 
 IL_0111:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:92>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:92>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_34 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_34);
 		int32_t L_35 = L_34->___lineCount;
 		V_3 = L_35;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:95>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:95>
 		V_6 = 0;
 		goto IL_0625;
 	}
 
 IL_0125:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:98>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:98>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_36 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_36);
 		TMP_LineInfoU5BU5D_tE485ECF6A7A96441C72B53D75E7A5A5461A2CA0E* L_37 = L_36->___lineInfo;
@@ -7153,7 +7487,7 @@ IL_0125:
 		NullCheck(L_37);
 		int32_t L_39 = ((L_37)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_38)))->___firstCharacterIndex;
 		V_7 = L_39;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:99>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:99>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_40 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_40);
 		TMP_LineInfoU5BU5D_tE485ECF6A7A96441C72B53D75E7A5A5461A2CA0E* L_41 = L_40->___lineInfo;
@@ -7161,7 +7495,7 @@ IL_0125:
 		NullCheck(L_41);
 		int32_t L_43 = ((L_41)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_42)))->___lastCharacterIndex;
 		V_8 = L_43;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:102>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:102>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_44 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_44);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_45 = L_44->___characterInfo;
@@ -7179,13 +7513,13 @@ IL_0125:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_53;
 		L_53 = Vector3_op_Division_mCC6BB24E372AB96B8380D1678446EF6A8BAE13BB_inline(L_52, (2.0f), NULL);
 		V_9 = L_53;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:103>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:103>
 		float L_54;
 		L_54 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((-0.25f), (0.25f), NULL);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_55;
 		L_55 = Quaternion_Euler_m9262AB29E3E9CE94EF71051F38A28E82AEC73F90_inline((0.0f), (0.0f), L_54, NULL);
 		V_10 = L_55;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:106>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:106>
 		int32_t L_56 = V_7;
 		V_11 = L_56;
 		goto IL_0616;
@@ -7193,7 +7527,7 @@ IL_0125:
 
 IL_01bf:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:109>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:109>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_57 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_57);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_58 = L_57->___characterInfo;
@@ -7206,7 +7540,7 @@ IL_01bf:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:113>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:113>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_61 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_61);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_62 = L_61->___characterInfo;
@@ -7214,7 +7548,7 @@ IL_01bf:
 		NullCheck(L_62);
 		int32_t L_64 = ((L_62)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_63)))->___materialReferenceIndex;
 		V_12 = L_64;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:116>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:116>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_65 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_65);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_66 = L_65->___characterInfo;
@@ -7222,7 +7556,7 @@ IL_01bf:
 		NullCheck(L_66);
 		int32_t L_68 = ((L_66)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_67)))->___vertexIndex;
 		V_13 = L_68;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:119>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:119>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_69 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_69);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_70 = L_69->___meshInfo;
@@ -7230,7 +7564,7 @@ IL_01bf:
 		NullCheck(L_70);
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_72 = ((L_70)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_71)))->___vertices;
 		V_14 = L_72;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:122>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:122>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_73 = V_14;
 		int32_t L_74 = V_13;
 		NullCheck(L_73);
@@ -7246,7 +7580,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_82;
 		L_82 = Vector3_op_Division_mCC6BB24E372AB96B8380D1678446EF6A8BAE13BB_inline(L_81, (2.0f), NULL);
 		V_15 = L_82;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:126>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:126>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_83 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_84 = V_12;
 		NullCheck(L_83);
@@ -7263,7 +7597,7 @@ IL_01bf:
 		L_93 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_91, L_92, NULL);
 		NullCheck(L_86);
 		(L_86)->SetAt(static_cast<il2cpp_array_size_t>(L_87), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_93);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:127>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:127>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_94 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_95 = V_12;
 		NullCheck(L_94);
@@ -7280,7 +7614,7 @@ IL_01bf:
 		L_104 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_102, L_103, NULL);
 		NullCheck(L_97);
 		(L_97)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_98, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_104);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:128>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:128>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_105 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_106 = V_12;
 		NullCheck(L_105);
@@ -7297,7 +7631,7 @@ IL_01bf:
 		L_115 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_113, L_114, NULL);
 		NullCheck(L_108);
 		(L_108)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_109, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_115);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:129>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:129>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_116 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_117 = V_12;
 		NullCheck(L_116);
@@ -7314,11 +7648,11 @@ IL_01bf:
 		L_126 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_124, L_125, NULL);
 		NullCheck(L_119);
 		(L_119)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_120, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_126);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:132>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:132>
 		float L_127;
 		L_127 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((0.949999988f), (1.04999995f), NULL);
 		V_16 = L_127;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:135>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:135>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_128;
 		L_128 = Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline(NULL);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_129;
@@ -7331,7 +7665,7 @@ IL_01bf:
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_133;
 		L_133 = Matrix4x4_TRS_mCC04FD47347234B451ACC6CCD2CE6D02E1E0E1E3_inline(L_128, L_129, L_132, NULL);
 		V_2 = L_133;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:138>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:138>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_134 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_135 = V_12;
 		NullCheck(L_134);
@@ -7351,7 +7685,7 @@ IL_01bf:
 		L_146 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_145, NULL);
 		NullCheck(L_137);
 		(L_137)->SetAt(static_cast<il2cpp_array_size_t>(L_138), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_146);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:139>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:139>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_147 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_148 = V_12;
 		NullCheck(L_147);
@@ -7371,7 +7705,7 @@ IL_01bf:
 		L_159 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_158, NULL);
 		NullCheck(L_150);
 		(L_150)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_151, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_159);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:140>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:140>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_160 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_161 = V_12;
 		NullCheck(L_160);
@@ -7391,7 +7725,7 @@ IL_01bf:
 		L_172 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_171, NULL);
 		NullCheck(L_163);
 		(L_163)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_164, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_172);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:141>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:141>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_173 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_174 = V_12;
 		NullCheck(L_173);
@@ -7411,7 +7745,7 @@ IL_01bf:
 		L_185 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_184, NULL);
 		NullCheck(L_176);
 		(L_176)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_177, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_185);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:144>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:144>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_186 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_187 = V_12;
 		NullCheck(L_186);
@@ -7425,7 +7759,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_194;
 		L_194 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_192, L_193, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_191 = L_194;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:145>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:145>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_195 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_196 = V_12;
 		NullCheck(L_195);
@@ -7439,7 +7773,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_203;
 		L_203 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_201, L_202, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_200 = L_203;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:146>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:146>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_204 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_205 = V_12;
 		NullCheck(L_204);
@@ -7453,7 +7787,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_212;
 		L_212 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_210, L_211, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_209 = L_212;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:147>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:147>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_213 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_214 = V_12;
 		NullCheck(L_213);
@@ -7467,7 +7801,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_221;
 		L_221 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_219, L_220, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_218 = L_221;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:151>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:151>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_222 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_223 = V_12;
 		NullCheck(L_222);
@@ -7481,7 +7815,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_230;
 		L_230 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_228, L_229, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_227 = L_230;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:152>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:152>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_231 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_232 = V_12;
 		NullCheck(L_231);
@@ -7495,7 +7829,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_239;
 		L_239 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_237, L_238, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_236 = L_239;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:153>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:153>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_240 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_241 = V_12;
 		NullCheck(L_240);
@@ -7509,7 +7843,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_248;
 		L_248 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_246, L_247, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_245 = L_248;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:154>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:154>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_249 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_250 = V_12;
 		NullCheck(L_249);
@@ -7523,7 +7857,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_257;
 		L_257 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_255, L_256, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_254 = L_257;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:157>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:157>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_258;
 		L_258 = Vector3_get_one_mC9B289F1E15C42C597180C9FE6FB492495B51D02_inline(NULL);
 		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_259 = V_10;
@@ -7532,7 +7866,7 @@ IL_01bf:
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_261;
 		L_261 = Matrix4x4_TRS_mCC04FD47347234B451ACC6CCD2CE6D02E1E0E1E3_inline(L_258, L_259, L_260, NULL);
 		V_2 = L_261;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:160>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:160>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_262 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_263 = V_12;
 		NullCheck(L_262);
@@ -7552,7 +7886,7 @@ IL_01bf:
 		L_274 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_273, NULL);
 		NullCheck(L_265);
 		(L_265)->SetAt(static_cast<il2cpp_array_size_t>(L_266), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_274);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:161>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:161>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_275 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_276 = V_12;
 		NullCheck(L_275);
@@ -7572,7 +7906,7 @@ IL_01bf:
 		L_287 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_286, NULL);
 		NullCheck(L_278);
 		(L_278)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_279, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_287);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:162>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:162>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_288 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_289 = V_12;
 		NullCheck(L_288);
@@ -7592,7 +7926,7 @@ IL_01bf:
 		L_300 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_299, NULL);
 		NullCheck(L_291);
 		(L_291)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_292, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_300);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:163>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:163>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_301 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_302 = V_12;
 		NullCheck(L_301);
@@ -7612,7 +7946,7 @@ IL_01bf:
 		L_313 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_312, NULL);
 		NullCheck(L_304);
 		(L_304)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_305, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_313);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:166>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:166>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_314 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_315 = V_12;
 		NullCheck(L_314);
@@ -7626,7 +7960,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_322;
 		L_322 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_320, L_321, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_319 = L_322;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:167>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:167>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_323 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_324 = V_12;
 		NullCheck(L_323);
@@ -7640,7 +7974,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_331;
 		L_331 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_329, L_330, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_328 = L_331;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:168>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:168>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_332 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_333 = V_12;
 		NullCheck(L_332);
@@ -7654,7 +7988,7 @@ IL_01bf:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_340;
 		L_340 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_338, L_339, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_337 = L_340;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:169>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:169>
 		Vector3U5BU5DU5BU5D_t9E2E40AB6AB9079C8F16A0B6410FF6CF2EE8B53D* L_341 = __this->___U3CcopyOfVerticesU3E5__3;
 		int32_t L_342 = V_12;
 		NullCheck(L_341);
@@ -7672,14 +8006,14 @@ IL_01bf:
 
 IL_0610:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:106>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:106>
 		int32_t L_350 = V_11;
 		V_11 = ((int32_t)il2cpp_codegen_add(L_350, 1));
 	}
 
 IL_0616:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:106>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:106>
 		int32_t L_351 = V_11;
 		int32_t L_352 = V_8;
 		if ((((int32_t)L_351) <= ((int32_t)L_352)))
@@ -7688,14 +8022,14 @@ IL_0616:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:95>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:95>
 		int32_t L_353 = V_6;
 		V_6 = ((int32_t)il2cpp_codegen_add(L_353, 1));
 	}
 
 IL_0625:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:95>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:95>
 		int32_t L_354 = V_6;
 		int32_t L_355 = V_3;
 		if ((((int32_t)L_354) < ((int32_t)L_355)))
@@ -7704,14 +8038,14 @@ IL_0625:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:174>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:174>
 		V_17 = 0;
 		goto IL_0681;
 	}
 
 IL_0632:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:176>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:176>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_356 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_356);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_357 = L_356->___meshInfo;
@@ -7725,7 +8059,7 @@ IL_0632:
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_363 = (L_360)->GetAt(static_cast<il2cpp_array_size_t>(L_362));
 		NullCheck(L_359);
 		Mesh_set_vertices_m5BB814D89E9ACA00DBF19F7D8E22CB73AC73FE5C(L_359, L_363, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:177>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:177>
 		VertexShakeB_tA3849618A1BE8DCE150A615F38CE2E247FC6F6C8* L_364 = V_1;
 		NullCheck(L_364);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_365 = L_364->___m_TextComponent;
@@ -7738,14 +8072,14 @@ IL_0632:
 		int32_t L_370 = V_17;
 		NullCheck(L_365);
 		VirtualActionInvoker2< Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4*, int32_t >::Invoke(107, L_365, L_369, L_370);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:174>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:174>
 		int32_t L_371 = V_17;
 		V_17 = ((int32_t)il2cpp_codegen_add(L_371, 1));
 	}
 
 IL_0681:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:174>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:174>
 		int32_t L_372 = V_17;
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_373 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_373);
@@ -7757,7 +8091,7 @@ IL_0681:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:180>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:180>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_375 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_375, (0.100000001f), NULL);
 		__this->___U3CU3E2__current = L_375;
@@ -7769,11 +8103,11 @@ IL_0681:
 IL_06ab:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:66>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexShakeB.cs:66>
 		goto IL_005a;
 	}
 }
-// Method Definition Index: 91578
+// Method Definition Index: 91582
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__10_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m250CC96EC17E74D79536FDA4EB6F5B5F985C0845 (U3CAnimateVertexColorsU3Ed__10_tD6C6C3147726423C8C82952A638432E12AA2C91E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7781,7 +8115,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__10
 		return L_0;
 	}
 }
-// Method Definition Index: 91579
+// Method Definition Index: 91583
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10_System_Collections_IEnumerator_Reset_m5A5869FEFA67D5E9659F1145B83581D954550C1A (U3CAnimateVertexColorsU3Ed__10_tD6C6C3147726423C8C82952A638432E12AA2C91E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7790,7 +8124,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10_System_Co
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CAnimateVertexColorsU3Ed__10_System_Collections_IEnumerator_Reset_m5A5869FEFA67D5E9659F1145B83581D954550C1A_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91580
+// Method Definition Index: 91584
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__10_System_Collections_IEnumerator_get_Current_m496F1BFEADA21FFB684F8C1996EAB707CFA1C5F0 (U3CAnimateVertexColorsU3Ed__10_tD6C6C3147726423C8C82952A638432E12AA2C91E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7806,7 +8140,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__10
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91581
+// Method Definition Index: 91585
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_Awake_m29C1DE789B968D726EDD69F605321A223D47C1A0 (VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -7816,16 +8150,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_Awake_m29C1DE789B968D726EDD69
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:22>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:22>
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_0;
 		L_0 = Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5(__this, Component_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_m0C4C5268B54C7097888C6B109527A680772EBCB5_RuntimeMethod_var);
 		__this->___m_TextComponent = L_0;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_TextComponent), (void*)L_0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:23>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:23>
 		return;
 	}
 }
-// Method Definition Index: 91582
+// Method Definition Index: 91586
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_OnEnable_mE3719F01B6A8590066988F425F8A63103B5A7B47 (VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -7838,18 +8172,18 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_OnEnable_mE3719F01B6A85900669
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:28>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:28>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)VertexZoom_ON_TEXT_CHANGED_mFF049D0455A7DD19D6BDACBEEB737B4AAE32DDA7_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6(L_0, L_1, FastAction_1_Add_m368726E3508DB2176C4F87A79C0C0CC4816176D6_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:29>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:29>
 		return;
 	}
 }
-// Method Definition Index: 91583
+// Method Definition Index: 91587
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_OnDisable_mBB91C9EFA049395743D27358A427BB2B05850B47 (VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -7862,31 +8196,31 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_OnDisable_mBB91C9EFA049395743
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:34>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:34>
 		il2cpp_codegen_runtime_class_init_inline(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var);
 		FastAction_1_tE50C6A692DF85AB55BE3160B659FA7DF19DFA005* L_0 = ((TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_StaticFields*)il2cpp_codegen_static_fields_for(TMPro_EventManager_t0234DB5BF625FC164B395C5C3B6F2CB8C89A3BA9_il2cpp_TypeInfo_var))->___TEXT_CHANGED_EVENT;
 		Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A* L_1 = (Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A*)il2cpp_codegen_object_new(Action_1_t7F8A08D55E64F30F0E9A4213699C99903459421A_il2cpp_TypeInfo_var);
 		Action_1__ctor_m95478636F075134CA2998E22B214611472600983(L_1, __this, (intptr_t)((void*)VertexZoom_ON_TEXT_CHANGED_mFF049D0455A7DD19D6BDACBEEB737B4AAE32DDA7_RuntimeMethod_var), NULL);
 		NullCheck(L_0);
 		FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F(L_0, L_1, FastAction_1_Remove_mB29130AC90F5F8967CD89587717469E44E4D186F_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:35>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:35>
 		return;
 	}
 }
-// Method Definition Index: 91584
+// Method Definition Index: 91588
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_Start_mB03D03148C98EBC9117D69510D24F21978546FCB (VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:40>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:40>
 		RuntimeObject* L_0;
 		L_0 = VertexZoom_AnimateVertexColors_m632BD9DC8FB193AF2D5B540524B11AF139FDF5F0(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_1;
 		L_1 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_0, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:41>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:41>
 		return;
 	}
 }
-// Method Definition Index: 91585
+// Method Definition Index: 91589
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_ON_TEXT_CHANGED_mFF049D0455A7DD19D6BDACBEEB737B4AAE32DDA7 (VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* __this, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -7896,7 +8230,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_ON_TEXT_CHANGED_mFF049D0455A7
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:46>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:46>
 		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_0 = ___0_obj;
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_1 = __this->___m_TextComponent;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
@@ -7908,17 +8242,17 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom_ON_TEXT_CHANGED_mFF049D0455A7
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:47>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:47>
 		__this->___hasTextChanged = (bool)1;
 	}
 
 IL_0015:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:48>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:48>
 		return;
 	}
 }
-// Method Definition Index: 91586
+// Method Definition Index: 91590
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexZoom_AnimateVertexColors_m632BD9DC8FB193AF2D5B540524B11AF139FDF5F0 (VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -7937,15 +8271,15 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* VertexZoom_AnimateVertexColors
 		return L_1;
 	}
 }
-// Method Definition Index: 91587
+// Method Definition Index: 91591
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom__ctor_m454AF80ACB5C555BCB4B5E658A22B5A4FCC39422 (VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:12>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:12>
 		__this->___AngleMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:13>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:13>
 		__this->___SpeedMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:14>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:14>
 		__this->___CurveScale = (1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -7959,7 +8293,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void VertexZoom__ctor_m454AF80ACB5C555BCB4B5E
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91588
+// Method Definition Index: 91592
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass10_0__ctor_m8C69A89B34AA3D16243E69F1E0015856C791CC8A (U3CU3Ec__DisplayClass10_0_t62C0E1CEED92DDFC3DD4C58EC8806FC7D82A7FB7* __this, const RuntimeMethod* method) 
 {
 	{
@@ -7967,7 +8301,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__DisplayClass10_0__ctor_m8C69A89
 		return;
 	}
 }
-// Method Definition Index: 91589
+// Method Definition Index: 91593
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t U3CU3Ec__DisplayClass10_0_U3CAnimateVertexColorsU3Eb__0_m8E51A05E012CCFA439DCF10A8B5C4FA196E4344A (U3CU3Ec__DisplayClass10_0_t62C0E1CEED92DDFC3DD4C58EC8806FC7D82A7FB7* __this, int32_t ___0_a, int32_t ___1_b, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -7978,7 +8312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t U3CU3Ec__DisplayClass10_0_U3CAnimateV
 	}
 	float V_0 = 0.0f;
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:175>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:175>
 		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_0 = __this->___modifiedCharScale;
 		int32_t L_1 = ___0_a;
 		NullCheck(L_0);
@@ -8003,7 +8337,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t U3CU3Ec__DisplayClass10_0_U3CAnimateV
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91590
+// Method Definition Index: 91594
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10__ctor_m7A5B8E07B89E628DB7119F7F61311165A2DBC4D6 (U3CAnimateVertexColorsU3Ed__10_t2EB585545BBB614E711BE1D5C7BF139053486123* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -8013,14 +8347,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10__ctor_m7A
 		return;
 	}
 }
-// Method Definition Index: 91591
+// Method Definition Index: 91595
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10_System_IDisposable_Dispose_m974E92A444C6343E94C76BB6CC6508F7AE4FD36E (U3CAnimateVertexColorsU3Ed__10_t2EB585545BBB614E711BE1D5C7BF139053486123* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91592
+// Method Definition Index: 91596
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CAnimateVertexColorsU3Ed__10_MoveNext_m6DBC52A95A92A54A1801DC4CEE548FA568251D5E (U3CAnimateVertexColorsU3Ed__10_t2EB585545BBB614E711BE1D5C7BF139053486123* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -8097,13 +8431,13 @@ IL_0022:
 		U3CU3Ec__DisplayClass10_0__ctor_m8C69A89B34AA3D16243E69F1E0015856C791CC8A(L_3, NULL);
 		__this->___U3CU3E8__1 = L_3;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E8__1), (void*)L_3);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:59>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:59>
 		VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* L_4 = V_1;
 		NullCheck(L_4);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_5 = L_4->___m_TextComponent;
 		NullCheck(L_5);
 		VirtualActionInvoker2< bool, bool >::Invoke(106, L_5, (bool)0, (bool)0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:61>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:61>
 		VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* L_6 = V_1;
 		NullCheck(L_6);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_7 = L_6->___m_TextComponent;
@@ -8112,26 +8446,26 @@ IL_0022:
 		L_8 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_7, NULL);
 		__this->___U3CtextInfoU3E5__2 = L_8;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CtextInfoU3E5__2), (void*)L_8);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:64>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:64>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_9 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_9);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_10;
 		L_10 = TMP_TextInfo_CopyMeshInfoVertexData_mF66E2F8821470E68D95FEB53D456CFA86241C0CA(L_9, NULL);
 		__this->___U3CcachedMeshInfoVertexDataU3E5__3 = L_10;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CcachedMeshInfoVertexDataU3E5__3), (void*)L_10);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:67>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:67>
 		U3CU3Ec__DisplayClass10_0_t62C0E1CEED92DDFC3DD4C58EC8806FC7D82A7FB7* L_11 = __this->___U3CU3E8__1;
 		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_12 = (List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918*)il2cpp_codegen_object_new(List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918_il2cpp_TypeInfo_var);
 		List_1__ctor_mC29D3D824786832A31096310B3B3016B8B42B802(L_12, List_1__ctor_mC29D3D824786832A31096310B3B3016B8B42B802_RuntimeMethod_var);
 		NullCheck(L_11);
 		L_11->___modifiedCharScale = L_12;
 		Il2CppCodeGenWriteBarrier((void**)(&L_11->___modifiedCharScale), (void*)L_12);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:68>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:68>
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_13 = (List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73*)il2cpp_codegen_object_new(List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73_il2cpp_TypeInfo_var);
 		List_1__ctor_m17F501B5A5C289ECE1B4F3D6EBF05DFA421433F8(L_13, List_1__ctor_m17F501B5A5C289ECE1B4F3D6EBF05DFA421433F8_RuntimeMethod_var);
 		__this->___U3CscaleSortingOrderU3E5__4 = L_13;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CscaleSortingOrderU3E5__4), (void*)L_13);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:70>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:70>
 		VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* L_14 = V_1;
 		NullCheck(L_14);
 		L_14->___hasTextChanged = (bool)1;
@@ -8139,7 +8473,7 @@ IL_0022:
 
 IL_0085:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:75>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:75>
 		VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* L_15 = V_1;
 		NullCheck(L_15);
 		bool L_16 = L_15->___hasTextChanged;
@@ -8149,14 +8483,14 @@ IL_0085:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:78>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:78>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_17 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_17);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_18;
 		L_18 = TMP_TextInfo_CopyMeshInfoVertexData_mF66E2F8821470E68D95FEB53D456CFA86241C0CA(L_17, NULL);
 		__this->___U3CcachedMeshInfoVertexDataU3E5__3 = L_18;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CcachedMeshInfoVertexDataU3E5__3), (void*)L_18);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:80>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:80>
 		VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* L_19 = V_1;
 		NullCheck(L_19);
 		L_19->___hasTextChanged = (bool)0;
@@ -8164,12 +8498,12 @@ IL_0085:
 
 IL_00a5:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:83>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:83>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_20 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_20);
 		int32_t L_21 = L_20->___characterCount;
 		V_3 = L_21;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:86>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:86>
 		int32_t L_22 = V_3;
 		if (L_22)
 		{
@@ -8177,7 +8511,7 @@ IL_00a5:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:88>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:88>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_23 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_23, (0.25f), NULL);
 		__this->___U3CU3E2__current = L_23;
@@ -8189,30 +8523,30 @@ IL_00a5:
 IL_00cd:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:89>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:89>
 		goto IL_0085;
 	}
 
 IL_00d6:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:93>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:93>
 		U3CU3Ec__DisplayClass10_0_t62C0E1CEED92DDFC3DD4C58EC8806FC7D82A7FB7* L_24 = __this->___U3CU3E8__1;
 		NullCheck(L_24);
 		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_25 = L_24->___modifiedCharScale;
 		NullCheck(L_25);
 		List_1_Clear_m6CD2E5AAE6552A27AECCC57936767B4DCFC902B1_inline(L_25, List_1_Clear_m6CD2E5AAE6552A27AECCC57936767B4DCFC902B1_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:94>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:94>
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_26 = __this->___U3CscaleSortingOrderU3E5__4;
 		NullCheck(L_26);
 		List_1_Clear_mF6795DE5F49C1D0B91D6A0955F448B22970D67A9_inline(L_26, List_1_Clear_mF6795DE5F49C1D0B91D6A0955F448B22970D67A9_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:96>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:96>
 		V_4 = 0;
 		goto IL_045a;
 	}
 
 IL_00f9:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:98>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:98>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_27 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_27);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_28 = L_27->___characterInfo;
@@ -8220,7 +8554,7 @@ IL_00f9:
 		NullCheck(L_28);
 		int32_t L_30 = L_29;
 		TMP_CharacterInfo_t8B8FF32D6AACE251F2E7835AA5BC6608D535D9F8 L_31 = (L_28)->GetAt(static_cast<il2cpp_array_size_t>(L_30));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:101>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:101>
 		bool L_32 = L_31.___isVisible;
 		if (!L_32)
 		{
@@ -8228,7 +8562,7 @@ IL_00f9:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:105>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:105>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_33 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_33);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_34 = L_33->___characterInfo;
@@ -8236,7 +8570,7 @@ IL_00f9:
 		NullCheck(L_34);
 		int32_t L_36 = ((L_34)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_35)))->___materialReferenceIndex;
 		V_5 = L_36;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:108>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:108>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_37 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_37);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_38 = L_37->___characterInfo;
@@ -8244,13 +8578,13 @@ IL_00f9:
 		NullCheck(L_38);
 		int32_t L_40 = ((L_38)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_39)))->___vertexIndex;
 		V_6 = L_40;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:111>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:111>
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_41 = __this->___U3CcachedMeshInfoVertexDataU3E5__3;
 		int32_t L_42 = V_5;
 		NullCheck(L_41);
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_43 = ((L_41)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_42)))->___vertices;
 		V_7 = L_43;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:116>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:116>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_44 = V_7;
 		int32_t L_45 = V_6;
 		NullCheck(L_44);
@@ -8267,11 +8601,11 @@ IL_00f9:
 		L_53 = Vector3_op_Division_mCC6BB24E372AB96B8380D1678446EF6A8BAE13BB_inline(L_52, (2.0f), NULL);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_54;
 		L_54 = Vector2_op_Implicit_mE8EBEE9291F11BB02F062D6E000F4798968CBD96_inline(L_53, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:120>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:120>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_55;
 		L_55 = Vector2_op_Implicit_m6D9CABB2C791A192867D7A4559D132BE86DD3EB7_inline(L_54, NULL);
 		V_8 = L_55;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:122>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:122>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_56 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_56);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_57 = L_56->___meshInfo;
@@ -8279,7 +8613,7 @@ IL_00f9:
 		NullCheck(L_57);
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_59 = ((L_57)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_58)))->___vertices;
 		V_9 = L_59;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:124>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:124>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_60 = V_9;
 		int32_t L_61 = V_6;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_62 = V_7;
@@ -8292,7 +8626,7 @@ IL_00f9:
 		L_67 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_65, L_66, NULL);
 		NullCheck(L_60);
 		(L_60)->SetAt(static_cast<il2cpp_array_size_t>(L_61), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_67);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:125>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:125>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_68 = V_9;
 		int32_t L_69 = V_6;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_70 = V_7;
@@ -8305,7 +8639,7 @@ IL_00f9:
 		L_75 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_73, L_74, NULL);
 		NullCheck(L_68);
 		(L_68)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_69, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_75);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:126>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:126>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_76 = V_9;
 		int32_t L_77 = V_6;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_78 = V_7;
@@ -8318,7 +8652,7 @@ IL_00f9:
 		L_83 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_81, L_82, NULL);
 		NullCheck(L_76);
 		(L_76)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_77, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_83);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:127>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:127>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_84 = V_9;
 		int32_t L_85 = V_6;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_86 = V_7;
@@ -8331,18 +8665,18 @@ IL_00f9:
 		L_91 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_89, L_90, NULL);
 		NullCheck(L_84);
 		(L_84)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_85, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_91);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:132>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:132>
 		float L_92;
 		L_92 = Random_Range_m5236C99A7D8AE6AC9190592DC66016652A2D2494((1.0f), (1.5f), NULL);
 		V_10 = L_92;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:135>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:135>
 		U3CU3Ec__DisplayClass10_0_t62C0E1CEED92DDFC3DD4C58EC8806FC7D82A7FB7* L_93 = __this->___U3CU3E8__1;
 		NullCheck(L_93);
 		List_1_t0D1C46FD8DDDE974D93CA4F3474EEC05AF950918* L_94 = L_93->___modifiedCharScale;
 		float L_95 = V_10;
 		NullCheck(L_94);
 		List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_inline(L_94, L_95, List_1_Add_m2F86E252D086E288E02FA1C830B7E86C0A431E51_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:136>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:136>
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_96 = __this->___U3CscaleSortingOrderU3E5__4;
 		U3CU3Ec__DisplayClass10_0_t62C0E1CEED92DDFC3DD4C58EC8806FC7D82A7FB7* L_97 = __this->___U3CU3E8__1;
 		NullCheck(L_97);
@@ -8352,7 +8686,7 @@ IL_00f9:
 		L_99 = List_1_get_Count_m545762F67009314D9C63DD209B42FFF950569B05_inline(L_98, List_1_get_Count_m545762F67009314D9C63DD209B42FFF950569B05_RuntimeMethod_var);
 		NullCheck(L_96);
 		List_1_Add_m0248A96C5334E9A93E6994B7780478BCD994EA3D_inline(L_96, ((int32_t)il2cpp_codegen_subtract(L_99, 1)), List_1_Add_m0248A96C5334E9A93E6994B7780478BCD994EA3D_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:140>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:140>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_100;
 		memset((&L_100), 0, sizeof(L_100));
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_100), (0.0f), (0.0f), (0.0f), NULL);
@@ -8366,7 +8700,7 @@ IL_00f9:
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_105;
 		L_105 = Matrix4x4_TRS_mCC04FD47347234B451ACC6CCD2CE6D02E1E0E1E3_inline(L_100, L_101, L_104, NULL);
 		V_2 = L_105;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:142>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:142>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_106 = V_9;
 		int32_t L_107 = V_6;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_108 = V_9;
@@ -8378,7 +8712,7 @@ IL_00f9:
 		L_112 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_111, NULL);
 		NullCheck(L_106);
 		(L_106)->SetAt(static_cast<il2cpp_array_size_t>(L_107), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_112);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:143>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:143>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_113 = V_9;
 		int32_t L_114 = V_6;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_115 = V_9;
@@ -8390,7 +8724,7 @@ IL_00f9:
 		L_119 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_118, NULL);
 		NullCheck(L_113);
 		(L_113)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_114, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_119);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:144>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:144>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_120 = V_9;
 		int32_t L_121 = V_6;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_122 = V_9;
@@ -8402,7 +8736,7 @@ IL_00f9:
 		L_126 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_125, NULL);
 		NullCheck(L_120);
 		(L_120)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_121, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_126);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:145>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:145>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_127 = V_9;
 		int32_t L_128 = V_6;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_129 = V_9;
@@ -8414,7 +8748,7 @@ IL_00f9:
 		L_133 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_2), L_132, NULL);
 		NullCheck(L_127);
 		(L_127)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_128, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_133);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:147>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:147>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_134 = V_9;
 		int32_t L_135 = V_6;
 		NullCheck(L_134);
@@ -8424,7 +8758,7 @@ IL_00f9:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_139;
 		L_139 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_137, L_138, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_136 = L_139;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:148>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:148>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_140 = V_9;
 		int32_t L_141 = V_6;
 		NullCheck(L_140);
@@ -8434,7 +8768,7 @@ IL_00f9:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_145;
 		L_145 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_143, L_144, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_142 = L_145;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:149>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:149>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_146 = V_9;
 		int32_t L_147 = V_6;
 		NullCheck(L_146);
@@ -8444,7 +8778,7 @@ IL_00f9:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_151;
 		L_151 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_149, L_150, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_148 = L_151;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:150>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:150>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_152 = V_9;
 		int32_t L_153 = V_6;
 		NullCheck(L_152);
@@ -8454,20 +8788,20 @@ IL_00f9:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_157;
 		L_157 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_155, L_156, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_154 = L_157;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:153>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:153>
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_158 = __this->___U3CcachedMeshInfoVertexDataU3E5__3;
 		int32_t L_159 = V_5;
 		NullCheck(L_158);
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_160 = ((L_158)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_159)))->___uvs0;
 		V_11 = L_160;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:154>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:154>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_161 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_161);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_162 = L_161->___meshInfo;
 		int32_t L_163 = V_5;
 		NullCheck(L_162);
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_164 = ((L_162)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_163)))->___uvs0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:156>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:156>
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_165 = L_164;
 		int32_t L_166 = V_6;
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_167 = V_11;
@@ -8477,7 +8811,7 @@ IL_00f9:
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_170 = (L_167)->GetAt(static_cast<il2cpp_array_size_t>(L_169));
 		NullCheck(L_165);
 		(L_165)->SetAt(static_cast<il2cpp_array_size_t>(L_166), (Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3)L_170);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:157>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:157>
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_171 = L_165;
 		int32_t L_172 = V_6;
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_173 = V_11;
@@ -8487,7 +8821,7 @@ IL_00f9:
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_176 = (L_173)->GetAt(static_cast<il2cpp_array_size_t>(L_175));
 		NullCheck(L_171);
 		(L_171)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_172, 1))), (Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3)L_176);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:158>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:158>
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_177 = L_171;
 		int32_t L_178 = V_6;
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_179 = V_11;
@@ -8497,7 +8831,7 @@ IL_00f9:
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_182 = (L_179)->GetAt(static_cast<il2cpp_array_size_t>(L_181));
 		NullCheck(L_177);
 		(L_177)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_178, 2))), (Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3)L_182);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:159>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:159>
 		int32_t L_183 = V_6;
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_184 = V_11;
 		int32_t L_185 = V_6;
@@ -8506,20 +8840,20 @@ IL_00f9:
 		Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3 L_187 = (L_184)->GetAt(static_cast<il2cpp_array_size_t>(L_186));
 		NullCheck(L_177);
 		(L_177)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_183, 3))), (Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3)L_187);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:162>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:162>
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_188 = __this->___U3CcachedMeshInfoVertexDataU3E5__3;
 		int32_t L_189 = V_5;
 		NullCheck(L_188);
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_190 = ((L_188)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_189)))->___colors32;
 		V_12 = L_190;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:163>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:163>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_191 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_191);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_192 = L_191->___meshInfo;
 		int32_t L_193 = V_5;
 		NullCheck(L_192);
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_194 = ((L_192)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_193)))->___colors32;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:165>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:165>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_195 = L_194;
 		int32_t L_196 = V_6;
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_197 = V_12;
@@ -8529,7 +8863,7 @@ IL_00f9:
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_200 = (L_197)->GetAt(static_cast<il2cpp_array_size_t>(L_199));
 		NullCheck(L_195);
 		(L_195)->SetAt(static_cast<il2cpp_array_size_t>(L_196), (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B)L_200);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:166>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:166>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_201 = L_195;
 		int32_t L_202 = V_6;
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_203 = V_12;
@@ -8539,7 +8873,7 @@ IL_00f9:
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_206 = (L_203)->GetAt(static_cast<il2cpp_array_size_t>(L_205));
 		NullCheck(L_201);
 		(L_201)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_202, 1))), (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B)L_206);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:167>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:167>
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_207 = L_201;
 		int32_t L_208 = V_6;
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_209 = V_12;
@@ -8549,7 +8883,7 @@ IL_00f9:
 		Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B L_212 = (L_209)->GetAt(static_cast<il2cpp_array_size_t>(L_211));
 		NullCheck(L_207);
 		(L_207)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_208, 2))), (Color32_t73C5004937BF5BB8AD55323D51AAA40A898EF48B)L_212);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:168>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:168>
 		int32_t L_213 = V_6;
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_214 = V_12;
 		int32_t L_215 = V_6;
@@ -8562,14 +8896,14 @@ IL_00f9:
 
 IL_0454:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:96>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:96>
 		int32_t L_218 = V_4;
 		V_4 = ((int32_t)il2cpp_codegen_add(L_218, 1));
 	}
 
 IL_045a:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:96>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:96>
 		int32_t L_219 = V_4;
 		int32_t L_220 = V_3;
 		if ((((int32_t)L_219) < ((int32_t)L_220)))
@@ -8578,14 +8912,14 @@ IL_045a:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:172>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:172>
 		V_13 = 0;
 		goto IL_0586;
 	}
 
 IL_046a:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:175>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:175>
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_221 = __this->___U3CscaleSortingOrderU3E5__4;
 		U3CU3Ec__DisplayClass10_0_t62C0E1CEED92DDFC3DD4C58EC8806FC7D82A7FB7* L_222 = __this->___U3CU3E8__1;
 		NullCheck(L_222);
@@ -8619,7 +8953,7 @@ IL_04a0:
 	{
 		NullCheck(G_B16_1);
 		List_1_Sort_m90CDC07AEBE737318A490F4C2BC6F2955443EDA4(G_B16_1, G_B16_0, List_1_Sort_m90CDC07AEBE737318A490F4C2BC6F2955443EDA4_RuntimeMethod_var);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:177>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:177>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_230 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_230);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_231 = L_230->___meshInfo;
@@ -8628,7 +8962,7 @@ IL_04a0:
 		List_1_t05915E9237850A58106982B7FE4BC5DA4E872E73* L_233 = __this->___U3CscaleSortingOrderU3E5__4;
 		il2cpp_codegen_runtime_class_init_inline(TMP_MeshInfo_t320C52212E9D672EBB5F5C18C3E0700AA33DD76B_il2cpp_TypeInfo_var);
 		TMP_MeshInfo_SortGeometry_m74ED0FE2065414A659EE9A9C809E1B0B4A8A7734(((L_231)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_232))), L_233, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:180>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:180>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_234 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_234);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_235 = L_234->___meshInfo;
@@ -8643,7 +8977,7 @@ IL_04a0:
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_241 = ((L_239)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_240)))->___vertices;
 		NullCheck(L_237);
 		Mesh_set_vertices_m5BB814D89E9ACA00DBF19F7D8E22CB73AC73FE5C(L_237, L_241, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:181>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:181>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_242 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_242);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_243 = L_242->___meshInfo;
@@ -8658,7 +8992,7 @@ IL_04a0:
 		Vector4U5BU5D_tC0F3A7115F85007510F6D173968200CD31BCF7AD* L_249 = ((L_247)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_248)))->___uvs0;
 		NullCheck(L_245);
 		Mesh_SetUVs_mDFA98E5557AB6585FE0F8AB5C9286D1C69A53324(L_245, 0, L_249, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:182>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:182>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_250 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_250);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_251 = L_250->___meshInfo;
@@ -8673,7 +9007,7 @@ IL_04a0:
 		Color32U5BU5D_t38116C3E91765C4C5726CE12C77FAD7F9F737259* L_257 = ((L_255)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_256)))->___colors32;
 		NullCheck(L_253);
 		Mesh_set_colors32_m0E4462B7A1D613E6FB15DD7584BCE5491C17820F(L_253, L_257, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:184>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:184>
 		VertexZoom_t51F05EB153497034D27896F07590D790A73981A6* L_258 = V_1;
 		NullCheck(L_258);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_259 = L_258->___m_TextComponent;
@@ -8686,14 +9020,14 @@ IL_04a0:
 		int32_t L_264 = V_13;
 		NullCheck(L_259);
 		VirtualActionInvoker2< Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4*, int32_t >::Invoke(107, L_259, L_263, L_264);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:172>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:172>
 		int32_t L_265 = V_13;
 		V_13 = ((int32_t)il2cpp_codegen_add(L_265, 1));
 	}
 
 IL_0586:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:172>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:172>
 		int32_t L_266 = V_13;
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_267 = __this->___U3CtextInfoU3E5__2;
 		NullCheck(L_267);
@@ -8705,7 +9039,7 @@ IL_0586:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:187>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:187>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_269 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_269, (0.100000001f), NULL);
 		__this->___U3CU3E2__current = L_269;
@@ -8717,11 +9051,11 @@ IL_0586:
 IL_05b3:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:72>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs:72>
 		goto IL_0085;
 	}
 }
-// Method Definition Index: 91593
+// Method Definition Index: 91597
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__10_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m110CD16E89E725B1484D24FFB1753768F78A988B (U3CAnimateVertexColorsU3Ed__10_t2EB585545BBB614E711BE1D5C7BF139053486123* __this, const RuntimeMethod* method) 
 {
 	{
@@ -8729,7 +9063,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__10
 		return L_0;
 	}
 }
-// Method Definition Index: 91594
+// Method Definition Index: 91598
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10_System_Collections_IEnumerator_Reset_mDE5E71C88F5096FD70EB061287ADF0B847732821 (U3CAnimateVertexColorsU3Ed__10_t2EB585545BBB614E711BE1D5C7BF139053486123* __this, const RuntimeMethod* method) 
 {
 	{
@@ -8738,7 +9072,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CAnimateVertexColorsU3Ed__10_System_Co
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CAnimateVertexColorsU3Ed__10_System_Collections_IEnumerator_Reset_mDE5E71C88F5096FD70EB061287ADF0B847732821_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91595
+// Method Definition Index: 91599
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__10_System_Collections_IEnumerator_get_Current_m14B89756695EE73AEBB6F3A613F65E1343A8CC2C (U3CAnimateVertexColorsU3Ed__10_t2EB585545BBB614E711BE1D5C7BF139053486123* __this, const RuntimeMethod* method) 
 {
 	{
@@ -8754,7 +9088,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CAnimateVertexColorsU3Ed__10
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91596
+// Method Definition Index: 91600
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WarpTextExample_Awake_m92842E51B4DBB2E4341ACB179468049FAB23949F (WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -8764,7 +9098,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WarpTextExample_Awake_m92842E51B4DBB2E43
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:20>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:20>
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_0;
 		L_0 = Component_get_gameObject_m57AEFBB14DB39EC476F740BA000E170355DE691B(__this, NULL);
 		NullCheck(L_0);
@@ -8772,24 +9106,24 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WarpTextExample_Awake_m92842E51B4DBB2E43
 		L_1 = GameObject_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_mA59A63181077B821132B53D44724D7F86C6FECB3(L_0, GameObject_GetComponent_TisTMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9_mA59A63181077B821132B53D44724D7F86C6FECB3_RuntimeMethod_var);
 		__this->___m_TextComponent = L_1;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_TextComponent), (void*)L_1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:21>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:21>
 		return;
 	}
 }
-// Method Definition Index: 91597
+// Method Definition Index: 91601
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WarpTextExample_Start_m3339EDC03B6FC498916520CBCCDB5F9FA090F809 (WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* __this, const RuntimeMethod* method) 
 {
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:26>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:26>
 		RuntimeObject* L_0;
 		L_0 = WarpTextExample_WarpText_mBE4B6E5B6D8AAE9340CD59B1FA9DFE9A34665E98(__this, NULL);
 		Coroutine_t85EA685566A254C23F3FD77AB5BDFFFF8799596B* L_1;
 		L_1 = MonoBehaviour_StartCoroutine_m4CAFF732AA28CD3BDC5363B44A863575530EC812(__this, L_0, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:27>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:27>
 		return;
 	}
 }
-// Method Definition Index: 91598
+// Method Definition Index: 91602
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* WarpTextExample_CopyAnimationCurve_m65A93388CC2CF58CD2E08CC8EF682A2C97C558FF (WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* __this, AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* ___0_curve, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -8799,10 +9133,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD9991
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:32>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:32>
 		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_0 = (AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*)il2cpp_codegen_object_new(AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_il2cpp_TypeInfo_var);
 		AnimationCurve__ctor_m0D976567166F92383307DC8EB8D7082CD34E226F(L_0, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:34>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:34>
 		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_1 = L_0;
 		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_2 = ___0_curve;
 		NullCheck(L_2);
@@ -8810,11 +9144,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD9991
 		L_3 = AnimationCurve_get_keys_m34452C69464AB459C04BFFEA4F541F06B419AC4E(L_2, NULL);
 		NullCheck(L_1);
 		AnimationCurve_set_keys_mBE1284B44CDBB1D8381177A3D581A6E71467F95C(L_1, L_3, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:36>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:36>
 		return L_1;
 	}
 }
-// Method Definition Index: 91599
+// Method Definition Index: 91603
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WarpTextExample_WarpText_mBE4B6E5B6D8AAE9340CD59B1FA9DFE9A34665E98 (WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -8833,7 +9167,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* WarpTextExample_WarpText_mBE4B
 		return L_1;
 	}
 }
-// Method Definition Index: 91600
+// Method Definition Index: 91604
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WarpTextExample__ctor_mBD48A5403123F25C45B5E60C19E1EA397FBA1795 (WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -8844,7 +9178,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WarpTextExample__ctor_mBD48A5403123F25C4
 		s_Il2CppMethodInitialized = true;
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:13>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:13>
 		KeyframeU5BU5D_t63250A46914A6A07B2A6689850D47D7D19D80BA3* L_0 = (KeyframeU5BU5D_t63250A46914A6A07B2A6689850D47D7D19D80BA3*)(KeyframeU5BU5D_t63250A46914A6A07B2A6689850D47D7D19D80BA3*)SZArrayNew(KeyframeU5BU5D_t63250A46914A6A07B2A6689850D47D7D19D80BA3_il2cpp_TypeInfo_var, (uint32_t)5);
 		KeyframeU5BU5D_t63250A46914A6A07B2A6689850D47D7D19D80BA3* L_1 = L_0;
 		Keyframe_tB9C67DCBFE10C0AE9C52CB5C66E944255C9254F0 L_2;
@@ -8880,11 +9214,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WarpTextExample__ctor_mBD48A5403123F25C4
 		AnimationCurve__ctor_mEABC98C03805713354D61E50D9340766BD5B717E(L_11, L_9, NULL);
 		__this->___VertexCurve = L_11;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___VertexCurve), (void*)L_11);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:14>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:14>
 		__this->___AngleMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:15>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:15>
 		__this->___SpeedMultiplier = (1.0f);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:16>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:16>
 		__this->___CurveScale = (1.0f);
 		MonoBehaviour__ctor_m592DB0105CA0BC97AA1C5F4AD27B12D68A3B7C1E(__this, NULL);
 		return;
@@ -8898,7 +9232,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WarpTextExample__ctor_mBD48A5403123F25C4
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 91601
+// Method Definition Index: 91605
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWarpTextU3Ed__8__ctor_m1943C34BBEAF121203BA8C5D725E991283A4A3BB (U3CWarpTextU3Ed__8_tF1A14DF86D48AE9144155D4BF8E31E63471F358E* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -8908,14 +9242,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWarpTextU3Ed__8__ctor_m1943C34BBEAF12
 		return;
 	}
 }
-// Method Definition Index: 91602
+// Method Definition Index: 91606
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWarpTextU3Ed__8_System_IDisposable_Dispose_m145D2DA1026419984AD79D5D62FBC38C9441AB53 (U3CWarpTextU3Ed__8_tF1A14DF86D48AE9144155D4BF8E31E63471F358E* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 91603
+// Method Definition Index: 91607
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CWarpTextU3Ed__8_MoveNext_mCE7A826C5E4854C2C509C77BD18F5A9B6D691B02 (U3CWarpTextU3Ed__8_tF1A14DF86D48AE9144155D4BF8E31E63471F358E* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -8978,37 +9312,37 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CWarpTextU3Ed__8_MoveNext_mCE7A826C5E4
 IL_0022:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:47>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:47>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_3 = V_1;
 		NullCheck(L_3);
 		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_4 = L_3->___VertexCurve;
 		NullCheck(L_4);
 		AnimationCurve_set_preWrapMode_mA618E67F536483FA5F3507A2D97C045E089D1B2D(L_4, 1, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:48>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:48>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_5 = V_1;
 		NullCheck(L_5);
 		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_6 = L_5->___VertexCurve;
 		NullCheck(L_6);
 		AnimationCurve_set_postWrapMode_m39A4758ABD5D2AEE475940829352792FE7E9CBA9(L_6, 1, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:55>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:55>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_7 = V_1;
 		NullCheck(L_7);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_8 = L_7->___m_TextComponent;
 		NullCheck(L_8);
 		TMP_Text_set_havePropertiesChanged_mA38D7BC9E260BF29450738B827F2220A05662B31(L_8, (bool)1, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:56>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:56>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_9 = V_1;
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_10 = V_1;
 		NullCheck(L_10);
 		float L_11 = L_10->___CurveScale;
 		NullCheck(L_9);
 		L_9->___CurveScale = ((float)il2cpp_codegen_multiply(L_11, (10.0f)));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:57>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:57>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_12 = V_1;
 		NullCheck(L_12);
 		float L_13 = L_12->___CurveScale;
 		__this->___U3Cold_CurveScaleU3E5__2 = L_13;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:58>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:58>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_14 = V_1;
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_15 = V_1;
 		NullCheck(L_15);
@@ -9022,7 +9356,7 @@ IL_0022:
 
 IL_007d:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:62>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:62>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_18 = V_1;
 		NullCheck(L_18);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_19 = L_18->___m_TextComponent;
@@ -9067,7 +9401,7 @@ IL_007d:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:64>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:64>
 		__this->___U3CU3E2__current = NULL;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3CU3E2__current), (void*)NULL);
 		__this->___U3CU3E1__state = 1;
@@ -9077,18 +9411,18 @@ IL_007d:
 IL_00d6:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:65>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:65>
 		goto IL_007d;
 	}
 
 IL_00df:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:68>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:68>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_31 = V_1;
 		NullCheck(L_31);
 		float L_32 = L_31->___CurveScale;
 		__this->___U3Cold_CurveScaleU3E5__2 = L_32;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:69>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:69>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_33 = V_1;
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_34 = V_1;
 		NullCheck(L_34);
@@ -9098,13 +9432,13 @@ IL_00df:
 		L_36 = WarpTextExample_CopyAnimationCurve_m65A93388CC2CF58CD2E08CC8EF682A2C97C558FF(L_33, L_35, NULL);
 		__this->___U3Cold_curveU3E5__3 = L_36;
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___U3Cold_curveU3E5__3), (void*)L_36);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:71>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:71>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_37 = V_1;
 		NullCheck(L_37);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_38 = L_37->___m_TextComponent;
 		NullCheck(L_38);
 		VirtualActionInvoker2< bool, bool >::Invoke(106, L_38, (bool)0, (bool)0);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:73>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:73>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_39 = V_1;
 		NullCheck(L_39);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_40 = L_39->___m_TextComponent;
@@ -9112,12 +9446,12 @@ IL_00df:
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_41;
 		L_41 = TMP_Text_get_textInfo_mA24C606B8EA51436E4AA3B9D6DCDFA7A8995E10E(L_40, NULL);
 		V_4 = L_41;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:74>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:74>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_42 = V_4;
 		NullCheck(L_42);
 		int32_t L_43 = L_42->___characterCount;
 		V_5 = L_43;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:77>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:77>
 		int32_t L_44 = V_5;
 		if (!L_44)
 		{
@@ -9125,7 +9459,7 @@ IL_00df:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:82>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:82>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_45 = V_1;
 		NullCheck(L_45);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_46 = L_45->___m_TextComponent;
@@ -9137,7 +9471,7 @@ IL_00df:
 		L_48 = Bounds_get_min_m465AC9BBE1DE5D8E8AD95AC19B9899068FEEBB13_inline((&V_8), NULL);
 		float L_49 = L_48.___x;
 		V_6 = L_49;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:83>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:83>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_50 = V_1;
 		NullCheck(L_50);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_51 = L_50->___m_TextComponent;
@@ -9149,14 +9483,14 @@ IL_00df:
 		L_53 = Bounds_get_max_m6446F2AB97C1E57CA89467B9DE52D4EB61F1CB09_inline((&V_8), NULL);
 		float L_54 = L_53.___x;
 		V_7 = L_54;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:87>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:87>
 		V_9 = 0;
 		goto IL_0446;
 	}
 
 IL_0165:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:89>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:89>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_55 = V_4;
 		NullCheck(L_55);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_56 = L_55->___characterInfo;
@@ -9169,7 +9503,7 @@ IL_0165:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:92>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:92>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_59 = V_4;
 		NullCheck(L_59);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_60 = L_59->___characterInfo;
@@ -9177,7 +9511,7 @@ IL_0165:
 		NullCheck(L_60);
 		int32_t L_62 = ((L_60)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_61)))->___vertexIndex;
 		V_10 = L_62;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:95>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:95>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_63 = V_4;
 		NullCheck(L_63);
 		TMP_CharacterInfoU5BU5D_t297D56FCF66DAA99D8FEA7C30F9F3926902C5B99* L_64 = L_63->___characterInfo;
@@ -9185,7 +9519,7 @@ IL_0165:
 		NullCheck(L_64);
 		int32_t L_66 = ((L_64)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_65)))->___materialReferenceIndex;
 		V_11 = L_66;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:97>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:97>
 		TMP_TextInfo_t09A8E906329422C3F0C059876801DD695B8D524D* L_67 = V_4;
 		NullCheck(L_67);
 		TMP_MeshInfoU5BU5D_t3549EA3B9F542558E0DB1EDFAB98C612FE4231D7* L_68 = L_67->___meshInfo;
@@ -9193,7 +9527,7 @@ IL_0165:
 		NullCheck(L_68);
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_70 = ((L_68)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_69)))->___vertices;
 		V_2 = L_70;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:100>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:100>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_71 = V_2;
 		int32_t L_72 = V_10;
 		NullCheck(L_71);
@@ -9214,7 +9548,7 @@ IL_0165:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_82;
 		L_82 = Vector2_op_Implicit_m6D9CABB2C791A192867D7A4559D132BE86DD3EB7_inline(L_81, NULL);
 		V_12 = L_82;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:104>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:104>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_83 = V_2;
 		int32_t L_84 = V_10;
 		NullCheck(L_83);
@@ -9226,7 +9560,7 @@ IL_0165:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_89;
 		L_89 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_86, L_88, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_85 = L_89;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:105>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:105>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_90 = V_2;
 		int32_t L_91 = V_10;
 		NullCheck(L_90);
@@ -9238,7 +9572,7 @@ IL_0165:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_96;
 		L_96 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_93, L_95, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_92 = L_96;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:106>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:106>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_97 = V_2;
 		int32_t L_98 = V_10;
 		NullCheck(L_97);
@@ -9250,7 +9584,7 @@ IL_0165:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_103;
 		L_103 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_100, L_102, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_99 = L_103;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:107>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:107>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_104 = V_2;
 		int32_t L_105 = V_10;
 		NullCheck(L_104);
@@ -9262,17 +9596,17 @@ IL_0165:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_110;
 		L_110 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_107, L_109, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_106 = L_110;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:110>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:110>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_111 = V_12;
 		float L_112 = L_111.___x;
 		float L_113 = V_6;
 		float L_114 = V_7;
 		float L_115 = V_6;
 		V_13 = ((float)(((float)il2cpp_codegen_subtract(L_112, L_113))/((float)il2cpp_codegen_subtract(L_114, L_115))));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:111>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:111>
 		float L_116 = V_13;
 		V_14 = ((float)il2cpp_codegen_add(L_116, (9.99999975E-05f)));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:112>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:112>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_117 = V_1;
 		NullCheck(L_117);
 		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_118 = L_117->___VertexCurve;
@@ -9284,7 +9618,7 @@ IL_0165:
 		NullCheck(L_121);
 		float L_122 = L_121->___CurveScale;
 		V_15 = ((float)il2cpp_codegen_multiply(L_120, L_122));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:113>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:113>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_123 = V_1;
 		NullCheck(L_123);
 		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_124 = L_123->___VertexCurve;
@@ -9296,11 +9630,11 @@ IL_0165:
 		NullCheck(L_127);
 		float L_128 = L_127->___CurveScale;
 		V_16 = ((float)il2cpp_codegen_multiply(L_126, L_128));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:115>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:115>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_129;
 		memset((&L_129), 0, sizeof(L_129));
 		Vector3__ctor_m376936E6B999EF1ECBE57D990A386303E2283DE0_inline((&L_129), (1.0f), (0.0f), (0.0f), NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:117>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:117>
 		float L_130 = V_14;
 		float L_131 = V_7;
 		float L_132 = V_6;
@@ -9318,7 +9652,7 @@ IL_0165:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_140;
 		L_140 = Vector3_op_Subtraction_mE42023FF80067CB44A1D4A27EB7CF2B24CABB828_inline(L_135, L_139, NULL);
 		V_17 = L_140;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:119>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:119>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_141 = L_129;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_142;
 		L_142 = Vector3_get_normalized_m736BBF65D5CDA7A18414370D15B4DFCC1E466F07_inline((&V_17), NULL);
@@ -9327,11 +9661,11 @@ IL_0165:
 		float L_144;
 		L_144 = acosf(L_143);
 		V_18 = ((float)il2cpp_codegen_multiply(L_144, (57.2957802f)));
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:120>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:120>
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_145 = V_17;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_146;
 		L_146 = Vector3_Cross_mF93A280558BCE756D13B6CC5DCD7DE8A43148987_inline(L_141, L_145, NULL);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:121>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:121>
 		float L_147 = L_146.___z;
 		if ((((float)L_147) > ((float)(0.0f))))
 		{
@@ -9353,7 +9687,7 @@ IL_0339:
 IL_033b:
 	{
 		V_19 = G_B14_0;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:123>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:123>
 		float L_150 = V_15;
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_151;
 		memset((&L_151), 0, sizeof(L_151));
@@ -9366,7 +9700,7 @@ IL_033b:
 		Matrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6 L_155;
 		L_155 = Matrix4x4_TRS_mCC04FD47347234B451ACC6CCD2CE6D02E1E0E1E3_inline(L_151, L_153, L_154, NULL);
 		V_3 = L_155;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:125>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:125>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_156 = V_2;
 		int32_t L_157 = V_10;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_158 = V_2;
@@ -9378,7 +9712,7 @@ IL_033b:
 		L_162 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_3), L_161, NULL);
 		NullCheck(L_156);
 		(L_156)->SetAt(static_cast<il2cpp_array_size_t>(L_157), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_162);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:126>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:126>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_163 = V_2;
 		int32_t L_164 = V_10;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_165 = V_2;
@@ -9390,7 +9724,7 @@ IL_033b:
 		L_169 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_3), L_168, NULL);
 		NullCheck(L_163);
 		(L_163)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_164, 1))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_169);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:127>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:127>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_170 = V_2;
 		int32_t L_171 = V_10;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_172 = V_2;
@@ -9402,7 +9736,7 @@ IL_033b:
 		L_176 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_3), L_175, NULL);
 		NullCheck(L_170);
 		(L_170)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_171, 2))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_176);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:128>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:128>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_177 = V_2;
 		int32_t L_178 = V_10;
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_179 = V_2;
@@ -9414,7 +9748,7 @@ IL_033b:
 		L_183 = Matrix4x4_MultiplyPoint3x4_mACCBD70AFA82C63DA88555780B7B6B01281AB814_inline((&V_3), L_182, NULL);
 		NullCheck(L_177);
 		(L_177)->SetAt(static_cast<il2cpp_array_size_t>(((int32_t)il2cpp_codegen_add(L_178, 3))), (Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2)L_183);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:130>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:130>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_184 = V_2;
 		int32_t L_185 = V_10;
 		NullCheck(L_184);
@@ -9424,7 +9758,7 @@ IL_033b:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_189;
 		L_189 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_187, L_188, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_186 = L_189;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:131>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:131>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_190 = V_2;
 		int32_t L_191 = V_10;
 		NullCheck(L_190);
@@ -9434,7 +9768,7 @@ IL_033b:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_195;
 		L_195 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_193, L_194, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_192 = L_195;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:132>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:132>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_196 = V_2;
 		int32_t L_197 = V_10;
 		NullCheck(L_196);
@@ -9444,7 +9778,7 @@ IL_033b:
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_201;
 		L_201 = Vector3_op_Addition_m78C0EC70CB66E8DCAC225743D82B268DAEE92067_inline(L_199, L_200, NULL);
 		*(Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2*)L_198 = L_201;
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:133>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:133>
 		Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C* L_202 = V_2;
 		int32_t L_203 = V_10;
 		NullCheck(L_202);
@@ -9458,14 +9792,14 @@ IL_033b:
 
 IL_0440:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:87>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:87>
 		int32_t L_208 = V_9;
 		V_9 = ((int32_t)il2cpp_codegen_add(L_208, 1));
 	}
 
 IL_0446:
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:87>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:87>
 		int32_t L_209 = V_9;
 		int32_t L_210 = V_5;
 		if ((((int32_t)L_209) < ((int32_t)L_210)))
@@ -9474,13 +9808,13 @@ IL_0446:
 		}
 	}
 	{
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:138>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:138>
 		WarpTextExample_tB54C406E58B9D90FC49CD73B5FBF7FAFCCD3CD7E* L_211 = V_1;
 		NullCheck(L_211);
 		TMP_Text_tE8D677872D43AD4B2AAF0D6101692A17D0B251A9* L_212 = L_211->___m_TextComponent;
 		NullCheck(L_212);
 		VirtualActionInvoker0::Invoke(109, L_212);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:140>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:140>
 		WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* L_213 = (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3*)il2cpp_codegen_object_new(WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3_il2cpp_TypeInfo_var);
 		WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC(L_213, (0.0250000004f), NULL);
 		__this->___U3CU3E2__current = L_213;
@@ -9492,11 +9826,11 @@ IL_0446:
 IL_0473:
 	{
 		__this->___U3CU3E1__state = (-1);
-		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:60>
+		//<source_info:/Users/kavin/Development/GravityPainterPrototype/Assets/ThirdParty/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs:60>
 		goto IL_007d;
 	}
 }
-// Method Definition Index: 91604
+// Method Definition Index: 91608
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CWarpTextU3Ed__8_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mD80368E9B7E259311C03E406B75161ED6F7618E3 (U3CWarpTextU3Ed__8_tF1A14DF86D48AE9144155D4BF8E31E63471F358E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9504,7 +9838,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CWarpTextU3Ed__8_System_Coll
 		return L_0;
 	}
 }
-// Method Definition Index: 91605
+// Method Definition Index: 91609
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWarpTextU3Ed__8_System_Collections_IEnumerator_Reset_m07746C332D2D8CE5DEA59873C26F2FAD4B369B42 (U3CWarpTextU3Ed__8_tF1A14DF86D48AE9144155D4BF8E31E63471F358E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -9513,7 +9847,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CWarpTextU3Ed__8_System_Collections_IE
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CWarpTextU3Ed__8_System_Collections_IEnumerator_Reset_m07746C332D2D8CE5DEA59873C26F2FAD4B369B42_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 91606
+// Method Definition Index: 91610
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CWarpTextU3Ed__8_System_Collections_IEnumerator_get_Current_m71D7F84D9DEF63BEC6B44866515DDCF35B142A19 (U3CWarpTextU3Ed__8_tF1A14DF86D48AE9144155D4BF8E31E63471F358E* __this, const RuntimeMethod* method) 
 {
 	{

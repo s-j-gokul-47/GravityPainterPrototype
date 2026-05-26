@@ -35,6 +35,36 @@ public class TileZoneIndicator : MonoBehaviour
         return created;
     }
 
+    public void AlignStripsToTile(Transform tileRoot, Vector3 planarForward, Vector3 planarLeft, Vector3 planarRight)
+    {
+        if (tileRoot == null)
+        {
+            return;
+        }
+
+        const float edgeDistance = 0.42f;
+        const float stripHeight = 0.55f;
+
+        Vector3 localForward = tileRoot.InverseTransformDirection(planarForward.normalized) * edgeDistance;
+        Vector3 localLeft = tileRoot.InverseTransformDirection(planarLeft.normalized) * edgeDistance;
+        Vector3 localRight = tileRoot.InverseTransformDirection(planarRight.normalized) * edgeDistance;
+
+        if (forwardStrip != null)
+        {
+            forwardStrip.transform.localPosition = new Vector3(localForward.x, stripHeight, localForward.z);
+        }
+
+        if (leftStrip != null)
+        {
+            leftStrip.transform.localPosition = new Vector3(localLeft.x, stripHeight, localLeft.z);
+        }
+
+        if (rightStrip != null)
+        {
+            rightStrip.transform.localPosition = new Vector3(localRight.x, stripHeight, localRight.z);
+        }
+    }
+
     public void SetZone(ZoneType zone, Material redMat, Material blueMat, Material yellowMat)
     {
         SetStrip(forwardStrip, false, null);

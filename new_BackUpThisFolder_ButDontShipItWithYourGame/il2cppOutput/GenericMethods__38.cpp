@@ -14473,7 +14473,7 @@ IL_0064:
 		return L_12;
 	}
 }
-// Method Definition Index: 92884
+// Method Definition Index: 92888
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ServiceRegistry_GetService_TisIl2CppFullySharedGenericAny_m262D9EA35C9DA36E2A22AEA484A478616E8B04C6_gshared (ServiceRegistry_t3B9BF30406B8019544A9D08DEBDBA3425C92B1D6* __this, Il2CppFullySharedGenericAny* il2cppRetVal, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -14527,7 +14527,7 @@ IL_002a:
 		return;
 	}
 }
-// Method Definition Index: 92883
+// Method Definition Index: 92887
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ServiceRegistry_RegisterService_TisIl2CppFullySharedGenericAny_m0C038ED4BC3C1664AD8A5289EF4851F3B31DBEE4_gshared (ServiceRegistry_t3B9BF30406B8019544A9D08DEBDBA3425C92B1D6* __this, Il2CppFullySharedGenericAny ___0_service, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -29005,7 +29005,7 @@ IL_0038:
 		return L_11;
 	}
 }
-// Method Definition Index: 95167
+// Method Definition Index: 95173
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SubsystemDescriptorStore_RegisterDescriptor_TisRuntimeObject_TisRuntimeObject_mBDA60AD66ED0AB222060E8F6FB6A09E504B7AD0E_gshared (RuntimeObject* ___0_descriptor, List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* ___1_storeInList, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -29107,7 +29107,7 @@ IL_00a0:
 		return;
 	}
 }
-// Method Definition Index: 95167
+// Method Definition Index: 95173
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SubsystemDescriptorStore_RegisterDescriptor_TisIl2CppFullySharedGenericAny_TisIl2CppFullySharedGenericAny_m54CF4787564658EB36D548FCF6EC4B67BE3E6471_gshared (Il2CppFullySharedGenericAny ___0_descriptor, List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* ___1_storeInList, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -29219,7 +29219,7 @@ IL_00a0:
 		return;
 	}
 }
-// Method Definition Index: 95162
+// Method Definition Index: 95168
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SubsystemManager_AddSubsystemSubset_TisRuntimeObject_TisRuntimeObject_mE0A3F055C2BC001EC9DCA45BAFEE378F24D91C35_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* ___0_copyFrom, List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* ___1_copyTo, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -29319,7 +29319,7 @@ IL_005d:
 		return;
 	}
 }
-// Method Definition Index: 95162
+// Method Definition Index: 95168
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SubsystemManager_AddSubsystemSubset_TisIl2CppFullySharedGenericAny_TisIl2CppFullySharedGenericAny_mBB785EC5DC9F588641388CCA88A69D071D65DD0E_gshared (List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* ___0_copyFrom, List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* ___1_copyTo, const RuntimeMethod* method) 
 {
 	il2cpp_rgctx_method_init(method);
@@ -29432,7 +29432,7 @@ IL_005d:
 		return;
 	}
 }
-// Method Definition Index: 95161
+// Method Definition Index: 95167
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SubsystemManager_GetSubsystems_TisRuntimeObject_mB633541A66EAE1B89E7819DD3468958B65E38FD4_gshared (List_1_tA239CB83DE5615F348BB0507E45F490F4F7C9A8D* ___0_subsystems, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -29457,7 +29457,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SubsystemManager_GetSubsystems_TisRuntim
 		return;
 	}
 }
-// Method Definition Index: 95161
+// Method Definition Index: 95167
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SubsystemManager_GetSubsystems_TisIl2CppFullySharedGenericAny_mAC539612EF8F2CF81BC2B36B0A2CCF20FDC8840E_gshared (List_1_tDBA89B0E21BAC58CFBD3C1F76E4668E3B562761A* ___0_subsystems, const RuntimeMethod* method) 
 {
 	if (!il2cpp_rgctx_is_initialized(method))
@@ -31322,7 +31322,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR List_1_t2121653FB628940E808D105AD
 		return L_0;
 	}
 }
-// Method Definition Index: 92880
+// Method Definition Index: 92884
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Dictionary_2_tA75D1125AC9BE8F005BA9B868B373398E643C907* ServiceRegistry_get_ServiceTypeHashToInstance_m43D7C38487F32188AFBA41102852B8DA8F17B452_inline (ServiceRegistry_t3B9BF30406B8019544A9D08DEBDBA3425C92B1D6* __this, const RuntimeMethod* method) 
 {
 	{

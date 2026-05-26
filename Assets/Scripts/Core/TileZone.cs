@@ -109,25 +109,37 @@ public class TileZone : MonoBehaviour
     /// <summary>
     /// Sets the zone from where the player tapped on the tile surface:
     /// left third → left (blue), center third → forward (red), right third → right (yellow).
+    /// Tapping the same region again clears the tile (None).
     /// </summary>
     public void SetZoneFromWorldPoint(Vector3 worldPoint)
     {
-        ApplyZoneType(GetZoneFromTap(worldPoint));
+        ZoneType tapped = GetZoneFromTap(worldPoint);
+        TileZone primary = GetPrimaryZone(gameObject);
+        ZoneType current = primary != null ? primary.zoneType : zoneType;
+
+        if (tapped == current)
+        {
+            ApplyZoneType(ZoneType.None);
+        }
+        else
+        {
+            ApplyZoneType(tapped);
+        }
     }
 
     private ZoneType GetZoneFromTap(Vector3 worldPoint)
     {
-        if (!TryGetNormalizedTapX(worldPoint, out float normalizedX))
+        if (!TryGetNormalizedTapAlongWidth(worldPoint, out float normalizedAlongRight))
         {
             return ZoneType.Red;
         }
 
-        if (normalizedX < -sideRegionThreshold)
+        if (normalizedAlongRight < -sideRegionThreshold)
         {
             return ZoneType.Blue;
         }
 
-        if (normalizedX > sideRegionThreshold)
+        if (normalizedAlongRight > sideRegionThreshold)
         {
             return ZoneType.Yellow;
         }
@@ -146,47 +158,73 @@ public class TileZone : MonoBehaviour
     }
 
     /// <summary>
-    /// Maps a world-space hit on this tile to -1 (left edge) … +1 (right edge) along the tile width.
+    /// Maps a world hit to -1 (planar left edge) … +1 (planar right edge), using the same
+    /// left/right axes as <see cref="GetForceDirection"/> so tap zones match push direction at any Y rotation.
     /// </summary>
-    private bool TryGetNormalizedTapX(Vector3 worldPoint, out float normalizedX)
+    private bool TryGetNormalizedTapAlongWidth(Vector3 worldPoint, out float normalizedAlongRight)
     {
-        normalizedX = 0f;
+        normalizedAlongRight = 0f;
 
+        GetPlanarForwardLeftRight(out _, out _, out Vector3 planarRight);
+        if (planarRight.sqrMagnitude < 1e-8f)
+        {
+            return false;
+        }
+
+        Vector3 center = GetTapReferenceCenter();
+        Vector3 toHit = worldPoint - center;
+        toHit.y = 0f;
+
+        float halfWidth = GetHalfWidthAlongPlanarAxis(planarRight);
+        if (halfWidth < 1e-6f)
+        {
+            return false;
+        }
+
+        normalizedAlongRight = Vector3.Dot(toHit, planarRight) / halfWidth;
+        return true;
+    }
+
+    private Vector3 GetTapReferenceCenter()
+    {
         Collider col = GetComponent<Collider>();
         if (col == null)
         {
             col = GetComponentInChildren<Collider>();
         }
 
-        Vector3 localPoint = transform.InverseTransformPoint(worldPoint);
+        Vector3 center = col != null ? col.bounds.center : transform.position;
+        center.y = transform.position.y;
+        return center;
+    }
 
-        if (col is BoxCollider box)
+    private float GetHalfWidthAlongPlanarAxis(Vector3 planarAxis)
+    {
+        planarAxis.y = 0f;
+        if (planarAxis.sqrMagnitude < 1e-8f)
         {
-            float halfWidth = box.size.x * 0.5f;
-            if (halfWidth < 1e-6f)
-            {
-                return false;
-            }
-
-            normalizedX = (localPoint.x - box.center.x) / halfWidth;
-            return true;
+            return 0.5f;
         }
 
+        planarAxis.Normalize();
+
+        if (TryGetComponent(out BoxCollider box))
+        {
+            Vector3 extentX = transform.TransformVector(new Vector3(box.size.x * 0.5f, 0f, 0f));
+            Vector3 extentZ = transform.TransformVector(new Vector3(0f, 0f, box.size.z * 0.5f));
+            float halfWidth = Mathf.Abs(Vector3.Dot(extentX, planarAxis)) + Mathf.Abs(Vector3.Dot(extentZ, planarAxis));
+            return Mathf.Max(halfWidth, 1e-4f);
+        }
+
+        Collider col = GetComponent<Collider>() ?? GetComponentInChildren<Collider>();
         if (col != null)
         {
-            Vector3 localCenter = transform.InverseTransformPoint(col.bounds.center);
-            float halfWidth = col.bounds.extents.x / Mathf.Max(transform.lossyScale.x, 1e-6f);
-            if (halfWidth < 1e-6f)
-            {
-                return false;
-            }
-
-            normalizedX = (localPoint.x - localCenter.x) / halfWidth;
-            return true;
+            Vector3 extents = col.bounds.extents;
+            extents.y = 0f;
+            return Mathf.Max(Vector3.Dot(extents, planarAxis), 1e-4f);
         }
 
-        normalizedX = Mathf.Clamp(localPoint.x, -1f, 1f);
-        return true;
+        return 0.5f * Mathf.Max(transform.lossyScale.x, transform.lossyScale.z);
     }
 
     public void UpdateVisual()
@@ -206,6 +244,8 @@ public class TileZone : MonoBehaviour
                 zoneIndicator = TileZoneIndicator.Ensure(transform);
             }
 
+            GetPlanarForwardLeftRight(out Vector3 planarForward, out Vector3 planarLeft, out Vector3 planarRight);
+            zoneIndicator.AlignStripsToTile(transform, planarForward, planarLeft, planarRight);
             zoneIndicator.SetZone(zoneType, redMat, blueMat, yellowMat);
             return;
         }
@@ -365,11 +405,11 @@ public class TileZone : MonoBehaviour
             return;
         }
 
-        GetPlanarForwardLeftRight(out _, out Vector3 planarLeft, out Vector3 planarRight);
+        GetPlanarForwardLeftRight(out _, out _, out Vector3 planarRight);
         Vector3 surface = transform.position + Vector3.up * 0.12f;
-        float halfWidth = box.size.x * 0.5f;
         Vector3 widthAxis = planarRight.sqrMagnitude > 1e-8f ? planarRight : transform.right;
-        Vector3 center = transform.TransformPoint(box.center);
+        float halfWidth = GetHalfWidthAlongPlanarAxis(widthAxis);
+        Vector3 center = GetTapReferenceCenter();
         center.y = surface.y;
         float split = halfWidth * sideRegionThreshold;
 
