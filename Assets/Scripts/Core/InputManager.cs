@@ -56,7 +56,7 @@ public class InputManager : MonoBehaviour
             TileZone tile = TileZone.GetPrimaryZone(hitZone != null ? hitZone.gameObject : null);
             if (tile != null)
             {
-                tile.CycleZone();
+                tile.SetZoneFromWorldPoint(hits[i].point);
                 break;
             }
         }

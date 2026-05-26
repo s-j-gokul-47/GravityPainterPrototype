@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public static class SciFiPackMaterialFix
 {
-    private const string PackMaterialsFolder = "Assets/Sci Fi Modular Pack/Materials";
+    private const string PackMaterialsFolder = "Assets/ThirdParty/Sci Fi Modular Pack/Materials";
 
     [MenuItem("Gravity Painter/Fix Sci-Fi Pack Materials (URP Pink)")]
     public static void FixMaterials()

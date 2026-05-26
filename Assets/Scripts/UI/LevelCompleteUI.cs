@@ -10,9 +10,9 @@ public class LevelCompleteUI : MonoBehaviour
 {
     private const string ButtonsRootName = "ActionButtons";
     private const string TitleObjectName = "Text (TMP)";
-    private const string RestartResource = "LevelCompleteUI/restart";
-    private const string NextLevelResource = "LevelCompleteUI/nextlevel";
-    private const string HomeResource = "LevelCompleteUI/home";
+    private const string RestartResource = "UI/LevelCompleteUI/restart";
+    private const string NextLevelResource = "UI/LevelCompleteUI/nextlevel";
+    private const string HomeResource = "UI/LevelCompleteUI/home";
 
     [SerializeField] private int currentLevel;
     [SerializeField] private Sprite restartButtonSprite;

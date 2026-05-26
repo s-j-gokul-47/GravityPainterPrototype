@@ -6,20 +6,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Builds Assets/Prefabs/SciFiBallVisual.prefab from Sci-Fi Ball 3D Model.glb and wires it to Ball in levels.
+/// Builds Assets/Prefabs/Visuals/SciFiBallVisual.prefab from the GLB model and wires it to Ball in levels.
 /// Requires com.unity.cloud.gltfast so Unity can import .glb files.
 /// </summary>
 public static class ApplySciFiBall3DModel
 {
     private const string GlbFileName = "Sci-Fi Ball 3D Model.glb";
-    private const string GlbAssetPath = "Assets/" + GlbFileName;
-    private const string VisualPrefabPath = "Assets/Prefabs/SciFiBallVisual.prefab";
-    private const string ResourcesPrefabPath = "Assets/Resources/SciFiBallVisual.prefab";
+    private const string GlbAssetPath = "Assets/Art/Models/" + GlbFileName;
+    private const string VisualPrefabPath = "Assets/Prefabs/Visuals/SciFiBallVisual.prefab";
+    private const string ResourcesPrefabPath = "Assets/Resources/Prefabs/SciFiBallVisual.prefab";
 
     private static readonly string[] LevelScenePaths =
     {
-        "Assets/Scenes/Level 1.unity",
-        "Assets/Scenes/Level 2.unity",
+        "Assets/Scenes/Levels/Level 1.unity",
+        "Assets/Scenes/Levels/Level 2.unity",
+        "Assets/Scenes/Levels/Level 3.unity",
+        "Assets/Scenes/Levels/Level 4.unity",
+        "Assets/Scenes/Levels/Level 5.unity",
     };
 
     [MenuItem("Gravity Painter/Apply Sci-Fi Ball 3D Model (GLB) To Levels")]
@@ -132,8 +135,8 @@ public static class ApplySciFiBall3DModel
             glbRoot = LoadGlbRoot(glbPath);
         }
 
-        Directory.CreateDirectory("Assets/Prefabs");
-        Directory.CreateDirectory("Assets/Resources");
+        Directory.CreateDirectory("Assets/Prefabs/Visuals");
+        Directory.CreateDirectory("Assets/Resources/Prefabs");
 
         GameObject instance;
         if (glbRoot != null)

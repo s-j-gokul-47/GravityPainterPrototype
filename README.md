@@ -345,18 +345,35 @@ All input code uses:
 
 ```
 Assets/
+├── Art/
+│   ├── Icons/              App icon, marketing images
+│   ├── Materials/
+│   │   ├── Tiles/          RedZone, BlueZone, YellowZone, DefaultZone
+│   │   └── Environment/    PlanetLand, PlatformDeck, BoardColor
+│   ├── Models/             Sci-Fi Ball 3D Model.glb
+│   ├── Physics/            GroundPhysics.physicMaterial
+│   └── Sprites/UI/         Menu & HUD images
+├── Editor/                 Unity menu tools (Gravity Painter)
+├── Plugins/Android/        Gradle templates
 ├── Prefabs/
-│   └── Tile          (Tile prefab)
+│   ├── Gameplay/           Tile.prefab
+│   └── Visuals/            SciFiBallVisual.prefab
+├── Resources/
+│   ├── Prefabs/            Runtime-loaded ball visual
+│   └── UI/LevelCompleteUI/ Runtime-loaded button sprites
 ├── Scenes/
-│   └── SampleScene
-├── Materials/
-│   ├── RedZone
-│   ├── BlueZone
-│   ├── YellowZone
-│   └── DefaultZone
-├── TileZone.cs
-├── BallController.cs
-├── InputManager.cs
-└── GameManager.cs
+│   ├── Menus/              MainMenu.unity
+│   └── Levels/             Level 1–5.unity
+├── Scripts/
+│   ├── Core/               TileZone, BallController, InputManager
+│   ├── Gameplay/           GameManager, FinishLine, SurfaceController
+│   ├── Systems/            CameraFollow, LevelEnvironment, LevelProgress
+│   └── UI/                 MainMenu, LevelMenu, LevelComplete*
+├── Settings/               URP assets, Input System actions
+└── ThirdParty/             Asset Store packs (Sci-Fi, Skybox, TMP, etc.)
 ```
+
+**Swapping tile skins:** edit materials in `Art/Materials/Tiles/` and reassign on `Prefabs/Gameplay/Tile.prefab`.
+
+**Swapping ball model:** replace `Art/Models/Sci-Fi Ball 3D Model.glb`, then run menu **Gravity Painter → Apply Sci-Fi Ball 3D Model**.
 

@@ -27,7 +27,7 @@ public class BallController : MonoBehaviour
     [SerializeField] private bool useSciFiBallVisual = true;
     [SerializeField] private GameObject sciFiBallVisualPrefab;
     private const string SciFiVisualChildName = "SciFiBallVisual";
-    private const string DefaultVisualPrefabResource = "SciFiBallVisual";
+    private const string DefaultVisualPrefabResource = "Prefabs/SciFiBallVisual";
 
     private Rigidbody rb;
     private TileZone currentZone;

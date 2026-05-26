@@ -20,6 +20,9 @@ public class TileZone : MonoBehaviour
     [Tooltip("When Floor5Visual exists: keep floor texture and show colored edge strips for red/blue/yellow.")]
     [SerializeField] private bool useEdgeIndicatorsWithFloorMesh = true;
 
+    [Tooltip("Tap on the left/right third of the tile (along its width). Center third sets forward (red).")]
+    [SerializeField] [Range(0.2f, 0.45f)] private float sideRegionThreshold = 0.33f;
+
     private Renderer tileRenderer;
     private Renderer floorRenderer;
     private Material floorBaseMaterial;
@@ -103,38 +106,87 @@ public class TileZone : MonoBehaviour
         }
     }
 
-    public void CycleZone()
+    /// <summary>
+    /// Sets the zone from where the player tapped on the tile surface:
+    /// left third → left (blue), center third → forward (red), right third → right (yellow).
+    /// </summary>
+    public void SetZoneFromWorldPoint(Vector3 worldPoint)
+    {
+        ApplyZoneType(GetZoneFromTap(worldPoint));
+    }
+
+    private ZoneType GetZoneFromTap(Vector3 worldPoint)
+    {
+        if (!TryGetNormalizedTapX(worldPoint, out float normalizedX))
+        {
+            return ZoneType.Red;
+        }
+
+        if (normalizedX < -sideRegionThreshold)
+        {
+            return ZoneType.Blue;
+        }
+
+        if (normalizedX > sideRegionThreshold)
+        {
+            return ZoneType.Yellow;
+        }
+
+        return ZoneType.Red;
+    }
+
+    private void ApplyZoneType(ZoneType type)
     {
         TileZone[] zones = GetComponents<TileZone>();
-        TileZone primary = GetPrimaryZone(gameObject);
-        if (primary == null && zones.Length > 0)
-        {
-            primary = zones[0];
-        }
-
-        ZoneType t = primary != null ? primary.zoneType : zoneType;
-        if (t == ZoneType.None)
-        {
-            t = ZoneType.Red;
-        }
-        else if (t == ZoneType.Red)
-        {
-            t = ZoneType.Blue;
-        }
-        else if (t == ZoneType.Blue)
-        {
-            t = ZoneType.Yellow;
-        }
-        else
-        {
-            t = ZoneType.None;
-        }
-
         for (int i = 0; i < zones.Length; i++)
         {
-            zones[i].zoneType = t;
+            zones[i].zoneType = type;
             zones[i].UpdateVisual();
         }
+    }
+
+    /// <summary>
+    /// Maps a world-space hit on this tile to -1 (left edge) … +1 (right edge) along the tile width.
+    /// </summary>
+    private bool TryGetNormalizedTapX(Vector3 worldPoint, out float normalizedX)
+    {
+        normalizedX = 0f;
+
+        Collider col = GetComponent<Collider>();
+        if (col == null)
+        {
+            col = GetComponentInChildren<Collider>();
+        }
+
+        Vector3 localPoint = transform.InverseTransformPoint(worldPoint);
+
+        if (col is BoxCollider box)
+        {
+            float halfWidth = box.size.x * 0.5f;
+            if (halfWidth < 1e-6f)
+            {
+                return false;
+            }
+
+            normalizedX = (localPoint.x - box.center.x) / halfWidth;
+            return true;
+        }
+
+        if (col != null)
+        {
+            Vector3 localCenter = transform.InverseTransformPoint(col.bounds.center);
+            float halfWidth = col.bounds.extents.x / Mathf.Max(transform.lossyScale.x, 1e-6f);
+            if (halfWidth < 1e-6f)
+            {
+                return false;
+            }
+
+            normalizedX = (localPoint.x - localCenter.x) / halfWidth;
+            return true;
+        }
+
+        normalizedX = Mathf.Clamp(localPoint.x, -1f, 1f);
+        return true;
     }
 
     public void UpdateVisual()
@@ -301,5 +353,36 @@ public class TileZone : MonoBehaviour
         Gizmos.DrawLine(o, o + l * len);
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(o, o + r * len);
+
+        DrawTapRegionGizmos();
+    }
+
+    private void DrawTapRegionGizmos()
+    {
+        BoxCollider box = GetComponent<BoxCollider>();
+        if (box == null)
+        {
+            return;
+        }
+
+        GetPlanarForwardLeftRight(out _, out Vector3 planarLeft, out Vector3 planarRight);
+        Vector3 surface = transform.position + Vector3.up * 0.12f;
+        float halfWidth = box.size.x * 0.5f;
+        Vector3 widthAxis = planarRight.sqrMagnitude > 1e-8f ? planarRight : transform.right;
+        Vector3 center = transform.TransformPoint(box.center);
+        center.y = surface.y;
+        float split = halfWidth * sideRegionThreshold;
+
+        Vector3 leftEdge = center - widthAxis * halfWidth;
+        Vector3 rightEdge = center + widthAxis * halfWidth;
+        Vector3 leftSplit = center - widthAxis * split;
+        Vector3 rightSplit = center + widthAxis * split;
+
+        Gizmos.color = new Color(0.2f, 0.45f, 1f, 0.35f);
+        Gizmos.DrawLine(leftEdge, leftSplit);
+        Gizmos.color = new Color(1f, 0.25f, 0.25f, 0.35f);
+        Gizmos.DrawLine(leftSplit, rightSplit);
+        Gizmos.color = new Color(1f, 0.9f, 0.2f, 0.35f);
+        Gizmos.DrawLine(rightSplit, rightEdge);
     }
 }

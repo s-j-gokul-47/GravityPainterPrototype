@@ -7,8 +7,8 @@ using UnityEngine;
 /// </summary>
 public static class ApplyFloor5ToTilePrefab
 {
-    private const string TilePrefabPath = "Assets/Prefabs/Tile.prefab";
-    private const string Floor5PrefabPath = "Assets/Sci Fi Modular Pack/Prefabs/Floor5.prefab";
+    private const string TilePrefabPath = "Assets/Prefabs/Gameplay/Tile.prefab";
+    private const string Floor5PrefabPath = "Assets/ThirdParty/Sci Fi Modular Pack/Prefabs/Floor5.prefab";
     private const string VisualChildName = "Floor5Visual";
 
     /// <summary>Original Tile.prefab cube: scale (1, 0.1, 1) on a 1×1×1 mesh = 1 wide, 0.1 tall, 1 deep.</summary>
