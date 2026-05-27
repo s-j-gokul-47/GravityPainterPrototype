@@ -144,6 +144,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &43697805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -383,7 +384,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -433,6 +433,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &163105084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -542,6 +543,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &189873259 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -567,6 +569,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &192285288
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +712,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &229164349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -864,6 +868,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &260235792
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1287,7 +1292,7 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   m_Enabled: 1
-  serializedVersion: 13
+  serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
@@ -1339,7 +1344,7 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
-  m_ShapeRadius: 0
+  m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_LightUnit: 1
   m_LuxAtDistance: 1
@@ -1413,6 +1418,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &483068337 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -1438,6 +1444,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &486673242 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -1463,6 +1470,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &494670800 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -1488,6 +1496,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &511172439 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -1513,6 +1522,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &536281149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1603,6 +1613,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &547869868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -1628,6 +1639,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &553668209
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,6 +1952,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &595046686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2120,6 +2133,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &716161591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2210,6 +2224,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &754843509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,6 +2284,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &796554169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -2294,6 +2310,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &802887082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2403,6 +2420,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,6 +2495,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &851630870 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -2502,6 +2521,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &873493368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2614,6 +2634,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &924826649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2773,6 +2794,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &1048170057
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +2957,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1099696291
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3025,6 +3048,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &1129845757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3302,6 +3326,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &1288131827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3469,7 +3494,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -3520,6 +3544,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1304463017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3675,6 +3700,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1368341338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3784,6 +3810,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &1406636964
 GameObject:
   m_ObjectHideFlags: 0
@@ -3906,6 +3933,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1438191193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3996,6 +4024,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &1488878062 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -4021,6 +4050,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1491248239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4184,7 +4214,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -4256,6 +4285,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1601027345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4495,6 +4525,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &1650893462
 GameObject:
   m_ObjectHideFlags: 0
@@ -4595,6 +4626,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1692964301
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4834,6 +4866,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &1739043559
 GameObject:
   m_ObjectHideFlags: 0
@@ -4972,6 +5005,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1828994434
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5037,6 +5071,123 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 437401951}
   m_SourcePrefab: {fileID: 100100000, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
+--- !u!1001 &1842063341
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1595399841252565332, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_Name
+      value: Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646955520076181181, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046958146724793993, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9921326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046958146724793993, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046958146724793993, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5046958146724793993, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.12519175
+      objectReference: {fileID: 0}
+    - target: {fileID: 5068184044516548438, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: swingSpeed
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7933534
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.60876137
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -75
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5def8b827d04408584479a637fd51ca, type: 3}
 --- !u!1001 &1860520594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5230,6 +5381,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1904252962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5320,6 +5472,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1 &1976058623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -5345,6 +5498,7 @@ MonoBehaviour:
   yellowMat: {fileID: 2100000, guid: 97fb93dabb90d4c61bfb4d74b0b1cf2c, type: 2}
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 1
+  sideRegionThreshold: 0.33
 --- !u!1001 &1987986420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5960,3 +6114,4 @@ SceneRoots:
   - {fileID: 192285290}
   - {fileID: 96071187}
   - {fileID: 1739043563}
+  - {fileID: 1842063341}

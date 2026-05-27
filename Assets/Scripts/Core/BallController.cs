@@ -188,6 +188,26 @@ public class BallController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Called by obstacles (e.g. hammer) to knock the ball off the platform.
+    /// </summary>
+    public void KnockDown(Vector3 fromWorldPoint, float downwardSpeed, float outwardSpeed)
+    {
+        rb.WakeUp();
+
+        Vector3 velocity = rb.linearVelocity;
+        Vector3 away = transform.position - fromWorldPoint;
+        away.y = 0f;
+
+        if (away.sqrMagnitude > 0.0001f)
+        {
+            velocity += away.normalized * outwardSpeed;
+        }
+
+        velocity.y = Mathf.Min(velocity.y, -Mathf.Abs(downwardSpeed));
+        rb.linearVelocity = velocity;
+    }
+
     private void RestartCurrentLevel()
     {
         _restarting = true;
