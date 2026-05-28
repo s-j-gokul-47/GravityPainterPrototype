@@ -6,3 +6,10 @@ Builds/
 Logs/
 UserSettings/
 MemoryCaptures/
+
+# Build outputs (too large for GitHub)
+*.apk
+*.aab
+
+# Unity package installers — import locally, do not commit
+*.unitypackage

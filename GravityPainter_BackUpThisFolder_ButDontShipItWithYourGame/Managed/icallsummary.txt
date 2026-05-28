@@ -498,6 +498,8 @@ UnityEngine.CullingGroup::SetBoundingSpheres_Injected
 UnityEngine.CullingGroup::SetDistanceReferencePoint_InternalVector3_Injected
 UnityEngine.CullingGroup::set_targetCamera_Injected
 UnityEngine.Cursor::SetCursor_Injected
+UnityEngine.Cursor::set_lockState
+UnityEngine.Cursor::set_visible
 UnityEngine.Cursor::get_lockState
 UnityEngine.Debug::get_isDebugBuild
 UnityEngine.Debug::ExtractStackTraceNoAlloc_Injected
@@ -582,6 +584,7 @@ UnityEngine.GameObject::GetComponentsInternal_Injected
 UnityEngine.GameObject::get_activeInHierarchy_Injected
 UnityEngine.GameObject::get_activeSelf_Injected
 UnityEngine.GameObject::get_layer_Injected
+UnityEngine.GameObject::CreatePrimitive_Injected
 UnityEngine.GameObject::GetComponentInChildren_Injected
 UnityEngine.GameObject::GetComponentInParent_Injected
 UnityEngine.GameObject::GetComponent_Injected
@@ -1134,6 +1137,7 @@ UnityEngine.Renderer::get_sortingOrder_Injected
 UnityEngine.Renderer::GetMaterial_Injected
 UnityEngine.Renderer::GetSharedMaterial_Injected
 UnityEngine.Renderer::SetMaterial_Injected
+UnityEngine.Renderer::get_bounds_Injected
 UnityEngine.Renderer::set_allowGPUDrivenRendering_Injected
 UnityEngine.Renderer::set_enabled_Injected
 UnityEngine.Renderer::set_localBounds_Injected
@@ -1466,6 +1470,7 @@ UnityEngine.ScalableBufferManager::get_widthScaleFactor
 UnityEngine.ScalableBufferManager::ResizeBuffers
 UnityEngine.SceneManagement.Scene::GetBuildIndexInternal_Injected
 UnityEngine.SceneManagement.Scene::GetGUIDInternal_Injected
+UnityEngine.SceneManagement.Scene::GetNameInternal_Injected
 UnityEngine.SceneManagement.SceneManager::get_sceneCount
 UnityEngine.SceneManagement.SceneManager::GetActiveScene_Injected
 UnityEngine.SceneManagement.SceneManager::GetSceneAt_Injected
@@ -1495,6 +1500,7 @@ UnityEngine.Shader::get_keywordSpace_Injected
 UnityEngine.Shader::set_globalRenderPipeline_Injected
 UnityEngine.Skybox::get_material_Injected
 UnityEngine.SortingLayer::GetLayerValueFromID
+UnityEngine.SphereCollider::get_radius_Injected
 UnityEngine.Sprite::GetPacked_Injected
 UnityEngine.Sprite::GetPackingRotation_Injected
 UnityEngine.Sprite::GetSecondaryTextureCount_Injected
@@ -1734,6 +1740,7 @@ UnityEngine.Time::get_fixedUnscaledTime
 UnityEngine.Time::get_realtimeSinceStartup
 UnityEngine.Time::get_smoothDeltaTime
 UnityEngine.Time::get_time
+UnityEngine.Time::get_timeScale
 UnityEngine.Time::get_unscaledDeltaTime
 UnityEngine.Time::get_unscaledTime
 UnityEngine.Time::get_timeAsRational_Injected

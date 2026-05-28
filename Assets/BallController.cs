@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallController : MonoBehaviour
 {
@@ -14,15 +15,193 @@ public class BallController : MonoBehaviour
     [Tooltip("On red only: if the tile’s push opposes current horizontal motion, flip so the ball keeps going forward along travel (forgiving wrong-side placement).")]
     public bool redAlignWithMotion = true;
 
+    [Header("Fall restart")]
+    [Tooltip("Reload the current level when the ball falls below the platform.")]
+    [SerializeField] private bool restartOnFall = true;
+    [Tooltip("World Y below this = fell off (tiles are usually near Y = 0).")]
+    [SerializeField] private float fallYThreshold = -2f;
+    [Tooltip("Seconds after falling before the level reloads.")]
+    [SerializeField] private float fallRestartDelay = 5f;
+
+    [Header("Ball visual (GLB mesh)")]
+    [SerializeField] private bool useSciFiBallVisual = true;
+    [SerializeField] private GameObject sciFiBallVisualPrefab;
+    private const string SciFiVisualChildName = "SciFiBallVisual";
+    private const string DefaultVisualPrefabResource = "SciFiBallVisual";
+
     private Rigidbody rb;
     private TileZone currentZone;
     private float timeSinceLastZoneContact;
+    private bool _restarting;
+    private float _fallElapsed;
+
+    private void Awake()
+    {
+        if (!useSciFiBallVisual)
+        {
+            return;
+        }
+
+        if (sciFiBallVisualPrefab == null)
+        {
+            sciFiBallVisualPrefab = Resources.Load<GameObject>(DefaultVisualPrefabResource);
+        }
+
+        if (sciFiBallVisualPrefab != null)
+        {
+            EnsureSciFiBallVisual();
+        }
+    }
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.WakeUp();
         timeSinceLastZoneContact = 999f;
+    }
+
+    /// <summary>
+    /// Hides the Unity sphere mesh and parents the GLB visual, scaled to the SphereCollider diameter.
+    /// </summary>
+    public void EnsureSciFiBallVisual(bool replaceExisting = false)
+    {
+        if (sciFiBallVisualPrefab == null)
+        {
+            return;
+        }
+
+        Transform existing = transform.Find(SciFiVisualChildName);
+        if (existing != null)
+        {
+            if (!replaceExisting)
+            {
+                return;
+            }
+
+            if (Application.isPlaying)
+            {
+                Destroy(existing.gameObject);
+            }
+            else
+            {
+                DestroyImmediate(existing.gameObject);
+            }
+        }
+
+        MeshRenderer rootRenderer = GetComponent<MeshRenderer>();
+        if (rootRenderer != null)
+        {
+            rootRenderer.enabled = false;
+        }
+
+        GameObject visual = Instantiate(sciFiBallVisualPrefab, transform);
+        visual.name = SciFiVisualChildName;
+
+        foreach (Collider col in visual.GetComponentsInChildren<Collider>(true))
+        {
+            if (Application.isPlaying)
+            {
+                Destroy(col);
+            }
+            else
+            {
+                DestroyImmediate(col);
+            }
+        }
+
+        foreach (Rigidbody childBody in visual.GetComponentsInChildren<Rigidbody>(true))
+        {
+            if (Application.isPlaying)
+            {
+                Destroy(childBody);
+            }
+            else
+            {
+                DestroyImmediate(childBody);
+            }
+        }
+
+        FitVisualToSphereCollider(visual);
+    }
+
+    private void FitVisualToSphereCollider(GameObject visual)
+    {
+        visual.transform.localPosition = Vector3.zero;
+        visual.transform.localRotation = Quaternion.identity;
+        visual.transform.localScale = Vector3.one;
+
+        SphereCollider sphere = GetComponent<SphereCollider>();
+        float targetDiameter = 1f;
+        if (sphere != null)
+        {
+            float scale = Mathf.Max(
+                Mathf.Abs(transform.lossyScale.x),
+                Mathf.Abs(transform.lossyScale.y),
+                Mathf.Abs(transform.lossyScale.z));
+            targetDiameter = sphere.radius * 2f * scale;
+        }
+
+        Renderer[] renderers = visual.GetComponentsInChildren<Renderer>(true);
+        if (renderers.Length == 0)
+        {
+            return;
+        }
+
+        Bounds bounds = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            bounds.Encapsulate(renderers[i].bounds);
+        }
+
+        float maxExtent = Mathf.Max(bounds.size.x, bounds.size.y, bounds.size.z);
+        float uniformScale = targetDiameter / Mathf.Max(maxExtent, 0.0001f);
+        visual.transform.localScale = Vector3.one * uniformScale;
+
+        bounds = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            bounds.Encapsulate(renderers[i].bounds);
+        }
+
+        Vector3 centerOffsetLocal = transform.InverseTransformPoint(bounds.center);
+        visual.transform.localPosition -= centerOffsetLocal;
+    }
+
+    private void Update()
+    {
+        if (!restartOnFall || _restarting || Time.timeScale <= 0f)
+        {
+            return;
+        }
+
+        if (transform.position.y < fallYThreshold)
+        {
+            _fallElapsed += Time.deltaTime;
+            if (_fallElapsed >= fallRestartDelay)
+            {
+                RestartCurrentLevel();
+            }
+        }
+        else
+        {
+            _fallElapsed = 0f;
+        }
+    }
+
+    private void RestartCurrentLevel()
+    {
+        _restarting = true;
+        Time.timeScale = 1f;
+
+        Scene active = SceneManager.GetActiveScene();
+        if (active.buildIndex >= 0)
+        {
+            SceneManager.LoadScene(active.buildIndex);
+        }
+        else
+        {
+            SceneManager.LoadScene(active.name);
+        }
     }
 
     private void FixedUpdate()
