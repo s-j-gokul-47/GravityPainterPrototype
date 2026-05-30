@@ -187,15 +187,34 @@ public class TileZone : MonoBehaviour
 
     private Vector3 GetTapReferenceCenter()
     {
+        Transform floor = transform.Find("Floor5Visual");
+        if (floor != null)
+        {
+            Renderer floorRenderer = floor.GetComponentInChildren<Renderer>();
+            if (floorRenderer != null)
+            {
+                Vector3 center = floorRenderer.bounds.center;
+                center.y = transform.position.y;
+                return center;
+            }
+        }
+
+        if (TryGetComponent(out BoxCollider box))
+        {
+            Vector3 center = transform.TransformPoint(box.center);
+            center.y = transform.position.y;
+            return center;
+        }
+
         Collider col = GetComponent<Collider>();
         if (col == null)
         {
             col = GetComponentInChildren<Collider>();
         }
 
-        Vector3 center = col != null ? col.bounds.center : transform.position;
-        center.y = transform.position.y;
-        return center;
+        Vector3 fallback = col != null ? col.bounds.center : transform.position;
+        fallback.y = transform.position.y;
+        return fallback;
     }
 
     private float GetHalfWidthAlongPlanarAxis(Vector3 planarAxis)
@@ -229,6 +248,13 @@ public class TileZone : MonoBehaviour
 
     public void UpdateVisual()
     {
+        TileGlbVisual glbVisual = GetComponent<TileGlbVisual>();
+        if (glbVisual != null)
+        {
+            glbVisual.ApplyZoneVisual(zoneType);
+            return;
+        }
+
         ResolveRenderer();
         ResolveFloorVisual();
 
@@ -294,6 +320,14 @@ public class TileZone : MonoBehaviour
             default:
                 return Vector3.zero;
         }
+    }
+
+    /// <summary>
+    /// World-space tap/force basis on the XZ plane (same axes as <see cref="GetForceDirection"/>).
+    /// </summary>
+    public void GetPlanarBasis(out Vector3 planarForward, out Vector3 planarLeft, out Vector3 planarRight)
+    {
+        GetPlanarForwardLeftRight(out planarForward, out planarLeft, out planarRight);
     }
 
     /// <summary>
