@@ -189,6 +189,19 @@ public class BallController : MonoBehaviour
     }
 
     /// <summary>
+    /// Instant restart when the ball hits an active hazard (e.g. Korrath Beam laser gate).
+    /// </summary>
+    public void DestroyFromObstacle()
+    {
+        if (_restarting)
+        {
+            return;
+        }
+
+        RestartCurrentLevel();
+    }
+
+    /// <summary>
     /// Called by obstacles (e.g. hammer) to knock the ball off the platform.
     /// </summary>
     public void KnockDown(Vector3 fromWorldPoint, float downwardSpeed, float outwardSpeed)
