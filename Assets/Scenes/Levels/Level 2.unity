@@ -3776,7 +3776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5068184044516548438, guid: d5def8b827d04408584479a637fd51ca, type: 3}
       propertyPath: swingSpeed
-      value: -2
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 6483079668478805403, guid: d5def8b827d04408584479a637fd51ca, type: 3}
       propertyPath: m_LocalPosition.x
