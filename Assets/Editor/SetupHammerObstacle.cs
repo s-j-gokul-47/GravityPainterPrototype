@@ -142,7 +142,7 @@ public static class SetupHammerObstacle
         SerializedObject so = new SerializedObject(swing);
         so.FindProperty("pivot").objectReferenceValue = pivot.transform;
         so.FindProperty("swingAngle").floatValue = 55f;
-        so.FindProperty("swingSpeed").floatValue = 1.6f;
+        so.FindProperty("swingSpeed").floatValue = -2f;
         so.FindProperty("swingAxisLocal").vector3Value = Vector3.forward;
         so.ApplyModifiedPropertiesWithoutUndo();
 

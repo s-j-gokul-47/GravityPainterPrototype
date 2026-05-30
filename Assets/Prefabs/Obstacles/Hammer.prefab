@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SwingingHammer
   pivot: {fileID: 5046958146724793993}
   swingAngle: 55
-  swingSpeed: 1.6
+  swingSpeed: -2
   swingAxisLocal: {x: 0, y: 0, z: 1}
 --- !u!1 &8243883170018350950
 GameObject:
