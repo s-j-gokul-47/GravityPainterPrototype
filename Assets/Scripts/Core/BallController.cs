@@ -60,6 +60,26 @@ public class BallController : MonoBehaviour
         timeSinceLastZoneContact = 999f;
     }
 
+    /// <summary>Moves the ball to a spawn point and clears physics velocity.</summary>
+    public void PlaceAt(Vector3 worldPosition)
+    {
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
+
+        transform.position = worldPosition;
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.WakeUp();
+        }
+
+        _fallElapsed = 0f;
+        _restarting = false;
+    }
+
     /// <summary>
     /// Hides the Unity sphere mesh and parents the GLB visual, scaled to the SphereCollider diameter.
     /// </summary>

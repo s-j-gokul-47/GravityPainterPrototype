@@ -38,6 +38,13 @@ public class FinishLine : MonoBehaviour
         }
     }
 
+    /// <summary>Wire UI and pause behaviour after runtime placement.</summary>
+    public void Configure(GameObject completePanel, bool pause = true)
+    {
+        levelCompletePanel = completePanel;
+        pauseGame = pause;
+    }
+
     /// <summary>Wire this to a UI Button "Restart" or "Play again".</summary>
     public void RestartLevel()
     {

@@ -2,7 +2,6 @@ using UnityEngine;
 
 /// <summary>
 /// Designer-tunable parameters for procedural level generation.
-/// Prefab and layout references are wired in Step 2.
 /// </summary>
 [CreateAssetMenu(fileName = "LevelGenConfig", menuName = "Gravity Painter/Level Gen Config")]
 public class LevelGenConfig : ScriptableObject
@@ -20,17 +19,17 @@ public class LevelGenConfig : ScriptableObject
     [Tooltip("Maximum grid spread along the Z axis (centered on origin).")]
     public int gridDepth = 7;
 
-    [Tooltip("World-space spacing between tile centers (used in Step 2).")]
+    [Tooltip("World-space spacing between tile centers.")]
     public float tileSpacing = 1.05f;
 
-    [Header("Prefab References (wired in Step 2)")]
+    [Header("Prefab References")]
     [Tooltip("Tile prefab instantiated by the level builder.")]
     public GameObject tilePrefab;
 
-    [Tooltip("Finish line prefab placed on the last path tile.")]
+    [Tooltip("Optional finish-line prefab (FinishLine is added to the last tile if empty).")]
     public GameObject finishLinePrefab;
 
-    [Header("GLB Layout (wired in Step 2)")]
+    [Header("Visual Layout")]
     [Tooltip("Reference GLB layout applied to spawned tiles.")]
-    public Object glbLayout;
+    public TileGlbReferenceLayoutAsset glbLayout;
 }

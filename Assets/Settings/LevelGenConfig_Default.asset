@@ -19,4 +19,4 @@ MonoBehaviour:
   tileSpacing: 1.05
   tilePrefab: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
   finishLinePrefab: {fileID: 0}
-  glbLayout: {fileID: 0}
+  glbLayout: {fileID: 11400000, guid: 7c3e9a2b4d5f6789012345678abcdef0, type: 2}

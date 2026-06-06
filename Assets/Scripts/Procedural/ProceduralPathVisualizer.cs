@@ -41,12 +41,7 @@ public class ProceduralPathVisualizer : MonoBehaviour
         int spawned = 0;
         foreach (LevelCell cell in cells)
         {
-            Vector3 localPos = new Vector3(
-                cell.GridPos.x * config.tileSpacing,
-                0f,
-                cell.GridPos.y * config.tileSpacing);
-
-            GameObject tile = SpawnTile(localPos, Quaternion.Euler(0f, cell.YRotation, 0f), spawnParent);
+            GameObject tile = SpawnTile(cell, spawnParent);
             if (tile == null)
             {
                 continue;
@@ -94,7 +89,7 @@ public class ProceduralPathVisualizer : MonoBehaviour
         }
     }
 
-    private GameObject SpawnTile(Vector3 localPos, Quaternion localRot, Transform spawnParent)
+    private GameObject SpawnTile(LevelCell cell, Transform spawnParent)
     {
 #if UNITY_EDITOR
         if (!Application.isPlaying)
@@ -106,15 +101,13 @@ public class ProceduralPathVisualizer : MonoBehaviour
                 return null;
             }
 
-            tile.transform.localPosition = localPos;
-            tile.transform.localRotation = localRot;
+            ProceduralTilePlacement.ApplyGridTransform(tile.transform, cell, config);
             UnityEditor.Undo.RegisterCreatedObjectUndo(tile, "Generate Visual Path");
             return tile;
         }
 #endif
         GameObject runtimeTile = Instantiate(config.tilePrefab, spawnParent);
-        runtimeTile.transform.localPosition = localPos;
-        runtimeTile.transform.localRotation = localRot;
+        ProceduralTilePlacement.ApplyGridTransform(runtimeTile.transform, cell, config);
         return runtimeTile;
     }
 }

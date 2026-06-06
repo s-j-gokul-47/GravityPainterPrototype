@@ -49,12 +49,7 @@ public class TileGlbVisual : MonoBehaviour
     /// </summary>
     public void RefreshVisual()
     {
-        if (tilesMeshPrefab == null)
-        {
-            tilesMeshPrefab = Resources.Load<GameObject>(DefaultPrefabResourcePath);
-        }
-
-        if (tilesMeshPrefab == null)
+        if (!TryEnsureTilesMeshPrefab())
         {
             return;
         }
@@ -249,6 +244,11 @@ public class TileGlbVisual : MonoBehaviour
 
     private void EnsureVisualHierarchy()
     {
+        if (!TryEnsureTilesMeshPrefab())
+        {
+            return;
+        }
+
         if (visualRoot == null)
         {
             Transform existing = transform.Find(VisualRootName);
@@ -275,13 +275,23 @@ public class TileGlbVisual : MonoBehaviour
 
         if (visualInstance == null)
         {
-            visualInstance = Instantiate(tilesMeshPrefab, visualRoot);
+            return;
         }
 
         visualInstance.name = VisualChildName;
         visualInstance.transform.localPosition = Vector3.zero;
         visualInstance.transform.localRotation = Quaternion.Euler(modelEuler);
         visualInstance.transform.localScale = Vector3.one;
+    }
+
+    private bool TryEnsureTilesMeshPrefab()
+    {
+        if (tilesMeshPrefab == null)
+        {
+            tilesMeshPrefab = Resources.Load<GameObject>(DefaultPrefabResourcePath);
+        }
+
+        return tilesMeshPrefab != null;
     }
 
     private bool TryResolveVisualTransforms(out Transform root, out Transform mesh)
