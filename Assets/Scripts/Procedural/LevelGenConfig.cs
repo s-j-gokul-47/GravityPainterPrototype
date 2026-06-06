@@ -19,8 +19,24 @@ public class LevelGenConfig : ScriptableObject
     [Tooltip("Maximum grid spread along the Z axis (centered on origin).")]
     public int gridDepth = 7;
 
-    [Tooltip("World-space spacing between tile centers.")]
-    public float tileSpacing = 1.05f;
+    [Header("Tile Footprint")]
+    [Tooltip("Local scale applied to spawned tiles (matches Level 2 GLB tiles).")]
+    public Vector3 tileLocalScale = new Vector3(9.764219f, 0.20627001f, 4.5902023f);
+
+    [Tooltip("Center-to-center spacing along world X when the path steps left/right.")]
+    public float tileSpacingX = 9.764219f;
+
+    [Tooltip("Center-to-center spacing along world Z when the path steps forward/back.")]
+    public float tileSpacingZ = 4.85f;
+
+    [Tooltip("Small gap added between edge-aligned tiles.")]
+    public float tileGap = 0.05f;
+
+    [Tooltip("Spawn extra filler tiles at every 90° turn so the ball cannot fall through the corner gap.")]
+    public bool addCornerPads = true;
+
+    [Tooltip("How many forward-aligned tiles to add before each turn.")]
+    public int cornerPadTileCount = 2;
 
     [Header("Prefab References")]
     [Tooltip("Tile prefab instantiated by the level builder.")]

@@ -16,7 +16,12 @@ MonoBehaviour:
   maxPathLength: 16
   gridWidth: 7
   gridDepth: 7
-  tileSpacing: 1.05
+  tileLocalScale: {x: 9.764219, y: 0.20627001, z: 4.5902023}
+  tileSpacingX: 9.764219
+  tileSpacingZ: 4.85
+  tileGap: 0.05
+  addCornerPads: 1
+  cornerPadTileCount: 2
   tilePrefab: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
   finishLinePrefab: {fileID: 0}
   glbLayout: {fileID: 11400000, guid: 7c3e9a2b4d5f6789012345678abcdef0, type: 2}

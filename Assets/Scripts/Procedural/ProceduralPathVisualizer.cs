@@ -39,9 +39,10 @@ public class ProceduralPathVisualizer : MonoBehaviour
         }
 
         int spawned = 0;
-        foreach (LevelCell cell in cells)
+        for (int i = 0; i < cells.Count; i++)
         {
-            GameObject tile = SpawnTile(cell, spawnParent);
+            LevelCell cell = cells[i];
+            GameObject tile = SpawnTile(cell, i, cells, spawnParent);
             if (tile == null)
             {
                 continue;
@@ -50,6 +51,8 @@ public class ProceduralPathVisualizer : MonoBehaviour
             tile.name = $"Tile_{cell.PathIndex}_{cell.GridPos.x}_{cell.GridPos.y}";
             spawned++;
         }
+
+        spawned += SpawnCornerPads(cells, spawnParent);
 
         Debug.Log($"Spawned {spawned} tiles for seed {seed} under '{spawnParent.name}'.");
     }
@@ -89,7 +92,7 @@ public class ProceduralPathVisualizer : MonoBehaviour
         }
     }
 
-    private GameObject SpawnTile(LevelCell cell, Transform spawnParent)
+    private GameObject SpawnTile(LevelCell cell, int index, IReadOnlyList<LevelCell> cells, Transform spawnParent)
     {
 #if UNITY_EDITOR
         if (!Application.isPlaying)
@@ -101,13 +104,70 @@ public class ProceduralPathVisualizer : MonoBehaviour
                 return null;
             }
 
-            ProceduralTilePlacement.ApplyGridTransform(tile.transform, cell, config);
+            ProceduralTilePlacement.ApplyPathTransform(tile.transform, index, cells, config);
             UnityEditor.Undo.RegisterCreatedObjectUndo(tile, "Generate Visual Path");
             return tile;
         }
 #endif
         GameObject runtimeTile = Instantiate(config.tilePrefab, spawnParent);
-        ProceduralTilePlacement.ApplyGridTransform(runtimeTile.transform, cell, config);
+        ProceduralTilePlacement.ApplyPathTransform(runtimeTile.transform, index, cells, config);
+        return runtimeTile;
+    }
+
+    private int SpawnCornerPads(IReadOnlyList<LevelCell> cells, Transform spawnParent)
+    {
+        if (!config.addCornerPads || cells == null)
+        {
+            return 0;
+        }
+
+        int spawned = 0;
+        int padCount = Mathf.Max(0, config.cornerPadTileCount);
+        for (int i = 2; i < cells.Count; i++)
+        {
+            if (!ProceduralTilePlacement.IsTurnIndex(i, cells))
+            {
+                continue;
+            }
+
+            for (int padIndex = 0; padIndex < padCount; padIndex++)
+            {
+                GameObject pad = SpawnCornerPad(i, padIndex, cells, spawnParent);
+                if (pad == null)
+                {
+                    continue;
+                }
+
+                pad.name = $"Tile_corner_{i}_{padIndex}_{cells[i - 1].GridPos.x}_{cells[i - 1].GridPos.y}";
+                spawned++;
+            }
+        }
+
+        return spawned;
+    }
+
+    private GameObject SpawnCornerPad(
+        int turnIndex,
+        int padIndex,
+        IReadOnlyList<LevelCell> cells,
+        Transform spawnParent)
+    {
+#if UNITY_EDITOR
+        if (!Application.isPlaying)
+        {
+            GameObject tile = UnityEditor.PrefabUtility.InstantiatePrefab(config.tilePrefab, spawnParent) as GameObject;
+            if (tile == null)
+            {
+                return null;
+            }
+
+            ProceduralTilePlacement.ApplyCornerPadTransform(tile.transform, turnIndex, padIndex, cells, config);
+            UnityEditor.Undo.RegisterCreatedObjectUndo(tile, "Generate Visual Path");
+            return tile;
+        }
+#endif
+        GameObject runtimeTile = Instantiate(config.tilePrefab, spawnParent);
+        ProceduralTilePlacement.ApplyCornerPadTransform(runtimeTile.transform, turnIndex, padIndex, cells, config);
         return runtimeTile;
     }
 }

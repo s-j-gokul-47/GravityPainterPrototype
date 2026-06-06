@@ -279,16 +279,17 @@ public class ProceduralPathGenerator
     private static List<LevelCell> BuildCells(List<Vector2Int> path)
     {
         var cells = new List<LevelCell>(path.Count);
-        float lastRotation = 0f;
 
         for (int i = 0; i < path.Count; i++)
         {
-            float yRotation = lastRotation;
-            if (i < path.Count - 1)
+            float yRotation = 0f;
+            if (i > 0)
             {
-                Vector2Int direction = path[i + 1] - path[i];
-                yRotation = DirectionToYRotation(direction);
-                lastRotation = yRotation;
+                yRotation = DirectionToYRotation(path[i] - path[i - 1]);
+            }
+            else if (path.Count > 1)
+            {
+                yRotation = DirectionToYRotation(path[1] - path[0]);
             }
 
             cells.Add(new LevelCell

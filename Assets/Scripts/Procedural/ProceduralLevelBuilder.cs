@@ -19,7 +19,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
     [SerializeField] private GameObject levelCompletePanel;
 
     [Header("Spawn Tuning")]
-    [SerializeField] private float ballSpawnHeight = 1f;
+    [SerializeField] private float ballSpawnHeight = 2f;
 
     private readonly List<GameObject> _spawnedTiles = new List<GameObject>();
     private ProceduralPathGenerator _generator;
@@ -65,7 +65,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
         for (int i = 0; i < cells.Count; i++)
         {
             LevelCell cell = cells[i];
-            GameObject tile = SpawnTile(cell, i);
+            GameObject tile = SpawnTile(cell, i, cells);
             if (tile == null)
             {
                 continue;
@@ -79,7 +79,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
             }
         }
 
-        PlaceBall(cells[0]);
+        SpawnCornerPads(cells);
+
+        PlaceBall(cells);
         SetupFinishLine(goalTile);
 
         LastBuiltSeed = buildSeed;
@@ -144,16 +146,42 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
     }
 
-    private GameObject SpawnTile(LevelCell cell, int index)
+    private GameObject SpawnTile(LevelCell cell, int index, IReadOnlyList<LevelCell> cells)
     {
         GameObject tile = Instantiate(
             config.tilePrefab,
             levelRoot.transform);
-        ProceduralTilePlacement.ApplyGridTransform(tile.transform, cell, config);
+        ProceduralTilePlacement.ApplyPathTransform(tile.transform, index, cells, config);
         tile.name = "Tile_" + cell.PathIndex + "_" + cell.GridPos.x + "_" + cell.GridPos.y;
 
         ApplyTileVisual(tile);
         return tile;
+    }
+
+    private void SpawnCornerPads(IReadOnlyList<LevelCell> cells)
+    {
+        if (!config.addCornerPads || cells == null)
+        {
+            return;
+        }
+
+        int padCount = Mathf.Max(0, config.cornerPadTileCount);
+        for (int i = 2; i < cells.Count; i++)
+        {
+            if (!ProceduralTilePlacement.IsTurnIndex(i, cells))
+            {
+                continue;
+            }
+
+            for (int padIndex = 0; padIndex < padCount; padIndex++)
+            {
+                GameObject pad = Instantiate(config.tilePrefab, levelRoot.transform);
+                ProceduralTilePlacement.ApplyCornerPadTransform(pad.transform, i, padIndex, cells, config);
+                pad.name = "Tile_corner_" + i + "_" + padIndex + "_" + cells[i - 1].GridPos.x + "_" + cells[i - 1].GridPos.y;
+                ApplyTileVisual(pad);
+                _spawnedTiles.Add(pad);
+            }
+        }
     }
 
     private void ApplyTileVisual(GameObject tile)
@@ -172,7 +200,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
     }
 
-    private void PlaceBall(LevelCell startCell)
+    private void PlaceBall(IReadOnlyList<LevelCell> cells)
     {
         if (ball == null)
         {
@@ -185,7 +213,8 @@ public class ProceduralLevelBuilder : MonoBehaviour
             return;
         }
 
-        Vector3 worldPos = CellToWorld(startCell);
+        Vector3 worldPos = levelRoot.TransformPoint(
+            ProceduralTilePlacement.ComputeCenterPosition(0, cells, config));
         worldPos.y = ballSpawnHeight;
         ball.PlaceAt(worldPos);
     }
@@ -210,11 +239,6 @@ public class ProceduralLevelBuilder : MonoBehaviour
         {
             col.isTrigger = true;
         }
-    }
-
-    private Vector3 CellToWorld(LevelCell cell)
-    {
-        return levelRoot.TransformPoint(ProceduralTilePlacement.GridToLocalPosition(cell.GridPos, config));
     }
 
     private static void DestroyTile(GameObject tile)
