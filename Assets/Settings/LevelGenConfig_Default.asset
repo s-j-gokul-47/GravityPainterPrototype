@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a2b3c4d5e6478990abcdef12345602, type: 3}
+  m_Name: LevelGenConfig_Default
+  m_EditorClassIdentifier: Assembly-CSharp::LevelGenConfig
+  minPathLength: 8
+  maxPathLength: 16
+  gridWidth: 7
+  gridDepth: 7
+  tileSpacing: 1.05
+  tilePrefab: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
+  finishLinePrefab: {fileID: 0}
+  glbLayout: {fileID: 0}

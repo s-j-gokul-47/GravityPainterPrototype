@@ -83,19 +83,38 @@ public static class SetupLaserGateObstacle
             "OK");
     }
 
+    [MenuItem("Gravity Painter/Fix Korrath Beam Model (Repair Missing Mesh)")]
+    public static void FixKorrathBeamInOpenScene()
+    {
+        if (File.Exists(LaserGateModelUtility.GlbPath))
+        {
+            AssetDatabase.ImportAsset(LaserGateModelUtility.GlbPath, ImportAssetOptions.ForceUpdate);
+        }
+
+        int count = RepairAllLaserGates(forceReplace: true);
+        BuildLaserGatePrefab();
+
+        if (count > 0)
+        {
+            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
+        }
+
+        EditorUtility.DisplayDialog(
+            "Korrath Beam repaired",
+            count > 0
+                ? "Rebuilt split laser model on " + count + " gate(s).\n" +
+                  "lasersupport stays visible; beam blinks.\n\nPrefab also updated."
+                : "No LaserGate found in the open scene.",
+            "OK");
+    }
+
     [MenuItem("Gravity Painter/Upgrade Laser Model (use RedLaserBeam.glb)")]
     public static void UpgradeLaserInOpenScene()
     {
-        LaserGate[] gates = Object.FindObjectsByType<LaserGate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        int count = 0;
-
-        foreach (LaserGate gate in gates)
+        int count = RepairAllLaserGates(forceReplace: false);
+        if (count > 0)
         {
-            GameObject tile = FindTileForGate(gate.transform);
-            if (LaserGateModelUtility.TryAttachModelToGate(gate.transform, tile != null ? tile.transform : null))
-            {
-                count++;
-            }
+            EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
 
         EditorUtility.DisplayDialog(
@@ -104,6 +123,28 @@ public static class SetupLaserGateObstacle
                 ? "Attached RedLaserBeam.glb to " + count + " gate(s)."
                 : "No Korrath Beam found, or GLB could not load.",
             "OK");
+    }
+
+    private static int RepairAllLaserGates(bool forceReplace)
+    {
+        LaserGate[] gates = Object.FindObjectsByType<LaserGate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        int count = 0;
+
+        foreach (LaserGate gate in gates)
+        {
+            GameObject tile = FindTileForGate(gate.transform);
+            bool shouldForce = forceReplace
+                || !LaserGateModelUtility.HasValidSplitModel(gate.transform.Find("LaserModel"));
+            if (LaserGateModelUtility.TryAttachModelToGate(
+                    gate.transform,
+                    tile != null ? tile.transform : null,
+                    shouldForce))
+            {
+                count++;
+            }
+        }
+
+        return count;
     }
 
     private static GameObject BuildLaserGatePrefab()
@@ -123,8 +164,10 @@ public static class SetupLaserGateObstacle
             return null;
         }
 
+        Transform modelRoot = root.transform.Find("LaserModel");
+        LaserGateModelUtility.WireLaserGateReferences(gate, modelRoot);
+
         SerializedObject so = new SerializedObject(gate);
-        so.FindProperty("modelRoot").objectReferenceValue = root.transform.Find("LaserModel");
         so.FindProperty("onDuration").floatValue = 1.5f;
         so.FindProperty("offDuration").floatValue = 1.5f;
         so.FindProperty("startActive").boolValue = true;
@@ -157,10 +200,10 @@ public static class SetupLaserGateObstacle
             Debug.LogWarning("Tile (42) not found — using default position.");
         }
 
-        GameObject existingModel = FindExistingRedLaserModel();
-        if (existingModel != null)
+        LaserGate[] existingGates = Object.FindObjectsByType<LaserGate>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        if (existingGates.Length > 0)
         {
-            UpgradeExistingSceneModel(existingModel, tile);
+            UpgradeExistingSceneModel(existingGates[0].gameObject, tile);
             return;
         }
 
@@ -175,6 +218,7 @@ public static class SetupLaserGateObstacle
             if (modelRoot != null)
             {
                 LaserGateModelUtility.FitModelToTile(modelRoot.gameObject, tile.transform);
+                LaserGateModelUtility.WireLaserGateReferences(gate, modelRoot);
                 EnsureStrikeColliders(modelRoot.gameObject, gate);
             }
         }
@@ -182,102 +226,82 @@ public static class SetupLaserGateObstacle
         Undo.RegisterCreatedObjectUndo(instance, "Place Korrath Beam");
     }
 
-    private static void UpgradeExistingSceneModel(GameObject existingRoot, GameObject tile)
+    private static void UpgradeExistingSceneModel(GameObject gateRoot, GameObject tile)
     {
-        GameObject gateRoot = existingRoot.transform.parent != null &&
-                              existingRoot.transform.parent.name == "KorrathBeam"
-            ? existingRoot.transform.parent.gameObject
-            : existingRoot;
-
         if (gateRoot.GetComponent<LaserGate>() == null)
         {
             gateRoot.AddComponent<LaserGate>();
         }
 
-        if (existingRoot.name != "LaserModel")
-        {
-            existingRoot.name = "LaserModel";
-        }
-
         LaserGate gate = gateRoot.GetComponent<LaserGate>();
-        SerializedObject so = new SerializedObject(gate);
-        so.FindProperty("modelRoot").objectReferenceValue = existingRoot.transform;
-        so.ApplyModifiedPropertiesWithoutUndo();
+        LaserGateModelUtility.TryAttachModelToGate(
+            gateRoot.transform,
+            tile != null ? tile.transform : null,
+            forceReplace: true);
+
+        Transform modelRoot = gateRoot.transform.Find("LaserModel");
+        if (modelRoot != null)
+        {
+            LaserGateModelUtility.WireLaserGateReferences(gate, modelRoot);
+            EnsureStrikeColliders(modelRoot.gameObject, gate);
+        }
 
         if (tile != null)
         {
             Bounds bounds = LaserGateModelUtility.GetTileWorldBoundsForEditor(tile.transform);
             gateRoot.transform.position = new Vector3(bounds.center.x, bounds.max.y + 0.25f, bounds.center.z);
             gateRoot.transform.rotation = tile.transform.rotation;
-            LaserGateModelUtility.FitModelToTile(existingRoot, tile.transform);
+            if (modelRoot != null)
+            {
+                LaserGateModelUtility.FitModelToTile(modelRoot.gameObject, tile.transform);
+            }
         }
 
-        EnsureStrikeColliders(existingRoot, gate);
         gateRoot.name = "KorrathBeam";
         Undo.RegisterFullObjectHierarchyUndo(gateRoot, "Setup Korrath Beam");
     }
 
-    private static GameObject FindExistingRedLaserModel()
-    {
-        foreach (GameObject root in SceneManager.GetActiveScene().GetRootGameObjects())
-        {
-            Transform[] all = root.GetComponentsInChildren<Transform>(true);
-            foreach (Transform t in all)
-            {
-                string lower = t.name.ToLowerInvariant();
-                if (lower.Contains("redlaser") || lower.Contains("laserbeam") || lower == "korrathbeam")
-                {
-                    if (t.GetComponentInChildren<Renderer>(true) != null)
-                    {
-                        return t.gameObject;
-                    }
-                }
-            }
-        }
-
-        return null;
-    }
-
     public static void EnsureStrikeColliders(GameObject modelRoot, LaserGate gate)
     {
-        Collider[] colliders = modelRoot.GetComponentsInChildren<Collider>(true);
-        if (colliders.Length == 0)
+        foreach (Collider col in modelRoot.GetComponentsInChildren<Collider>(true))
         {
-            Renderer[] renderers = modelRoot.GetComponentsInChildren<Renderer>(true);
-            if (renderers.Length > 0)
+            if (col.GetComponent<LaserGateStrike>() != null)
             {
-                Bounds bounds = renderers[0].bounds;
-                for (int i = 1; i < renderers.Length; i++)
-                {
-                    bounds.Encapsulate(renderers[i].bounds);
-                }
-
-                BoxCollider box = modelRoot.AddComponent<BoxCollider>();
-                box.isTrigger = true;
-                box.center = modelRoot.transform.InverseTransformPoint(bounds.center);
-                Vector3 size = bounds.size;
-                Vector3 lossy = modelRoot.transform.lossyScale;
-                size.x /= Mathf.Max(lossy.x, 0.001f);
-                size.y /= Mathf.Max(lossy.y, 0.001f);
-                size.z /= Mathf.Max(lossy.z, 0.001f);
-                box.size = size;
-                colliders = new[] { box };
-            }
-        }
-
-        foreach (Collider col in colliders)
-        {
-            col.isTrigger = true;
-            LaserGateStrike strike = col.GetComponent<LaserGateStrike>();
-            if (strike == null)
-            {
-                strike = col.gameObject.AddComponent<LaserGateStrike>();
+                Object.DestroyImmediate(col.GetComponent<LaserGateStrike>());
             }
 
-            SerializedObject so = new SerializedObject(strike);
-            so.FindProperty("gate").objectReferenceValue = gate;
-            so.ApplyModifiedPropertiesWithoutUndo();
+            Object.DestroyImmediate(col);
         }
+
+        Transform beam = LaserGateMeshParts.FindBeamTransform(modelRoot.transform);
+        GameObject strikeTarget = beam != null ? beam.gameObject : modelRoot;
+
+        Renderer[] renderers = strikeTarget.GetComponentsInChildren<Renderer>(true);
+        if (renderers.Length == 0)
+        {
+            return;
+        }
+
+        Bounds bounds = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            bounds.Encapsulate(renderers[i].bounds);
+        }
+
+        BoxCollider box = strikeTarget.AddComponent<BoxCollider>();
+        box.isTrigger = true;
+        box.center = strikeTarget.transform.InverseTransformPoint(bounds.center);
+        Vector3 size = bounds.size;
+        Vector3 lossy = strikeTarget.transform.lossyScale;
+        size.x /= Mathf.Max(lossy.x, 0.001f);
+        size.y /= Mathf.Max(lossy.y, 0.001f);
+        size.z /= Mathf.Max(lossy.z, 0.001f);
+        box.size = size;
+
+        LaserGateStrike strike = strikeTarget.AddComponent<LaserGateStrike>();
+        SerializedObject so = new SerializedObject(strike);
+        so.FindProperty("gate").objectReferenceValue = gate;
+        so.ApplyModifiedPropertiesWithoutUndo();
     }
 
     private static void RemoveExistingLaserGates()

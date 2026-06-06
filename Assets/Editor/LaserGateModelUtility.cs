@@ -7,7 +7,7 @@ public static class LaserGateModelUtility
 {
     public const string GlbPath = "Assets/Art/Models/RedLaserBeam.glb";
 
-    public static bool TryAttachModelToGate(Transform gateRoot, Transform alignToTile = null)
+    public static bool TryAttachModelToGate(Transform gateRoot, Transform alignToTile = null, bool forceReplace = false)
     {
         if (gateRoot == null)
         {
@@ -29,10 +29,12 @@ public static class LaserGateModelUtility
         AssetDatabase.ImportAsset(GlbPath, ImportAssetOptions.ForceUpdate);
 
         Transform existing = gateRoot.Find("LaserModel");
-        if (existing != null && !IsPlaceholderModel(existing))
+        if (!forceReplace && existing != null && HasValidSplitModel(existing))
         {
             FitModelToTile(existing.gameObject, alignToTile);
-            SetupLaserGateObstacle.EnsureStrikeColliders(existing.gameObject, gateRoot.GetComponent<LaserGate>());
+            LaserGate gate = gateRoot.GetComponent<LaserGate>();
+            WireLaserGateReferences(gate, existing);
+            SetupLaserGateObstacle.EnsureStrikeColliders(existing.gameObject, gate);
             EditorUtility.SetDirty(gateRoot.gameObject);
             return true;
         }
@@ -54,22 +56,77 @@ public static class LaserGateModelUtility
             return false;
         }
 
-        GameObject model = (GameObject)PrefabUtility.InstantiatePrefab(glbRoot);
-        if (model == null)
-        {
-            model = Object.Instantiate(glbRoot);
-        }
-
+        // Use Instantiate (not nested prefab) so GLB reimports do not break references.
+        GameObject model = Object.Instantiate(glbRoot);
         model.name = "LaserModel";
         model.transform.SetParent(gateRoot, false);
         model.transform.localPosition = Vector3.zero;
         model.transform.localRotation = Quaternion.identity;
+        model.transform.localScale = Vector3.one;
         StripPhysics(model);
         ConvertRenderersToUrp(model);
         FitModelToTile(model, alignToTile);
-        SetupLaserGateObstacle.EnsureStrikeColliders(model, gateRoot.GetComponent<LaserGate>());
+
+        LaserGate gateComponent = gateRoot.GetComponent<LaserGate>();
+        WireLaserGateReferences(gateComponent, model.transform);
+        SetupLaserGateObstacle.EnsureStrikeColliders(model, gateComponent);
         EditorUtility.SetDirty(gateRoot.gameObject);
         return true;
+    }
+
+    public static bool HasValidSplitModel(Transform modelRoot)
+    {
+        if (modelRoot == null || IsPlaceholderModel(modelRoot) || IsModelBroken(modelRoot))
+        {
+            return false;
+        }
+
+        Transform beam = LaserGateMeshParts.FindBeamTransform(modelRoot);
+        Transform support = LaserGateMeshParts.FindSupportTransform(modelRoot);
+        return beam != null && support != null && beam != support;
+    }
+
+    public static bool IsModelBroken(Transform modelRoot)
+    {
+        if (modelRoot == null)
+        {
+            return true;
+        }
+
+        Renderer[] renderers = modelRoot.GetComponentsInChildren<Renderer>(true);
+        if (renderers.Length == 0)
+        {
+            return true;
+        }
+
+        foreach (Renderer renderer in renderers)
+        {
+            if (renderer == null)
+            {
+                return true;
+            }
+
+            MeshFilter filter = renderer.GetComponent<MeshFilter>();
+            if (filter != null && filter.sharedMesh == null)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static void WireLaserGateReferences(LaserGate gate, Transform modelRoot)
+    {
+        if (gate == null || modelRoot == null)
+        {
+            return;
+        }
+
+        SerializedObject so = new SerializedObject(gate);
+        so.FindProperty("modelRoot").objectReferenceValue = modelRoot;
+        so.FindProperty("beamRoot").objectReferenceValue = LaserGateMeshParts.FindBeamTransform(modelRoot);
+        so.ApplyModifiedPropertiesWithoutUndo();
     }
 
     public static void FitModelToTile(GameObject model, Transform tile)
@@ -181,53 +238,125 @@ public static class LaserGateModelUtility
 
     public static GameObject LoadGlbRoot(string path)
     {
-        GameObject root = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-        if (root != null && root.GetComponentInChildren<Renderer>(true) != null)
-        {
-            return root;
-        }
-
         Object[] assets = AssetDatabase.LoadAllAssetsAtPath(path);
+        GameObject best = null;
+        int bestRendererCount = 0;
+
         foreach (Object asset in assets)
         {
-            if (asset is GameObject go && go.GetComponentInChildren<Renderer>(true) != null)
+            if (asset is not GameObject go)
+            {
+                continue;
+            }
+
+            Renderer[] renderers = go.GetComponentsInChildren<Renderer>(true);
+            if (renderers.Length == 0)
+            {
+                continue;
+            }
+
+            Transform beam = LaserGateMeshParts.FindBeamTransform(go.transform);
+            Transform support = LaserGateMeshParts.FindSupportTransform(go.transform);
+            if (beam != null && support != null)
             {
                 return go;
             }
+
+            if (renderers.Length > bestRendererCount)
+            {
+                bestRendererCount = renderers.Length;
+                best = go;
+            }
         }
 
-        return null;
+        GameObject atPath = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+        if (atPath != null && atPath.GetComponentInChildren<Renderer>(true) != null)
+        {
+            best ??= atPath;
+        }
+
+        return best;
     }
 
     public static GameObject BuildVisualFromImportedAssets(string path)
     {
         Object[] assets = AssetDatabase.LoadAllAssetsAtPath(path);
-        Mesh mesh = null;
         Material material = null;
+        Mesh supportMesh = null;
+        Mesh beamMesh = null;
 
         foreach (Object asset in assets)
         {
-            if (asset is Mesh m && (mesh == null || m.vertexCount > mesh.vertexCount))
-            {
-                mesh = m;
-            }
-            else if (asset is Material mat && material == null)
+            if (asset is Material mat && material == null)
             {
                 material = mat;
             }
+            else if (asset is Mesh mesh)
+            {
+                string meshName = mesh.name.ToLowerInvariant();
+                if (meshName.Contains("0.002") || mesh.vertexCount < 5000)
+                {
+                    beamMesh ??= mesh;
+                }
+                else if (meshName.Contains("0.001") || mesh.vertexCount > 5000)
+                {
+                    supportMesh ??= mesh;
+                }
+                else if (supportMesh == null || mesh.vertexCount > supportMesh.vertexCount)
+                {
+                    if (beamMesh == null && mesh.vertexCount < 10000)
+                    {
+                        beamMesh = mesh;
+                    }
+                    else
+                    {
+                        supportMesh = mesh;
+                    }
+                }
+            }
         }
 
-        if (mesh == null)
+        if (supportMesh != null && beamMesh == null)
+        {
+            foreach (Object asset in assets)
+            {
+                if (asset is Mesh mesh && mesh != supportMesh && mesh.vertexCount < supportMesh.vertexCount)
+                {
+                    beamMesh = mesh;
+                    break;
+                }
+            }
+        }
+
+        if (supportMesh == null && beamMesh == null)
         {
             return null;
         }
 
-        GameObject go = new GameObject("LaserModel");
-        MeshFilter filter = go.AddComponent<MeshFilter>();
+        GameObject root = new GameObject("LaserModel");
+        Material matToUse = material != null ? material : GetDefaultMaterial();
+
+        if (supportMesh != null)
+        {
+            AddMeshChild(root.transform, "lasersupport", supportMesh, matToUse);
+        }
+
+        if (beamMesh != null)
+        {
+            AddMeshChild(root.transform, "beam", beamMesh, matToUse);
+        }
+
+        return root;
+    }
+
+    private static void AddMeshChild(Transform parent, string childName, Mesh mesh, Material material)
+    {
+        GameObject child = new GameObject(childName);
+        child.transform.SetParent(parent, false);
+        MeshFilter filter = child.AddComponent<MeshFilter>();
         filter.sharedMesh = mesh;
-        MeshRenderer renderer = go.AddComponent<MeshRenderer>();
-        renderer.sharedMaterial = material != null ? material : GetDefaultMaterial();
-        return go;
+        MeshRenderer renderer = child.AddComponent<MeshRenderer>();
+        renderer.sharedMaterial = material;
     }
 
     public static void FitModelScale(GameObject model, float targetSpan)
