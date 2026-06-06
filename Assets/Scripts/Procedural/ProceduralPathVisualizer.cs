@@ -31,10 +31,10 @@ public class ProceduralPathVisualizer : MonoBehaviour
         ClearChildren(spawnParent);
 
         var generator = new ProceduralPathGenerator();
-        List<LevelCell> cells = generator.Generate(config, seed);
+        List<LevelCell> cells = generator.GenerateWithRetry(config, seed);
         if (cells == null || cells.Count == 0)
         {
-            Debug.LogError("ProceduralPathGenerator returned no cells.");
+            Debug.LogError("Could not generate a valid path.");
             return;
         }
 

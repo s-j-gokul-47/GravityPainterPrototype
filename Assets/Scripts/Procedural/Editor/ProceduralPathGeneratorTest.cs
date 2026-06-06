@@ -18,14 +18,20 @@ public static class ProceduralPathGeneratorTest
         }
 
         var generator = new ProceduralPathGenerator();
-        List<LevelCell> runA = generator.Generate(config, 12345);
-        List<LevelCell> runB = generator.Generate(config, 12345);
+        List<LevelCell> runA = generator.GenerateWithRetry(config, 12345);
+        List<LevelCell> runB = generator.GenerateWithRetry(config, 12345);
         bool seedTestPassed = AreCellListsEqual(runA, runB);
         Debug.Log(seedTestPassed ? "SEED TEST PASSED" : "SEED TEST FAILED");
 
-        List<LevelCell> differentSeedRun = generator.Generate(config, 99999);
-        bool differentSeedTestPassed = !AreCellListsEqual(runA, differentSeedRun);
+        List<LevelCell> differentSeedRun = generator.GenerateWithRetry(config, 99999);
+        bool differentSeedTestPassed = runA != null && differentSeedRun != null && !AreCellListsEqual(runA, differentSeedRun);
         Debug.Log(differentSeedTestPassed ? "DIFFERENT SEED TEST PASSED" : "DIFFERENT SEED TEST FAILED");
+
+        if (runA == null)
+        {
+            Debug.LogError("Could not generate path for seed 12345 after retries.");
+            return;
+        }
 
         for (int i = 0; i < runA.Count; i++)
         {
@@ -41,6 +47,9 @@ public static class ProceduralPathGeneratorTest
 
         bool adjacencyPassed = ValidateAdjacency(runA);
         Debug.Log(adjacencyPassed ? "ADJACENCY TEST PASSED" : "ADJACENCY TEST FAILED");
+
+        bool finishDistancePassed = ValidateFinishDistance(runA, config);
+        Debug.Log(finishDistancePassed ? "FINISH DISTANCE TEST PASSED" : "FINISH DISTANCE TEST FAILED");
     }
 
     [MenuItem("Gravity Painter/Wire Level Gen Config Prefabs")]
@@ -144,6 +153,19 @@ public static class ProceduralPathGeneratorTest
         }
 
         return true;
+    }
+
+    private static bool ValidateFinishDistance(List<LevelCell> cells, LevelGenConfig config)
+    {
+        if (cells == null || cells.Count < 2)
+        {
+            return false;
+        }
+
+        int manhattan = Mathf.Abs(cells[cells.Count - 1].GridPos.x - cells[0].GridPos.x)
+            + Mathf.Abs(cells[cells.Count - 1].GridPos.y - cells[0].GridPos.y);
+        int minManhattan = Mathf.Max(3, config.minPathLength / 3);
+        return manhattan >= minManhattan;
     }
 }
 #endif
