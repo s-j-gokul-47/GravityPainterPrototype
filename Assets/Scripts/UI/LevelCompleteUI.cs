@@ -15,6 +15,7 @@ public class LevelCompleteUI : MonoBehaviour
     private const string HomeResource = "UI/LevelCompleteUI/home";
 
     [SerializeField] private int currentLevel;
+    [SerializeField] private ProceduralLevelBuilder proceduralBuilder;
     [SerializeField] private Sprite restartButtonSprite;
     [SerializeField] private Sprite nextLevelButtonSprite;
     [SerializeField] private Sprite homeButtonSprite;
@@ -30,6 +31,14 @@ public class LevelCompleteUI : MonoBehaviour
     private Button _restartButton;
     private Button _nextLevelButton;
     private Button _homeButton;
+
+    public void ConfigureProcedural(ProceduralLevelBuilder builder)
+    {
+        proceduralBuilder = builder;
+        UpdateNextLevelButton();
+    }
+
+    private bool IsProceduralMode => proceduralBuilder != null;
 
     private void Awake()
     {
@@ -50,7 +59,11 @@ public class LevelCompleteUI : MonoBehaviour
             currentLevel = LevelProgress.GetActiveLevelNumber();
         }
 
-        LevelProgress.UnlockThrough(currentLevel);
+        if (!IsProceduralMode)
+        {
+            LevelProgress.UnlockThrough(currentLevel);
+        }
+
         UpdateNextLevelButton();
     }
 
@@ -174,6 +187,19 @@ public class LevelCompleteUI : MonoBehaviour
             return;
         }
 
+        if (IsProceduralMode)
+        {
+            _nextLevelButton.gameObject.SetActive(true);
+            _nextLevelButton.interactable = true;
+            Image proceduralImage = _nextLevelButton.GetComponent<Image>();
+            if (proceduralImage != null)
+            {
+                proceduralImage.color = Color.white;
+            }
+
+            return;
+        }
+
         bool hasNext = LevelProgress.HasBuiltLevel(currentLevel + 1);
         _nextLevelButton.gameObject.SetActive(true);
         _nextLevelButton.interactable = hasNext;
@@ -187,6 +213,13 @@ public class LevelCompleteUI : MonoBehaviour
 
     public void RestartLevel()
     {
+        if (IsProceduralMode)
+        {
+            HideAndResume();
+            proceduralBuilder.RebuildSameSeed();
+            return;
+        }
+
         Time.timeScale = 1f;
         Scene active = SceneManager.GetActiveScene();
         if (active.buildIndex >= 0)
@@ -201,6 +234,13 @@ public class LevelCompleteUI : MonoBehaviour
 
     public void GoToNextLevel()
     {
+        if (IsProceduralMode)
+        {
+            HideAndResume();
+            proceduralBuilder.RebuildNextSeed();
+            return;
+        }
+
         Time.timeScale = 1f;
         int next = currentLevel + 1;
         string nextScene = "Level " + next;
@@ -220,6 +260,12 @@ public class LevelCompleteUI : MonoBehaviour
         Time.timeScale = 1f;
         MainMenu.RequestOpenLevelSelect();
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void HideAndResume()
+    {
+        Time.timeScale = 1f;
+        gameObject.SetActive(false);
     }
 
     private Vector2 GetButtonSize(Sprite sprite)

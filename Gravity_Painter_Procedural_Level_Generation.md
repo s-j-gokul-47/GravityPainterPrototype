@@ -2,9 +2,79 @@
 
 ## Overview
 
-This document outlines a complete procedural level generation system for **Gravity Painter**, a 3D mobile puzzle game built in Unity. The system generates connected tile paths at runtime using seeded random walk algorithms, validates solvability, and integrates seamlessly with existing systems: `TileGlbVisual`, `BallController`, `FinishLine`, and `LevelEnvironment`.
+This document outlines the procedural level generation system for **Gravity Painter**, a 3D mobile puzzle game built in Unity. The system generates connected tile paths at runtime using seeded random walk algorithms and integrates with existing systems: `TileGlbVisual`, `BallController`, `FinishLine`, and `LevelEnvironment`.
 
-Campaign Levels 1–5 remain hand-authored for tutorial pacing. A single `LevelProcedural` scene handles **Procedural**, **Daily Challenge**, and **Replay** modes.
+Campaign Levels 1–5 remain hand-authored for tutorial pacing. A dedicated `LevelProcedural` scene will eventually handle **Procedural**, **Daily Challenge**, and **Replay** modes.
+
+---
+
+## Current Implementation Status (June 2026 — `kavin` branch)
+
+### ✅ Completed (Steps 1–2)
+
+| Component | Status | Location |
+|---|---|---|
+| `LevelCell` data struct | ✅ Done | `Assets/Scripts/Procedural/LevelCell.cs` |
+| `LevelGenConfig` ScriptableObject | ✅ Done | `Assets/Scripts/Procedural/LevelGenConfig.cs` |
+| Default config asset | ✅ Done | `Assets/Settings/LevelGenConfig_Default.asset` |
+| `ProceduralPathGenerator` (biased backtracking walk) | ✅ Done | `Assets/Scripts/Procedural/ProceduralPathGenerator.cs` |
+| `GenerateWithRetry()` + snake fallback | ✅ Done | Up to 50 seed retries |
+| `ProceduralPathVisualizer` (Edit-mode preview) | ✅ Done | `Assets/Scripts/Procedural/ProceduralPathVisualizer.cs` |
+| `ProceduralLevelBuilder` (runtime playable build) | ✅ Done | `Assets/Scripts/Procedural/ProceduralLevelBuilder.cs` |
+| `ProceduralTilePlacement` (edge-aligned + corner pads) | ✅ Done | `Assets/Scripts/Procedural/ProceduralTilePlacement.cs` |
+| GLB layout on spawned tiles | ✅ Done | Via `TileGlbVisual.ApplyLayout` + reference asset |
+| Ball spawn via `BallController.PlaceAt()` | ✅ Done | `Assets/Scripts/Core/BallController.cs` |
+| Finish line wiring via `FinishLine.Configure()` | ✅ Done | `Assets/Scripts/Gameplay/FinishLine.cs` |
+| Editor menus + tests | ✅ Done | See **Editor Menus** below |
+| Test scene | ✅ Done | `Assets/Procedural(test).unity` |
+
+### Editor Menus (Gravity Painter)
+
+| Menu item | Purpose |
+|---|---|
+| **Test Procedural Path** | Runs seed, adjacency, path-length, and finish-distance tests in Console |
+| **Create Level Gen Config** | Creates `Assets/Settings/LevelGenConfig_Default.asset` |
+| **Wire Level Gen Config Prefabs** | Wires `Tile.prefab` onto the config |
+| **Setup Procedural Level Scene (Step 2)** | Wires builder, ball, camera, config in the open scene |
+| **Generate Visual Path** | Inspector button on `ProceduralPathVisualizer` |
+
+### How to Playtest Today
+
+1. Open `Assets/Procedural(test).unity`
+2. Run **Gravity Painter → Setup Procedural Level Scene (Step 2)** (first time only)
+3. Press **Play** — level builds from seed `12345` on `ProceduralLevel`
+4. Paint tiles, roll the ball to the last tile to win
+5. Change seed on `ProceduralLevel → Procedural Level Builder` and Play again
+
+### Path Generator Algorithm (as implemented)
+
+- **Biased backtracking random walk** with forward preference, turn limiter, and Manhattan journey validation
+- **Incoming tile rotation**: each tile faces the direction it was *arrived on* (`path[i] - path[i-1]`), not the outgoing segment — prevents pre-rotation overlap at corners
+- **Edge-aligned placement**: tile centers are stepped by oriented half-extents (not uniform grid × spacing)
+- **Turn offset**: when direction changes, an extra perpendicular offset prevents rectangular tiles clipping
+- **Corner pads**: at every 90° turn, **2 extra tiles** are spawned with the **same rotation as the forward tile**, placed edge-to-edge along the straight run so the ball does not fall through corner gaps
+- **Tile footprint**: Level 2 GLB scale `(9.76, 0.21, 4.59)` applied via `tileLocalScale` on config
+
+### Git history (`kavin` branch)
+
+| Commit | Summary |
+|---|---|
+| `0632cfe` | Step 1 procedural path generator + split Korrath Beam laser fix |
+| `1eb4eb0` | Biased walk + reliable snake fallback |
+| `e3781a9` | Step 2 runtime level builder + tile placement fixes |
+| `0fe2b2b` | Edge-aligned turns + forward corner pads (2 per turn) |
+
+### 📋 Not Yet Implemented (Steps 3+)
+
+- [ ] `LevelProcedural.unity` dedicated scene
+- [ ] `LevelValidator` (BFS connectivity + solvability)
+- [ ] `ObstaclePlacer` + difficulty curve
+- [ ] `TilePool` object pooling
+- [ ] Async `BuildAsync` (5 tiles/frame)
+- [ ] `LevelEnvironmentScaler` (clouds/sky to bounds)
+- [ ] `SeedHelper` word codes (KELOR-style)
+- [ ] Main menu hooks: Procedural / Daily / Replay modes
+- [ ] Star rating on procedural completion
 
 ---
 
@@ -83,39 +153,33 @@ The system uses a clean three-layer pipeline so each concern is isolated and ind
 
 ```csharp
 [CreateAssetMenu(fileName = "LevelGenConfig",
-                 menuName = "GravityPainter/LevelGenConfig")]
+                 menuName = "Gravity Painter/Level Gen Config")]
 public class LevelGenConfig : ScriptableObject
 {
-    [Header("Path")]
-    public int   minPathLength  = 8;
-    public int   maxPathLength  = 24;
-    public int   gridWidth      = 7;      // max X spread
-    public int   gridDepth      = 7;      // max Z spread
-    public float tileSpacing    = 1.05f;  // slight gap between tiles
+    [Header("Path Settings")]
+    public int minPathLength = 8;
+    public int maxPathLength = 16;
+    public int gridWidth = 7;
+    public int gridDepth = 7;
 
-    [Header("Difficulty (0 = Easy, 1 = Hard)")]
-    [Range(0f, 1f)] public float difficulty = 0.3f;
-    public AnimationCurve obstacleDensityCurve; // x=difficulty, y=spawnChance
-    public int maxObstaclesPerLevel = 4;
+    [Header("Tile Footprint")]
+    public Vector3 tileLocalScale = new Vector3(9.764219f, 0.20627001f, 4.5902023f);
+    public float tileSpacingX = 9.764219f;   // legacy reference; placement uses edge-aligned math
+    public float tileSpacingZ = 4.85f;
+    public float tileGap = 0.05f;
+    public bool addCornerPads = true;
+    public int cornerPadTileCount = 2;
 
-    [Header("Obstacle Prefabs")]
-    public GameObject hammerPrefab;
-    public GameObject laserPrefab;
-    public GameObject movingPlatformPrefab;
-
-    [Header("Tile and Goal")]
-    public GameObject          tilePrefab;
-    public GameObject          finishLinePrefab;
-    public TileGlbReferenceLayout glbLayout;
-
-    [Header("Optional Features")]
-    public bool allowDeadEndBranches  = true;
-    public int  maxBranchLength       = 3;
-    public bool allowElevationChange  = false; // future: Y-axis steps
+    [Header("Prefab References")]
+    public GameObject tilePrefab;            // Assets/Prefabs/Gameplay/Tile.prefab
+    public GameObject finishLinePrefab;      // optional; FinishLine added to last tile if empty
+    public TileGlbReferenceLayoutAsset glbLayout;
 }
 ```
 
-Create instances via **Assets → Create → GravityPainter → LevelGenConfig**. Name them `Config_Easy`, `Config_Medium`, `Config_Hard` for the three difficulty tiers.
+Create via **Assets → Create → Gravity Painter → Level Gen Config**, or use the existing `Assets/Settings/LevelGenConfig_Default.asset`.
+
+**Planned (not in code yet):** `difficulty`, `obstacleDensityCurve`, obstacle prefabs, dead-end branches, elevation.
 
 ---
 
@@ -140,7 +204,7 @@ public enum PaintZone    { None, Blue, Red, Yellow }
 
 ## ProceduralPathGenerator — Algorithm
 
-The generator uses a **backtracking random walk**. Unlike a simple random walk, it never permanently gets stuck: when every direction is blocked, it steps backward and tries again. This guarantees a path of the requested length is always found.
+The generator uses a **biased backtracking random walk** (upgraded from the original plain backtracking design). When every direction is blocked, it steps backward and tries again. `GenerateWithRetry()` attempts up to 50 seeds; if all fail, a guaranteed **snake fallback** path is returned.
 
 ```csharp
 public class ProceduralPathGenerator
@@ -203,9 +267,9 @@ public class ProceduralPathGenerator
 }
 ```
 
-### Path Rotation Rules
+### Path Rotation Rules (implemented)
 
-Each tile's `YRotation` is calculated from the direction vector between consecutive path cells:
+Each tile's `YRotation` uses the **incoming** direction (segment the ball traveled to reach this tile):
 
 | Direction | YRotation |
 |---|---|
@@ -214,7 +278,15 @@ Each tile's `YRotation` is calculated from the direction vector between consecut
 | `Vector2Int.left` (−X) | 270° |
 | `Vector2Int.down` (−Z) | 180° |
 
-This ensures the **red Forward arrow** on each tile always points toward the next tile in the path.
+Start tile faces toward `path[1]`. This prevents the last straight tile before a turn from rotating early and overlapping its neighbours.
+
+### Tile Placement Rules (implemented — `ProceduralTilePlacement`)
+
+Rectangular Level 2 GLB tiles (~9.76 × 4.59) cannot use uniform grid-center spacing. Placement uses:
+
+1. **Edge-aligned stepping** — each step advances by previous tile half-extent + next tile half-extent along the travel axis (+ `tileGap`)
+2. **Turn perpendicular offset** — when `previousStep != step`, an extra offset along the previous leg clears the corner
+3. **Forward corner pads** — if `addCornerPads` is true, spawn `cornerPadTileCount` (default **2**) extra tiles at each turn, same rotation as the forward tile, extending the straight run into the corner gap
 
 ---
 
@@ -255,73 +327,27 @@ public class LevelValidator
 
 ---
 
-## ProceduralLevelBuilder
+## ProceduralLevelBuilder (implemented)
+
+`ProceduralLevelBuilder` on `ProceduralLevel` in `Procedural(test).unity`:
 
 ```csharp
 public class ProceduralLevelBuilder : MonoBehaviour
 {
-    [SerializeField] LevelGenConfig config;
-    [SerializeField] Transform      levelRoot;
-    [SerializeField] Transform      ballSpawnPoint;
-
-    public event Action<Bounds> OnLevelBuilt;
-
-    public IEnumerator BuildAsync(List<LevelCell> cells)
+    // On Start (if buildOnStart): BuildFromSeed(seed)
+    public bool BuildFromSeed(int buildSeed)
     {
-        var bounds = new Bounds(Vector3.zero, Vector3.zero);
-        int batchSize = 5; // spawn 5 tiles per frame — no frame spike
-
-        for (int i = 0; i < cells.Count; i++)
-        {
-            var cell = cells[i];
-            Vector3 worldPos = new Vector3(
-                cell.GridPos.x * config.tileSpacing,
-                0f,
-                cell.GridPos.y * config.tileSpacing);
-
-            // Pull from pool instead of Instantiate
-            var tile = TilePool.Instance.Get();
-            tile.transform.SetParent(levelRoot);
-            tile.transform.position = worldPos;
-            tile.transform.rotation = Quaternion.Euler(0, cell.YRotation, 0);
-
-            // Apply existing GLB visual layout
-            TileGlbVisual.ApplyLayout(tile, config.glbLayout);
-
-            // Place obstacles (never on first 2 or last 2 tiles)
-            if (cell.Obstacle != ObstacleType.None
-                && i > 1 && i < cells.Count - 2)
-            {
-                PlaceObstacle(cell.Obstacle, worldPos);
-            }
-
-            // Place finish line on last tile
-            if (i == cells.Count - 1)
-            {
-                Instantiate(config.finishLinePrefab,
-                            worldPos + Vector3.up * 0.1f,
-                            tile.transform.rotation);
-            }
-
-            bounds.Encapsulate(worldPos);
-
-            if ((i + 1) % batchSize == 0)
-                yield return null; // wait one frame every 5 tiles
-        }
-
-        // Set ball spawn at first tile
-        ballSpawnPoint.position =
-            new Vector3(cells[0].GridPos.x * config.tileSpacing,
-                        1f,
-                        cells[0].GridPos.y * config.tileSpacing);
-
-        // Apply static batching for one draw call
-        StaticBatchingUtility.Combine(levelRoot.gameObject);
-
-        OnLevelBuilt?.Invoke(bounds);
+        // 1. Generate path via ProceduralPathGenerator.GenerateWithRetry()
+        // 2. Spawn main-path tiles with ProceduralTilePlacement.ApplyPathTransform()
+        // 3. Spawn corner pads (2 forward-aligned tiles per turn)
+        // 4. Apply TileGlbVisual layout from config.glbLayout
+        // 5. Place ball at first tile via BallController.PlaceAt()
+        // 6. Add FinishLine.Configure() on last tile
     }
 }
 ```
+
+**Planned upgrade:** `IEnumerator BuildAsync()` with object pool, obstacle placement, and `OnLevelBuilt(Bounds)` event.
 
 ---
 
@@ -521,15 +547,16 @@ public void LoadReplay(string code)
 
 ## Rollout Phases
 
-| Phase | Deliverable | Time Estimate | Demo-able? |
-|---|---|---|---|
-| **P0** | `ProceduralPathGenerator` + `LevelBuilder` + tile spawn + finish line | 1 week | ✅ Yes |
-| **P1** | `LevelValidator` + seed UI (word code) + ball spawn wired | 1 week | ✅ Yes |
-| **P2** | Obstacle placement + difficulty curve + star rating system | 1 week | ✅ Yes |
-| **P3** | Object pool + async builder + Daily mode + Replay code entry | 1 week | ✅ Yes |
-| **P4** | Chunk system (designer-authored prefab modules stitched at runtime) | 2 weeks | Bonus |
+| Phase | Deliverable | Status |
+|---|---|---|
+| **P0** | `ProceduralPathGenerator` + path tests + visualizer | ✅ Done |
+| **P0.5** | `ProceduralLevelBuilder` + edge-aligned placement + corner pads + GLB + ball + finish | ✅ Done |
+| **P1** | `LevelValidator` + seed UI (word code) + `LevelProcedural` scene | 📋 Next |
+| **P2** | Obstacle placement + difficulty curve + star rating | 📋 Planned |
+| **P3** | Object pool + async builder + Daily mode + Replay code entry | 📋 Planned |
+| **P4** | Chunk system (designer-authored prefab modules stitched at runtime) | 📋 Bonus |
 
-**P0 + P1 is a complete working demo** sufficient for an academic presentation. P2 and P3 add production depth.
+**P0 + P0.5 is a playable procedural demo** in `Procedural(test).unity`. P1 adds validation and menu integration.
 
 ---
 
@@ -538,7 +565,8 @@ public void LoadReplay(string code)
 | Risk | Mitigation |
 |---|---|
 | Unsolvable layout generated | Validate path with BFS; auto-retry with `seed + 1` up to 5 times |
-| Ugly or overlapping tiles | Enforce minimum `tileSpacing`; collision check on spawn |
+| Ugly or overlapping tiles | Edge-aligned placement + incoming rotation + forward corner pads (implemented) |
+| Ball falls at turns | 2 forward-aligned corner pad tiles per turn (`cornerPadTileCount`) |
 | GLB visuals misaligned on rotated tiles | Always run `ApplyLayout` from reference asset after rotation is set |
 | Level feels too random and frustrating | Difficulty curve + max obstacle cap per level |
 | Hard to QA or reproduce bugs | Log seed code on every failure; Replay mode re-runs exact seed |
@@ -555,15 +583,19 @@ public void LoadReplay(string code)
 
 ## Minimal Implementation Checklist
 
-- [ ] `LevelGenConfig.asset` — ScriptableObject with all parameters
-- [ ] `ProceduralPathGenerator.cs` — backtracking random walk, returns `List<LevelCell>`
+- [x] `LevelGenConfig.asset` — `Assets/Settings/LevelGenConfig_Default.asset`
+- [x] `ProceduralPathGenerator.cs` — biased backtracking walk + retry + snake fallback
+- [x] `ProceduralPathVisualizer.cs` — Edit-mode path preview
+- [x] `ProceduralTilePlacement.cs` — edge-aligned placement + corner pads
+- [x] `ProceduralLevelBuilder.cs` — runtime spawner, GLB layout, ball, finish line
+- [x] Editor tests — **Gravity Painter → Test Procedural Path**
+- [x] Test scene — `Assets/Procedural(test).unity`
 - [ ] `ObstaclePlacer.cs` — reads difficulty curve, respects safe zones
 - [ ] `LevelValidator.cs` — BFS connectivity + solvability check + retry logic
-- [ ] `ProceduralLevelBuilder.cs` — async spawner, applies GLB layout, fires `OnLevelBuilt`
 - [ ] `TilePool.cs` — object pool pre-warmed on scene load
 - [ ] `LevelEnvironmentScaler.cs` — resizes clouds + skybox to tile bounds
 - [ ] `SeedHelper.cs` — `SeedToCode` and `CodeToSeed` utilities
-- [ ] `LevelProcedural.unity` — scene with ball, camera, UI, no hand-placed tiles
+- [ ] `LevelProcedural.unity` — production scene with ball, camera, UI
 - [ ] `LevelMenu.cs` additions — `LoadProcedural`, `LoadDaily`, `LoadReplay` methods
 - [ ] Seed code label in HUD UI
 - [ ] Replay code entry UI panel

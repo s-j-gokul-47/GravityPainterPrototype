@@ -462,8 +462,25 @@ This sets up a potential **Season 2 / Chapter 6** without requiring it for v1.0.
 | `HammerHazard` | Swinging arm obstacle |
 | `LevelEnvironment` | Planet/deck backdrop |
 | `CannonShooter` | Cannon launcher — in development |
+| `LaserGate` | Korrath Beam on/off cycle obstacle |
+| `TileGlbVisual` | Combined tiles.glb overlay per tile |
 
-### 12.2 New planned scripts
+### 12.2 Procedural generation scripts ✅ (Steps 1–2)
+
+| Script | Role |
+|--------|------|
+| `ProceduralPathGenerator` | Biased backtracking random walk; `GenerateWithRetry()` + snake fallback |
+| `ProceduralLevelBuilder` | Runtime build: tiles, GLB layout, ball, finish line, corner pads |
+| `ProceduralTilePlacement` | Edge-aligned positions, turn offsets, 2 forward corner pads per turn |
+| `ProceduralPathVisualizer` | Edit-mode path preview (Inspector button) |
+| `LevelGenConfig` | ScriptableObject — path length, tile footprint, prefab refs, corner pad settings |
+| `LevelCell` | Grid pos, rotation, path index, obstacle/zone placeholders |
+
+**Config asset:** `Assets/Settings/LevelGenConfig_Default.asset`  
+**Reference layout:** `Assets/Settings/TileGlbReferenceLayout.asset` (captured from Tile (40) on Level 2)  
+**Full doc:** [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md)
+
+### 12.3 New planned scripts
 
 | Script | Purpose |
 |--------|---------|
@@ -492,6 +509,8 @@ This sets up a potential **Season 2 / Chapter 6** without requiring it for v1.0.
 ### Phase 0 — Prototype ✅ (Complete)
 
 - Core paint loop, 5 levels, menu, unlock, Android build
+- GLB tiles + ball visuals, Level 2 laser gate (split Korrath Beam model)
+- **Procedural level generation Steps 1–2** (`kavin` branch): path generator, runtime builder, edge-aligned placement, corner pads, playtest scene `Procedural(test).unity`
 - Cannon tile — in development
 
 ### Phase 1 — Story layer + Polish (2–3 weeks)
@@ -592,7 +611,7 @@ A mini-glossary of Velori terms used in the game world for consistent lore writi
 | Branch | Purpose |
 |--------|---------|
 | `master` | Early baseline |
-| `kavin` | Integration / packages lock |
+| `kavin` | Procedural level gen (Steps 1–2), laser gate fixes, tile placement |
 | `hari` | Level 3, death/finish materials, tile fixes |
 
 **Recommendation:** Create `story-layer` branch for transmission cards and mission report UI without touching gameplay code.

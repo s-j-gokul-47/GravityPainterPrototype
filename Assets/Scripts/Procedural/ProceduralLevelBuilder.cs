@@ -49,6 +49,13 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         EnsureLevelRoot();
+        EnsureLevelCompleteUi();
+        Time.timeScale = 1f;
+        if (levelCompletePanel != null)
+        {
+            levelCompletePanel.SetActive(false);
+        }
+
         ProceduralTilePlacement.HidePathPreview();
         ClearLevel();
 
@@ -95,6 +102,19 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
         OnLevelBuilt?.Invoke(buildSeed, _spawnedTiles.Count);
         return true;
+    }
+
+    /// <summary>Rebuilds the current procedural layout using the last seed.</summary>
+    public void RebuildSameSeed()
+    {
+        int rebuildSeed = LastBuiltSeed >= 0 ? LastBuiltSeed : seed;
+        BuildFromSeed(rebuildSeed);
+    }
+
+    /// <summary>Builds a new procedural layout from a random seed.</summary>
+    public void RebuildNextSeed()
+    {
+        BuildFromSeed(UnityEngine.Random.Range(1, int.MaxValue));
     }
 
     /// <summary>Destroys all tiles spawned by the builder.</summary>
@@ -233,12 +253,40 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         finish.Configure(levelCompletePanel, pause: true);
+        EnsureFinishTrigger(goalTile);
+    }
 
-        Collider col = goalTile.GetComponent<Collider>();
-        if (col != null)
+    private void EnsureLevelCompleteUi()
+    {
+        if (levelCompletePanel == null)
         {
-            col.isTrigger = true;
+            levelCompletePanel = LevelCompleteCanvasFactory.EnsureCanvas(this);
         }
+        else
+        {
+            LevelCompleteUI ui = levelCompletePanel.GetComponent<LevelCompleteUI>();
+            if (ui != null)
+            {
+                ui.ConfigureProcedural(this);
+            }
+        }
+    }
+
+    private static void EnsureFinishTrigger(GameObject goalTile)
+    {
+        Collider[] colliders = goalTile.GetComponents<Collider>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i] != null && colliders[i].isTrigger)
+            {
+                return;
+            }
+        }
+
+        BoxCollider trigger = goalTile.AddComponent<BoxCollider>();
+        trigger.isTrigger = true;
+        trigger.size = new Vector3(1f, 1f, 1f);
+        trigger.center = new Vector3(0f, 0.5f, 0f);
     }
 
     private static void DestroyTile(GameObject tile)

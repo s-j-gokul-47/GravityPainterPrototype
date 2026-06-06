@@ -50,12 +50,15 @@ public static class SetupProceduralLevelScene
 
         BallController ball = EnsureBall();
         EnsureCameraSystems();
+        EnsureEventSystem();
+        GameObject levelCompleteCanvas = EnsureLevelCompleteCanvas(builder);
         DisableLegacyPathTester();
 
         SerializedObject so = new SerializedObject(builder);
         so.FindProperty("config").objectReferenceValue = config;
         so.FindProperty("levelRoot").objectReferenceValue = levelRoot;
         so.FindProperty("ball").objectReferenceValue = ball;
+        so.FindProperty("levelCompletePanel").objectReferenceValue = levelCompleteCanvas;
         so.FindProperty("buildOnStart").boolValue = true;
         so.FindProperty("seed").intValue = 12345;
         so.ApplyModifiedPropertiesWithoutUndo();
@@ -68,8 +71,30 @@ public static class SetupProceduralLevelScene
             "Scene setup complete.\n\n" +
             "Press Play to build from seed 12345.\n" +
             "Change seed on ProceduralLevel → Procedural Level Builder, then Play again.\n\n" +
-            "Paint tiles, roll the ball to the last tile to win.",
+            "Paint tiles, roll the ball to the last tile to win.\n" +
+            "Level-complete screen (Restart / New Level / Home) is wired.",
             "OK");
+    }
+
+    private static GameObject EnsureLevelCompleteCanvas(ProceduralLevelBuilder builder)
+    {
+        GameObject canvas = LevelCompleteCanvasFactory.EnsureCanvas(builder);
+        Undo.RegisterCreatedObjectUndo(canvas, "Setup Procedural Level");
+        return canvas;
+    }
+
+    private static void EnsureEventSystem()
+    {
+        if (Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() != null)
+        {
+            return;
+        }
+
+        GameObject eventSystem = new GameObject(
+            "EventSystem",
+            typeof(UnityEngine.EventSystems.EventSystem),
+            typeof(UnityEngine.EventSystems.StandaloneInputModule));
+        Undo.RegisterCreatedObjectUndo(eventSystem, "Setup Procedural Level");
     }
 
     private static LevelGenConfig LoadDefaultConfig()

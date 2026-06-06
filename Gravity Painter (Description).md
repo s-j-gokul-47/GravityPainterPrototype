@@ -308,6 +308,9 @@ All input code uses:
 | OnMouseDown not working | New Input System conflict | Replaced with Camera Raycast using Mouse.current |
 | Ball falls off when path turns | `Vector3.forward` is world-space | Changed to `transform.forward` (tile's local forward) |
 | Tiles only appear in Play mode | GameManager.Start() spawns them | Commented out GenerateLevel() for manual Level 1 design |
+| Procedural tiles overlap at turns | Uniform grid spacing + outgoing rotation | Edge-aligned placement, incoming rotation, 2 forward corner pads |
+| Procedural tiles too small | 1×1 prefab scale with Level 2 GLB layout | `tileLocalScale` matching Level 2 footprint on config |
+| Ball falls at procedural turns | Corner gap after edge-aligned offset | `addCornerPads` + `cornerPadTileCount = 2` forward-aligned tiles |
 
 ---
 
@@ -330,33 +333,94 @@ All input code uses:
 
 ---
 
-## 16. Still To Build (Next Steps)
+## 16. Procedural Level Generation (June 2026 — `kavin` branch)
 
-- Goal portal object → ball touches it → Level Complete UI
-- Camera follow the ball (smooth follow script)
-- Add walls/boundaries so ball doesn't fall off path edges
-- Basic UI (Level Complete text, Restart button)
-- Android build setup (Player Settings, APK export)
-- Polish: emissive neon materials, lighting, camera angle for futuristic look
+Runtime procedural levels are **playable** in `Assets/Procedural(test).unity`. Full architecture and checklist: [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md).
+
+### What works today
+
+| Feature | Status |
+|---------|--------|
+| Seeded path generation (biased backtracking + snake fallback) | ✅ |
+| Edit-mode path preview (`ProceduralPathVisualizer`) | ✅ |
+| Runtime level build (`ProceduralLevelBuilder`) | ✅ |
+| Level 2 GLB tile scale + edge-aligned placement | ✅ |
+| 2 forward-aligned corner pad tiles per 90° turn | ✅ |
+| Ball spawn + finish line on last tile | ✅ |
+| Console tests (**Gravity Painter → Test Procedural Path**) | ✅ |
+
+### Key scripts (`Assets/Scripts/Procedural/`)
+
+| Script | Purpose |
+|--------|---------|
+| `ProceduralPathGenerator.cs` | Pure C# path logic from seed |
+| `ProceduralLevelBuilder.cs` | Spawns tiles, ball, finish at runtime |
+| `ProceduralTilePlacement.cs` | Edge-aligned positions + corner pads |
+| `ProceduralPathVisualizer.cs` | Edit-mode tile preview |
+| `LevelGenConfig.cs` | ScriptableObject parameters |
+| `LevelCell.cs` | Per-tile data struct |
+
+### Quick playtest
+
+1. Open `Procedural(test).unity`
+2. **Gravity Painter → Setup Procedural Level Scene (Step 2)**
+3. Press **Play** (default seed `12345`)
+
+### Not yet built
+
+- `LevelProcedural.unity` production scene
+- Obstacle placement, validator, object pool, Daily/Replay menu modes
+- Seed word codes (KELOR-style)
 
 ---
 
-## 17. Folder Structure
+## 17. Still To Build (Next Steps)
+
+**Campaign**
+- Polish Levels 3–5 layouts, transmission cards, star ratings
+- Cannon launcher tile completion
+
+**Procedural (Step 3+)**
+- Dedicated `LevelProcedural` scene + main menu hooks
+- `LevelValidator`, `ObstaclePlacer`, `TilePool`, async builder
+- Daily challenge + replay seed codes
+
+**General**
+- Android build polish, performance profiling on mid-range devices
+
+---
+
+## 18. Folder Structure
 
 ```
 Assets/
+├── Art/
+│   ├── Icons/              App icon, marketing images
+│   ├── Materials/
+│   │   ├── Tiles/          RedZone, BlueZone, YellowZone, DefaultZone
+│   │   └── Environment/    PlanetLand, PlatformDeck, BoardColor
+│   ├── Models/             Sci-Fi Ball 3D Model.glb, tiles.glb, RedLaserBeam.glb
+│   └── Sprites/UI/         Menu & HUD images
+├── Editor/                 Unity menu tools (Gravity Painter)
 ├── Prefabs/
-│   └── Tile          (Tile prefab)
+│   ├── Gameplay/           Tile.prefab
+│   └── Obstacles/          KorrathBeam.prefab, hammer, etc.
+├── Resources/
+│   └── Visuals/Tiles/      TilesGlbMesh.prefab (runtime load)
 ├── Scenes/
-│   └── SampleScene
-├── Materials/
-│   ├── RedZone
-│   ├── BlueZone
-│   ├── YellowZone
-│   └── DefaultZone
-├── TileZone.cs
-├── BallController.cs
-├── InputManager.cs
-└── GameManager.cs
+│   ├── Menus/              MainMenu.unity
+│   └── Levels/             Level 1–5.unity
+├── Procedural(test).unity  Procedural playtest scene (Step 2)
+├── Scripts/
+│   ├── Core/               TileZone, BallController, TileGlbVisual, InputManager
+│   ├── Gameplay/           GameManager, FinishLine, LaserGate, HammerHazard
+│   ├── Procedural/         Path generator, level builder, tile placement
+│   ├── Systems/            CameraFollow, LevelEnvironment, LevelProgress
+│   └── UI/                 MainMenu, LevelMenu, LevelComplete*
+├── Settings/
+│   ├── LevelGenConfig_Default.asset
+│   ├── TileGlbReferenceLayout.asset
+│   └── URP assets, Input System actions
+└── ThirdParty/             Asset Store packs (Sci-Fi, Skybox, TMP, etc.)
 ```
 

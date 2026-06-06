@@ -37,10 +37,13 @@ The enhanced plan replaces the earlier generic `PROJECT_PLAN.md` outline. It is 
 5. **The Core Signal** (L10–12) — full mix + finale boss stage  
 
 **Prototype today (✅)**  
-Paint gravity, sci-fi tiles, GLB ball, level unlock, level-complete UI, Levels 1–5 in build, hammer on Level 4 in progress.
+Paint gravity, sci-fi tiles, GLB ball, level unlock, level-complete UI, Levels 1–5 in build, hammer on Level 4, split Korrath Beam laser on Level 2.
+
+**Procedural generation (✅ Steps 1–2 on `kavin` branch)**  
+Seeded path generator, runtime level builder, edge-aligned tile placement, 2 forward corner pads per turn, GLB visuals, ball spawn, finish line. Playtest in `Assets/Procedural(test).unity`. See [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md).
 
 **Planned for v1.0 (📋)**  
-AETHER Credits, probe skins, artifact power-ups, transmission/mission report UI, star ratings, 12 polished levels.
+AETHER Credits, probe skins, artifact power-ups, transmission/mission report UI, star ratings, 12 polished levels, procedural menu modes (Daily / Replay).
 
 **Timeline:** ~10–12 weeks from Phase 1 (see Enhanced Plan §13).
 
@@ -51,6 +54,7 @@ AETHER Credits, probe skins, artifact power-ups, transmission/mission report UI,
 | File | Purpose |
 |------|---------|
 | [Gravity Painter Enhanced Plan.md](./Gravity%20Painter%20Enhanced%20Plan.md) | **Full project plan for meetings** |
+| [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md) | **Procedural level gen — status, architecture, checklist** |
 | [README.md](./README.md) | Technical development log (prototype) |
 | [Gravity Painter (Description).md](./Gravity%20Painter%20Description).md) | Original design notes |
 
