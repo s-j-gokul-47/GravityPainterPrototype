@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class LaserGateModelUtility
 {
-    public const string GlbPath = "Assets/Art/Models/RedLaserBeam.glb";
+    public const string GlbPath = "Assets/Art/Models/LaserGate.glb";
 
     public static bool TryAttachModelToGate(Transform gateRoot, Transform alignToTile = null, bool forceReplace = false)
     {
@@ -16,13 +16,13 @@ public static class LaserGateModelUtility
 
         if (!File.Exists(GlbPath))
         {
-            Debug.LogWarning("RedLaserBeam.glb not found at " + GlbPath);
+            Debug.LogWarning("LaserGate.glb not found at " + GlbPath);
             return false;
         }
 
         if (!EnsureGlbImporterReady(GlbPath))
         {
-            Debug.LogWarning("RedLaserBeam.glb is not imported yet. Use Gravity Painter → Reimport Red Laser Beam GLB.");
+            Debug.LogWarning("LaserGate.glb is not imported yet. Use Gravity Painter → Reimport Laser Gate GLB.");
             return false;
         }
 
@@ -52,7 +52,7 @@ public static class LaserGateModelUtility
 
         if (glbRoot == null)
         {
-            Debug.LogError("Could not load mesh from RedLaserBeam.glb");
+            Debug.LogError("Could not load mesh from LaserGate.glb");
             return false;
         }
 
@@ -294,11 +294,11 @@ public static class LaserGateModelUtility
             else if (asset is Mesh mesh)
             {
                 string meshName = mesh.name.ToLowerInvariant();
-                if (meshName.Contains("0.002") || mesh.vertexCount < 5000)
+                if (meshName.Contains("0.001") || mesh.vertexCount < 50000)
                 {
                     beamMesh ??= mesh;
                 }
-                else if (meshName.Contains("0.001") || mesh.vertexCount > 5000)
+                else if (meshName == "mesh_0" || mesh.vertexCount > 50000)
                 {
                     supportMesh ??= mesh;
                 }
@@ -338,12 +338,12 @@ public static class LaserGateModelUtility
 
         if (supportMesh != null)
         {
-            AddMeshChild(root.transform, "lasersupport", supportMesh, matToUse);
+            AddMeshChild(root.transform, "LaserGate_Frame", supportMesh, matToUse);
         }
 
         if (beamMesh != null)
         {
-            AddMeshChild(root.transform, "beam", beamMesh, matToUse);
+            AddMeshChild(root.transform, "LaserBeam", beamMesh, matToUse);
         }
 
         return root;

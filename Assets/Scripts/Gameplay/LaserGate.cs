@@ -1,35 +1,51 @@
 using UnityEngine;
 
 /// <summary>
-/// Korrath Beam — cycles on/off. Only the beam blinks; lasersupport stays visible.
+/// Korrath Beam — static frame with a beam that sweeps left-to-right, holds on, then turns off.
 /// </summary>
 public class LaserGate : MonoBehaviour
 {
+    private enum Phase
+    {
+        Off,
+        Sweep,
+        Hold
+    }
+
     [SerializeField] private Transform modelRoot;
     [SerializeField] private Transform beamRoot;
+    [SerializeField] private float sweepDuration = 0.6f;
     [SerializeField] private float onDuration = 1.5f;
     [SerializeField] private float offDuration = 1.5f;
     [SerializeField] private bool startActive = true;
 
+    private Phase _phase;
     private float _phaseTimer;
     private Renderer[] _beamRenderers = System.Array.Empty<Renderer>();
-    private Renderer[] _supportRenderers = System.Array.Empty<Renderer>();
+    private Renderer[] _frameRenderers = System.Array.Empty<Renderer>();
     private LaserGateStrike[] _strikes;
+    private BoxCollider _strikeCollider;
+
+    private Vector3 _beamRestLocalPosition;
+    private Vector3 _beamRestLocalScale;
+    private float _beamMeshMinX;
+    private float _beamMeshMaxX;
+    private Vector3 _strikeRestCenter;
+    private Vector3 _strikeRestSize;
+    private bool _beamBoundsCached;
 
     public bool IsActive { get; private set; }
 
     private void Awake()
     {
         CacheReferences();
-        IsActive = startActive;
-        _phaseTimer = IsActive ? onDuration : offDuration;
-        ApplyActiveState();
+        BeginCycle(startActive);
     }
 
     private void Start()
     {
         CacheReferences();
-        ApplyActiveState();
+        ApplyVisualState();
     }
 
     private void Update()
@@ -40,14 +56,78 @@ public class LaserGate : MonoBehaviour
         }
 
         _phaseTimer -= Time.deltaTime;
-        if (_phaseTimer > 0f)
+        switch (_phase)
         {
-            return;
+            case Phase.Off:
+                ApplyBeamSweep(0f);
+                IsActive = false;
+                if (_phaseTimer <= 0f)
+                {
+                    BeginSweep();
+                }
+
+                break;
+
+            case Phase.Sweep:
+                float sweepTime = Mathf.Max(sweepDuration, 0.001f);
+                float sweepProgress = 1f - Mathf.Clamp01(_phaseTimer / sweepTime);
+                ApplyBeamSweep(sweepProgress);
+                IsActive = sweepProgress > 0.02f;
+                if (_phaseTimer <= 0f)
+                {
+                    BeginHold();
+                }
+
+                break;
+
+            case Phase.Hold:
+                ApplyBeamSweep(1f);
+                IsActive = true;
+                if (_phaseTimer <= 0f)
+                {
+                    BeginOff();
+                }
+
+                break;
         }
 
-        IsActive = !IsActive;
-        _phaseTimer = IsActive ? onDuration : offDuration;
-        ApplyActiveState();
+        ApplyStrikeState();
+    }
+
+    private void BeginCycle(bool active)
+    {
+        if (active)
+        {
+            BeginHold();
+        }
+        else
+        {
+            BeginOff();
+        }
+    }
+
+    private void BeginOff()
+    {
+        _phase = Phase.Off;
+        _phaseTimer = Mathf.Max(offDuration, 0f);
+        ApplyBeamSweep(0f);
+        IsActive = false;
+        ApplyStrikeState();
+    }
+
+    private void BeginSweep()
+    {
+        _phase = Phase.Sweep;
+        _phaseTimer = Mathf.Max(sweepDuration, 0.001f);
+    }
+
+    private void BeginHold()
+    {
+        _phase = Phase.Hold;
+        _phaseTimer = Mathf.Max(onDuration, 0f);
+        ApplyBeamSweep(1f);
+        IsActive = true;
+        ApplyStrikeState();
     }
 
     private void CacheReferences()
@@ -63,13 +143,72 @@ public class LaserGate : MonoBehaviour
             beamRoot = LaserGateMeshParts.FindBeamTransform(modelRoot);
         }
 
-        LaserGateMeshParts.ClassifyRenderers(modelRoot, beamRoot, out _beamRenderers, out _supportRenderers);
+        LaserGateMeshParts.ClassifyRenderers(modelRoot, beamRoot, out _beamRenderers, out _frameRenderers);
         _strikes = GetComponentsInChildren<LaserGateStrike>(true);
+
+        if (beamRoot != null)
+        {
+            _strikeCollider = beamRoot.GetComponent<BoxCollider>();
+        }
+
+        CacheBeamSweepBounds();
     }
 
-    private void ApplyActiveState()
+    private void CacheBeamSweepBounds()
     {
-        foreach (Renderer renderer in _supportRenderers)
+        if (beamRoot == null || _beamBoundsCached)
+        {
+            return;
+        }
+
+        _beamRestLocalPosition = beamRoot.localPosition;
+        _beamRestLocalScale = beamRoot.localScale;
+
+        Bounds meshBounds = new Bounds();
+        bool hasBounds = false;
+
+        foreach (Renderer renderer in _beamRenderers)
+        {
+            if (renderer == null)
+            {
+                continue;
+            }
+
+            Bounds localBounds = renderer.localBounds;
+            if (!hasBounds)
+            {
+                meshBounds = localBounds;
+                hasBounds = true;
+            }
+            else
+            {
+                meshBounds.Encapsulate(localBounds);
+            }
+        }
+
+        if (!hasBounds)
+        {
+            meshBounds = new Bounds(Vector3.zero, Vector3.one);
+        }
+
+        _beamMeshMinX = meshBounds.min.x;
+        _beamMeshMaxX = meshBounds.max.x;
+
+        if (_strikeCollider != null)
+        {
+            _strikeRestCenter = _strikeCollider.center;
+            _strikeRestSize = _strikeCollider.size;
+        }
+
+        _beamBoundsCached = true;
+    }
+
+    private void ApplyBeamSweep(float progress)
+    {
+        float clamped = Mathf.Clamp01(progress);
+        bool visible = clamped > 0.001f;
+
+        foreach (Renderer renderer in _frameRenderers)
         {
             if (renderer != null)
             {
@@ -81,10 +220,79 @@ public class LaserGate : MonoBehaviour
         {
             if (renderer != null)
             {
-                renderer.enabled = IsActive;
+                renderer.enabled = visible;
             }
         }
 
+        if (beamRoot == null)
+        {
+            return;
+        }
+
+        if (!visible)
+        {
+            beamRoot.localScale = new Vector3(
+                _beamRestLocalScale.x * 0.001f,
+                _beamRestLocalScale.y,
+                _beamRestLocalScale.z);
+            UpdateStrikeCollider(0f);
+            return;
+        }
+
+        float width = Mathf.Max(_beamMeshMaxX - _beamMeshMinX, 0.001f);
+        float scaleX = Mathf.Max(clamped, 0.001f);
+        beamRoot.localScale = new Vector3(
+            _beamRestLocalScale.x * scaleX,
+            _beamRestLocalScale.y,
+            _beamRestLocalScale.z);
+        beamRoot.localPosition = new Vector3(
+            _beamRestLocalPosition.x + _beamMeshMinX * (1f - scaleX),
+            _beamRestLocalPosition.y,
+            _beamRestLocalPosition.z);
+
+        UpdateStrikeCollider(clamped);
+    }
+
+    private void UpdateStrikeCollider(float progress)
+    {
+        if (_strikeCollider == null)
+        {
+            return;
+        }
+
+        float clamped = Mathf.Clamp01(progress);
+        if (clamped <= 0.001f)
+        {
+            _strikeCollider.enabled = false;
+            return;
+        }
+
+        _strikeCollider.enabled = true;
+        float width = Mathf.Max(_beamMeshMaxX - _beamMeshMinX, 0.001f) * clamped;
+        float centerX = _beamMeshMinX + width * 0.5f;
+        _strikeCollider.center = new Vector3(centerX, _strikeRestCenter.y, _strikeRestCenter.z);
+        _strikeCollider.size = new Vector3(
+            Mathf.Max(width, 0.01f),
+            _strikeRestSize.y,
+            _strikeRestSize.z);
+    }
+
+    private void ApplyVisualState()
+    {
+        foreach (Renderer renderer in _frameRenderers)
+        {
+            if (renderer != null)
+            {
+                renderer.enabled = true;
+            }
+        }
+
+        ApplyBeamSweep(IsActive ? 1f : 0f);
+        ApplyStrikeState();
+    }
+
+    private void ApplyStrikeState()
+    {
         foreach (LaserGateStrike strike in _strikes)
         {
             if (strike != null)
@@ -103,17 +311,18 @@ public class LaserGate : MonoBehaviour
             modelRoot = found != null ? found : transform.GetChild(0);
         }
 
+        _beamBoundsCached = false;
         CacheReferences();
         if (!Application.isPlaying)
         {
-            IsActive = startActive;
-            ApplyActiveState();
+            BeginCycle(startActive);
+            ApplyVisualState();
         }
     }
 #endif
 }
 
-/// <summary>Identifies beam vs support renderers in the split laser GLB.</summary>
+/// <summary>Identifies beam vs frame renderers in the split laser GLB.</summary>
 public static class LaserGateMeshParts
 {
     public static Transform FindBeamTransform(Transform modelRoot)
@@ -123,10 +332,18 @@ public static class LaserGateMeshParts
             return null;
         }
 
-        Transform direct = modelRoot.Find("beam");
-        if (direct != null)
+        Transform[] candidates =
         {
-            return direct;
+            modelRoot.Find("LaserBeam"),
+            modelRoot.Find("beam")
+        };
+
+        foreach (Transform candidate in candidates)
+        {
+            if (candidate != null)
+            {
+                return candidate;
+            }
         }
 
         Transform namedBeam = null;
@@ -141,14 +358,9 @@ public static class LaserGateMeshParts
             }
 
             string lower = child.name.ToLowerInvariant();
-            if (IsSupportName(lower))
+            if (IsFrameName(lower))
             {
                 continue;
-            }
-
-            if (lower == "beam")
-            {
-                return child;
             }
 
             if (IsBeamName(lower) && child.GetComponentInChildren<Renderer>(true) != null)
@@ -179,18 +391,31 @@ public static class LaserGateMeshParts
 
     public static Transform FindSupportTransform(Transform modelRoot)
     {
+        return FindFrameTransform(modelRoot);
+    }
+
+    public static Transform FindFrameTransform(Transform modelRoot)
+    {
         if (modelRoot == null)
         {
             return null;
         }
 
-        Transform direct = modelRoot.Find("lasersupport");
-        if (direct != null)
+        Transform[] candidates =
         {
-            return direct;
+            modelRoot.Find("LaserGate_Frame"),
+            modelRoot.Find("lasersupport")
+        };
+
+        foreach (Transform candidate in candidates)
+        {
+            if (candidate != null)
+            {
+                return candidate;
+            }
         }
 
-        Transform namedSupport = null;
+        Transform namedFrame = null;
         Transform largestRenderer = null;
         int largestVerts = 0;
 
@@ -202,14 +427,14 @@ public static class LaserGateMeshParts
             }
 
             string lower = child.name.ToLowerInvariant();
-            if (IsBeamName(lower) && !IsSupportName(lower))
+            if (IsBeamName(lower))
             {
                 continue;
             }
 
-            if (IsSupportName(lower) && child.GetComponentInChildren<Renderer>(true) != null)
+            if (IsFrameName(lower) && child.GetComponentInChildren<Renderer>(true) != null)
             {
-                namedSupport = child;
+                namedFrame = child;
             }
 
             int verts = GetVertexCount(child);
@@ -220,9 +445,9 @@ public static class LaserGateMeshParts
             }
         }
 
-        if (namedSupport != null)
+        if (namedFrame != null)
         {
-            return namedSupport;
+            return namedFrame;
         }
 
         return largestVerts > 0 ? largestRenderer : null;
@@ -247,12 +472,12 @@ public static class LaserGateMeshParts
             beamRoot = FindBeamTransform(modelRoot);
         }
 
-        Transform supportRoot = FindSupportTransform(modelRoot);
+        Transform frameRoot = FindFrameTransform(modelRoot);
 
-        if (beamRoot != null && supportRoot != null && beamRoot != supportRoot)
+        if (beamRoot != null && frameRoot != null && beamRoot != frameRoot)
         {
             beamRenderers = beamRoot.GetComponentsInChildren<Renderer>(true);
-            supportRenderers = supportRoot.GetComponentsInChildren<Renderer>(true);
+            supportRenderers = frameRoot.GetComponentsInChildren<Renderer>(true);
             return;
         }
 
@@ -264,7 +489,7 @@ public static class LaserGateMeshParts
         }
 
         System.Collections.Generic.List<Renderer> beamList = new System.Collections.Generic.List<Renderer>();
-        System.Collections.Generic.List<Renderer> supportList = new System.Collections.Generic.List<Renderer>();
+        System.Collections.Generic.List<Renderer> frameList = new System.Collections.Generic.List<Renderer>();
 
         foreach (Renderer renderer in all)
         {
@@ -279,11 +504,11 @@ public static class LaserGateMeshParts
                 ? filter.sharedMesh.name.ToLowerInvariant()
                 : string.Empty;
 
-            if (IsSupportName(nodeName) || meshName.Contains("mesh_0.001"))
+            if (IsFrameName(nodeName) || meshName == "mesh_0")
             {
-                supportList.Add(renderer);
+                frameList.Add(renderer);
             }
-            else if (IsBeamName(nodeName) || meshName.Contains("mesh_0.002"))
+            else if (IsBeamName(nodeName) || meshName.Contains("mesh_0.001"))
             {
                 beamList.Add(renderer);
             }
@@ -292,7 +517,7 @@ public static class LaserGateMeshParts
                 int verts = filter != null && filter.sharedMesh != null ? filter.sharedMesh.vertexCount : 0;
                 if (verts > 10000)
                 {
-                    supportList.Add(renderer);
+                    frameList.Add(renderer);
                 }
                 else
                 {
@@ -302,7 +527,7 @@ public static class LaserGateMeshParts
         }
 
         beamRenderers = beamList.ToArray();
-        supportRenderers = supportList.ToArray();
+        supportRenderers = frameList.ToArray();
 
         if (beamRenderers.Length == 0)
         {
@@ -312,12 +537,18 @@ public static class LaserGateMeshParts
 
     private static bool IsBeamName(string lower)
     {
-        return lower == "beam" || (lower.Contains("beam") && !lower.Contains("support") && !lower.Contains("holder"));
+        return lower == "beam"
+            || lower == "laserbeam"
+            || (lower.Contains("beam") && !lower.Contains("frame") && !lower.Contains("support") && !lower.Contains("holder"));
     }
 
-    private static bool IsSupportName(string lower)
+    private static bool IsFrameName(string lower)
     {
-        return lower.Contains("lasersupport") || lower.Contains("support") || lower.Contains("holder");
+        return lower.Contains("lasergate_frame")
+            || lower.Contains("lasersupport")
+            || (lower.Contains("frame") && !lower.Contains("beam"))
+            || lower.Contains("support")
+            || lower.Contains("holder");
     }
 
     private static int GetVertexCount(Transform t)

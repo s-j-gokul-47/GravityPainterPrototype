@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Places the RedLaserBeam GLB as a cycling Korrath Beam at Tile (42) in Level 2.
+/// Places the LaserGate GLB as a sweeping Korrath Beam at Tile (42) in Level 2.
 /// </summary>
 public static class SetupLaserGateObstacle
 {
@@ -20,7 +20,7 @@ public static class SetupLaserGateObstacle
         EditorApplication.Exit(0);
     }
 
-    [MenuItem("Gravity Painter/Reimport Red Laser Beam GLB")]
+    [MenuItem("Gravity Painter/Reimport Laser Gate GLB")]
     public static void ReimportLaserGlb()
     {
         if (!File.Exists(LaserGateModelUtility.GlbPath))
@@ -31,7 +31,7 @@ public static class SetupLaserGateObstacle
 
         AssetDatabase.ImportAsset(LaserGateModelUtility.GlbPath, ImportAssetOptions.ForceUpdate);
         AssetDatabase.Refresh();
-        EditorUtility.DisplayDialog("Reimported", "Reimported RedLaserBeam.glb", "OK");
+        EditorUtility.DisplayDialog("Reimported", "Reimported LaserGate.glb", "OK");
     }
 
     [MenuItem("Gravity Painter/Setup Korrath Beam at Tile (42) in Level 2")]
@@ -40,7 +40,7 @@ public static class SetupLaserGateObstacle
         if (!File.Exists(LaserGateModelUtility.GlbPath))
         {
             EditorUtility.DisplayDialog(
-                "Missing RedLaserBeam.glb",
+                "Missing LaserGate.glb",
                 "Expected:\n" + LaserGateModelUtility.GlbPath,
                 "OK");
             return;
@@ -50,9 +50,9 @@ public static class SetupLaserGateObstacle
         {
             EditorUtility.DisplayDialog(
                 "GLB not ready",
-                "RedLaserBeam.glb is not imported yet.\n\n" +
+                "LaserGate.glb is not imported yet.\n\n" +
                 "Wait for glTFast import, then run:\n" +
-                "Gravity Painter → Reimport Red Laser Beam GLB",
+                "Gravity Painter → Reimport Laser Gate GLB",
                 "OK");
             return;
         }
@@ -103,12 +103,12 @@ public static class SetupLaserGateObstacle
             "Korrath Beam repaired",
             count > 0
                 ? "Rebuilt split laser model on " + count + " gate(s).\n" +
-                  "lasersupport stays visible; beam blinks.\n\nPrefab also updated."
+                  "LaserGate_Frame stays visible; LaserBeam sweeps left-to-right.\n\nPrefab also updated."
                 : "No LaserGate found in the open scene.",
             "OK");
     }
 
-    [MenuItem("Gravity Painter/Upgrade Laser Model (use RedLaserBeam.glb)")]
+    [MenuItem("Gravity Painter/Upgrade Laser Model (use LaserGate.glb)")]
     public static void UpgradeLaserInOpenScene()
     {
         int count = RepairAllLaserGates(forceReplace: false);
@@ -120,7 +120,7 @@ public static class SetupLaserGateObstacle
         EditorUtility.DisplayDialog(
             "Upgrade laser",
             count > 0
-                ? "Attached RedLaserBeam.glb to " + count + " gate(s)."
+                ? "Attached LaserGate.glb to " + count + " gate(s)."
                 : "No Korrath Beam found, or GLB could not load.",
             "OK");
     }
@@ -159,7 +159,7 @@ public static class SetupLaserGateObstacle
             Object.DestroyImmediate(root);
             EditorUtility.DisplayDialog(
                 "Import failed",
-                "Could not load RedLaserBeam.glb.\nRun Gravity Painter → Reimport Red Laser Beam GLB.",
+                "Could not load LaserGate.glb.\nRun Gravity Painter → Reimport Laser Gate GLB.",
                 "OK");
             return null;
         }
@@ -168,6 +168,7 @@ public static class SetupLaserGateObstacle
         LaserGateModelUtility.WireLaserGateReferences(gate, modelRoot);
 
         SerializedObject so = new SerializedObject(gate);
+        so.FindProperty("sweepDuration").floatValue = 0.6f;
         so.FindProperty("onDuration").floatValue = 1.5f;
         so.FindProperty("offDuration").floatValue = 1.5f;
         so.FindProperty("startActive").boolValue = true;
