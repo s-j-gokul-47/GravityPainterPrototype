@@ -50,6 +50,28 @@ public static class ProceduralPathGeneratorTest
 
         bool finishDistancePassed = ValidateFinishDistance(runA, config);
         Debug.Log(finishDistancePassed ? "FINISH DISTANCE TEST PASSED" : "FINISH DISTANCE TEST FAILED");
+
+        config.SyncFootprintFromTileScale();
+        Debug.Log(
+            "Tile footprint: " + ProceduralTileFootprint.GetLongestPlanarAxis(config).ToString("F2"));
+
+        bool overlapPassed = !ProceduralTilePlacement.HasMainTileOverlaps(runA, config);
+        Debug.Log(overlapPassed ? "TILE OVERLAP TEST PASSED" : "TILE OVERLAP TEST FAILED");
+
+        int overlapFailures = 0;
+        for (int testSeed = 1; testSeed <= 200; testSeed++)
+        {
+            List<LevelCell> cells = generator.GenerateWithRetry(config, testSeed);
+            if (cells == null || ProceduralTilePlacement.HasMainTileOverlaps(cells, config))
+            {
+                overlapFailures++;
+            }
+        }
+
+        Debug.Log(
+            overlapFailures == 0
+                ? "200-SEED MAIN TILE OVERLAP TEST PASSED"
+                : "200-SEED MAIN TILE OVERLAP TEST FAILED (" + overlapFailures + " seeds)");
     }
 
     [MenuItem("Gravity Painter/Wire Level Gen Config Prefabs")]

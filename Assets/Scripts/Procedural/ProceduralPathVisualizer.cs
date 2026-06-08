@@ -122,7 +122,6 @@ public class ProceduralPathVisualizer : MonoBehaviour
         }
 
         int spawned = 0;
-        int padCount = Mathf.Max(0, config.cornerPadTileCount);
         for (int i = 2; i < cells.Count; i++)
         {
             if (!ProceduralTilePlacement.IsTurnIndex(i, cells))
@@ -130,9 +129,10 @@ public class ProceduralPathVisualizer : MonoBehaviour
                 continue;
             }
 
+            int padCount = ProceduralTilePlacement.CountCornerPadsForTurn(i, cells, config);
             for (int padIndex = 0; padIndex < padCount; padIndex++)
             {
-                GameObject pad = SpawnCornerPad(i, padIndex, cells, spawnParent);
+                GameObject pad = SpawnCornerPad(i, padIndex, padCount, cells, spawnParent);
                 if (pad == null)
                 {
                     continue;
@@ -149,6 +149,7 @@ public class ProceduralPathVisualizer : MonoBehaviour
     private GameObject SpawnCornerPad(
         int turnIndex,
         int padIndex,
+        int padCount,
         IReadOnlyList<LevelCell> cells,
         Transform spawnParent)
     {
@@ -161,13 +162,15 @@ public class ProceduralPathVisualizer : MonoBehaviour
                 return null;
             }
 
-            ProceduralTilePlacement.ApplyCornerPadTransform(tile.transform, turnIndex, padIndex, cells, config);
+            ProceduralTilePlacement.ApplyCornerPadTransform(
+                tile.transform, turnIndex, padIndex, padCount, cells, config);
             UnityEditor.Undo.RegisterCreatedObjectUndo(tile, "Generate Visual Path");
             return tile;
         }
 #endif
         GameObject runtimeTile = Instantiate(config.tilePrefab, spawnParent);
-        ProceduralTilePlacement.ApplyCornerPadTransform(runtimeTile.transform, turnIndex, padIndex, cells, config);
+        ProceduralTilePlacement.ApplyCornerPadTransform(
+            runtimeTile.transform, turnIndex, padIndex, padCount, cells, config);
         return runtimeTile;
     }
 }

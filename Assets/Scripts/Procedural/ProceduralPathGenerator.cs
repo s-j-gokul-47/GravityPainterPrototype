@@ -20,19 +20,54 @@ public class ProceduralPathGenerator
     /// </summary>
     public List<LevelCell> GenerateWithRetry(LevelGenConfig config, int seed, int maxAttempts = MaxRetryAttempts)
     {
+        return GenerateWithRetry(config, seed, out _, maxAttempts);
+    }
+
+    public List<LevelCell> GenerateWithRetry(
+        LevelGenConfig config,
+        int seed,
+        out int actualSeed,
+        int maxAttempts = MaxRetryAttempts)
+    {
+        config.SyncFootprintFromTileScale();
+
         for (int attempt = 0; attempt < maxAttempts; attempt++)
         {
-            List<LevelCell> cells = Generate(config, seed + attempt);
-            if (cells != null)
+            int trySeed = seed + attempt;
+            List<LevelCell> cells = Generate(config, trySeed);
+            if (cells != null && IsValidLayout(cells, config))
             {
+                actualSeed = trySeed;
                 return cells;
             }
         }
 
         Debug.LogWarning(
             "Biased walk failed after " + maxAttempts + " seeds starting at " + seed +
-            ". Using fallback snake path.");
-        return GenerateFallbackPath(config, seed);
+            ". Using validated fallback path.");
+
+        for (int attempt = 0; attempt < maxAttempts; attempt++)
+        {
+            int trySeed = seed + attempt;
+            List<LevelCell> cells = GenerateFallbackPath(config, trySeed);
+            if (cells != null
+                && cells.Count >= config.minPathLength
+                && IsValidLayout(cells, config))
+            {
+                actualSeed = trySeed;
+                return cells;
+            }
+        }
+
+        actualSeed = seed;
+        List<LevelCell> guaranteed = BuildGuaranteedFallbackPath(config, seed);
+        if (!IsValidLayout(guaranteed, config))
+        {
+            Debug.LogError(
+                "ProceduralPathGenerator: guaranteed fallback still overlaps for seed " + seed + ".");
+        }
+
+        return guaranteed;
     }
 
     /// <summary>
@@ -41,6 +76,7 @@ public class ProceduralPathGenerator
     /// </summary>
     public List<LevelCell> Generate(LevelGenConfig config, int seed)
     {
+        config.SyncFootprintFromTileScale();
         Random.InitState(seed);
 
         int pathLength = Random.Range(config.minPathLength, config.maxPathLength + 1);
@@ -62,7 +98,6 @@ public class ProceduralPathGenerator
         {
             attempts++;
 
-            bool relaxBackwardBlock = attempts > pathLength * 20;
             Vector2Int[] directions = GetBiasedDirections(preferredDir, straightSteps);
             bool moved = false;
 
@@ -81,15 +116,16 @@ public class ProceduralPathGenerator
                     continue;
                 }
 
-                if (!relaxBackwardBlock
-                    && path.Count < pathLength / 2
-                    && GoesBackward(next, current, preferredDir))
+                path.Add(next);
+                used.Add(next);
+
+                if (WouldPathLayoutOverlap(path, config))
                 {
+                    used.Remove(next);
+                    path.RemoveAt(path.Count - 1);
                     continue;
                 }
 
-                path.Add(next);
-                used.Add(next);
                 straightSteps = direction == lastDir ? straightSteps + 1 : 1;
                 lastDir = direction;
                 current = next;
@@ -116,6 +152,32 @@ public class ProceduralPathGenerator
             return null;
         }
 
+        List<LevelCell> cells = BuildCellsFromPath(path);
+        if (!IsValidLayout(cells, config))
+        {
+            return null;
+        }
+
+        return cells;
+    }
+
+    private static bool WouldPathLayoutOverlap(List<Vector2Int> path, LevelGenConfig config)
+    {
+        return !IsValidLayout(BuildCellsFromPath(path), config);
+    }
+
+    private static bool IsValidLayout(List<LevelCell> cells, LevelGenConfig config)
+    {
+        if (cells == null || cells.Count == 0)
+        {
+            return false;
+        }
+
+        return !ProceduralTilePlacement.HasMainTileOverlaps(cells, config);
+    }
+
+    public static List<LevelCell> BuildCellsFromPath(List<Vector2Int> path)
+    {
         return BuildCells(path);
     }
 
@@ -181,13 +243,6 @@ public class ProceduralPathGenerator
         return directions.ToArray();
     }
 
-    private static bool GoesBackward(Vector2Int next, Vector2Int current, Vector2Int preferred)
-    {
-        Vector2Int delta = next - current;
-        int dot = delta.x * preferred.x + delta.y * preferred.y;
-        return dot < 0;
-    }
-
     private List<LevelCell> GenerateFallbackPath(LevelGenConfig config, int seed)
     {
         Random.InitState(seed);
@@ -231,13 +286,62 @@ public class ProceduralPathGenerator
 
         if (path.Count < config.minPathLength)
         {
-            path = BuildSimpleSnake(config.minPathLength, config);
+            path = BuildSimpleSnake(config.minPathLength, config, preferred);
         }
 
-        return BuildCells(path);
+        List<LevelCell> cells = BuildCellsFromPath(path);
+        if (IsValidLayout(cells, config))
+        {
+            return cells;
+        }
+
+        for (int length = config.minPathLength; length <= config.maxPathLength; length++)
+        {
+            path = BuildSimpleSnake(length, config, preferred);
+            cells = BuildCellsFromPath(path);
+            if (IsValidLayout(cells, config))
+            {
+                return cells;
+            }
+        }
+
+        return BuildGuaranteedFallbackPath(config, seed);
     }
 
-    private static List<Vector2Int> BuildSimpleSnake(int length, LevelGenConfig config)
+    private static List<LevelCell> BuildGuaranteedFallbackPath(LevelGenConfig config, int seed)
+    {
+        Vector2Int[] directions = { Right, Up, Left, Down };
+
+        for (int length = config.maxPathLength; length >= config.minPathLength; length--)
+        {
+            for (int directionIndex = 0; directionIndex < directions.Length; directionIndex++)
+            {
+                Vector2Int direction = directions[(directionIndex + Mathf.Abs(seed)) % directions.Length];
+                List<Vector2Int> path = BuildSimpleSnake(length, config, direction);
+                List<LevelCell> cells = BuildCellsFromPath(path);
+                if (cells.Count >= config.minPathLength && IsValidLayout(cells, config))
+                {
+                    return cells;
+                }
+            }
+        }
+
+        for (int directionIndex = 0; directionIndex < directions.Length; directionIndex++)
+        {
+            Vector2Int direction = directions[directionIndex];
+            List<Vector2Int> path = BuildSimpleSnake(config.minPathLength, config, direction);
+            List<LevelCell> cells = BuildCellsFromPath(path);
+            if (IsValidLayout(cells, config))
+            {
+                return cells;
+            }
+        }
+
+        List<Vector2Int> shortestSnake = BuildSimpleSnake(config.minPathLength, config, Right);
+        return BuildCellsFromPath(shortestSnake);
+    }
+
+    private static List<Vector2Int> BuildSimpleSnake(int length, LevelGenConfig config, Vector2Int firstDirection)
     {
         var path = new List<Vector2Int>(length);
         var used = new HashSet<Vector2Int>();
@@ -245,7 +349,7 @@ public class ProceduralPathGenerator
         path.Add(current);
         used.Add(current);
 
-        Vector2Int[] dirs = { Right, Up, Left, Down };
+        Vector2Int[] dirs = { firstDirection, TurnLeft(firstDirection), TurnRight(firstDirection), -firstDirection };
         int dirIndex = 0;
 
         while (path.Count < length)
@@ -274,6 +378,16 @@ public class ProceduralPathGenerator
         }
 
         return path;
+    }
+
+    private static Vector2Int TurnLeft(Vector2Int direction)
+    {
+        return new Vector2Int(-direction.y, direction.x);
+    }
+
+    private static Vector2Int TurnRight(Vector2Int direction)
+    {
+        return new Vector2Int(direction.y, -direction.x);
     }
 
     private static List<LevelCell> BuildCells(List<Vector2Int> path)

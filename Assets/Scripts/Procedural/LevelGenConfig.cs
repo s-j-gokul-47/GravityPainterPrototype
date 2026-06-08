@@ -23,11 +23,11 @@ public class LevelGenConfig : ScriptableObject
     [Tooltip("Local scale applied to spawned tiles (matches Level 2 GLB tiles).")]
     public Vector3 tileLocalScale = new Vector3(9.764219f, 0.20627001f, 4.5902023f);
 
-    [Tooltip("Center-to-center spacing along world X when the path steps left/right.")]
+    [Tooltip("Verified longest tile axis (auto-derived from tileLocalScale).")]
     public float tileSpacingX = 9.764219f;
 
-    [Tooltip("Center-to-center spacing along world Z when the path steps forward/back.")]
-    public float tileSpacingZ = 4.85f;
+    [Tooltip("Verified longest tile axis used for path grid clearance.")]
+    public float tileSpacingZ = 9.814219f;
 
     [Tooltip("Small gap added between edge-aligned tiles.")]
     public float tileGap = 0.05f;
@@ -48,4 +48,17 @@ public class LevelGenConfig : ScriptableObject
     [Header("Visual Layout")]
     [Tooltip("Reference GLB layout applied to spawned tiles.")]
     public TileGlbReferenceLayoutAsset glbLayout;
+
+    /// <summary>Syncs spacing fields from tile scale (call from editor or before generation).</summary>
+    public void SyncFootprintFromTileScale()
+    {
+        float longest = ProceduralTileFootprint.GetLongestPlanarAxis(this);
+        tileSpacingX = longest;
+        tileSpacingZ = longest;
+    }
+
+    private void OnValidate()
+    {
+        SyncFootprintFromTileScale();
+    }
 }

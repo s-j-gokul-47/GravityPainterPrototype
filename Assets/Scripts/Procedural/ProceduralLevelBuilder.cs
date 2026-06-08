@@ -12,6 +12,8 @@ public class ProceduralLevelBuilder : MonoBehaviour
     [SerializeField] private LevelGenConfig config;
     [SerializeField] private int seed = 12345;
     [SerializeField] private bool buildOnStart = true;
+    [Tooltip("When enabled, changing Seed during Play mode rebuilds the level immediately.")]
+    [SerializeField] private bool rebuildWhenSeedChanges = true;
 
     [Header("Scene References")]
     [SerializeField] private Transform levelRoot;
@@ -23,7 +25,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
     private readonly List<GameObject> _spawnedTiles = new List<GameObject>();
     private ProceduralPathGenerator _generator;
+    private int _watchedSeed = int.MinValue;
 
+    public int Seed => seed;
     public int LastBuiltSeed { get; private set; } = -1;
     public int LastBuiltTileCount { get; private set; }
     public IReadOnlyList<GameObject> SpawnedTiles => _spawnedTiles;
@@ -38,6 +42,42 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!Application.isPlaying || !buildOnStart || !rebuildWhenSeedChanges)
+        {
+            return;
+        }
+
+        if (_watchedSeed == int.MinValue)
+        {
+            _watchedSeed = seed;
+            return;
+        }
+
+        if (seed != _watchedSeed)
+        {
+            _watchedSeed = seed;
+            BuildFromSeed(seed);
+        }
+    }
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        if (!Application.isPlaying || !buildOnStart || !rebuildWhenSeedChanges)
+        {
+            return;
+        }
+
+        if (_watchedSeed != int.MinValue && seed != _watchedSeed)
+        {
+            _watchedSeed = seed;
+            BuildFromSeed(seed);
+        }
+    }
+#endif
+
     /// <summary>
     /// Clears the current level and builds a new path from the given seed.
     /// </summary>
@@ -48,6 +88,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
             return false;
         }
 
+        config.SyncFootprintFromTileScale();
         EnsureLevelRoot();
         EnsureLevelCompleteUi();
         Time.timeScale = 1f;
@@ -60,10 +101,18 @@ public class ProceduralLevelBuilder : MonoBehaviour
         ClearLevel();
 
         _generator ??= new ProceduralPathGenerator();
-        List<LevelCell> cells = _generator.GenerateWithRetry(config, buildSeed);
+        List<LevelCell> cells = _generator.GenerateWithRetry(config, buildSeed, out int actualSeed);
         if (cells == null || cells.Count == 0)
         {
             Debug.LogError("ProceduralLevelBuilder: path generation failed for seed " + buildSeed);
+            return false;
+        }
+
+        if (ProceduralTilePlacement.HasMainTileOverlaps(cells, config))
+        {
+            Debug.LogError(
+                "ProceduralLevelBuilder: overlap-free path generation failed for seed "
+                + buildSeed + " (used " + actualSeed + ").");
             return false;
         }
 
@@ -91,16 +140,19 @@ public class ProceduralLevelBuilder : MonoBehaviour
         PlaceBall(cells);
         SetupFinishLine(goalTile);
 
-        LastBuiltSeed = buildSeed;
+        LastBuiltSeed = actualSeed;
         LastBuiltTileCount = _spawnedTiles.Count;
-        seed = buildSeed;
+        _watchedSeed = actualSeed;
+        seed = actualSeed;
 
         Debug.Log(
-            "Procedural level built: seed=" + buildSeed +
+            "Procedural level built (v2 placement): requested=" + buildSeed +
+            ", used seed=" + actualSeed +
             ", tiles=" + _spawnedTiles.Count +
+            ", footprint=" + ProceduralTileFootprint.GetLongestPlanarAxis(config).ToString("F2") +
             ", finish at " + cells[cells.Count - 1].GridPos);
 
-        OnLevelBuilt?.Invoke(buildSeed, _spawnedTiles.Count);
+        OnLevelBuilt?.Invoke(actualSeed, _spawnedTiles.Count);
         return true;
     }
 
@@ -129,6 +181,14 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         _spawnedTiles.Clear();
+
+        if (levelRoot != null)
+        {
+            for (int i = levelRoot.childCount - 1; i >= 0; i--)
+            {
+                DestroyTile(levelRoot.GetChild(i).gameObject);
+            }
+        }
     }
 
     private bool ValidateConfig()
@@ -185,7 +245,8 @@ public class ProceduralLevelBuilder : MonoBehaviour
             return;
         }
 
-        int padCount = Mathf.Max(0, config.cornerPadTileCount);
+        var placed = ProceduralTilePlacement.BuildPlacementPlan(cells, config);
+
         for (int i = 2; i < cells.Count; i++)
         {
             if (!ProceduralTilePlacement.IsTurnIndex(i, cells))
@@ -193,15 +254,66 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 continue;
             }
 
+            int padCount = ProceduralTilePlacement.CountCornerPadsForTurn(i, cells, config);
             for (int padIndex = 0; padIndex < padCount; padIndex++)
             {
+                Vector3 padCenter = ProceduralTilePlacement.ComputeCornerPadPosition(
+                    i, padIndex, padCount, cells, config);
+                float padRotation = cells[i - 1].YRotation;
+                Bounds padBounds = ProceduralTileFootprint.ComputeWorldBounds(padCenter, padRotation, config);
+
+                // Allow pads to meet the incoming/outgoing turn tiles; block parallel-path stacking.
+                if (WouldOverlapNonNeighborMainTiles(padBounds, placed, config, i))
+                {
+                    continue;
+                }
+
                 GameObject pad = Instantiate(config.tilePrefab, levelRoot.transform);
-                ProceduralTilePlacement.ApplyCornerPadTransform(pad.transform, i, padIndex, cells, config);
+                ProceduralTilePlacement.ApplyCornerPadTransform(
+                    pad.transform, i, padIndex, padCount, cells, config);
                 pad.name = "Tile_corner_" + i + "_" + padIndex + "_" + cells[i - 1].GridPos.x + "_" + cells[i - 1].GridPos.y;
                 ApplyTileVisual(pad);
                 _spawnedTiles.Add(pad);
+
+                placed.Add(new ProceduralTilePlacement.PlacedTile
+                {
+                    Center = padCenter,
+                    YRotation = padRotation,
+                    IsCornerPad = true
+                });
             }
         }
+    }
+
+    private static bool WouldOverlapNonNeighborMainTiles(
+        Bounds candidate,
+        IReadOnlyList<ProceduralTilePlacement.PlacedTile> placed,
+        LevelGenConfig levelConfig,
+        int turnMainIndex)
+    {
+        const float margin = 0.04f;
+        int incomingMainIndex = turnMainIndex - 1;
+
+        for (int i = 0; i < placed.Count; i++)
+        {
+            ProceduralTilePlacement.PlacedTile other = placed[i];
+            if (other.IsCornerPad || i == incomingMainIndex || i == turnMainIndex)
+            {
+                continue;
+            }
+
+            Bounds otherBounds = ProceduralTileFootprint.ComputeWorldBounds(
+                other.Center,
+                other.YRotation,
+                levelConfig);
+
+            if (ProceduralTileFootprint.BoundsOverlap(candidate, otherBounds, margin))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void ApplyTileVisual(GameObject tile)
