@@ -43,6 +43,11 @@ public class MainMenu : MonoBehaviour
         if (levelsPanel != null)
         {
             levelsPanel.SetActive(true);
+            LevelMenu levelMenu = levelsPanel.GetComponent<LevelMenu>();
+            if (levelMenu != null)
+            {
+                levelMenu.RefreshLevelList();
+            }
         }
     }
 

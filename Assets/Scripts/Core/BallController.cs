@@ -22,6 +22,8 @@ public class BallController : MonoBehaviour
     [SerializeField] private float fallYThreshold = -2f;
     [Tooltip("Seconds after falling before the level reloads.")]
     [SerializeField] private float fallRestartDelay = 5f;
+    [Tooltip("Faster reset when the ball falls in a procedural level.")]
+    [SerializeField] private float proceduralFallRestartDelay = 0.6f;
 
     [Header("Ball visual (GLB mesh)")]
     [SerializeField] private bool useSciFiBallVisual = true;
@@ -63,14 +65,46 @@ public class BallController : MonoBehaviour
     /// <summary>Moves the ball to a spawn point and clears physics velocity.</summary>
     public void PlaceAt(Vector3 worldPosition)
     {
+        SuspendAt(worldPosition);
+        ReleasePhysics();
+    }
+
+    /// <summary>Holds the ball at a spawn point without enabling physics yet.</summary>
+    public void SuspendAt(Vector3 worldPosition)
+    {
         if (rb == null)
         {
             rb = GetComponent<Rigidbody>();
         }
 
+        if (!gameObject.activeSelf)
+        {
+            gameObject.SetActive(true);
+        }
+
         transform.position = worldPosition;
         if (rb != null)
         {
+            rb.isKinematic = true;
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+
+        _fallElapsed = 0f;
+        _restarting = false;
+    }
+
+    /// <summary>Enables physics after the level and colliders are ready.</summary>
+    public void ReleasePhysics()
+    {
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
+
+        if (rb != null)
+        {
+            rb.isKinematic = false;
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             rb.WakeUp();
@@ -197,7 +231,8 @@ public class BallController : MonoBehaviour
         if (transform.position.y < fallYThreshold)
         {
             _fallElapsed += Time.deltaTime;
-            if (_fallElapsed >= fallRestartDelay)
+            float delay = GetFallRestartDelay();
+            if (_fallElapsed >= delay)
             {
                 RestartCurrentLevel();
             }
@@ -241,12 +276,40 @@ public class BallController : MonoBehaviour
         rb.linearVelocity = velocity;
     }
 
+    private float GetFallRestartDelay()
+    {
+        Scene active = SceneManager.GetActiveScene();
+        if (LevelProgress.IsProceduralScene(active))
+        {
+            return proceduralFallRestartDelay;
+        }
+
+        return fallRestartDelay;
+    }
+
     private void RestartCurrentLevel()
     {
         _restarting = true;
         Time.timeScale = 1f;
 
         Scene active = SceneManager.GetActiveScene();
+        if (LevelProgress.IsProceduralScene(active))
+        {
+            ProceduralLevelBuilder builder = FindFirstObjectByType<ProceduralLevelBuilder>();
+            if (builder != null && builder.ResetBallToStart())
+            {
+                _restarting = false;
+                return;
+            }
+
+            if (builder != null)
+            {
+                builder.RebuildSameSeed();
+                _restarting = false;
+                return;
+            }
+        }
+
         if (active.buildIndex >= 0)
         {
             SceneManager.LoadScene(active.buildIndex);

@@ -8,21 +8,45 @@ using UnityEngine.SceneManagement;
 public static class LevelProgress
 {
     public const string UnlockedLevelKey = "UnlockedLevel";
+    public const string SelectedMenuLevelKey = "SelectedMenuLevel";
 
     /// <summary>Campaign slot in the level-select menu that launches procedural mode.</summary>
     public const int ProceduralCampaignLevel = 3;
 
-    /// <summary>Scene loaded when the player picks Level 3 (must be in Build Settings).</summary>
+    /// <summary>Scene loaded when the player picks Level 3+ (must be in Build Settings).</summary>
     public const string ProceduralSceneName = "Procedural(test)";
+
+    public static int GetCampaignUnlockedLevel()
+    {
+        return Mathf.Max(1, PlayerPrefs.GetInt(UnlockedLevelKey, 1));
+    }
 
     public static int GetUnlockedLevel()
     {
-        return Mathf.Max(1, PlayerPrefs.GetInt(UnlockedLevelKey, 1));
+        int campaign = GetCampaignUnlockedLevel();
+        if (campaign < ProceduralCampaignLevel)
+        {
+            return campaign;
+        }
+
+        int procedural = ProceduralCampaignLevel + DifficultyManager.LevelsCompleted;
+        return Mathf.Max(campaign, procedural);
+    }
+
+    /// <summary>Level to highlight when opening the level-select screen (newest unlocked).</summary>
+    public static int GetFocusLevel()
+    {
+        return GetUnlockedLevel();
     }
 
     public static bool IsLevelUnlocked(int levelNumber)
     {
         return levelNumber >= 1 && levelNumber <= GetUnlockedLevel();
+    }
+
+    public static bool IsProceduralMenuLevel(int levelNumber)
+    {
+        return levelNumber >= ProceduralCampaignLevel;
     }
 
     /// <summary>
@@ -36,11 +60,22 @@ public static class LevelProgress
         }
 
         int nextUnlocked = completedLevel + 1;
-        if (nextUnlocked > GetUnlockedLevel())
+        if (nextUnlocked > GetCampaignUnlockedLevel())
         {
             PlayerPrefs.SetInt(UnlockedLevelKey, nextUnlocked);
             PlayerPrefs.Save();
         }
+    }
+
+    public static void SetSelectedMenuLevel(int levelNumber)
+    {
+        PlayerPrefs.SetInt(SelectedMenuLevelKey, Mathf.Max(1, levelNumber));
+        PlayerPrefs.Save();
+    }
+
+    public static int GetSelectedMenuLevel()
+    {
+        return Mathf.Max(1, PlayerPrefs.GetInt(SelectedMenuLevelKey, ProceduralCampaignLevel));
     }
 
     public static int GetLevelNumberFromScene(Scene scene)
@@ -53,7 +88,7 @@ public static class LevelProgress
         Scene scene = SceneManager.GetActiveScene();
         if (IsProceduralScene(scene))
         {
-            return ProceduralCampaignLevel;
+            return GetSelectedMenuLevel();
         }
 
         return ParseLevelName(scene.name);
@@ -66,7 +101,7 @@ public static class LevelProgress
 
     public static string GetSceneNameForLevel(int levelNumber)
     {
-        if (levelNumber == ProceduralCampaignLevel)
+        if (IsProceduralMenuLevel(levelNumber))
         {
             return ProceduralSceneName;
         }

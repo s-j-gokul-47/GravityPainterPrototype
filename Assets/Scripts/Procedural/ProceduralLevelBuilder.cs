@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ using UnityEngine;
 /// Builds a playable procedural level at runtime from a seed:
 /// tiles, GLB visuals, ball spawn, and finish line.
 /// </summary>
+[DefaultExecutionOrder(-200)]
 public class ProceduralLevelBuilder : MonoBehaviour
 {
     [Header("Generation")]
@@ -30,6 +32,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
     private readonly List<GameObject> _spawnedTiles = new List<GameObject>();
     private ProceduralPathGenerator _generator;
     private int _watchedSeed = int.MinValue;
+    private Vector3 _ballSpawnPosition;
+    private bool _hasBallSpawn;
+    private Coroutine _releaseBallCoroutine;
 
     public int Seed => seed;
     public int LastBuiltSeed { get; private set; } = -1;
@@ -41,11 +46,12 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
     public event Action<int, int> OnLevelBuilt;
 
-    private void Start()
+    private void Awake()
     {
-        if (buildOnStart)
+        HoldBallUntilPlaced();
+        if (buildOnStart && Application.isPlaying)
         {
-            BuildFromSeed(seed);
+            BuildFromSeed(ResolveStartSeed());
         }
     }
 
@@ -95,6 +101,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
             return false;
         }
 
+        HoldBallUntilPlaced();
         config.SyncFootprintFromTileScale();
         float difficulty = ResolveDifficulty();
         DifficultyScaler.Apply(config, difficulty);
@@ -167,8 +174,33 @@ public class ProceduralLevelBuilder : MonoBehaviour
             + ", tiles=" + _spawnedTiles.Count
             + ", finish at " + cells[cells.Count - 1].GridPos);
 
+        ProceduralSession.SaveSeed(actualSeed);
         OnLevelBuilt?.Invoke(actualSeed, _spawnedTiles.Count);
         return true;
+    }
+
+    private int ResolveStartSeed()
+    {
+        return ProceduralSession.ResolveStartSeed(seed);
+    }
+
+    private void HoldBallUntilPlaced()
+    {
+        if (ball == null)
+        {
+            ball = FindFirstObjectByType<BallController>();
+        }
+
+        if (ball == null)
+        {
+            return;
+        }
+
+        Rigidbody body = ball.GetComponent<Rigidbody>();
+        if (body != null)
+        {
+            body.isKinematic = true;
+        }
     }
 
     private float ResolveDifficulty()
@@ -179,6 +211,23 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         return Mathf.Clamp01(config.difficulty);
+    }
+
+    /// <summary>Resets the ball to the first tile without rebuilding the layout.</summary>
+    public bool ResetBallToStart()
+    {
+        if (!_hasBallSpawn || ball == null)
+        {
+            return false;
+        }
+
+        Time.timeScale = 1f;
+        StopReleaseBallCoroutine();
+        Vector3 spawnPosition = ResolveBallSpawnPosition(_ballSpawnPosition);
+        _ballSpawnPosition = spawnPosition;
+        ball.SuspendAt(spawnPosition);
+        _releaseBallCoroutine = StartCoroutine(ReleaseBallWhenReady());
+        return true;
     }
 
     /// <summary>Rebuilds the current procedural layout using the last seed.</summary>
@@ -370,10 +419,144 @@ public class ProceduralLevelBuilder : MonoBehaviour
             return;
         }
 
-        Vector3 worldPos = levelRoot.TransformPoint(
+        Vector3 planarCenter = levelRoot.TransformPoint(
             ProceduralTilePlacement.ComputeCenterPosition(0, cells, config));
-        worldPos.y = ballSpawnHeight;
-        ball.PlaceAt(worldPos);
+        Vector3 worldPos = ResolveBallSpawnPosition(planarCenter);
+        _ballSpawnPosition = worldPos;
+        _hasBallSpawn = true;
+
+        StopReleaseBallCoroutine();
+        ball.SuspendAt(worldPos);
+        _releaseBallCoroutine = StartCoroutine(ReleaseBallWhenReady());
+    }
+
+    private Vector3 ResolveBallSpawnPosition(Vector3 worldPlanarCenter)
+    {
+        Vector3 spawn = worldPlanarCenter;
+        spawn.y = ComputeBallSpawnY(worldPlanarCenter);
+        return spawn;
+    }
+
+    private float ComputeBallSpawnY(Vector3 worldPlanarCenter)
+    {
+        GameObject firstMainTile = FindFirstMainTile();
+        if (firstMainTile != null)
+        {
+            float colliderTop = GetTileTopY(firstMainTile);
+            if (colliderTop > float.NegativeInfinity)
+            {
+                return colliderTop + GetBallRadius() + 0.08f;
+            }
+
+            Renderer[] renderers = firstMainTile.GetComponentsInChildren<Renderer>();
+            if (renderers.Length > 0)
+            {
+                Bounds bounds = renderers[0].bounds;
+                for (int i = 1; i < renderers.Length; i++)
+                {
+                    bounds.Encapsulate(renderers[i].bounds);
+                }
+
+                return bounds.max.y + GetBallRadius() + 0.08f;
+            }
+        }
+
+        Physics.SyncTransforms();
+        if (Physics.Raycast(
+                worldPlanarCenter + Vector3.up * 8f,
+                Vector3.down,
+                out RaycastHit hit,
+                16f,
+                Physics.DefaultRaycastLayers,
+                QueryTriggerInteraction.Ignore))
+        {
+            return hit.point.y + GetBallRadius() + 0.08f;
+        }
+
+        return ballSpawnHeight;
+    }
+
+    private static float GetTileTopY(GameObject tile)
+    {
+        float maxY = float.NegativeInfinity;
+        Collider[] colliders = tile.GetComponentsInChildren<Collider>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider collider = colliders[i];
+            if (collider == null || collider.isTrigger)
+            {
+                continue;
+            }
+
+            maxY = Mathf.Max(maxY, collider.bounds.max.y);
+        }
+
+        return maxY;
+    }
+
+    private IEnumerator ReleaseBallWhenReady()
+    {
+        yield return null;
+        yield return new WaitForFixedUpdate();
+        Physics.SyncTransforms();
+
+        if (ball != null && _hasBallSpawn)
+        {
+            Vector3 spawnPosition = ResolveBallSpawnPosition(_ballSpawnPosition);
+            _ballSpawnPosition = spawnPosition;
+            ball.SuspendAt(spawnPosition);
+        }
+
+        yield return new WaitForFixedUpdate();
+        Physics.SyncTransforms();
+
+        if (ball != null)
+        {
+            ball.ReleasePhysics();
+        }
+
+        _releaseBallCoroutine = null;
+    }
+
+    private void StopReleaseBallCoroutine()
+    {
+        if (_releaseBallCoroutine != null)
+        {
+            StopCoroutine(_releaseBallCoroutine);
+            _releaseBallCoroutine = null;
+        }
+    }
+
+    private GameObject FindFirstMainTile()
+    {
+        for (int i = 0; i < _spawnedTiles.Count; i++)
+        {
+            GameObject tile = _spawnedTiles[i];
+            if (tile != null && !tile.name.Contains("_corner_"))
+            {
+                return tile;
+            }
+        }
+
+        return _spawnedTiles.Count > 0 ? _spawnedTiles[0] : null;
+    }
+
+    private float GetBallRadius()
+    {
+        if (ball == null)
+        {
+            return 0.5f;
+        }
+
+        SphereCollider sphere = ball.GetComponent<SphereCollider>();
+        if (sphere == null)
+        {
+            return 0.5f;
+        }
+
+        Vector3 scale = ball.transform.lossyScale;
+        float maxScale = Mathf.Max(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z));
+        return sphere.radius * maxScale;
     }
 
     private void SetupFinishLine(GameObject goalTile)

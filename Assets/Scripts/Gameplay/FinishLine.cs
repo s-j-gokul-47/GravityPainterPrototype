@@ -56,7 +56,24 @@ public class FinishLine : MonoBehaviour
     public void RestartLevel()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Scene active = SceneManager.GetActiveScene();
+        if (LevelProgress.IsProceduralScene(active))
+        {
+            ProceduralLevelBuilder builder = FindFirstObjectByType<ProceduralLevelBuilder>();
+            if (builder != null)
+            {
+                _completed = false;
+                if (levelCompletePanel != null)
+                {
+                    levelCompletePanel.SetActive(false);
+                }
+
+                builder.RebuildSameSeed();
+                return;
+            }
+        }
+
+        SceneManager.LoadScene(active.buildIndex);
     }
 
     /// <summary>Wire to a "Next" button if you add more scenes later.</summary>

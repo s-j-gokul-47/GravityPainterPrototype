@@ -238,8 +238,19 @@ public class LevelCompleteUI : MonoBehaviour
 
     public void RestartLevel()
     {
-        if (IsProceduralMode)
+        if (IsProceduralMode || LevelProgress.IsProceduralScene(SceneManager.GetActiveScene()))
         {
+            if (proceduralBuilder == null)
+            {
+                proceduralBuilder = FindFirstObjectByType<ProceduralLevelBuilder>();
+            }
+
+            if (proceduralBuilder == null)
+            {
+                Debug.LogWarning("LevelCompleteUI: no ProceduralLevelBuilder found for Restart.");
+                return;
+            }
+
             HideAndResume();
             proceduralBuilder.RebuildSameSeed();
             return;
@@ -259,9 +270,23 @@ public class LevelCompleteUI : MonoBehaviour
 
     public void GoToNextLevel()
     {
-        if (IsProceduralMode)
+        if (IsProceduralMode || LevelProgress.IsProceduralScene(SceneManager.GetActiveScene()))
         {
+            if (proceduralBuilder == null)
+            {
+                proceduralBuilder = FindFirstObjectByType<ProceduralLevelBuilder>();
+            }
+
+            if (proceduralBuilder == null)
+            {
+                Debug.LogWarning("LevelCompleteUI: no ProceduralLevelBuilder found for Next Level.");
+                return;
+            }
+
             HideAndResume();
+            int nextMenuLevel = LevelProgress.GetSelectedMenuLevel() + 1;
+            LevelProgress.SetSelectedMenuLevel(nextMenuLevel);
+            currentLevel = nextMenuLevel;
             proceduralBuilder.RebuildNextSeed();
             UpdateProceduralTitle();
             return;
