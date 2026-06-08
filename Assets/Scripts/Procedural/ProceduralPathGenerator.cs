@@ -98,7 +98,7 @@ public class ProceduralPathGenerator
         {
             attempts++;
 
-            Vector2Int[] directions = GetBiasedDirections(preferredDir, straightSteps);
+            Vector2Int[] directions = GetBiasedDirections(config, preferredDir, straightSteps);
             bool moved = false;
 
             for (int i = 0; i < directions.Length; i++)
@@ -191,6 +191,15 @@ public class ProceduralPathGenerator
     {
         Vector2Int start = path[0];
         Vector2Int finish = path[path.Count - 1];
+        float dx = finish.x - start.x;
+        float dy = finish.y - start.y;
+        float euclidean = Mathf.Sqrt(dx * dx + dy * dy);
+
+        if (config.minFinishDistance > 0f)
+        {
+            return euclidean >= config.minFinishDistance;
+        }
+
         int manhattan = Mathf.Abs(finish.x - start.x) + Mathf.Abs(finish.y - start.y);
         int minManhattan = Mathf.Max(3, config.minPathLength / 3);
         return manhattan >= minManhattan;
@@ -212,7 +221,10 @@ public class ProceduralPathGenerator
         }
     }
 
-    private static Vector2Int[] GetBiasedDirections(Vector2Int preferred, int straightSteps)
+    private static Vector2Int[] GetBiasedDirections(
+        LevelGenConfig config,
+        Vector2Int preferred,
+        int straightSteps)
     {
         var directions = new List<Vector2Int>(4) { Right, Up, Left, Down };
 
@@ -226,11 +238,14 @@ public class ProceduralPathGenerator
 
         directions.Remove(preferred);
 
+        float turnRate = config != null ? Mathf.Clamp01(config.turnFrequency) : 0.35f;
+        float preferredChance = 1f - turnRate;
+
         if (straightSteps > 3)
         {
             directions.Add(preferred);
         }
-        else if (Random.value < 0.65f)
+        else if (Random.value < preferredChance)
         {
             directions.Insert(0, preferred);
         }

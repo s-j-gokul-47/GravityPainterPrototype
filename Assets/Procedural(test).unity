@@ -641,8 +641,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProceduralLevelBuilder
   config: {fileID: 11400000, guid: f1a2b3c4d5e6478990abcdef12345620, type: 2}
-  seed: 12345
+  seed: 123
   buildOnStart: 1
+  rebuildWhenSeedChanges: 1
+  useDifficultyProgression: 1
   levelRoot: {fileID: 329669009}
   ball: {fileID: 364955631}
   levelCompletePanel: {fileID: 0}

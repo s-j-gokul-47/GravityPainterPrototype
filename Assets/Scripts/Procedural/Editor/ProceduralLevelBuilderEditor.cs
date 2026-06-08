@@ -16,6 +16,8 @@ public class ProceduralLevelBuilderEditor : Editor
         int seed = so.FindProperty("seed").intValue;
 
         EditorGUILayout.LabelField("Last Built Seed", builder.LastBuiltSeed >= 0 ? builder.LastBuiltSeed.ToString() : "(none)");
+        EditorGUILayout.LabelField("Difficulty", builder.LastBuiltTier);
+        EditorGUILayout.LabelField("Levels Completed", DifficultyManager.LevelsCompleted.ToString());
 
         if (GUILayout.Button("Build From Seed", GUILayout.Height(28f)))
         {

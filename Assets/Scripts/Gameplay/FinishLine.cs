@@ -25,7 +25,11 @@ public class FinishLine : MonoBehaviour
         }
 
         _completed = true;
-        if (!IsProceduralScene())
+        if (LevelProgress.IsProceduralScene(SceneManager.GetActiveScene()))
+        {
+            DifficultyManager.OnLevelCompleted();
+        }
+        else
         {
             LevelProgress.UnlockThrough(LevelProgress.GetActiveLevelNumber());
         }
@@ -39,12 +43,6 @@ public class FinishLine : MonoBehaviour
         {
             Time.timeScale = 0f;
         }
-    }
-
-    private static bool IsProceduralScene()
-    {
-        string sceneName = SceneManager.GetActiveScene().name;
-        return sceneName.IndexOf("Procedural", System.StringComparison.OrdinalIgnoreCase) >= 0;
     }
 
     /// <summary>Wire UI and pause behaviour after runtime placement.</summary>

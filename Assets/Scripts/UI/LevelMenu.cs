@@ -43,13 +43,13 @@ public class LevelMenu : MonoBehaviour
             return;
         }
 
-        string levelName = "Level " + levelId;
-        if (!Application.CanStreamedLevelBeLoaded(levelName))
+        string sceneName = LevelProgress.GetSceneNameForLevel(levelId);
+        if (!Application.CanStreamedLevelBeLoaded(sceneName))
         {
-            Debug.LogWarning("Level scene not in build settings: " + levelName);
+            Debug.LogWarning("Level scene not in build settings: " + sceneName);
             return;
         }
 
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene(sceneName);
     }
 }

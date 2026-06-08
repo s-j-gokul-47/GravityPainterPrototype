@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -65,6 +66,7 @@ public class LevelCompleteUI : MonoBehaviour
         }
 
         UpdateNextLevelButton();
+        UpdateProceduralTitle();
     }
 
     private void LoadDefaultSpritesIfNeeded()
@@ -102,6 +104,29 @@ public class LevelCompleteUI : MonoBehaviour
 
         // Draw order: background → buttons → title on top (readable over artwork).
         titleRect.SetAsLastSibling();
+    }
+
+    private void UpdateProceduralTitle()
+    {
+        if (!IsProceduralMode)
+        {
+            return;
+        }
+
+        Transform title = transform.Find(TitleObjectName);
+        TextMeshProUGUI label = title != null ? title.GetComponent<TextMeshProUGUI>() : null;
+        if (label == null)
+        {
+            return;
+        }
+
+        float nextDifficulty = DifficultyManager.CurrentDifficulty;
+        label.text =
+            "Level Completed!\nNext: "
+            + DifficultyManager.GetTierName(nextDifficulty)
+            + " ("
+            + nextDifficulty.ToString("F2")
+            + ")";
     }
 
     private void BuildActionButtons()
@@ -238,6 +263,7 @@ public class LevelCompleteUI : MonoBehaviour
         {
             HideAndResume();
             proceduralBuilder.RebuildNextSeed();
+            UpdateProceduralTitle();
             return;
         }
 

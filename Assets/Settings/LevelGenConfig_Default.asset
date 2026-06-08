@@ -16,6 +16,11 @@ MonoBehaviour:
   maxPathLength: 16
   gridWidth: 7
   gridDepth: 7
+  difficulty: 0
+  absoluteMinPath: 8
+  absoluteMaxPath: 30
+  turnFrequency: 0.2
+  minFinishDistance: 2
   tileLocalScale: {x: 9.764219, y: 0.20627001, z: 4.5902023}
   tileSpacingX: 9.764219
   tileSpacingZ: 4.85

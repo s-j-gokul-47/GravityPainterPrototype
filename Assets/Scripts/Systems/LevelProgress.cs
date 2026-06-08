@@ -9,6 +9,12 @@ public static class LevelProgress
 {
     public const string UnlockedLevelKey = "UnlockedLevel";
 
+    /// <summary>Campaign slot in the level-select menu that launches procedural mode.</summary>
+    public const int ProceduralCampaignLevel = 3;
+
+    /// <summary>Scene loaded when the player picks Level 3 (must be in Build Settings).</summary>
+    public const string ProceduralSceneName = "Procedural(test)";
+
     public static int GetUnlockedLevel()
     {
         return Mathf.Max(1, PlayerPrefs.GetInt(UnlockedLevelKey, 1));
@@ -44,7 +50,28 @@ public static class LevelProgress
 
     public static int GetActiveLevelNumber()
     {
-        return ParseLevelName(SceneManager.GetActiveScene().name);
+        Scene scene = SceneManager.GetActiveScene();
+        if (IsProceduralScene(scene))
+        {
+            return ProceduralCampaignLevel;
+        }
+
+        return ParseLevelName(scene.name);
+    }
+
+    public static bool IsProceduralScene(Scene scene)
+    {
+        return scene.name.IndexOf("Procedural", System.StringComparison.OrdinalIgnoreCase) >= 0;
+    }
+
+    public static string GetSceneNameForLevel(int levelNumber)
+    {
+        if (levelNumber == ProceduralCampaignLevel)
+        {
+            return ProceduralSceneName;
+        }
+
+        return "Level " + levelNumber;
     }
 
     private static int ParseLevelName(string sceneName)
@@ -65,6 +92,6 @@ public static class LevelProgress
 
     public static bool HasBuiltLevel(int levelNumber)
     {
-        return Application.CanStreamedLevelBeLoaded("Level " + levelNumber);
+        return Application.CanStreamedLevelBeLoaded(GetSceneNameForLevel(levelNumber));
     }
 }

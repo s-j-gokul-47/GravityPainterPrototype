@@ -15,6 +15,10 @@ public class ProceduralLevelBuilder : MonoBehaviour
     [Tooltip("When enabled, changing Seed during Play mode rebuilds the level immediately.")]
     [SerializeField] private bool rebuildWhenSeedChanges = true;
 
+    [Header("Difficulty")]
+    [Tooltip("Scale path length, grid size, and turn rate from completed procedural levels.")]
+    [SerializeField] private bool useDifficultyProgression = true;
+
     [Header("Scene References")]
     [SerializeField] private Transform levelRoot;
     [SerializeField] private BallController ball;
@@ -30,6 +34,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
     public int Seed => seed;
     public int LastBuiltSeed { get; private set; } = -1;
     public int LastBuiltTileCount { get; private set; }
+    public float LastBuiltDifficulty { get; private set; } = -1f;
+    public string LastBuiltTier =>
+        LastBuiltDifficulty >= 0f ? DifficultyManager.GetTierName(LastBuiltDifficulty) : "(none)";
     public IReadOnlyList<GameObject> SpawnedTiles => _spawnedTiles;
 
     public event Action<int, int> OnLevelBuilt;
@@ -89,6 +96,10 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         config.SyncFootprintFromTileScale();
+        float difficulty = ResolveDifficulty();
+        DifficultyScaler.Apply(config, difficulty);
+        LastBuiltDifficulty = difficulty;
+
         EnsureLevelRoot();
         EnsureLevelCompleteUi();
         Time.timeScale = 1f;
@@ -146,14 +157,28 @@ public class ProceduralLevelBuilder : MonoBehaviour
         seed = actualSeed;
 
         Debug.Log(
-            "Procedural level built (v2 placement): requested=" + buildSeed +
-            ", used seed=" + actualSeed +
-            ", tiles=" + _spawnedTiles.Count +
-            ", footprint=" + ProceduralTileFootprint.GetLongestPlanarAxis(config).ToString("F2") +
-            ", finish at " + cells[cells.Count - 1].GridPos);
+            "Procedural level built: tier=" + DifficultyManager.GetTierName(difficulty)
+            + " (" + difficulty.ToString("F2") + ")"
+            + ", path=" + config.minPathLength + "-" + config.maxPathLength
+            + ", grid=" + config.gridWidth + "x" + config.gridDepth
+            + ", turnFreq=" + config.turnFrequency.ToString("F2")
+            + ", requested seed=" + buildSeed
+            + ", used seed=" + actualSeed
+            + ", tiles=" + _spawnedTiles.Count
+            + ", finish at " + cells[cells.Count - 1].GridPos);
 
         OnLevelBuilt?.Invoke(actualSeed, _spawnedTiles.Count);
         return true;
+    }
+
+    private float ResolveDifficulty()
+    {
+        if (useDifficultyProgression)
+        {
+            return DifficultyManager.CurrentDifficulty;
+        }
+
+        return Mathf.Clamp01(config.difficulty);
     }
 
     /// <summary>Rebuilds the current procedural layout using the last seed.</summary>

@@ -18,6 +18,7 @@ public static class ProceduralPathGeneratorTest
         }
 
         var generator = new ProceduralPathGenerator();
+        DifficultyScaler.Apply(config, DifficultyManager.CurrentDifficulty);
         List<LevelCell> runA = generator.GenerateWithRetry(config, 12345);
         List<LevelCell> runB = generator.GenerateWithRetry(config, 12345);
         bool seedTestPassed = AreCellListsEqual(runA, runB);
@@ -61,6 +62,7 @@ public static class ProceduralPathGeneratorTest
         int overlapFailures = 0;
         for (int testSeed = 1; testSeed <= 200; testSeed++)
         {
+            DifficultyScaler.Apply(config, DifficultyManager.CurrentDifficulty);
             List<LevelCell> cells = generator.GenerateWithRetry(config, testSeed);
             if (cells == null || ProceduralTilePlacement.HasMainTileOverlaps(cells, config))
             {

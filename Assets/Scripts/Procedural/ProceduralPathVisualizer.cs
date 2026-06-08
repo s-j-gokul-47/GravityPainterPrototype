@@ -30,6 +30,9 @@ public class ProceduralPathVisualizer : MonoBehaviour
         Transform spawnParent = parent != null ? parent : transform;
         ClearChildren(spawnParent);
 
+        config.SyncFootprintFromTileScale();
+        DifficultyScaler.Apply(config, DifficultyManager.CurrentDifficulty);
+
         var generator = new ProceduralPathGenerator();
         List<LevelCell> cells = generator.GenerateWithRetry(config, seed);
         if (cells == null || cells.Count == 0)

@@ -7,17 +7,35 @@ using UnityEngine;
 public class LevelGenConfig : ScriptableObject
 {
     [Header("Path Settings")]
-    [Tooltip("Minimum number of connected tiles in the generated path.")]
+    [Tooltip("Runtime min path length (set by DifficultyScaler before generation).")]
     public int minPathLength = 8;
 
-    [Tooltip("Maximum number of connected tiles in the generated path.")]
+    [Tooltip("Runtime max path length (set by DifficultyScaler before generation).")]
     public int maxPathLength = 16;
 
-    [Tooltip("Maximum grid spread along the X axis (centered on origin).")]
+    [Tooltip("Runtime grid spread along X (set by DifficultyScaler).")]
     public int gridWidth = 7;
 
-    [Tooltip("Maximum grid spread along the Z axis (centered on origin).")]
+    [Tooltip("Runtime grid spread along Z (set by DifficultyScaler).")]
     public int gridDepth = 7;
+
+    [Header("Difficulty Progression")]
+    [Tooltip("Manual difficulty 0–1 when progression is disabled on the level builder.")]
+    [Range(0f, 1f)]
+    public float difficulty = 0f;
+
+    [Tooltip("Shortest path at difficulty 0.")]
+    public int absoluteMinPath = 8;
+
+    [Tooltip("Longest path at difficulty 1.")]
+    public int absoluteMaxPath = 30;
+
+    [Tooltip("Probability of turning per step at Expert (0.1 = mostly straight at Easy).")]
+    [Range(0f, 1f)]
+    public float turnFrequency = 0.2f;
+
+    [Tooltip("Minimum start-to-finish grid distance (set by DifficultyScaler).")]
+    public float minFinishDistance = 2f;
 
     [Header("Tile Footprint")]
     [Tooltip("Local scale applied to spawned tiles (matches Level 2 GLB tiles).")]
