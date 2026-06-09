@@ -10,6 +10,8 @@ MemoryCaptures/
 # Build outputs (too large for GitHub)
 *.apk
 *.aab
+new_BackUpThisFolder_ButDontShipItWithYourGame/
+.utmp/
 
 # Unity package installers — import locally, do not commit
 *.unitypackage

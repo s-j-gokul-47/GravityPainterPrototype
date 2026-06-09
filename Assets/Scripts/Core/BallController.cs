@@ -15,6 +15,10 @@ public class BallController : MonoBehaviour
     [Tooltip("On red only: if the tile’s push opposes current horizontal motion, flip so the ball keeps going forward along travel (forgiving wrong-side placement).")]
     public bool redAlignWithMotion = true;
 
+    [Header("Side double-tap cross slide")]
+    [Tooltip("Speed when double-tapping a tile side to auto-slide the ball to that edge.")]
+    [SerializeField] private float crossSlideSpeed = 3.5f;
+
     [Header("Fall restart")]
     [Tooltip("Reload the current level when the ball falls below the platform.")]
     [SerializeField] private bool restartOnFall = true;
@@ -36,6 +40,9 @@ public class BallController : MonoBehaviour
     private float timeSinceLastZoneContact;
     private bool _restarting;
     private float _fallElapsed;
+    private bool _crossSlideActive;
+    private TileZone _crossSlideZone;
+    private bool _crossSlideToLeft;
 
     private void Awake()
     {
@@ -76,6 +83,8 @@ public class BallController : MonoBehaviour
         {
             rb = GetComponent<Rigidbody>();
         }
+
+        EndCrossSlide();
 
         if (!gameObject.activeSelf)
         {
@@ -256,6 +265,138 @@ public class BallController : MonoBehaviour
         RestartCurrentLevel();
     }
 
+    /// <summary>Whether the ball is currently resolved to the given tile zone.</summary>
+    public bool IsStandingOnTile(TileZone zone)
+    {
+        if (zone == null || currentZone == null)
+        {
+            return false;
+        }
+
+        TileZone standing = TileZone.GetPrimaryZone(currentZone.gameObject);
+        TileZone target = TileZone.GetPrimaryZone(zone.gameObject);
+        return standing != null && standing == target;
+    }
+
+    /// <summary>Whether the ball is on or over the given tile (for double-tap cross).</summary>
+    public bool IsOnTileForCross(TileZone zone)
+    {
+        if (zone == null)
+        {
+            return false;
+        }
+
+        if (IsStandingOnTile(zone))
+        {
+            return true;
+        }
+
+        Collider[] colliders = zone.GetComponentsInChildren<Collider>();
+        if (colliders == null || colliders.Length == 0)
+        {
+            return false;
+        }
+
+        Vector3 ballPos = transform.position;
+        float maxDistance = GetSphereRadius() + 0.35f;
+        float maxDistanceSq = maxDistance * maxDistance;
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider col = colliders[i];
+            if (col == null || col.isTrigger)
+            {
+                continue;
+            }
+
+            Vector3 closest = col.ClosestPoint(ballPos);
+            closest.y = ballPos.y;
+            if ((closest - ballPos).sqrMagnitude <= maxDistanceSq)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public bool IsCrossSliding => _crossSlideActive;
+
+    /// <summary>Auto-slide the ball diagonally to the northwest or northeast tile corner (double-tap).</summary>
+    public void StartCrossSlideToEdge(TileZone zone, bool toNorthWestCorner)
+    {
+        if (zone == null)
+        {
+            return;
+        }
+
+        _crossSlideActive = true;
+        _crossSlideZone = zone;
+        _crossSlideToLeft = toNorthWestCorner;
+
+        if (rb == null)
+        {
+            rb = GetComponent<Rigidbody>();
+        }
+
+        rb?.WakeUp();
+    }
+
+    /// <summary>Stop cross slide and bring the ball to rest on the XZ plane.</summary>
+    public void EndCrossSlide()
+    {
+        _crossSlideActive = false;
+        _crossSlideZone = null;
+
+        if (rb == null)
+        {
+            return;
+        }
+
+        Vector3 velocity = rb.linearVelocity;
+        rb.linearVelocity = new Vector3(0f, velocity.y, 0f);
+    }
+
+    private void ApplyCrossSlideMovement()
+    {
+        if (_crossSlideZone == null || rb == null)
+        {
+            return;
+        }
+
+        float radius = GetSphereRadius();
+        Vector3 target = _crossSlideZone.GetCrossEdgeTarget(transform.position, _crossSlideToLeft, radius);
+        Vector3 toTarget = target - transform.position;
+        toTarget.y = 0f;
+
+        float dist = toTarget.magnitude;
+        if (dist <= 0.02f)
+        {
+            transform.position = new Vector3(target.x, transform.position.y, target.z);
+            EndCrossSlide();
+            return;
+        }
+
+        Vector3 direction = toTarget / dist;
+        float stepSpeed = Mathf.Min(crossSlideSpeed, dist / Time.fixedDeltaTime);
+        Vector3 planar = direction * stepSpeed;
+        Vector3 current = rb.linearVelocity;
+        rb.linearVelocity = new Vector3(planar.x, current.y, planar.z);
+    }
+
+    private float GetSphereRadius()
+    {
+        SphereCollider sphere = GetComponent<SphereCollider>();
+        if (sphere == null)
+        {
+            return 0.5f;
+        }
+
+        Vector3 scale = transform.lossyScale;
+        float maxScale = Mathf.Max(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z));
+        return sphere.radius * maxScale;
+    }
+
     /// <summary>
     /// Called by obstacles (e.g. hammer) to knock the ball off the platform.
     /// </summary>
@@ -323,6 +464,12 @@ public class BallController : MonoBehaviour
     private void FixedUpdate()
     {
         ResolveCurrentTileZone();
+
+        if (_crossSlideActive)
+        {
+            ApplyCrossSlideMovement();
+            return;
+        }
 
         bool onPaintedTile = currentZone != null && currentZone.zoneType != ZoneType.None;
         bool inRetention = timeSinceLastZoneContact <= zoneRetentionTime;

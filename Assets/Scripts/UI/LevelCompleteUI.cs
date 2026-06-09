@@ -294,16 +294,20 @@ public class LevelCompleteUI : MonoBehaviour
 
         Time.timeScale = 1f;
         int next = currentLevel + 1;
-        string nextScene = "Level " + next;
 
-        if (LevelProgress.HasBuiltLevel(next))
-        {
-            SceneManager.LoadScene(nextScene);
-        }
-        else
+        if (!LevelProgress.HasBuiltLevel(next))
         {
             GoHome();
+            return;
         }
+
+        LevelProgress.SetSelectedMenuLevel(next);
+        if (LevelProgress.IsProceduralMenuLevel(next))
+        {
+            ProceduralSession.MarkFreshRunFromMenu();
+        }
+
+        SceneManager.LoadScene(LevelProgress.GetSceneNameForLevel(next));
     }
 
     public void GoHome()

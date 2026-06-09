@@ -330,6 +330,67 @@ public class TileZone : MonoBehaviour
         GetPlanarForwardLeftRight(out planarForward, out planarLeft, out planarRight);
     }
 
+    /// <summary>Tile path direction on the XZ plane (same as red / forward force).</summary>
+    public Vector3 GetPlanarForward()
+    {
+        GetPlanarForwardLeftRight(out Vector3 planarForward, out _, out _);
+        return planarForward;
+    }
+
+    /// <summary>True when the tap is in the left or right third (not the forward center band).</summary>
+    public bool IsSideRegionTap(Vector3 worldPoint)
+    {
+        if (!TryGetNormalizedTapAlongWidth(worldPoint, out float normalizedAlongRight))
+        {
+            return false;
+        }
+
+        return Mathf.Abs(normalizedAlongRight) >= sideRegionThreshold;
+    }
+
+    /// <summary>True when the tap is in the left (blue) third of the tile.</summary>
+    public bool IsLeftSideTap(Vector3 worldPoint)
+    {
+        if (!TryGetNormalizedTapAlongWidth(worldPoint, out float normalizedAlongRight))
+        {
+            return false;
+        }
+
+        return normalizedAlongRight < -sideRegionThreshold;
+    }
+
+    /// <summary>True when the tap is in the right (yellow) third of the tile.</summary>
+    public bool IsRightSideTap(Vector3 worldPoint)
+    {
+        if (!TryGetNormalizedTapAlongWidth(worldPoint, out float normalizedAlongRight))
+        {
+            return false;
+        }
+
+        return normalizedAlongRight > sideRegionThreshold;
+    }
+
+    /// <summary>
+    /// World position for the ball center at the northwest or northeast corner of the tile
+    /// (forward + lateral edge), derived from the tile collider dimensions.
+    /// </summary>
+    public Vector3 GetCrossEdgeTarget(Vector3 ballWorldPosition, bool toNorthWestCorner, float ballRadius)
+    {
+        GetPlanarForwardLeftRight(out Vector3 planarForward, out Vector3 planarLeft, out Vector3 planarRight);
+        Vector3 center = GetTapReferenceCenter();
+        float halfWidth = GetHalfWidthAlongPlanarAxis(planarRight);
+        float halfDepth = GetHalfWidthAlongPlanarAxis(planarForward);
+
+        float inset = Mathf.Max(ballRadius + 0.02f, 0.01f);
+        float forwardReach = Mathf.Max(halfDepth - inset, 0f);
+        float sideReach = Mathf.Max(halfWidth - inset, 0f);
+
+        Vector3 lateral = toNorthWestCorner ? planarLeft : planarRight;
+        Vector3 cornerPoint = center + planarForward * forwardReach + lateral * sideReach;
+        cornerPoint.y = ballWorldPosition.y;
+        return cornerPoint;
+    }
+
     /// <summary>
     /// Build a right-handed basis on the XZ plane: forward from tile, then left/right via cross with world up.
     /// This keeps Blue = geometric left of Red and Yellow = geometric right for any Y rotation (fixes Y=90 swap from using raw transform.right).

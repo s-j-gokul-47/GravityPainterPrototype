@@ -333,6 +333,20 @@ MonoBehaviour:
   noneMat: {fileID: 2100000, guid: 77d0ae360b2b74119a4cb3fe456163fb, type: 2}
   useEdgeIndicatorsWithFloorMesh: 0
   sideRegionThreshold: 0.33
+--- !u!114 &68463806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68463798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 594732c67077f4bb68d5be8ff2d1ed34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FinishLine
+  levelCompletePanel: {fileID: 1540361029}
+  pauseGame: 1
 --- !u!4 &68463805 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8542677190884824552, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
@@ -541,6 +555,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
       insertIndex: -1
       addedObject: {fileID: 68463799}
+    - targetCorrespondingSourceObject: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 68463806}
   m_SourcePrefab: {fileID: 100100000, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
 --- !u!1 &139230827 stripped
 GameObject:
