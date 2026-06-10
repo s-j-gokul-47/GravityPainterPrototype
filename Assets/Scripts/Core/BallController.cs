@@ -16,8 +16,10 @@ public class BallController : MonoBehaviour
     public bool redAlignWithMotion = true;
 
     [Header("Side double-tap cross slide")]
-    [Tooltip("Speed when double-tapping a tile side to auto-slide the ball to that edge.")]
-    [SerializeField] private float crossSlideSpeed = 3.5f;
+    [Tooltip("Speed while sliding diagonally to the next tile (double-tap left/right).")]
+    [SerializeField] private float crossSlideSpeed = 10f;
+    [Tooltip("Horizontal speed applied when the cross finishes so the ball carries onto the neighbor tile.")]
+    [SerializeField] private float crossExitSpeed = 8f;
 
     [Header("Fall restart")]
     [Tooltip("Reload the current level when the ball falls below the platform.")]
@@ -357,6 +359,24 @@ public class BallController : MonoBehaviour
         rb.linearVelocity = new Vector3(0f, velocity.y, 0f);
     }
 
+    private void CompleteCrossSlide()
+    {
+        TileZone zone = _crossSlideZone;
+        bool toNorthWest = _crossSlideToLeft;
+        _crossSlideActive = false;
+        _crossSlideZone = null;
+
+        if (rb == null || zone == null)
+        {
+            return;
+        }
+
+        Vector3 exitDirection = zone.GetCrossDiagonalDirection(toNorthWest);
+        Vector3 exitVelocity = exitDirection * crossExitSpeed;
+        float y = rb.linearVelocity.y;
+        rb.linearVelocity = new Vector3(exitVelocity.x, y, exitVelocity.z);
+    }
+
     private void ApplyCrossSlideMovement()
     {
         if (_crossSlideZone == null || rb == null)
@@ -370,10 +390,10 @@ public class BallController : MonoBehaviour
         toTarget.y = 0f;
 
         float dist = toTarget.magnitude;
-        if (dist <= 0.02f)
+        if (dist <= 0.05f)
         {
             transform.position = new Vector3(target.x, transform.position.y, target.z);
-            EndCrossSlide();
+            CompleteCrossSlide();
             return;
         }
 

@@ -31,6 +31,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
     private readonly List<GameObject> _spawnedTiles = new List<GameObject>();
     private ProceduralPathGenerator _generator;
+    private LevelGenConfig _activeConfig;
     private int _watchedSeed = int.MinValue;
     private Vector3 _ballSpawnPosition;
     private bool _hasBallSpawn;
@@ -48,6 +49,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
     private void Awake()
     {
+#if !UNITY_EDITOR
+        rebuildWhenSeedChanges = false;
+#endif
         HoldBallUntilPlaced();
         if (buildOnStart && Application.isPlaying)
         {
@@ -102,9 +106,15 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         HoldBallUntilPlaced();
-        config.SyncFootprintFromTileScale();
+        if (_activeConfig != null)
+        {
+            Destroy(_activeConfig);
+        }
+
+        _activeConfig = Instantiate(config);
+        _activeConfig.SyncFootprintFromTileScale();
         float difficulty = ResolveDifficulty();
-        DifficultyScaler.Apply(config, difficulty);
+        DifficultyScaler.Apply(_activeConfig, difficulty);
         LastBuiltDifficulty = difficulty;
 
         EnsureLevelRoot();
@@ -119,14 +129,14 @@ public class ProceduralLevelBuilder : MonoBehaviour
         ClearLevel();
 
         _generator ??= new ProceduralPathGenerator();
-        List<LevelCell> cells = _generator.GenerateWithRetry(config, buildSeed, out int actualSeed);
+        List<LevelCell> cells = _generator.GenerateWithRetry(_activeConfig, buildSeed, out int actualSeed);
         if (cells == null || cells.Count == 0)
         {
             Debug.LogError("ProceduralLevelBuilder: path generation failed for seed " + buildSeed);
             return false;
         }
 
-        if (ProceduralTilePlacement.HasMainTileOverlaps(cells, config))
+        if (ProceduralTilePlacement.HasMainTileOverlaps(cells, _activeConfig))
         {
             Debug.LogError(
                 "ProceduralLevelBuilder: overlap-free path generation failed for seed "
@@ -166,9 +176,10 @@ public class ProceduralLevelBuilder : MonoBehaviour
         Debug.Log(
             "Procedural level built: tier=" + DifficultyManager.GetTierName(difficulty)
             + " (" + difficulty.ToString("F2") + ")"
-            + ", path=" + config.minPathLength + "-" + config.maxPathLength
-            + ", grid=" + config.gridWidth + "x" + config.gridDepth
-            + ", turnFreq=" + config.turnFrequency.ToString("F2")
+            + ", path=" + _activeConfig.minPathLength + "-" + _activeConfig.maxPathLength
+            + ", grid=" + _activeConfig.gridWidth + "x" + _activeConfig.gridDepth
+            + ", turnFreq=" + _activeConfig.turnFrequency.ToString("F2")
+            + ", menuLevel=" + LevelProgress.GetSelectedMenuLevel()
             + ", requested seed=" + buildSeed
             + ", used seed=" + actualSeed
             + ", tiles=" + _spawnedTiles.Count
@@ -180,7 +191,8 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
     private int ResolveStartSeed()
     {
-        return ProceduralSession.ResolveStartSeed(seed);
+        return ProceduralSession.GetDeterministicSeedForMenuLevel(
+            Mathf.Max(LevelProgress.GetSelectedMenuLevel(), LevelProgress.ProceduralCampaignLevel));
     }
 
     private void HoldBallUntilPlaced()
@@ -302,9 +314,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
     private GameObject SpawnTile(LevelCell cell, int index, IReadOnlyList<LevelCell> cells)
     {
         GameObject tile = Instantiate(
-            config.tilePrefab,
+            _activeConfig.tilePrefab,
             levelRoot.transform);
-        ProceduralTilePlacement.ApplyPathTransform(tile.transform, index, cells, config);
+        ProceduralTilePlacement.ApplyPathTransform(tile.transform, index, cells, _activeConfig);
         tile.name = "Tile_" + cell.PathIndex + "_" + cell.GridPos.x + "_" + cell.GridPos.y;
 
         ApplyTileVisual(tile);
@@ -313,12 +325,12 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
     private void SpawnCornerPads(IReadOnlyList<LevelCell> cells)
     {
-        if (!config.addCornerPads || cells == null)
+        if (!_activeConfig.addCornerPads || cells == null)
         {
             return;
         }
 
-        var placed = ProceduralTilePlacement.BuildPlacementPlan(cells, config);
+        var placed = ProceduralTilePlacement.BuildPlacementPlan(cells, _activeConfig);
 
         for (int i = 2; i < cells.Count; i++)
         {
@@ -327,23 +339,23 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 continue;
             }
 
-            int padCount = ProceduralTilePlacement.CountCornerPadsForTurn(i, cells, config);
+            int padCount = ProceduralTilePlacement.CountCornerPadsForTurn(i, cells, _activeConfig);
             for (int padIndex = 0; padIndex < padCount; padIndex++)
             {
                 Vector3 padCenter = ProceduralTilePlacement.ComputeCornerPadPosition(
-                    i, padIndex, padCount, cells, config);
+                    i, padIndex, padCount, cells, _activeConfig);
                 float padRotation = cells[i - 1].YRotation;
-                Bounds padBounds = ProceduralTileFootprint.ComputeWorldBounds(padCenter, padRotation, config);
+                Bounds padBounds = ProceduralTileFootprint.ComputeWorldBounds(padCenter, padRotation, _activeConfig);
 
                 // Allow pads to meet the incoming/outgoing turn tiles; block parallel-path stacking.
-                if (WouldOverlapNonNeighborMainTiles(padBounds, placed, config, i))
+                if (WouldOverlapNonNeighborMainTiles(padBounds, placed, _activeConfig, i))
                 {
                     continue;
                 }
 
-                GameObject pad = Instantiate(config.tilePrefab, levelRoot.transform);
+                GameObject pad = Instantiate(_activeConfig.tilePrefab, levelRoot.transform);
                 ProceduralTilePlacement.ApplyCornerPadTransform(
-                    pad.transform, i, padIndex, padCount, cells, config);
+                    pad.transform, i, padIndex, padCount, cells, _activeConfig);
                 pad.name = "Tile_corner_" + i + "_" + padIndex + "_" + cells[i - 1].GridPos.x + "_" + cells[i - 1].GridPos.y;
                 ApplyTileVisual(pad);
                 _spawnedTiles.Add(pad);
@@ -399,9 +411,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
         visual.RefreshVisual();
 
-        if (config.glbLayout != null)
+        if (_activeConfig != null && _activeConfig.glbLayout != null)
         {
-            visual.ApplyLayout(config.glbLayout.layout);
+            visual.ApplyLayout(_activeConfig.glbLayout.layout);
         }
     }
 
@@ -419,7 +431,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         Vector3 planarCenter = levelRoot.TransformPoint(
-            ProceduralTilePlacement.ComputeCenterPosition(0, cells, config));
+            ProceduralTilePlacement.ComputeCenterPosition(0, cells, _activeConfig));
         Vector3 worldPos = ResolveBallSpawnPosition(planarCenter);
         _ballSpawnPosition = worldPos;
         _hasBallSpawn = true;
@@ -565,6 +577,8 @@ public class ProceduralLevelBuilder : MonoBehaviour
             return;
         }
 
+        SetupFinishLineVisual(goalTile);
+
         FinishLine finish = goalTile.GetComponent<FinishLine>();
         if (finish == null)
         {
@@ -573,6 +587,46 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
         finish.Configure(levelCompletePanel, pause: true);
         EnsureFinishTrigger(goalTile);
+    }
+
+    private void SetupFinishLineVisual(GameObject goalTile)
+    {
+        FinishLineVisual visual = goalTile.GetComponent<FinishLineVisual>();
+        if (visual == null)
+        {
+            visual = goalTile.AddComponent<FinishLineVisual>();
+        }
+
+        GameObject prefab = ResolveFinishLinePrefab();
+        if (prefab != null)
+        {
+            visual.ConfigurePrefab(prefab);
+        }
+
+        Transform existingRoot = goalTile.transform.Find(FinishLineVisual.VisualRootName);
+        if (existingRoot != null)
+        {
+            if (Application.isPlaying)
+            {
+                Destroy(existingRoot.gameObject);
+            }
+            else
+            {
+                DestroyImmediate(existingRoot.gameObject);
+            }
+        }
+
+        visual.EnsureVisual();
+    }
+
+    private GameObject ResolveFinishLinePrefab()
+    {
+        if (config != null && config.finishLinePrefab != null)
+        {
+            return config.finishLinePrefab;
+        }
+
+        return Resources.Load<GameObject>(FinishLineVisual.DefaultPrefabResourcePath);
     }
 
     private void EnsureLevelCompleteUi()

@@ -316,9 +316,12 @@ MonoBehaviour:
   zoneProbeRadius: 0.48
   zoneRetentionTime: 0.15
   redAlignWithMotion: 1
+  crossSlideSpeed: 10
+  crossExitSpeed: 8
   restartOnFall: 1
   fallYThreshold: -2
   fallRestartDelay: 5
+  proceduralFallRestartDelay: 0.6
   useSciFiBallVisual: 1
   sciFiBallVisualPrefab: {fileID: 0}
 --- !u!54 &364955632

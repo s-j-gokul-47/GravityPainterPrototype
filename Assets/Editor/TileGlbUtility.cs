@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class TileGlbUtility
 {
-    public const string GlbPath = "Assets/Art/Models/Tiles/tiles.glb";
+    public const string GlbPath = GlbModelPaths.Tiles;
     public const string PrefabPath = "Assets/Prefabs/Visuals/Tiles/TilesGlbMesh.prefab";
     public const string ResourcesPrefabPath = "Assets/Resources/Visuals/Tiles/TilesGlbMesh.prefab";
 
@@ -16,7 +16,7 @@ public static class TileGlbUtility
             return true;
         }
 
-        string rootGlb = Path.Combine(Application.dataPath, "../tiles.glb");
+        string rootGlb = Path.Combine(Application.dataPath, "../" + Path.GetFileName(GlbPath));
         if (!File.Exists(rootGlb))
         {
             return false;

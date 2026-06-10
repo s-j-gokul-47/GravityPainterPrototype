@@ -11,8 +11,7 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public static class ApplySciFiBall3DModel
 {
-    private const string GlbFileName = "Sci-Fi Ball 3D Model.glb";
-    private const string GlbAssetPath = "Assets/Art/Models/" + GlbFileName;
+    private const string GlbAssetPath = GlbModelPaths.SciFiBall;
     private const string VisualPrefabPath = "Assets/Prefabs/Visuals/SciFiBallVisual.prefab";
     private const string ResourcesPrefabPath = "Assets/Resources/Prefabs/SciFiBallVisual.prefab";
 
@@ -185,9 +184,12 @@ public static class ApplySciFiBall3DModel
             return GlbAssetPath;
         }
 
-        string fullPath = Path.Combine(Application.dataPath, GlbFileName);
+        string fileName = Path.GetFileName(GlbAssetPath);
+        string fullPath = Path.Combine(Application.dataPath, "..", fileName);
         if (File.Exists(fullPath))
         {
+            Directory.CreateDirectory(Path.Combine(Application.dataPath, "Art/Models/GLB"));
+            File.Copy(fullPath, Path.Combine(Application.dataPath, "Art/Models/GLB", fileName), overwrite: true);
             AssetDatabase.Refresh();
             if (AssetExists(GlbAssetPath))
             {

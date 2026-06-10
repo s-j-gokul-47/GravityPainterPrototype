@@ -65,8 +65,35 @@ public class LevelCompleteUI : MonoBehaviour
             LevelProgress.UnlockThrough(currentLevel);
         }
 
+        EnsureBackgroundVisible();
         UpdateNextLevelButton();
         UpdateProceduralTitle();
+    }
+
+    private void EnsureBackgroundVisible()
+    {
+        Transform panel = transform.Find("Panel");
+        if (panel == null)
+        {
+            return;
+        }
+
+        Image image = panel.GetComponent<Image>();
+        if (image == null || image.sprite != null)
+        {
+            return;
+        }
+
+        Sprite background = LevelCompleteCanvasFactory.LoadBackgroundSprite();
+        if (background == null)
+        {
+            return;
+        }
+
+        image.sprite = background;
+        image.type = Image.Type.Simple;
+        image.preserveAspect = true;
+        image.color = Color.white;
     }
 
     private void LoadDefaultSpritesIfNeeded()

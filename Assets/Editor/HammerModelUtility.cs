@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public static class HammerModelUtility
 {
-    public const string GlbPath = "Assets/Art/Models/hammer.glb";
+    public const string GlbPath = GlbModelPaths.Hammer;
 
     public static bool TryUpgradeHammerHierarchy(Transform hammerRoot)
     {

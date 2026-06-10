@@ -12,6 +12,22 @@ public class FinishLine : MonoBehaviour
 
     private bool _completed;
 
+    private void Start()
+    {
+        EnsureFinishVisual();
+    }
+
+    private void EnsureFinishVisual()
+    {
+        FinishLineVisual visual = GetComponent<FinishLineVisual>();
+        if (visual == null)
+        {
+            visual = gameObject.AddComponent<FinishLineVisual>();
+        }
+
+        visual.EnsureVisual();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (_completed)
