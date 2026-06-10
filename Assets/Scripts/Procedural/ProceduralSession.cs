@@ -33,17 +33,12 @@ public static class ProceduralSession
     public static int ResolveStartSeed(int sceneDefaultSeed)
     {
         int menuLevel = LevelProgress.GetSelectedMenuLevel();
-        if (LevelProgress.IsProceduralMenuLevel(menuLevel))
+        if (!LevelProgress.IsProceduralMenuLevel(menuLevel))
         {
-            return GetDeterministicSeedForMenuLevel(menuLevel);
+            menuLevel = LevelProgress.ProceduralCampaignLevel;
         }
 
-        if (sceneDefaultSeed > 0)
-        {
-            return sceneDefaultSeed;
-        }
-
-        return GetDeterministicSeedForMenuLevel(LevelProgress.ProceduralCampaignLevel);
+        return GetDeterministicSeedForMenuLevel(menuLevel);
     }
 
     public static int CreateMenuEntrySeed()

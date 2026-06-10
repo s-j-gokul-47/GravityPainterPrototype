@@ -28,5 +28,5 @@ MonoBehaviour:
   addCornerPads: 1
   cornerPadTileCount: 2
   tilePrefab: {fileID: 3808544509251842444, guid: 7af6ef7e6a8164e6d92b1eee76914323, type: 3}
-  finishLinePrefab: {fileID: 0}
+  finishLinePrefab: {fileID: 2416554884349998330, guid: fb649aff1c71a4c1c95f358396a4a5d5, type: 3}
   glbLayout: {fileID: 11400000, guid: 7c3e9a2b4d5f6789012345678abcdef0, type: 2}

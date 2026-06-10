@@ -93,8 +93,10 @@ public static class LevelCompleteCanvasFactory
         Image image = panel.GetComponent<Image>();
         image.raycastTarget = true;
         image.preserveAspect = true;
-        image.sprite = LoadBackgroundSprite();
-        image.color = Color.white;
+        Sprite background = LoadBackgroundSprite();
+        image.sprite = background;
+        image.type = Image.Type.Simple;
+        image.color = background != null ? Color.white : new Color(0.08f, 0.1f, 0.16f, 0.95f);
     }
 
     private static void CreateTitleText(RectTransform parent)
@@ -117,12 +119,21 @@ public static class LevelCompleteCanvasFactory
         text.raycastTarget = true;
     }
 
-    private static Sprite LoadBackgroundSprite()
+    public static Sprite LoadBackgroundSprite()
     {
         Sprite sprite = Resources.Load<Sprite>(BackgroundResource);
         if (sprite != null)
         {
             return sprite;
+        }
+
+        Texture2D texture = Resources.Load<Texture2D>(BackgroundResource);
+        if (texture != null)
+        {
+            return Sprite.Create(
+                texture,
+                new Rect(0f, 0f, texture.width, texture.height),
+                new Vector2(0.5f, 0.5f));
         }
 
 #if UNITY_EDITOR

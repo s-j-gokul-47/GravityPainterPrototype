@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class LaserGateModelUtility
 {
-    public const string GlbPath = "Assets/Art/Models/LaserGate.glb";
+    public const string GlbPath = GlbModelPaths.LaserGate;
 
     public static bool TryAttachModelToGate(Transform gateRoot, Transform alignToTile = null, bool forceReplace = false)
     {

@@ -371,8 +371,8 @@ public class TileZone : MonoBehaviour
     }
 
     /// <summary>
-    /// World position for the ball center at the northwest or northeast corner of the tile
-    /// (forward + lateral edge), derived from the tile collider dimensions.
+    /// World position for the ball center after a northwest/northeast cross:
+    /// lands on the diagonal neighbor tile (one full step forward + lateral from tile center).
     /// </summary>
     public Vector3 GetCrossEdgeTarget(Vector3 ballWorldPosition, bool toNorthWestCorner, float ballRadius)
     {
@@ -382,13 +382,24 @@ public class TileZone : MonoBehaviour
         float halfDepth = GetHalfWidthAlongPlanarAxis(planarForward);
 
         float inset = Mathf.Max(ballRadius + 0.02f, 0.01f);
-        float forwardReach = Mathf.Max(halfDepth - inset, 0f);
-        float sideReach = Mathf.Max(halfWidth - inset, 0f);
+        const float tileGap = 0.05f;
+        float forwardStep = Mathf.Max(2f * halfDepth + tileGap - inset, halfDepth);
+        float sideStep = Mathf.Max(2f * halfWidth + tileGap - inset, halfWidth);
 
         Vector3 lateral = toNorthWestCorner ? planarLeft : planarRight;
-        Vector3 cornerPoint = center + planarForward * forwardReach + lateral * sideReach;
-        cornerPoint.y = ballWorldPosition.y;
-        return cornerPoint;
+        Vector3 landing = center + planarForward * forwardStep + lateral * sideStep;
+        landing.y = ballWorldPosition.y;
+        return landing;
+    }
+
+    /// <summary>Normalized northwest or northeast direction on the XZ plane.</summary>
+    public Vector3 GetCrossDiagonalDirection(bool toNorthWestCorner)
+    {
+        GetPlanarForwardLeftRight(out Vector3 planarForward, out Vector3 planarLeft, out Vector3 planarRight);
+        Vector3 lateral = toNorthWestCorner ? planarLeft : planarRight;
+        Vector3 diagonal = planarForward + lateral;
+        diagonal.y = 0f;
+        return diagonal.sqrMagnitude > 1e-8f ? diagonal.normalized : planarForward;
     }
 
     /// <summary>
