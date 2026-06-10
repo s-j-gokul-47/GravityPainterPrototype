@@ -4,7 +4,7 @@
 
 Gravity Painter uses a **progressive difficulty system** that automatically increases challenge each time a player completes a procedural level. The system has five layers: path complexity, grid size, turn frequency, obstacle density, and time pressure. All five layers are driven by a single `difficulty` float value between 0.0 (Easy) and 1.0 (Expert), which is stored in `PlayerPrefs` and increases by a fixed step after every level completion.
 
-The campaign levels (Level 1–5) are hand-authored and use fixed difficulty. The procedural mode, daily challenge, and replay mode all use this dynamic difficulty system.
+The campaign levels (Level 1–2) are hand-authored and use fixed difficulty. The procedural mode, daily challenge, and replay mode all use this dynamic difficulty system.
 
 ---
 
@@ -39,7 +39,7 @@ For readability, the 0–1 difficulty range maps to four named tiers:
 
 | Tier | Difficulty Range | Typical Level Count |
 |---|---|---|
-| Easy | 0.00 – 0.24 | Levels 1–5 |
+| Easy | 0.00 – 0.24 | Levels 1–2 |
 | Medium | 0.25 – 0.49 | Levels 6–10 |
 | Hard | 0.50 – 0.74 | Levels 11–15 |
 | Expert | 0.75 – 1.00 | Levels 16+ |
@@ -324,7 +324,7 @@ This table shows how all five layers change together as the player progresses.
 
 ## What the Player Feels at Each Tier
 
-### Easy (Levels 1–5)
+### Easy (Levels 1–2)
 Short straight path, no obstacles, small grid. The player learns the core mechanic: tap a tile to give the ball force in that direction. No punishment for mistakes beyond falling off the edge.
 
 ### Medium (Levels 6–10)

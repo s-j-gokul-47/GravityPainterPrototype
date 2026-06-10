@@ -48,19 +48,31 @@
     <Analyzer Include="C:\Program Files\Unity 6000.4.7f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\LaserGateModelUtility.cs" />
+    <Compile Include="Assets\Scripts\Procedural\Editor\ProceduralPathVisualizerEditor.cs" />
+    <Compile Include="Assets\Scripts\Procedural\Editor\DifficultyEditorMenu.cs" />
+    <Compile Include="Assets\Editor\SetupTilesGlb.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
     <Compile Include="Assets\Editor\RemoveMisplacedCameraFollow.cs" />
     <Compile Include="Assets\Editor\SciFiPackMaterialFix.cs" />
     <Compile Include="Assets\Editor\ApplySciFiBall3DModel.cs" />
+    <Compile Include="Assets\Scripts\Procedural\Editor\SetupProceduralLevelScene.cs" />
+    <Compile Include="Assets\Scripts\Procedural\Editor\ProceduralLevelBuilderEditor.cs" />
+    <Compile Include="Assets\Scripts\Procedural\Editor\ProceduralPathGeneratorTest.cs" />
+    <Compile Include="Assets\Editor\TileGlbUtility.cs" />
+    <Compile Include="Assets\Editor\HammerModelBinder.cs" />
+    <Compile Include="Assets\Editor\HammerModelUtility.cs" />
     <Compile Include="Assets\Editor\ApplyFloor5ToTilePrefab.cs" />
+    <Compile Include="Assets\Editor\SetupHammerObstacle.cs" />
+    <Compile Include="Assets\Editor\SetupLaserGateObstacle.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\MobileDependencyResolver\Editor\Google.VersionHandler.dll" />
-    <None Include="Assets\MobileDependencyResolver\Editor\1.2.185\Google.IOSResolver.dll" />
-    <None Include="Assets\MobileDependencyResolver\Editor\1.2.185\Google.VersionHandlerImpl.dll" />
-    <None Include="Assets\MobileDependencyResolver\Editor\1.2.185\Google.JarResolver.dll" />
-    <None Include="Assets\MobileDependencyResolver\Editor\mobile-dependency-resolver_version-1.2.185_manifest.txt" />
-    <None Include="Assets\MobileDependencyResolver\Editor\1.2.185\Google.PackageManagerResolver.dll" />
+    <None Include="Assets\ThirdParty\MobileDependencyResolver\Editor\Google.VersionHandler.dll" />
+    <None Include="Assets\ThirdParty\MobileDependencyResolver\Editor\1.2.185\Google.IOSResolver.dll" />
+    <None Include="Assets\ThirdParty\MobileDependencyResolver\Editor\1.2.185\Google.VersionHandlerImpl.dll" />
+    <None Include="Assets\ThirdParty\MobileDependencyResolver\Editor\1.2.185\Google.JarResolver.dll" />
+    <None Include="Assets\ThirdParty\MobileDependencyResolver\Editor\mobile-dependency-resolver_version-1.2.185_manifest.txt" />
+    <None Include="Assets\ThirdParty\MobileDependencyResolver\Editor\1.2.185\Google.PackageManagerResolver.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -644,11 +656,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Google.VersionHandler">
-      <HintPath>Assets\MobileDependencyResolver\Editor\Google.VersionHandler.dll</HintPath>
+      <HintPath>Assets\ThirdParty\MobileDependencyResolver\Editor\Google.VersionHandler.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Google.IOSResolver">
-      <HintPath>Assets\MobileDependencyResolver\Editor\1.2.185\Google.IOSResolver.dll</HintPath>
+      <HintPath>Assets\ThirdParty\MobileDependencyResolver\Editor\1.2.185\Google.IOSResolver.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
@@ -668,7 +680,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Google.VersionHandlerImpl">
-      <HintPath>Assets\MobileDependencyResolver\Editor\1.2.185\Google.VersionHandlerImpl.dll</HintPath>
+      <HintPath>Assets\ThirdParty\MobileDependencyResolver\Editor\1.2.185\Google.VersionHandlerImpl.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
@@ -676,7 +688,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Google.JarResolver">
-      <HintPath>Assets\MobileDependencyResolver\Editor\1.2.185\Google.JarResolver.dll</HintPath>
+      <HintPath>Assets\ThirdParty\MobileDependencyResolver\Editor\1.2.185\Google.JarResolver.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="OnigwrapPlastic">
@@ -728,7 +740,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Google.PackageManagerResolver">
-      <HintPath>Assets\MobileDependencyResolver\Editor\1.2.185\Google.PackageManagerResolver.dll</HintPath>
+      <HintPath>Assets\ThirdParty\MobileDependencyResolver\Editor\1.2.185\Google.PackageManagerResolver.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">

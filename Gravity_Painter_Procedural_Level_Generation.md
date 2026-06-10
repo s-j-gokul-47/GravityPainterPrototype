@@ -4,7 +4,7 @@
 
 This document outlines the procedural level generation system for **Gravity Painter**, a 3D mobile puzzle game built in Unity. The system generates connected tile paths at runtime using seeded random walk algorithms and integrates with existing systems: `TileGlbVisual`, `BallController`, `FinishLine`, and `LevelEnvironment`.
 
-Campaign Levels 1–5 remain hand-authored for tutorial pacing. A dedicated `LevelProcedural` scene will eventually handle **Procedural**, **Daily Challenge**, and **Replay** modes.
+Campaign Levels 1–2 remain hand-authored for tutorial pacing. A dedicated `LevelProcedural` scene will eventually handle **Procedural**, **Daily Challenge**, and **Replay** modes.
 
 ---
 
@@ -429,7 +429,7 @@ The UI shows: **Today's Level — KELOR** instead of **Level — Seed: 4829103**
 ```
 Main Menu
     │
-    ├── 🎮 Campaign ────── Level 1–5 (hand-built, tutorial pacing)
+    ├── 🎮 Campaign ────── Level 1–2 (hand-built, tutorial pacing)
     │                      └─ LevelProgress unlock system unchanged
     │
     ├── ⚙️  Procedural ─── LevelProcedural.unity
@@ -577,7 +577,7 @@ public void LoadReplay(string code)
 
 ## Pitch for Academic Presentation
 
-> Gravity Painter will implement procedural level generation using a **seeded backtracking random walk** on a bounded 2D tile grid. A `LevelGenConfig` ScriptableObject controls all parameters — path length, grid bounds, obstacle density, and prefab references — so difficulty can be tuned without touching code. A three-layer pipeline (Generator → Validator → Builder) ensures every generated level is solvable before play begins: the validator runs a BFS connectivity check and retries with `seed + 1` if the path fails. Campaign Levels 1–5 remain hand-authored for tutorial pacing; a single `LevelProcedural` scene handles Procedural, Daily Challenge, and Replay modes using the same existing `Tile` prefab, `TileGlbVisual` layout, `BallController`, and `FinishLine` systems already in the project. Mobile performance is maintained through an object pool, static batching, async frame-spread building, and a 30-tile hard cap. Players share levels using a 5-letter human-readable seed code.
+> Gravity Painter will implement procedural level generation using a **seeded backtracking random walk** on a bounded 2D tile grid. A `LevelGenConfig` ScriptableObject controls all parameters — path length, grid bounds, obstacle density, and prefab references — so difficulty can be tuned without touching code. A three-layer pipeline (Generator → Validator → Builder) ensures every generated level is solvable before play begins: the validator runs a BFS connectivity check and retries with `seed + 1` if the path fails. Campaign Levels 1–2 remain hand-authored for tutorial pacing; a single `LevelProcedural` scene handles Procedural, Daily Challenge, and Replay modes using the same existing `Tile` prefab, `TileGlbVisual` layout, `BallController`, and `FinishLine` systems already in the project. Mobile performance is maintained through an object pool, static batching, async frame-spread building, and a 30-tile hard cap. Players share levels using a 5-letter human-readable seed code.
 
 ---
 
