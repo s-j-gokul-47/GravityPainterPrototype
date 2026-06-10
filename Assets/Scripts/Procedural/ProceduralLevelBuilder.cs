@@ -174,7 +174,6 @@ public class ProceduralLevelBuilder : MonoBehaviour
             + ", tiles=" + _spawnedTiles.Count
             + ", finish at " + cells[cells.Count - 1].GridPos);
 
-        ProceduralSession.SaveSeed(actualSeed);
         OnLevelBuilt?.Invoke(actualSeed, _spawnedTiles.Count);
         return true;
     }
@@ -207,7 +206,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
     {
         if (useDifficultyProgression)
         {
-            return DifficultyManager.CurrentDifficulty;
+            return LevelProgress.GetSelectedMenuDifficulty();
         }
 
         return Mathf.Clamp01(config.difficulty);
@@ -237,10 +236,10 @@ public class ProceduralLevelBuilder : MonoBehaviour
         BuildFromSeed(rebuildSeed);
     }
 
-    /// <summary>Builds a new procedural layout from a random seed.</summary>
+    /// <summary>Builds the procedural layout for the currently selected menu level.</summary>
     public void RebuildNextSeed()
     {
-        BuildFromSeed(UnityEngine.Random.Range(1, int.MaxValue));
+        BuildFromSeed(ProceduralSession.GetDeterministicSeedForMenuLevel(LevelProgress.GetSelectedMenuLevel()));
     }
 
     /// <summary>Destroys all tiles spawned by the builder.</summary>

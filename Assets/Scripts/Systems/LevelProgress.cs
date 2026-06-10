@@ -50,6 +50,33 @@ public static class LevelProgress
     }
 
     /// <summary>
+    /// Procedural stage index for a menu slot (Level 3 → 0, Level 4 → 1, …).
+    /// </summary>
+    public static int GetProceduralStageIndex(int menuLevel)
+    {
+        if (!IsProceduralMenuLevel(menuLevel))
+        {
+            return 0;
+        }
+
+        return menuLevel - ProceduralCampaignLevel;
+    }
+
+    /// <summary>
+    /// Difficulty for the selected menu slot when replaying or starting that level.
+    /// </summary>
+    public static float GetDifficultyForMenuLevel(int menuLevel)
+    {
+        int stage = GetProceduralStageIndex(menuLevel);
+        return Mathf.Clamp01(stage * DifficultyManager.DefaultDifficultyStep);
+    }
+
+    public static float GetSelectedMenuDifficulty()
+    {
+        return GetDifficultyForMenuLevel(GetSelectedMenuLevel());
+    }
+
+    /// <summary>
     /// After completing level N, unlock level N+1 (if not already unlocked).
     /// </summary>
     public static void UnlockThrough(int completedLevel)

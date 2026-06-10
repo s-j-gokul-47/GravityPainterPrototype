@@ -1,58 +1,41 @@
 using UnityEngine;
 
 /// <summary>
-/// Persists the active procedural seed so scene reloads and menu launches use the right layout.
+/// Resolves procedural layout seeds. Seeds are derived only from the menu level number
+/// so every install produces the same path for Level 3, Level 4, etc.
 /// </summary>
 public static class ProceduralSession
 {
-    public const string SavedSeedKey = "ProceduralSavedSeed";
-    public const string HasSavedSeedKey = "ProceduralHasSavedSeed";
-    public const string FreshRunKey = "ProceduralFreshRun";
-
+    /// <summary>Kept for callers; seeds are always deterministic from menu level.</summary>
     public static void MarkFreshRunFromMenu()
     {
-        PlayerPrefs.SetInt(FreshRunKey, 1);
-        PlayerPrefs.DeleteKey(HasSavedSeedKey);
-        PlayerPrefs.Save();
     }
 
-    public static void SaveSeed(int seed)
+    /// <summary>
+    /// Fixed seed for a campaign menu slot. Same formula on every device and build.
+    /// Level 3 → first procedural layout, Level 4 → next, and so on.
+    /// </summary>
+    public static int GetDeterministicSeedForMenuLevel(int menuLevel)
     {
-        if (seed <= 0)
+        if (menuLevel < LevelProgress.ProceduralCampaignLevel)
         {
-            return;
+            menuLevel = LevelProgress.ProceduralCampaignLevel;
         }
 
-        PlayerPrefs.SetInt(SavedSeedKey, seed);
-        PlayerPrefs.SetInt(HasSavedSeedKey, 1);
-        PlayerPrefs.DeleteKey(FreshRunKey);
-        PlayerPrefs.Save();
-    }
-
-    public static bool TryGetSavedSeed(out int seed)
-    {
-        seed = 0;
-        if (PlayerPrefs.GetInt(HasSavedSeedKey, 0) != 1)
+        unchecked
         {
-            return false;
+            const int salt = 0x5F3759DF;
+            uint hash = (uint)(menuLevel * 100003 ^ salt);
+            return (int)(hash % (int.MaxValue - 1)) + 1;
         }
-
-        seed = PlayerPrefs.GetInt(SavedSeedKey, 0);
-        return seed > 0;
     }
 
     public static int ResolveStartSeed(int sceneDefaultSeed)
     {
-        if (PlayerPrefs.GetInt(FreshRunKey, 0) == 1)
+        int menuLevel = LevelProgress.GetSelectedMenuLevel();
+        if (LevelProgress.IsProceduralMenuLevel(menuLevel))
         {
-            PlayerPrefs.DeleteKey(FreshRunKey);
-            PlayerPrefs.Save();
-            return CreateMenuEntrySeed();
-        }
-
-        if (TryGetSavedSeed(out int savedSeed))
-        {
-            return savedSeed;
+            return GetDeterministicSeedForMenuLevel(menuLevel);
         }
 
         if (sceneDefaultSeed > 0)
@@ -60,15 +43,11 @@ public static class ProceduralSession
             return sceneDefaultSeed;
         }
 
-        return CreateMenuEntrySeed();
+        return GetDeterministicSeedForMenuLevel(LevelProgress.ProceduralCampaignLevel);
     }
 
     public static int CreateMenuEntrySeed()
     {
-        int menuLevel = LevelProgress.GetSelectedMenuLevel();
-        unchecked
-        {
-            return (menuLevel * 100003) ^ Random.Range(1, int.MaxValue / 2);
-        }
+        return GetDeterministicSeedForMenuLevel(LevelProgress.GetSelectedMenuLevel());
     }
 }

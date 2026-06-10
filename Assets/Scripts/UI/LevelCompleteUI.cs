@@ -120,7 +120,8 @@ public class LevelCompleteUI : MonoBehaviour
             return;
         }
 
-        float nextDifficulty = DifficultyManager.CurrentDifficulty;
+        int nextMenuLevel = LevelProgress.GetSelectedMenuLevel() + 1;
+        float nextDifficulty = LevelProgress.GetDifficultyForMenuLevel(nextMenuLevel);
         label.text =
             "Level Completed!\nNext: "
             + DifficultyManager.GetTierName(nextDifficulty)
