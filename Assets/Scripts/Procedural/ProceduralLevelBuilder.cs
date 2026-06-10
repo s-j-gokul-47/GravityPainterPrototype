@@ -28,6 +28,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
     [Header("Spawn Tuning")]
     [SerializeField] private float ballSpawnHeight = 2f;
+    [SerializeField] private GameObject coinPrefab;
+    [SerializeField, Range(0f, 1f)] private float coinSpawnChance = 0.25f;
+    [SerializeField] private float coinSpawnHeight = 0.8f;
 
     private readonly List<GameObject> _spawnedTiles = new List<GameObject>();
     private ProceduralPathGenerator _generator;
@@ -105,6 +108,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
             return false;
         }
 
+        // Reset session coins at the very start of level generation
+        CoinManager.ResetSessionCoins();
+
         HoldBallUntilPlaced();
         if (_activeConfig != null)
         {
@@ -160,6 +166,27 @@ public class ProceduralLevelBuilder : MonoBehaviour
             if (i == cells.Count - 1)
             {
                 goalTile = tile;
+            }
+            else if (i > 0 && coinPrefab != null)
+            {
+                // Deterministic random so the same level seed always has coins in the same spots
+                UnityEngine.Random.State oldState = UnityEngine.Random.state;
+                UnityEngine.Random.InitState(actualSeed + i * 73);
+                
+                if (UnityEngine.Random.value <= coinSpawnChance)
+                {
+                    Vector3 coinPos = tile.transform.position + Vector3.up * coinSpawnHeight;
+                    
+                    // Set the specific starting tilt the user requested
+                    Quaternion startingRot = Quaternion.Euler(-267.281f, UnityEngine.Random.Range(0f, 360f), 47f);
+                    GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
+                    
+                    // Force the scale to exactly what the user requested
+                    coinObj.transform.localScale = new Vector3(1.5f, 0.125f, 1.5f);
+                    coinObj.name = "Coin_" + i;
+                }
+                
+                UnityEngine.Random.state = oldState;
             }
         }
 

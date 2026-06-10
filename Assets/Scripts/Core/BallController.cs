@@ -452,6 +452,9 @@ public class BallController : MonoBehaviour
     {
         _restarting = true;
         Time.timeScale = 1f;
+        
+        // Discard any session coins if the player restarts or falls
+        CoinManager.ResetSessionCoins();
 
         Scene active = SceneManager.GetActiveScene();
         if (LevelProgress.IsProceduralScene(active))

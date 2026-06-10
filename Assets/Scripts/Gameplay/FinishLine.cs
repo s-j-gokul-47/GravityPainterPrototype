@@ -41,6 +41,10 @@ public class FinishLine : MonoBehaviour
         }
 
         _completed = true;
+        
+        // Save the coins collected in this level to our total count!
+        CoinManager.CommitSessionCoins();
+
         if (LevelProgress.IsProceduralScene(SceneManager.GetActiveScene()))
         {
             DifficultyManager.OnLevelCompleted();
