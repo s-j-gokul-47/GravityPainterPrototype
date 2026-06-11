@@ -15,6 +15,22 @@ public class FinishLine : MonoBehaviour
     private void Start()
     {
         EnsureFinishVisual();
+        AdjustTriggerCollider();
+    }
+
+    private void AdjustTriggerCollider()
+    {
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+        foreach (Collider col in colliders)
+        {
+            if (col.isTrigger && col is BoxCollider box)
+            {
+                // Place trigger just past the halfway point of the tile
+                box.size = new Vector3(1f, 1f, 0.1f);
+                box.center = new Vector3(0f, 0.5f, 0.2f);
+                break;
+            }
+        }
     }
 
     private void EnsureFinishVisual()
@@ -60,6 +76,14 @@ public class FinishLine : MonoBehaviour
         }
 
         if (pauseGame)
+        {
+            Invoke(nameof(PauseTime), 1.0f);
+        }
+    }
+
+    private void PauseTime()
+    {
+        if (_completed)
         {
             Time.timeScale = 0f;
         }

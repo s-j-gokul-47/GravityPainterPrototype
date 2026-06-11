@@ -45,7 +45,7 @@ public class FinishLineVisual : MonoBehaviour
         model.transform.localRotation = Quaternion.Euler(modelLocalEuler);
         model.transform.localScale = modelLocalScale;
 
-        StripPhysics(model);
+        ConfigureRigidPhysics(model);
         TileMeshMaterialUtility.FixRenderersToUrpPreservingModelLook(model);
     }
 
@@ -110,6 +110,26 @@ public class FinishLineVisual : MonoBehaviour
             {
                 DestroyImmediate(body);
             }
+        }
+    }
+
+    private static void ConfigureRigidPhysics(GameObject root)
+    {
+        // Strip existing to be safe
+        StripPhysics(root);
+
+        PhysicsMaterial bounceMat = new PhysicsMaterial("FinishGateBounce");
+        bounceMat.bounciness = 2f; // Very strong bounce back
+        bounceMat.bounceCombine = PhysicsMaterialCombine.Maximum;
+        bounceMat.dynamicFriction = 0f;
+        bounceMat.staticFriction = 0f;
+        bounceMat.frictionCombine = PhysicsMaterialCombine.Minimum;
+
+        foreach (MeshRenderer mr in root.GetComponentsInChildren<MeshRenderer>(true))
+        {
+            MeshCollider mc = mr.gameObject.AddComponent<MeshCollider>();
+            mc.convex = false; 
+            mc.sharedMaterial = bounceMat;
         }
     }
 }
