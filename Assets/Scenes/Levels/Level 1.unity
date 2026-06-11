@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0.85
   m_AmbientMode: 2
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: fa95802f80bd745cfb5e9c89f7e22341, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 6df3149ffd47d064199ce35e0ba4b6b1, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1266,58 +1266,6 @@ Transform:
   m_Children:
   - {fileID: 121508142}
   m_Father: {fileID: 1274109226}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &192285288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 192285290}
-  - component: {fileID: 192285289}
-  m_Layer: 0
-  m_Name: LevelEnvironment
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &192285289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192285288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b70137acb64da4ebeaf76ce6ee465c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevelEnvironment
-  createPlanetSurface: 1
-  planetSurfaceY: -12
-  planetSize: {x: 80, y: 80}
-  planetMaterial: {fileID: 2100000, guid: 4bbf8890428ec4f89a5e0d3f4726127f, type: 2}
-  createPlatformDeck: 1
-  deckLocalPosition: {x: 0, y: -0.55, z: 0}
-  deckScale: {x: 28, y: 0.12, z: 40}
-  deckMaterial: {fileID: 2100000, guid: 4852222f5cc4740d885531e07f3785a8, type: 2}
---- !u!4 &192285290
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192285288}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &203575631 stripped
 GameObject:
@@ -8993,5 +8941,4 @@ SceneRoots:
   - {fileID: 130909868}
   - {fileID: 1540361033}
   - {fileID: 325424375}
-  - {fileID: 192285290}
   - {fileID: 96071187}

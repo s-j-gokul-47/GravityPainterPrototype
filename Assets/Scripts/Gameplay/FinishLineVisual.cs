@@ -119,7 +119,7 @@ public class FinishLineVisual : MonoBehaviour
         StripPhysics(root);
 
         PhysicsMaterial bounceMat = new PhysicsMaterial("FinishGateBounce");
-        bounceMat.bounciness = 2f; // Very strong bounce back
+        bounceMat.bounciness = 1f; // Max bounciness allowed by Unity
         bounceMat.bounceCombine = PhysicsMaterialCombine.Maximum;
         bounceMat.dynamicFriction = 0f;
         bounceMat.staticFriction = 0f;
