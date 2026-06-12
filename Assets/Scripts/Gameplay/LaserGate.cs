@@ -198,6 +198,10 @@ public class LaserGate : MonoBehaviour
         {
             _strikeRestCenter = _strikeCollider.center;
             _strikeRestSize = _strikeCollider.size;
+            
+            // Extend the trigger box vertically downwards so the ball cannot simply roll under the beam
+            _strikeRestSize.y = Mathf.Max(_strikeRestSize.y, 5f);
+            _strikeRestCenter.y = 0f;
         }
 
         _beamBoundsCached = true;

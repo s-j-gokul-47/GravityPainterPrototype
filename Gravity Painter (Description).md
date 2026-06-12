@@ -43,6 +43,8 @@ The player guides a metallic ball through puzzle chambers without directly contr
 | GameManager | Empty GameObject | Runs level generation script |
 | Tile | Cube (Prefab) | One zone tile on the floor |
 | Ball | Sphere | The player's ball, driven by physics |
+| Coin | Cylinder/Prefab | Collectible item that grants session coins on touch |
+| Finish Gate | Trigger | Marks level end; has strong body to cause ball rebound |
 
 ---
 
@@ -56,6 +58,10 @@ Four C# scripts were created in `Assets/`:
 | `BallController.cs` | Ball | Reads current zone from trigger, applies AddForce every FixedUpdate |
 | `InputManager.cs` | Main Camera | Detects mouse click / Android touch via raycast and calls CycleZone on hit tile |
 | `GameManager.cs` | GameManager | Auto-spawns a grid of tile prefabs at runtime |
+| `Coin.cs` | Coin prefab | Handles coin's visual rotation and trigger collection logic |
+| `CoinManager.cs` | (Static) | Manages total permanent coins via PlayerPrefs and temporary session coins |
+| `CoinDisplayUI.cs` | Canvas UI | Updates text to show current coin count |
+| `ApplyThemeSkybox.cs` | Editor Script | Automatically applies `SkyCitySkybox` background to all level scenes |
 
 ---
 
@@ -274,6 +280,8 @@ Four materials, created via Project panel → Create → Material:
 | BlueZone | Bright Blue | Applied when ZoneType = Blue |
 | YellowZone | Bright Yellow | Applied when ZoneType = Yellow |
 | DefaultZone | Grey | Applied when ZoneType = None |
+| CoinMaterial | Golden | Applied to the newly added Coin prefab |
+| SkyCitySkybox | Panoramic | 360-degree Sky City background used across all levels |
 
 ---
 
@@ -311,6 +319,7 @@ All input code uses:
 | Procedural tiles overlap at turns | Uniform grid spacing + outgoing rotation | Edge-aligned placement, incoming rotation, 2 forward corner pads |
 | Procedural tiles too small | 1×1 prefab scale with Level 2 GLB layout | `tileLocalScale` matching Level 2 footprint on config |
 | Ball falls at procedural turns | Corner gap after edge-aligned offset | `addCornerPads` + `cornerPadTileCount = 2` forward-aligned tiles |
+| Ball completes level without satisfying feedback | Finish gate was a simple trigger | Made the finish gate a strong body so the ball rebounds upon hitting it |
 
 ---
 

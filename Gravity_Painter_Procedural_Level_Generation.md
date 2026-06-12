@@ -25,6 +25,7 @@ Campaign Levels 1–2 remain hand-authored for tutorial pacing. A dedicated `Lev
 | GLB layout on spawned tiles | ✅ Done | Via `TileGlbVisual.ApplyLayout` + reference asset |
 | Ball spawn via `BallController.PlaceAt()` | ✅ Done | `Assets/Scripts/Core/BallController.cs` |
 | Finish line wiring via `FinishLine.Configure()` | ✅ Done | `Assets/Scripts/Gameplay/FinishLine.cs` |
+| Coin spawning (deterministic via seed) | ✅ Done | `ProceduralLevelBuilder` instantiates `Coin.prefab` |
 | Editor menus + tests | ✅ Done | See **Editor Menus** below |
 | Test scene | ✅ Done | `Assets/Procedural(test).unity` |
 
@@ -341,8 +342,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
         // 2. Spawn main-path tiles with ProceduralTilePlacement.ApplyPathTransform()
         // 3. Spawn corner pads (2 forward-aligned tiles per turn)
         // 4. Apply TileGlbVisual layout from config.glbLayout
-        // 5. Place ball at first tile via BallController.PlaceAt()
-        // 6. Add FinishLine.Configure() on last tile
+        // 5. Spawn Coins deterministically based on actual seed
+        // 6. Place ball at first tile via BallController.PlaceAt()
+        // 7. Add FinishLine.Configure() on last tile
     }
 }
 ```

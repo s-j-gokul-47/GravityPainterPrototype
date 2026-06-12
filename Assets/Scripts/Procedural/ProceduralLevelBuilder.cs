@@ -32,6 +32,10 @@ public class ProceduralLevelBuilder : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float coinSpawnChance = 0.25f;
     [SerializeField] private float coinSpawnHeight = 0.8f;
 
+    [Header("Obstacles")]
+    [SerializeField] private GameObject hammerPrefab;
+    [SerializeField] private GameObject laserBeamPrefab;
+
     private readonly List<GameObject> _spawnedTiles = new List<GameObject>();
     private ProceduralPathGenerator _generator;
     private LevelGenConfig _activeConfig;
@@ -85,6 +89,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
+        if (hammerPrefab == null) hammerPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/Hammer.prefab");
+        if (laserBeamPrefab == null) laserBeamPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/KorrathBeam.prefab");
+
         if (!Application.isPlaying || !buildOnStart || !rebuildWhenSeedChanges)
         {
             return;
@@ -152,6 +159,53 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
         GameObject goalTile = null;
 
+        bool spawnObstacles = LevelProgress.GetSelectedMenuLevel() >= 10;
+        List<int> validObstacleIndices = new List<int>();
+        if (spawnObstacles)
+        {
+            for (int i = 1; i < cells.Count - 1; i++)
+            {
+                validObstacleIndices.Add(i);
+            }
+            // Deterministic shuffle
+            UnityEngine.Random.State oldState = UnityEngine.Random.state;
+            UnityEngine.Random.InitState(actualSeed + 1234);
+            for (int i = 0; i < validObstacleIndices.Count; i++)
+            {
+                int temp = validObstacleIndices[i];
+                int randomIndex = UnityEngine.Random.Range(i, validObstacleIndices.Count);
+                validObstacleIndices[i] = validObstacleIndices[randomIndex];
+                validObstacleIndices[randomIndex] = temp;
+            }
+            UnityEngine.Random.state = oldState;
+        }
+
+        int targetHammers = 0;
+        int targetLasers = 0;
+        if (spawnObstacles)
+        {
+            UnityEngine.Random.State state = UnityEngine.Random.state;
+            UnityEngine.Random.InitState(actualSeed + 999);
+            targetHammers = UnityEngine.Random.Range(2, 4); // 2 to 3
+            targetLasers = UnityEngine.Random.Range(2, 4); // 2 to 3
+            UnityEngine.Random.state = state;
+        }
+
+        List<int> hammerIndices = new List<int>();
+        List<int> laserIndices = new List<int>();
+        if (spawnObstacles)
+        {
+            int assigned = 0;
+            for (int i = 0; i < targetHammers && assigned < validObstacleIndices.Count; i++)
+            {
+                hammerIndices.Add(validObstacleIndices[assigned++]);
+            }
+            for (int i = 0; i < targetLasers && assigned < validObstacleIndices.Count; i++)
+            {
+                laserIndices.Add(validObstacleIndices[assigned++]);
+            }
+        }
+
         for (int i = 0; i < cells.Count; i++)
         {
             LevelCell cell = cells[i];
@@ -166,6 +220,21 @@ public class ProceduralLevelBuilder : MonoBehaviour
             if (i == cells.Count - 1)
             {
                 goalTile = tile;
+            }
+            else if (hammerIndices.Contains(i) && hammerPrefab != null)
+            {
+                // Raise the hammer 2.75 units above the tile exactly like Level 2
+                Vector3 hammerPos = tile.transform.position + Vector3.up * 3f;
+                Quaternion hammerRot = tile.transform.rotation * Quaternion.Euler(0f, 0f, -75f);
+                GameObject hammer = Instantiate(hammerPrefab, hammerPos, hammerRot, levelRoot);
+                hammer.name = "Hammer_" + i;
+                hammer.transform.localScale = Vector3.one * 1.5f;
+            }
+            else if (laserIndices.Contains(i) && laserBeamPrefab != null)
+            {
+                GameObject laser = Instantiate(laserBeamPrefab, tile.transform.position, tile.transform.rotation, levelRoot);
+                laser.name = "LaserBeam_" + i;
+                FitObstacleToTileSpan(laser, tile);
             }
             else if (i > 0 && coinPrefab != null)
             {
@@ -654,6 +723,43 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         return Resources.Load<GameObject>(FinishLineVisual.DefaultPrefabResourcePath);
+    }
+
+    private void FitObstacleToTileSpan(GameObject obstacle, GameObject tile)
+    {
+        Renderer[] renderers = obstacle.GetComponentsInChildren<Renderer>(true);
+        if (renderers.Length == 0)
+        {
+            return;
+        }
+
+        Bounds bounds = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            bounds.Encapsulate(renderers[i].bounds);
+        }
+
+        float span = Mathf.Max(bounds.size.x, bounds.size.z, 0.001f);
+        float targetSpan = _activeConfig.tileSpacingX;
+        float uniform = targetSpan / span;
+
+        obstacle.transform.localScale = Vector3.one * uniform;
+
+        // Recompute bounds after scale
+        bounds = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            bounds.Encapsulate(renderers[i].bounds);
+        }
+
+        // Raise obstacle so its bottom rests exactly on the tile
+        float tileTop = GetTileTopY(tile);
+        if (tileTop > float.NegativeInfinity)
+        {
+            float offset = tileTop - bounds.min.y;
+            // Sink it by 0.05f so the legs don't float
+            obstacle.transform.position += Vector3.up * (offset - 0.05f);
+        }
     }
 
     private void EnsureLevelCompleteUi()
