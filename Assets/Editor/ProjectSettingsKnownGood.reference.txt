@@ -1,0 +1,27 @@
+# Gravity Painter — known-good ProjectSettings values (6000.3.11f1)
+# If Play is static / tiles do not respond, compare your ProjectSettings to this list.
+# Fix: Gravity Painter → Repair Project Settings (do NOT delete ProjectSettings)
+
+ProjectVersion.txt:
+  m_EditorVersion: 6000.3.11f1
+
+ProjectSettings.asset:
+  activeInputHandler: 2   # 0 = broken (ball static, tiles ignore taps)
+
+GraphicsSettings.asset:
+  m_CustomRenderPipeline guid: 4b83569d67af61e458304325a23e5dfd  (PC_RPAsset)
+  m_RenderPipelineGlobalSettingsMap guid: 18dc0cd2c080841dea60987a38ce93fa
+
+EditorBuildSettings.asset:
+  m_configObjects.com.unity.input.settings.actions guid: 052faaac586de48259a63d0c4782560b
+  enabled scenes:
+    - Assets/Scenes/Menus/MainMenu.unity
+    - Assets/Scenes/Levels/Level 1.unity
+    - Assets/Scenes/Levels/Level 2.unity
+    - Assets/Procedural(test).unity
+
+After deleting ProjectSettings, Unity typically resets:
+  activeInputHandler → 0 (BREAKS INPUT)
+  m_CustomRenderPipeline → null (PINK MATERIALS)
+  m_configObjects → empty (BREAKS INPUT)
+  build scenes → wrong or empty (BREAKS LEVEL LOAD ON PHONE)
