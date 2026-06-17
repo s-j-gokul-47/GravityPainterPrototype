@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -25,6 +26,8 @@ public static class SetupProceduralLevelScene
         }
 
         WireGlbLayout(config);
+        Material campaignSkybox = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/SkyCitySkybox.mat");
+        ApplyCampaignSkyboxToOpenScene(campaignSkybox);
 
         GameObject builderRoot = GameObject.Find("ProceduralLevel");
         if (builderRoot == null)
@@ -59,6 +62,7 @@ public static class SetupProceduralLevelScene
         so.FindProperty("levelRoot").objectReferenceValue = levelRoot;
         so.FindProperty("ball").objectReferenceValue = ball;
         so.FindProperty("levelCompletePanel").objectReferenceValue = levelCompleteCanvas;
+        so.FindProperty("campaignSkybox").objectReferenceValue = campaignSkybox;
         so.FindProperty("buildOnStart").boolValue = true;
         so.FindProperty("seed").intValue = 12345;
         so.ApplyModifiedPropertiesWithoutUndo();
@@ -190,6 +194,21 @@ public static class SetupProceduralLevelScene
         }
 
         visualizer.gameObject.SetActive(false);
+    }
+
+    private static void ApplyCampaignSkyboxToOpenScene(Material skybox)
+    {
+        if (skybox == null)
+        {
+            return;
+        }
+
+        RenderSettings.skybox = skybox;
+        RenderSettings.ambientMode = AmbientMode.Flat;
+        RenderSettings.ambientLight = new Color(0.22f, 0.22f, 0.24f, 1f);
+        RenderSettings.ambientIntensity = 0.85f;
+        RenderSettings.reflectionIntensity = 0.35f;
+        EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
     }
 }
 #endif

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 /// <summary>
 /// Builds a playable procedural level at runtime from a seed:
@@ -25,6 +26,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
     [SerializeField] private Transform levelRoot;
     [SerializeField] private BallController ball;
     [SerializeField] private GameObject levelCompletePanel;
+    [SerializeField] private Material campaignSkybox;
 
     [Header("Spawn Tuning")]
     [SerializeField] private float ballSpawnHeight = 2f;
@@ -59,6 +61,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
 #if !UNITY_EDITOR
         rebuildWhenSeedChanges = false;
 #endif
+        ApplyCampaignEnvironment();
         HoldBallUntilPlaced();
         if (buildOnStart && Application.isPlaying)
         {
@@ -89,6 +92,12 @@ public class ProceduralLevelBuilder : MonoBehaviour
 #if UNITY_EDITOR
     private void OnValidate()
     {
+        if (campaignSkybox == null)
+        {
+            campaignSkybox = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>(
+                "Assets/Materials/SkyCitySkybox.mat");
+        }
+
         if (hammerPrefab == null) hammerPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/Hammer.prefab");
         if (laserBeamPrefab == null) laserBeamPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/KorrathBeam.prefab");
 
@@ -370,6 +379,24 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 DestroyTile(levelRoot.GetChild(i).gameObject);
             }
         }
+    }
+
+    /// <summary>
+    /// Match campaign Levels 1–2 visuals: panoramic city skybox and flat ambient lighting.
+    /// </summary>
+    private void ApplyCampaignEnvironment()
+    {
+        if (campaignSkybox == null)
+        {
+            return;
+        }
+
+        RenderSettings.skybox = campaignSkybox;
+        RenderSettings.ambientMode = AmbientMode.Flat;
+        RenderSettings.ambientLight = new Color(0.22f, 0.22f, 0.24f, 1f);
+        RenderSettings.ambientIntensity = 0.85f;
+        RenderSettings.reflectionIntensity = 0.35f;
+        DynamicGI.UpdateEnvironment();
     }
 
     private bool ValidateConfig()

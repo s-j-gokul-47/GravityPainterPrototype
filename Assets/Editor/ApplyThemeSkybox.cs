@@ -53,11 +53,16 @@ public static class ApplyThemeSkybox
         if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
         {
             // Find all scenes in the project
-            string[] sceneGuids = AssetDatabase.FindAssets("t:Scene", new[] { "Assets/Scenes" });
+            string[] sceneGuids = AssetDatabase.FindAssets("t:Scene", new[] { "Assets/Scenes", "Assets" });
             foreach (string guid in sceneGuids)
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
                 if (!System.IO.File.Exists(path))
+                {
+                    continue;
+                }
+
+                if (!path.EndsWith(".unity") || path.Contains("/ThirdParty/"))
                 {
                     continue;
                 }
