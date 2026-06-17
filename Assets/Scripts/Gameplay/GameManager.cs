@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        CoinManager.ResetSessionCoins();
         //GenerateLevel();
     }
 

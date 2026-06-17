@@ -23,14 +23,7 @@ public static class LevelProgress
 
     public static int GetUnlockedLevel()
     {
-        int campaign = GetCampaignUnlockedLevel();
-        if (campaign < ProceduralCampaignLevel)
-        {
-            return campaign;
-        }
-
-        int procedural = ProceduralCampaignLevel + DifficultyManager.LevelsCompleted;
-        return Mathf.Max(campaign, procedural);
+        return GetCampaignUnlockedLevel();
     }
 
     /// <summary>Level to highlight when opening the level-select screen (newest unlocked).</summary>
