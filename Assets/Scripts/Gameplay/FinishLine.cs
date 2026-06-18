@@ -65,8 +65,10 @@ public class FinishLine : MonoBehaviour
         {
             DifficultyManager.OnLevelCompleted();
         }
-
-        LevelProgress.UnlockThrough(LevelProgress.GetActiveLevelNumber());
+        else
+        {
+            LevelProgress.UnlockThrough(LevelProgress.GetActiveLevelNumber());
+        }
 
         if (levelCompletePanel != null)
         {

@@ -38,13 +38,24 @@ public class ProceduralLevelBuilder : MonoBehaviour
     [SerializeField] private GameObject hammerPrefab;
     [SerializeField] private GameObject laserBeamPrefab;
 
+    [Header("PowerUps")]
+    [SerializeField] private GameObject speedCorePrefab;
+    [SerializeField] private GameObject magnetPrefab;
+    [SerializeField, Range(0f, 1f)] private float powerUpSpawnChance = 0.15f;
+    [SerializeField] private float powerUpSpawnHeight = 1.2f;
+
     private readonly List<GameObject> _spawnedTiles = new List<GameObject>();
-    private ProceduralPathGenerator _generator;
+
+    [Header("Debug")]
+    [Tooltip("Reset DifficultyManager.LevelsCompleted to 0 each time Play mode starts.")]
+    [SerializeField] private bool resetDifficultyOnPlay = false;
+
     private LevelGenConfig _activeConfig;
     private int _watchedSeed = int.MinValue;
     private Vector3 _ballSpawnPosition;
     private bool _hasBallSpawn;
     private Coroutine _releaseBallCoroutine;
+    private ProceduralPathGenerator _generator;
 
     public int Seed => seed;
     public int LastBuiltSeed { get; private set; } = -1;
@@ -61,12 +72,38 @@ public class ProceduralLevelBuilder : MonoBehaviour
 #if !UNITY_EDITOR
         rebuildWhenSeedChanges = false;
 #endif
+        TryLoadPowerUpPrefabs();
         ApplyCampaignEnvironment();
         HoldBallUntilPlaced();
         if (buildOnStart && Application.isPlaying)
         {
+            if (resetDifficultyOnPlay)
+            {
+                DifficultyManager.ResetProgress();
+                Debug.Log("[Builder] Difficulty reset to Easy (0) via resetDifficultyOnPlay");
+            }
+            else
+            {
+                int completed = DifficultyManager.LevelsCompleted;
+                Debug.Log("[Builder] Difficulty: " + DifficultyManager.GetTierName(DifficultyManager.CurrentDifficulty)
+                    + " (" + DifficultyManager.CurrentDifficulty.ToString("F2")
+                    + ", " + completed + " completed)"
+                    + " — use Tools > Gravity Painter to reset");
+            }
             BuildFromSeed(ResolveStartSeed());
         }
+    }
+
+    private void TryLoadPowerUpPrefabs()
+    {
+        if (speedCorePrefab != null && magnetPrefab != null)
+            return;
+#if UNITY_EDITOR
+        if (speedCorePrefab == null)
+            speedCorePrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/PowerUps/SpeedCore.prefab");
+        if (magnetPrefab == null)
+            magnetPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/PowerUps/Magnet.prefab");
+#endif
     }
 
     private void Update()
@@ -100,6 +137,8 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
         if (hammerPrefab == null) hammerPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/Hammer.prefab");
         if (laserBeamPrefab == null) laserBeamPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/KorrathBeam.prefab");
+        if (speedCorePrefab == null) speedCorePrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/PowerUps/SpeedCore.prefab");
+        if (magnetPrefab == null) magnetPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/PowerUps/Magnet.prefab");
 
         if (!Application.isPlaying || !buildOnStart || !rebuildWhenSeedChanges)
         {
@@ -150,6 +189,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
         ProceduralTilePlacement.HidePathPreview();
         ClearLevel();
 
+        if (ball != null)
+            ball.ClearCheckpoint();
+
         _generator ??= new ProceduralPathGenerator();
         List<LevelCell> cells = _generator.GenerateWithRetry(_activeConfig, buildSeed, out int actualSeed);
         if (cells == null || cells.Count == 0)
@@ -167,6 +209,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         GameObject goalTile = null;
+        int checkpointTileIndex = cells.Count / 2;
 
         bool spawnObstacles = LevelProgress.GetSelectedMenuLevel() >= 10;
         List<int> validObstacleIndices = new List<int>();
@@ -174,6 +217,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
         {
             for (int i = 1; i < cells.Count - 1; i++)
             {
+                if (i == checkpointTileIndex) continue;
                 validObstacleIndices.Add(i);
             }
             // Deterministic shuffle
@@ -191,6 +235,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
         int targetHammers = 0;
         int targetLasers = 0;
+        HashSet<int> obstacleIndices = new HashSet<int>();
         if (spawnObstacles)
         {
             UnityEngine.Random.State state = UnityEngine.Random.state;
@@ -238,12 +283,14 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 GameObject hammer = Instantiate(hammerPrefab, hammerPos, hammerRot, levelRoot);
                 hammer.name = "Hammer_" + i;
                 hammer.transform.localScale = Vector3.one * 1.5f;
+                obstacleIndices.Add(i);
             }
             else if (laserIndices.Contains(i) && laserBeamPrefab != null)
             {
                 GameObject laser = Instantiate(laserBeamPrefab, tile.transform.position, tile.transform.rotation, levelRoot);
                 laser.name = "LaserBeam_" + i;
                 FitObstacleToTileSpan(laser, tile);
+                obstacleIndices.Add(i);
             }
             else if (i > 0 && coinPrefab != null)
             {
@@ -253,9 +300,14 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 
                 if (UnityEngine.Random.value <= coinSpawnChance)
                 {
-                    Vector3 coinPos = tile.transform.position + Vector3.up * CampaignCoinPlacement.SpawnHeightFromProfile;
-                    Quaternion startingRot = CampaignCoinPlacement.RandomSpawnRotation(actualSeed, i);
+                    Vector3 coinPos = tile.transform.position + Vector3.up * coinSpawnHeight;
+                    
+                    // Set the specific starting tilt the user requested
+                    Quaternion startingRot = Quaternion.Euler(-267.281f, UnityEngine.Random.Range(0f, 360f), 47f);
                     GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
+                    
+                    // Force the scale to exactly what the user requested
+                    coinObj.transform.localScale = new Vector3(1.5f, 0.125f, 1.5f);
                     coinObj.name = "Coin_" + i;
                 }
                 
@@ -264,6 +316,8 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         SpawnCornerPads(cells);
+        SpawnPowerUps(cells, actualSeed, obstacleIndices);
+        SpawnCheckpoint();
 
         PlaceBall(cells);
         SetupFinishLine(goalTile);
@@ -782,6 +836,87 @@ public class ProceduralLevelBuilder : MonoBehaviour
             // Sink it by 0.05f so the legs don't float
             obstacle.transform.position += Vector3.up * (offset - 0.05f);
         }
+    }
+
+    private void SpawnPowerUps(IReadOnlyList<LevelCell> cells, int actualSeed, HashSet<int> obstacleIndices)
+    {
+        if (cells == null || cells.Count < 3)
+            return;
+
+        int checkpointTile = cells.Count / 2;
+        for (int i = 1; i < cells.Count - 1; i++)
+        {
+            if (obstacleIndices.Contains(i) || i == checkpointTile)
+                continue;
+
+            GameObject prefab = SelectRandomPowerUpPrefab(actualSeed + i * 31);
+            if (prefab == null)
+                continue;
+
+            UnityEngine.Random.State oldState = UnityEngine.Random.state;
+            UnityEngine.Random.InitState(actualSeed + i * 97);
+
+            if (UnityEngine.Random.value <= powerUpSpawnChance)
+            {
+                Vector3 pos = _spawnedTiles[i].transform.position + Vector3.up * powerUpSpawnHeight;
+                GameObject powerUp = Instantiate(prefab, pos, Quaternion.identity, levelRoot);
+                powerUp.name = prefab.name + "_" + i;
+            }
+
+            UnityEngine.Random.state = oldState;
+        }
+    }
+
+    private void SpawnCheckpoint()
+    {
+        if (_spawnedTiles.Count < 3) return;
+
+        int mainCount = 0;
+        for (int i = 0; i < _spawnedTiles.Count; i++)
+        {
+            if (_spawnedTiles[i] != null && !_spawnedTiles[i].name.Contains("corner"))
+                mainCount++;
+        }
+
+        int targetMain = mainCount / 2;
+        int currentMain = 0;
+        GameObject midTile = null;
+        for (int i = 0; i < _spawnedTiles.Count; i++)
+        {
+            if (_spawnedTiles[i] != null && !_spawnedTiles[i].name.Contains("corner"))
+            {
+                if (currentMain == targetMain)
+                {
+                    midTile = _spawnedTiles[i];
+                    break;
+                }
+                currentMain++;
+            }
+        }
+
+        if (midTile == null) return;
+
+        Vector3 pos = midTile.transform.position + Vector3.up * 0.15f;
+        GameObject checkpoint = new GameObject("Checkpoint", typeof(Checkpoint));
+        checkpoint.transform.position = pos;
+        checkpoint.transform.SetParent(levelRoot);
+    }
+
+    private GameObject SelectRandomPowerUpPrefab(int seed)
+    {
+        if (speedCorePrefab == null && magnetPrefab == null)
+            return null;
+
+        UnityEngine.Random.State oldState = UnityEngine.Random.state;
+        UnityEngine.Random.InitState(seed);
+
+        var available = new System.Collections.Generic.List<GameObject>();
+        if (speedCorePrefab != null) available.Add(speedCorePrefab);
+        if (magnetPrefab != null) available.Add(magnetPrefab);
+
+        GameObject selected = available[UnityEngine.Random.Range(0, available.Count)];
+        UnityEngine.Random.state = oldState;
+        return selected;
     }
 
     private void EnsureLevelCompleteUi()

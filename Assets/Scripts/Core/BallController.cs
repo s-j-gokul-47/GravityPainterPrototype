@@ -41,10 +41,14 @@ public class BallController : MonoBehaviour
     private TileZone currentZone;
     private float timeSinceLastZoneContact;
     private bool _restarting;
+    private Vector3? _checkpointPosition;
     private float _fallElapsed;
     private bool _crossSlideActive;
     private TileZone _crossSlideZone;
     private bool _crossSlideToLeft;
+    private PowerUpManager _powerUpManager;
+    private Vector3 _spawnPosition;
+    private bool _hasSpawnPosition;
 
     private void Awake()
     {
@@ -69,11 +73,17 @@ public class BallController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.WakeUp();
         timeSinceLastZoneContact = 999f;
+
+        _powerUpManager = GetComponent<PowerUpManager>();
+        if (_powerUpManager == null)
+            _powerUpManager = gameObject.AddComponent<PowerUpManager>();
     }
 
     /// <summary>Moves the ball to a spawn point and clears physics velocity.</summary>
     public void PlaceAt(Vector3 worldPosition)
     {
+        _spawnPosition = worldPosition;
+        _hasSpawnPosition = true;
         SuspendAt(worldPosition);
         ReleasePhysics();
     }
@@ -86,7 +96,8 @@ public class BallController : MonoBehaviour
             rb = GetComponent<Rigidbody>();
         }
 
-        EndCrossSlide();
+        _spawnPosition = worldPosition;
+        _hasSpawnPosition = true;
 
         if (!gameObject.activeSelf)
         {
@@ -97,9 +108,9 @@ public class BallController : MonoBehaviour
         if (rb != null)
         {
             rb.isKinematic = true;
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
         }
+
+        EndCrossSlide();
 
         _fallElapsed = 0f;
         _restarting = false;
@@ -254,15 +265,20 @@ public class BallController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Instant restart when the ball hits an active hazard (e.g. Korrath Beam laser gate).
-    /// </summary>
+    private void TeleportToSpawn()
+    {
+        if (!_hasSpawnPosition) return;
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        transform.position = _spawnPosition;
+        Physics.SyncTransforms();
+    }
+
     public void DestroyFromObstacle()
     {
         if (_restarting)
-        {
             return;
-        }
 
         RestartCurrentLevel();
     }
@@ -350,7 +366,7 @@ public class BallController : MonoBehaviour
         _crossSlideActive = false;
         _crossSlideZone = null;
 
-        if (rb == null)
+        if (rb == null || rb.isKinematic)
         {
             return;
         }
@@ -417,9 +433,6 @@ public class BallController : MonoBehaviour
         return sphere.radius * maxScale;
     }
 
-    /// <summary>
-    /// Called by obstacles (e.g. hammer) to knock the ball off the platform.
-    /// </summary>
     public void KnockDown(Vector3 fromWorldPoint, float downwardSpeed, float outwardSpeed)
     {
         rb.WakeUp();
@@ -448,15 +461,32 @@ public class BallController : MonoBehaviour
         return fallRestartDelay;
     }
 
+    public void SetCheckpoint(Vector3 position)
+    {
+        _checkpointPosition = position;
+    }
+
+    public void ClearCheckpoint()
+    {
+        _checkpointPosition = null;
+    }
+
     private void RestartCurrentLevel()
     {
         _restarting = true;
         Time.timeScale = 1f;
-        
+
+        Scene active = SceneManager.GetActiveScene();
+        if (_checkpointPosition != null && LevelProgress.IsProceduralScene(active))
+        {
+            TeleportToCheckpoint();
+            _restarting = false;
+            return;
+        }
+
         // Discard any session coins if the player restarts or falls
         CoinManager.ResetSessionCoins();
 
-        Scene active = SceneManager.GetActiveScene();
         if (LevelProgress.IsProceduralScene(active))
         {
             ProceduralLevelBuilder builder = FindFirstObjectByType<ProceduralLevelBuilder>();
@@ -484,6 +514,22 @@ public class BallController : MonoBehaviour
         }
     }
 
+    private void TeleportToCheckpoint()
+    {
+        if (_checkpointPosition == null) return;
+
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.WakeUp();
+        }
+        transform.position = _checkpointPosition.Value + Vector3.up * 1f;
+        Physics.SyncTransforms();
+        _fallElapsed = 0f;
+    }
+
     private void FixedUpdate()
     {
         ResolveCurrentTileZone();
@@ -503,7 +549,10 @@ public class BallController : MonoBehaviour
             direction = AdjustRedDirectionForContinuity(direction);
             if (direction.sqrMagnitude > 0.0001f)
             {
-                rb.AddForce(direction * forceStrength, ForceMode.Acceleration);
+                float effectiveForce = forceStrength;
+                if (_powerUpManager != null)
+                    effectiveForce *= _powerUpManager.CurrentSpeedMultiplier;
+                rb.AddForce(direction * effectiveForce, ForceMode.Acceleration);
             }
             else if (dampWhenNoZone)
             {
@@ -695,10 +744,14 @@ public class BallController : MonoBehaviour
         Vector3 velocity = rb.linearVelocity;
         Vector3 planarVelocity = new Vector3(velocity.x, 0f, velocity.z);
 
+        float effectiveMaxSpeed = maxPlanarSpeed;
+        if (_powerUpManager != null)
+            effectiveMaxSpeed *= _powerUpManager.CurrentSpeedMultiplier;
+
         float speed = planarVelocity.magnitude;
-        if (speed > maxPlanarSpeed)
+        if (speed > effectiveMaxSpeed)
         {
-            planarVelocity = planarVelocity.normalized * maxPlanarSpeed;
+            planarVelocity = planarVelocity.normalized * effectiveMaxSpeed;
             rb.linearVelocity = new Vector3(planarVelocity.x, velocity.y, planarVelocity.z);
         }
     }

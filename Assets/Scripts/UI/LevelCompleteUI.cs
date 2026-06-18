@@ -60,7 +60,7 @@ public class LevelCompleteUI : MonoBehaviour
             currentLevel = LevelProgress.GetActiveLevelNumber();
         }
 
-        if (!IsProceduralMode && !LevelProgress.IsProceduralScene(SceneManager.GetActiveScene()))
+        if (!IsProceduralMode)
         {
             LevelProgress.UnlockThrough(currentLevel);
         }
