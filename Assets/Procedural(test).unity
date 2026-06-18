@@ -7116,13 +7116,12 @@ MonoBehaviour:
   campaignSkybox: {fileID: 2100000, guid: 6df3149ffd47d064199ce35e0ba4b6b1, type: 2}
   ballSpawnHeight: 1
   coinPrefab: {fileID: 2751322660802306360, guid: ac0fec484d3631942ad373b63975655f, type: 3}
-  coinSpawnChance: 0.332
+  coinSpawnChance: 1
   coinSpawnHeight: 0.8
   hammerPrefab: {fileID: 1595399841252565332, guid: d5def8b827d04408584479a637fd51ca, type: 3}
   laserBeamPrefab: {fileID: 7726955467702025980, guid: bf69535a3e0c440a78b1c773447971c6, type: 3}
   speedCorePrefab: {fileID: 590777800939028465, guid: 26002f5807eb1c844a30100af99270f9, type: 3}
   magnetPrefab: {fileID: 7276406724761901069, guid: e4f0ea802051acf489c5ff30a10b88a0, type: 3}
-  shieldPrefab: {fileID: 1588571476519661375, guid: 7b53b5085bf225346914953068547443, type: 3}
   powerUpSpawnChance: 0.786
   powerUpSpawnHeight: 1.2
   resetDifficultyOnPlay: 1

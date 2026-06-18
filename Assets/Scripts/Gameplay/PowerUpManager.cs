@@ -19,7 +19,7 @@ public class PowerUpManager : MonoBehaviour
     public float speedMultiplier = 1.5f;
 
     [Header("Magnet")]
-    public float magnetRadius = 15f;
+    public float magnetRadius = 7f;
     public float magnetAttractSpeed = 18f;
 
     public bool HasMagnet { get; private set; }
