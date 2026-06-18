@@ -249,14 +249,38 @@ public class ProceduralLevelBuilder : MonoBehaviour
         List<int> laserIndices = new List<int>();
         if (spawnObstacles)
         {
-            int assigned = 0;
-            for (int i = 0; i < targetHammers && assigned < validObstacleIndices.Count; i++)
+            List<int> pickedIndices = new List<int>();
+            int assignedHammers = 0;
+            int assignedLasers = 0;
+            for (int i = 0; i < validObstacleIndices.Count; i++)
             {
-                hammerIndices.Add(validObstacleIndices[assigned++]);
-            }
-            for (int i = 0; i < targetLasers && assigned < validObstacleIndices.Count; i++)
-            {
-                laserIndices.Add(validObstacleIndices[assigned++]);
+                if (assignedHammers == targetHammers && assignedLasers == targetLasers) break;
+                
+                int candidate = validObstacleIndices[i];
+                bool valid = true;
+                foreach (int picked in pickedIndices)
+                {
+                    if (Mathf.Abs(candidate - picked) < 3)
+                    {
+                        valid = false;
+                        break;
+                    }
+                }
+                
+                if (valid)
+                {
+                    pickedIndices.Add(candidate);
+                    if (assignedHammers < targetHammers)
+                    {
+                        hammerIndices.Add(candidate);
+                        assignedHammers++;
+                    }
+                    else if (assignedLasers < targetLasers)
+                    {
+                        laserIndices.Add(candidate);
+                        assignedLasers++;
+                    }
+                }
             }
         }
 
