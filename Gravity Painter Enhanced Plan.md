@@ -452,29 +452,36 @@ This sets up a potential **Season 2 / Chapter 6** without requiring it for v1.0.
 | Script | Role |
 |--------|------|
 | `TileZone` | Tile state, visuals, force |
-| `BallController` | Ball physics & zone logic |
+| `BallController` | Ball physics, zone logic, checkpoint respawn |
 | `InputManager` | Input → tile tap |
 | `CameraFollow` | Camera smooth follow |
-| `LevelProgress` | PlayerPrefs unlock |
+| `LevelProgress` | PlayerPrefs unlock (completion-based) |
 | `LevelCompleteUI` | End-of-level UI |
-| `FinishLine` | Win trigger |
+| `FinishLine` | Win trigger + coin commit |
 | `GameOverHandler` | Hazard fail |
 | `HammerHazard` | Swinging arm obstacle |
 | `LevelEnvironment` | Planet/deck backdrop |
 | `CannonShooter` | Cannon launcher — in development |
 | `LaserGate` | Korrath Beam on/off cycle obstacle |
 | `TileGlbVisual` | Combined tiles.glb overlay per tile |
+| `Coin` / `CoinManager` / `CoinVisual` | Collectibles + persistence |
+| `CoinAppearance` / `CoinAppearanceProfile` | Shared coin look (master coin on L1 Tile 46) |
+| `PowerUpManager` / `PowerUpPickup` | Speed Core, Magnet, Shield |
+| `Checkpoint` | Mid-level respawn marker |
+| `GravityPainterProjectSettingsRepair` | Editor: stable build/URP/input settings |
 
-### 12.2 Procedural generation scripts ✅ (Steps 1–2)
+### 12.2 Procedural generation scripts ✅ (Steps 1–2 + extras)
 
 | Script | Role |
 |--------|------|
 | `ProceduralPathGenerator` | Biased backtracking random walk; `GenerateWithRetry()` + snake fallback |
-| `ProceduralLevelBuilder` | Runtime build: tiles, GLB layout, ball, finish line, corner pads |
+| `ProceduralLevelBuilder` | Runtime build: tiles, GLB, ball, finish, coins, power-ups, checkpoint, obstacles (L10+) |
 | `ProceduralTilePlacement` | Edge-aligned positions, turn offsets, 2 forward corner pads per turn |
 | `ProceduralPathVisualizer` | Edit-mode path preview (Inspector button) |
 | `LevelGenConfig` | ScriptableObject — path length, tile footprint, prefab refs, corner pad settings |
 | `LevelCell` | Grid pos, rotation, path index, obstacle/zone placeholders |
+| `DifficultyManager` / `DifficultyScaler` | Procedural difficulty tiers |
+| `CampaignCoinPlacement` | Shared coin spawn rules (campaign + procedural) |
 
 **Config asset:** `Assets/Settings/LevelGenConfig_Default.asset`  
 **Reference layout:** `Assets/Settings/TileGlbReferenceLayout.asset` (captured from Tile (40) on Level 2)  
@@ -484,9 +491,7 @@ This sets up a potential **Season 2 / Chapter 6** without requiring it for v1.0.
 
 | Script | Purpose |
 |--------|---------|
-| `PowerUpManager` | Activate / consume / display artifact power-ups |
-| `ArtifactPickup` | Pickup orb on tile — collected by ball trigger |
-| `CoinWallet` | Add / spend / get AETHER Credit balance |
+| `CoinWallet` | AETHER Credit balance UI (coins work via `CoinManager` today) |
 | `SkinManager` | Equip probe skin |
 | `LevelStarSave` | Per-level star score storage |
 | `AudioManager` | SFX + ambient music manager |
@@ -508,10 +513,15 @@ This sets up a potential **Season 2 / Chapter 6** without requiring it for v1.0.
 
 ### Phase 0 — Prototype ✅ (Complete)
 
-- Core paint loop, 5 levels, menu, unlock, Android build
-- GLB tiles + ball visuals, Level 2 laser gate (split Korrath Beam model)
-- **Procedural level generation Steps 1–2** (`kavin` branch): path generator, runtime builder, edge-aligned placement, corner pads, playtest scene `Procedural(test).unity`
+- Core paint loop, menu, unlock, Android build
+- GLB tiles + ball visuals, Level 1–2 campaign, Level 2 laser gate (split Korrath Beam model)
+- **Procedural Steps 1–2** (`kavin` / `master`): path generator, runtime builder, corner pads, `Procedural(test).unity`, Level 3+ menu routing
+- **Coins:** `coins.glb`, profile-based appearance, baked L1–L2, procedural spawn
+- **Power-ups + checkpoint** (procedural): Speed Core, Magnet, Shield
+- **Stability:** Unity `6000.3.11f1`, Project Settings repair
 - Cannon tile — in development
+
+**Changelog:** [CHANGELOG.md](./CHANGELOG.md)
 
 ### Phase 1 — Story layer + Polish (2–3 weeks)
 
@@ -618,4 +628,4 @@ A mini-glossary of Velori terms used in the game world for consistent lore writi
 
 ---
 
-*This is the enhanced v2.0 plan for Gravity Painter. Every object, color, power-up, and mechanic is now grounded in the story of GRP-7 and the Velori civilization. Update version numbers and dates as milestones are completed.*
+*This is the enhanced v2.0 plan for Gravity Painter. Every object, color, power-up, and mechanic is now grounded in the story of GRP-7 and the Velori civilization. **Implementation status:** June 2026 — see [CHANGELOG.md](./CHANGELOG.md).*

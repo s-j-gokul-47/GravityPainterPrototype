@@ -342,21 +342,19 @@ All input code uses:
 
 ---
 
-## 16. Procedural Level Generation (June 2026 — `kavin` branch)
+## 16. Procedural Level Generation (June 2026 — `kavin` / `master`)
 
-Runtime procedural levels are **playable** in `Assets/Procedural(test).unity`. Full architecture and checklist: [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md).
+See [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md) and [CHANGELOG.md](./CHANGELOG.md).
 
 ### What works today
 
 | Feature | Status |
 |---------|--------|
-| Seeded path generation (biased backtracking + snake fallback) | ✅ |
-| Edit-mode path preview (`ProceduralPathVisualizer`) | ✅ |
-| Runtime level build (`ProceduralLevelBuilder`) | ✅ |
-| Level 2 GLB tile scale + edge-aligned placement | ✅ |
-| 2 forward-aligned corner pad tiles per 90° turn | ✅ |
-| Ball spawn + finish line on last tile | ✅ |
-| Console tests (**Gravity Painter → Test Procedural Path**) | ✅ |
+| Seeded path + runtime builder | ✅ |
+| Coins (`coins.glb`), power-ups, checkpoint | ✅ |
+| Campaign skybox on procedural | ✅ |
+| Level 3+ → procedural scene from menu | ✅ |
+| Difficulty progression | ✅ |
 
 ### Key scripts (`Assets/Scripts/Procedural/`)
 

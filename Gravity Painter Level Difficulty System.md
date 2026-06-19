@@ -1,10 +1,14 @@
 # Gravity Painter — Level Difficulty System
 
+> **Updated:** June 2026 (`kavin` / `master`) — see [CHANGELOG.md](./CHANGELOG.md)
+
 ## Overview
 
 Gravity Painter uses a **progressive difficulty system** that automatically increases challenge each time a player completes a procedural level. The system has five layers: path complexity, grid size, turn frequency, obstacle density, and time pressure. All five layers are driven by a single `difficulty` float value between 0.0 (Easy) and 1.0 (Expert), which is stored in `PlayerPrefs` and increases by a fixed step after every level completion.
 
-The campaign levels (Level 1–2) are hand-authored and use fixed difficulty. The procedural mode, daily challenge, and replay mode all use this dynamic difficulty system.
+The campaign levels (Level 1–2) are hand-authored and use fixed difficulty. **Level 3+** from the menu loads the procedural scene. Procedural mode uses dynamic difficulty, coins, power-ups, and a mid-level checkpoint.
+
+**Obstacle note:** Hammers and laser gates in procedural levels spawn only when the selected menu level is **10 or higher** (`LevelProgress.GetSelectedMenuLevel() >= 10`).
 
 ---
 

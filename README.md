@@ -333,9 +333,11 @@ All input code uses:
 
 ---
 
-## 16. Procedural Level Generation (June 2026 — `kavin` branch)
+## 16. Procedural Level Generation (June 2026 — `kavin` / `master`)
 
 Runtime procedural levels are **playable** in `Assets/Procedural(test).unity`. Full architecture and checklist: [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md).
+
+**Changelog:** [CHANGELOG.md](./CHANGELOG.md)
 
 ### What works today
 
@@ -347,14 +349,29 @@ Runtime procedural levels are **playable** in `Assets/Procedural(test).unity`. F
 | Level 2 GLB tile scale + edge-aligned placement | ✅ |
 | 2 forward-aligned corner pad tiles per 90° turn | ✅ |
 | Ball spawn + finish line on last tile | ✅ |
+| Campaign skybox + land on procedural scene | ✅ |
+| Coin spawning (GLB model, profile-based scale) | ✅ |
+| Power-ups (Speed Core, Magnet, Shield) + checkpoints | ✅ |
+| Hammers/lasers procedural (Level 10+ only) | ✅ |
+| Difficulty progression (`DifficultyManager`) | ✅ |
 | Console tests (**Gravity Painter → Test Procedural Path**) | ✅ |
+
+### Coins (June 2026)
+
+| Item | Location |
+|------|----------|
+| `coins.glb` model | `Assets/Art/Models/GLB/coins.glb` |
+| Gameplay prefab | `Assets/Prefabs/Gameplay/Coin.prefab` |
+| Shared profile | `Assets/Resources/Settings/CoinAppearanceProfile.asset` |
+| Master coin (edit once) | Level 1 → `Coins` → `Coin_Master_Tile(46)` |
+| Baked campaign coins | Level 1 & 2 `Coins` parent in Hierarchy |
 
 ### Key scripts (`Assets/Scripts/Procedural/`)
 
 | Script | Purpose |
 |--------|---------|
 | `ProceduralPathGenerator.cs` | Pure C# path logic from seed |
-| `ProceduralLevelBuilder.cs` | Spawns tiles, ball, finish at runtime |
+| `ProceduralLevelBuilder.cs` | Spawns tiles, ball, finish, coins, power-ups, checkpoint |
 | `ProceduralTilePlacement.cs` | Edge-aligned positions + corner pads |
 | `ProceduralPathVisualizer.cs` | Edit-mode tile preview |
 | `LevelGenConfig.cs` | ScriptableObject parameters |
@@ -363,14 +380,16 @@ Runtime procedural levels are **playable** in `Assets/Procedural(test).unity`. F
 ### Quick playtest
 
 1. Open `Procedural(test).unity`
-2. **Gravity Painter → Setup Procedural Level Scene (Step 2)**
+2. **Gravity Painter → Setup Procedural Level Scene (Step 2)** (first time)
 3. Press **Play** (default seed `12345`)
+4. Level 3+ from main menu also loads procedural scene
 
 ### Not yet built
 
-- `LevelProcedural.unity` production scene
-- Obstacle placement, validator, object pool, Daily/Replay menu modes
-- Seed word codes (KELOR-style)
+- `LevelProcedural.unity` production scene (separate from test scene)
+- `LevelValidator`, `TilePool`, async builder
+- Daily challenge + replay seed word codes (KELOR-style)
+- AETHER Credits economy UI (coins work; lore currency planned)
 
 ---
 
@@ -405,11 +424,12 @@ Assets/
 ├── Editor/                 Unity menu tools (Gravity Painter)
 ├── Plugins/Android/        Gradle templates
 ├── Prefabs/
-│   ├── Gameplay/           Tile.prefab
-│   └── Visuals/            SciFiBallVisual.prefab
+│   ├── Gameplay/           Tile.prefab, Coin.prefab
+│   ├── Obstacles/          Hammer, KorrathBeam
+│   └── PowerUps/           SpeedCore, Magnet, Shield
 ├── Resources/
-│   ├── Prefabs/            Runtime-loaded ball visual
-│   └── UI/LevelCompleteUI/ Runtime-loaded button sprites
+│   ├── Prefabs/            CoinVisual, SciFiBallVisual
+│   └── Settings/           CoinAppearanceProfile.asset
 ├── Scenes/
 │   ├── Menus/              MainMenu.unity
 │   └── Levels/             Level 1–2.unity

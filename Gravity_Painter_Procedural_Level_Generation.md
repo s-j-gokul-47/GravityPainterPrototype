@@ -8,9 +8,11 @@ Campaign Levels 1–2 remain hand-authored for tutorial pacing. A dedicated `Lev
 
 ---
 
-## Current Implementation Status (June 2026 — `kavin` branch)
+## Current Implementation Status (June 2026 — `kavin` / `master`)
 
-### ✅ Completed (Steps 1–2)
+> **Full changelog:** [CHANGELOG.md](./CHANGELOG.md)
+
+### ✅ Completed (Steps 1–2 + gameplay extras)
 
 | Component | Status | Location |
 |---|---|---|
@@ -25,7 +27,13 @@ Campaign Levels 1–2 remain hand-authored for tutorial pacing. A dedicated `Lev
 | GLB layout on spawned tiles | ✅ Done | Via `TileGlbVisual.ApplyLayout` + reference asset |
 | Ball spawn via `BallController.PlaceAt()` | ✅ Done | `Assets/Scripts/Core/BallController.cs` |
 | Finish line wiring via `FinishLine.Configure()` | ✅ Done | `Assets/Scripts/Gameplay/FinishLine.cs` |
-| Coin spawning (deterministic via seed) | ✅ Done | `ProceduralLevelBuilder` instantiates `Coin.prefab` |
+| Coin spawning (`coins.glb`, profile scale) | ✅ Done | `Coin.prefab` + `CampaignCoinPlacement` |
+| Campaign coins baked L1–L2 | ✅ Done | `Coins` parent in level scenes |
+| Power-up spawning | ✅ Done | Speed Core, Magnet, Shield prefabs |
+| Mid-level checkpoint | ✅ Done | `Checkpoint.cs` + `SpawnCheckpoint()` |
+| Obstacles (hammer/laser) Level 10+ | ✅ Done | `ProceduralLevelBuilder` spawn rules |
+| Campaign skybox on procedural | ✅ Done | `ApplyCampaignEnvironment()` |
+| Difficulty progression | ✅ Done | `DifficultyManager` + `DifficultyScaler` |
 | Editor menus + tests | ✅ Done | See **Editor Menus** below |
 | Test scene | ✅ Done | `Assets/Procedural(test).unity` |
 
@@ -37,6 +45,9 @@ Campaign Levels 1–2 remain hand-authored for tutorial pacing. A dedicated `Lev
 | **Create Level Gen Config** | Creates `Assets/Settings/LevelGenConfig_Default.asset` |
 | **Wire Level Gen Config Prefabs** | Wires `Tile.prefab` onto the config |
 | **Setup Procedural Level Scene (Step 2)** | Wires builder, ball, camera, config in the open scene |
+| **Place Coins In Levels 1 And 2** | Bakes coin prefabs into campaign Level 1 & 2 |
+| **Publish Master Coin To All Coins** | Sync master coin (`Coin_Master_Tile(46)`) to all coins |
+| **Repair Project Settings** | Fix build scenes, URP, input handler |
 | **Generate Visual Path** | Inspector button on `ProceduralPathVisualizer` |
 
 ### How to Playtest Today
@@ -56,14 +67,18 @@ Campaign Levels 1–2 remain hand-authored for tutorial pacing. A dedicated `Lev
 - **Corner pads**: at every 90° turn, **2 extra tiles** are spawned with the **same rotation as the forward tile**, placed edge-to-edge along the straight run so the ball does not fall through corner gaps
 - **Tile footprint**: Level 2 GLB scale `(9.76, 0.21, 4.59)` applied via `tileLocalScale` on config
 
-### Git history (`kavin` branch)
+### Git history (`kavin` / `master` — recent)
 
 | Commit | Summary |
 |---|---|
-| `0632cfe` | Step 1 procedural path generator + split Korrath Beam laser fix |
-| `1eb4eb0` | Biased walk + reliable snake fallback |
-| `e3781a9` | Step 2 runtime level builder + tile placement fixes |
-| `0fe2b2b` | Edge-aligned turns + forward corner pads (2 per turn) |
+| `77e483a` | Restore coins after accidental deletion in power-ups merge |
+| `3166f20` | Magnet power-up strength tuned |
+| `0a04d96` | Procedural tile hurdle placement updated |
+| `7b11a1d` | Power-ups + checkpoint system |
+| `049456c` | Coin GLB model, appearance profile, campaign placement |
+| `67f80ef` | Procedural skybox and land |
+| `b2652cf` | Unity 6000.3.11f1 pin + Project Settings repair |
+| `0632cfe`–`0fe2b2b` | Procedural Steps 1–2: path gen, builder, corner pads |
 
 ### 📋 Not Yet Implemented (Steps 3+)
 

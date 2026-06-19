@@ -37,13 +37,18 @@ The enhanced plan replaces the earlier generic `PROJECT_PLAN.md` outline. It is 
 5. **The Core Signal** (L10–12) — full mix + finale boss stage  
 
 **Prototype today (✅)**  
-Paint gravity, sci-fi tiles, GLB ball, level unlock, level-complete UI, Levels 1–2 in build, hammer on Level 4, split Korrath Beam laser on Level 2.
+Paint gravity, sci-fi tiles, GLB ball, level unlock, level-complete UI, Levels 1–2 in build, hammer on Level 4, split Korrath Beam laser on Level 2, **coins.glb collectibles**, **power-ups + checkpoints** (procedural), finish gate rebound.
 
-**Procedural generation (✅ Steps 1–2 on `kavin` branch)**  
-Seeded path generator, runtime level builder, edge-aligned tile placement, 2 forward corner pads per turn, GLB visuals, ball spawn, finish line. Playtest in `Assets/Procedural(test).unity`. See [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md).
+**Procedural generation (✅ Steps 1–2 on `kavin` / `master`)**  
+Seeded path generator, runtime level builder, edge-aligned tile placement, 2 forward corner pads per turn, GLB visuals, ball spawn, finish line, coins, power-ups, checkpoint, campaign skybox. Playtest in `Assets/Procedural(test).unity`. Level 3+ from menu. See [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md).
+
+**Stability (✅)**  
+Unity `6000.3.11f1`, Project Settings auto-repair menu, level unlock on completion only.
 
 **Planned for v1.0 (📋)**  
-AETHER Credits, probe skins, artifact power-ups, transmission/mission report UI, star ratings, 12 polished levels, procedural menu modes (Daily / Replay).
+AETHER Credits lore UI, probe skins, transmission/mission report UI, star ratings, 12 polished levels, procedural Daily / Replay modes.
+
+**Changelog:** [CHANGELOG.md](./CHANGELOG.md)
 
 **Timeline:** ~10–12 weeks from Phase 1 (see Enhanced Plan §13).
 
@@ -55,8 +60,10 @@ AETHER Credits, probe skins, artifact power-ups, transmission/mission report UI,
 |------|---------|
 | [Gravity Painter Enhanced Plan.md](./Gravity%20Painter%20Enhanced%20Plan.md) | **Full project plan for meetings** |
 | [Gravity_Painter_Procedural_Level_Generation.md](./Gravity_Painter_Procedural_Level_Generation.md) | **Procedural level gen — status, architecture, checklist** |
+| [CHANGELOG.md](./CHANGELOG.md) | **What shipped on `kavin` / `master` (updated June 2026)** |
 | [README.md](./README.md) | Technical development log (prototype) |
 | [Gravity Painter (Description).md](./Gravity%20Painter%20Description).md) | Original design notes |
+| [Gravity Painter Level Difficulty System.md](./Gravity%20Painter%20Level%20Difficulty%20System.md) | Procedural difficulty tiers |
 
 ---
 
