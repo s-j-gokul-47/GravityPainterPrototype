@@ -476,6 +476,11 @@ public class BallController : MonoBehaviour
         _restarting = true;
         Time.timeScale = 1f;
 
+        if (_powerUpManager != null)
+        {
+            _powerUpManager.ClearAllPowerUps();
+        }
+
         Scene active = SceneManager.GetActiveScene();
         if (_checkpointPosition != null && LevelProgress.IsProceduralScene(active))
         {

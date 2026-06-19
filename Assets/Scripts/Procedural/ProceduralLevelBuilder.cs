@@ -215,7 +215,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
         List<int> validObstacleIndices = new List<int>();
         if (spawnObstacles)
         {
-            for (int i = 1; i < cells.Count - 1; i++)
+            for (int i = 2; i < cells.Count - 1; i++)
             {
                 if (i == checkpointTileIndex) continue;
                 validObstacleIndices.Add(i);

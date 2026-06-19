@@ -51,9 +51,16 @@ public class FinishLine : MonoBehaviour
             return;
         }
 
-        if (other.GetComponentInParent<BallController>() == null)
+        BallController ball = other.GetComponentInParent<BallController>();
+        if (ball == null)
         {
             return;
+        }
+
+        PowerUpManager powerUpManager = ball.GetComponent<PowerUpManager>();
+        if (powerUpManager != null)
+        {
+            powerUpManager.ClearAllPowerUps();
         }
 
         _completed = true;
@@ -65,10 +72,8 @@ public class FinishLine : MonoBehaviour
         {
             DifficultyManager.OnLevelCompleted();
         }
-        else
-        {
-            LevelProgress.UnlockThrough(LevelProgress.GetActiveLevelNumber());
-        }
+        
+        LevelProgress.UnlockThrough(LevelProgress.GetActiveLevelNumber());
 
         if (levelCompletePanel != null)
         {
