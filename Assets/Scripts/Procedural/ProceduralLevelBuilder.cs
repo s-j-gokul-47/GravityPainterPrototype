@@ -324,14 +324,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 
                 if (UnityEngine.Random.value <= coinSpawnChance)
                 {
-                    Vector3 coinPos = tile.transform.position + Vector3.up * coinSpawnHeight;
-                    
-                    // Set the specific starting tilt the user requested
-                    Quaternion startingRot = Quaternion.Euler(-267.281f, UnityEngine.Random.Range(0f, 360f), 47f);
+                    Vector3 coinPos = tile.transform.position + Vector3.up * CampaignCoinPlacement.SpawnHeightFromProfile;
+                    Quaternion startingRot = CampaignCoinPlacement.RandomSpawnRotation(actualSeed, i);
                     GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
-                    
-                    // Force the scale to exactly what the user requested
-                    coinObj.transform.localScale = new Vector3(1.5f, 0.125f, 1.5f);
                     coinObj.name = "Coin_" + i;
                 }
                 

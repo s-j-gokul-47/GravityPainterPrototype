@@ -12,4 +12,5 @@ public static class GlbModelPaths
     public const string RedLaserBeam = Folder + "RedLaserBeam.glb";
     public const string SciFiBall = Folder + "Sci-Fi Ball 3D Model.glb";
     public const string FinishLine = Folder + "Finish_Line.glb";
+    public const string Coins = Folder + "coins.glb";
 }
