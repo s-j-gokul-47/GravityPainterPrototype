@@ -83,7 +83,11 @@
     <Compile Include="Assets\ThirdParty\Sci Fi Modular Pack\Scripts\CameraController.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     <Compile Include="Assets\Scripts\UI\LoadingOverlay.cs" />
+=======
+    <Compile Include="Assets\Scripts\Systems\BallSkinManager.cs" />
+>>>>>>> Stashed changes
 =======
     <Compile Include="Assets\Scripts\Systems\BallSkinManager.cs" />
 >>>>>>> Stashed changes
@@ -131,6 +135,10 @@
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\CoinAppearanceProfile.cs" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Assets\Scripts\UI\TestStoreWiring.cs" />
+>>>>>>> Stashed changes
 =======
     <Compile Include="Assets\Scripts\UI\TestStoreWiring.cs" />
 >>>>>>> Stashed changes
