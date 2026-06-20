@@ -34,6 +34,7 @@ public class BallController : MonoBehaviour
     [Header("Ball visual (GLB mesh)")]
     [SerializeField] private bool useSciFiBallVisual = true;
     [SerializeField] private GameObject sciFiBallVisualPrefab;
+    [SerializeField] private bool useSkinSystem = true;
     private const string SciFiVisualChildName = "SciFiBallVisual";
     private const string DefaultVisualPrefabResource = "Prefabs/SciFiBallVisual";
 
@@ -54,17 +55,35 @@ public class BallController : MonoBehaviour
     {
         if (!useSciFiBallVisual)
         {
+            Debug.Log("[BallController] useSciFiBallVisual disabled, skipping visual");
             return;
         }
 
-        if (sciFiBallVisualPrefab == null)
+        GameObject prefab = null;
+        if (useSkinSystem)
         {
-            sciFiBallVisualPrefab = Resources.Load<GameObject>(DefaultVisualPrefabResource);
+            Debug.Log("[BallController] Loading skin via BallSkinManager");
+            prefab = BallSkinManager.LoadSelectedSkin(FindAllSkins());
         }
 
-        if (sciFiBallVisualPrefab != null)
+        if (prefab == null)
         {
+            Debug.Log("[BallController] Skin system returned null, using fallback prefab");
+            if (sciFiBallVisualPrefab != null)
+                prefab = sciFiBallVisualPrefab;
+            else
+                prefab = Resources.Load<GameObject>(DefaultVisualPrefabResource);
+        }
+
+        if (prefab != null)
+        {
+            Debug.Log("[BallController] Using prefab: " + prefab.name);
+            sciFiBallVisualPrefab = prefab;
             EnsureSciFiBallVisual();
+        }
+        else
+        {
+            Debug.LogError("[BallController] No ball visual prefab found!");
         }
     }
 
@@ -767,5 +786,13 @@ public class BallController : MonoBehaviour
         Vector3 planarVelocity = new Vector3(velocity.x, 0f, velocity.z);
         Vector3 dampedPlanar = Vector3.Lerp(planarVelocity, Vector3.zero, idlePlanarDamping * Time.fixedDeltaTime);
         rb.linearVelocity = new Vector3(dampedPlanar.x, velocity.y, dampedPlanar.z);
+    }
+
+    private static System.Collections.Generic.List<BallSkinData> FindAllSkins()
+    {
+        BallSkinData[] all = Resources.LoadAll<BallSkinData>("Settings/BallSkins");
+        if (all == null || all.Length == 0)
+            return new System.Collections.Generic.List<BallSkinData>();
+        return new System.Collections.Generic.List<BallSkinData>(all);
     }
 }
