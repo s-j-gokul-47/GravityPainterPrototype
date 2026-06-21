@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "U:\\Projects\\Game Developement\\GravityPainterPrototype\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|u:\\projects\\game developement\\gravitypainterprototype\\assets\\scripts\\gameplay\\powerupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\powerupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|u:\\projects\\game developement\\gravitypainterprototype\\assets\\scripts\\gameplay\\checkpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\checkpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|u:\\projects\\game developement\\gravitypainterprototype\\assets\\scripts\\procedural\\difficultymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\procedural\\difficultymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|u:\\projects\\game developement\\gravitypainterprototype\\assets\\scripts\\gameplay\\powerupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\powerupmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|u:\\projects\\game developement\\gravitypainterprototype\\assets\\scripts\\core\\ballcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Checkpoint.cs",
               "DocumentMoniker": "U:\\Projects\\Game Developement\\GravityPainterPrototype\\Assets\\Scripts\\Gameplay\\Checkpoint.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\Checkpoint.cs",
@@ -71,7 +71,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProceduralLevelBuilder.cs",
               "DocumentMoniker": "U:\\Projects\\Game Developement\\GravityPainterPrototype\\Assets\\Scripts\\Procedural\\ProceduralLevelBuilder.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Procedural\\ProceduralLevelBuilder.cs",
@@ -79,12 +79,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Procedural\\ProceduralLevelBuilder.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T15:48:16.039Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-17T15:48:16.039Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "DifficultyManager.cs",
               "DocumentMoniker": "U:\\Projects\\Game Developement\\GravityPainterPrototype\\Assets\\Scripts\\Procedural\\DifficultyManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Procedural\\DifficultyManager.cs",
@@ -92,18 +91,17 @@
               "RelativeToolTip": "Assets\\Scripts\\Procedural\\DifficultyManager.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T15:06:48.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-17T15:06:48.543Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "PowerUpManager.cs",
               "DocumentMoniker": "U:\\Projects\\Game Developement\\GravityPainterPrototype\\Assets\\Scripts\\Gameplay\\PowerUpManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\PowerUpManager.cs",
               "ToolTip": "U:\\Projects\\Game Developement\\GravityPainterPrototype\\Assets\\Scripts\\Gameplay\\PowerUpManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\PowerUpManager.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAkwDwAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-17T14:46:09.659Z",
               "EditorCaption": ""
@@ -118,8 +116,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Core\\BallController.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAswDAAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T07:14:19.617Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-17T07:14:19.617Z"
             },
             {
               "$type": "Document",

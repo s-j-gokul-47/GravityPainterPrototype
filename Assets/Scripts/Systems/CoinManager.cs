@@ -51,9 +51,24 @@ public static class CoinManager
             int currentTotal = GetTotalCoins();
             PlayerPrefs.SetInt(TotalCoinsKey, currentTotal + SessionCoins);
             PlayerPrefs.Save();
-            
+
             // Reset session coins so they aren't added again accidentally
             SessionCoins = 0;
         }
+    }
+
+    /// <summary>
+    /// Attempts to spend the given amount from the total coin balance.
+    /// Returns true if the player had enough coins; false otherwise.
+    /// </summary>
+    public static bool SpendCoins(int amount)
+    {
+        int current = GetTotalCoins();
+        if (current < amount)
+            return false;
+
+        PlayerPrefs.SetInt(TotalCoinsKey, current - amount);
+        PlayerPrefs.Save();
+        return true;
     }
 }

@@ -232,7 +232,7 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
-    private void OnDisable()
+    public void ClearAllPowerUps()
     {
         if (_timers.Count > 0)
         {
@@ -241,6 +241,11 @@ public class PowerUpManager : MonoBehaviour
                 Deactivate(type);
             _timers.Clear();
         }
+    }
+
+    private void OnDisable()
+    {
+        ClearAllPowerUps();
     }
 
     private void OnDestroy()

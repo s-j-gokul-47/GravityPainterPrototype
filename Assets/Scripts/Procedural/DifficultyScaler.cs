@@ -6,8 +6,8 @@ using UnityEngine;
 /// </summary>
 public static class DifficultyScaler
 {
-    private const float MinGridSize = 5f;
-    private const float MaxGridSize = 9f;
+    private const float MinGridSize = 7f;
+    private const float MaxGridSize = 12f;
     private const float MinTurnFrequency = 0.1f;
     private const float MaxTurnFrequency = 0.7f;
 
@@ -21,7 +21,7 @@ public static class DifficultyScaler
         difficulty = Mathf.Clamp01(difficulty);
         config.difficulty = difficulty;
 
-        int absoluteMin = Mathf.Max(2, config.absoluteMinPath);
+        int absoluteMin = Mathf.Max(15, config.absoluteMinPath);
         int absoluteMax = Mathf.Max(absoluteMin + 1, config.absoluteMaxPath);
 
         config.minPathLength = Mathf.RoundToInt(
@@ -32,8 +32,8 @@ public static class DifficultyScaler
 
         config.gridWidth = Mathf.RoundToInt(Mathf.Lerp(MinGridSize, MaxGridSize, difficulty));
         config.gridDepth = Mathf.RoundToInt(Mathf.Lerp(MinGridSize, MaxGridSize, difficulty));
-        config.gridWidth = Mathf.Max(3, config.gridWidth);
-        config.gridDepth = Mathf.Max(3, config.gridDepth);
+        config.gridWidth = Mathf.Max(5, config.gridWidth);
+        config.gridDepth = Mathf.Max(5, config.gridDepth);
 
         config.turnFrequency = Mathf.Lerp(MinTurnFrequency, MaxTurnFrequency, difficulty);
 

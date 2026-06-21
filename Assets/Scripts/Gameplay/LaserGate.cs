@@ -151,6 +151,14 @@ public class LaserGate : MonoBehaviour
             _strikeCollider = beamRoot.GetComponent<BoxCollider>();
         }
 
+        foreach (Renderer frameRenderer in _frameRenderers)
+        {
+            if (frameRenderer != null && frameRenderer.GetComponent<Collider>() == null)
+            {
+                frameRenderer.gameObject.AddComponent<MeshCollider>();
+            }
+        }
+
         CacheBeamSweepBounds();
     }
 

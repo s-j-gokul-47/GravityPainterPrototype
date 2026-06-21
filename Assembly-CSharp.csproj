@@ -57,12 +57,15 @@
     <Compile Include="Assets\Scripts\UI\LevelMenu.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\Gameplay\LaserGate.cs" />
+    <Compile Include="Assets\Scripts\UI\BallPreviewRenderer.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Scripts\Gameplay\FinishLine.cs" />
     <Compile Include="Assets\Scripts\Core\TileMeshMaterialUtility.cs" />
+    <Compile Include="Assets\Art\Sprites\CHashScript\SplashScreenTimer.cs" />
     <Compile Include="Assets\Scripts\Procedural\ProceduralLevelBuilder.cs" />
+    <Compile Include="Assets\Scripts\UI\StoreUI.cs" />
     <Compile Include="Assets\Scripts\Core\InputManager.cs" />
     <Compile Include="Assets\Scripts\Procedural\DifficultyScaler.cs" />
     <Compile Include="Assets\Scripts\Procedural\ProceduralPathVisualizer.cs" />
@@ -78,6 +81,8 @@
     <Compile Include="Assets\Scripts\Procedural\DifficultyManager.cs" />
     <Compile Include="Assets\ThirdParty\Sci Fi Modular Pack\Scripts\CameraController.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\Scripts\UI\LoadingOverlay.cs" />
+    <Compile Include="Assets\Scripts\Systems\BallSkinManager.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\Scripts\Systems\LevelEnvironment.cs" />
@@ -87,9 +92,11 @@
     <Compile Include="Assets\Scripts\Gameplay\FinishLineVisual.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\Scripts\UI\LevelCompleteUI.cs" />
+    <Compile Include="Assets\Scripts\UI\BallSkinData.cs" />
     <Compile Include="Assets\Scripts\Core\TileGlbVisualLayout.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SurfaceController.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\Core\TileZone.cs" />
     <Compile Include="Assets\Scripts\Core\TileGlbVisual.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
@@ -104,6 +111,7 @@
     <Compile Include="Assets\Scripts\Systems\CameraFollow.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\Gameplay\LaserGateStrike.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\CampaignCoinPlacement.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Scripts\Core\TileZoneIndicator.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
@@ -111,16 +119,22 @@
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Checkpoint.cs" />
+    <Compile Include="Assets\Scripts\UI\TestStoreUI.cs" />
     <Compile Include="Assets\Scripts\Core\TileGlbReferenceLayoutAsset.cs" />
     <Compile Include="Assets\Scripts\Procedural\ProceduralTilePlacement.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PowerUpPickup.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\CoinAppearance.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\CoinAppearanceProfile.cs" />
+    <Compile Include="Assets\Scripts\UI\TestStoreWiring.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\CoinVisual.cs" />
+    <Compile Include="Assets\Art\Sprites\CHashScript\MenuFadeIn.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\Systems\CoinManager.cs" />
     <Compile Include="Assets\Scripts\UI\LevelComplete.cs" />
@@ -1428,10 +1442,6 @@
       <HintPath>Library\ScriptAssemblies\UnityEngine.Purchasing.Stores.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="MCPForUnity.Editor">
       <HintPath>Library\ScriptAssemblies\MCPForUnity.Editor.dll</HintPath>
       <Private>False</Private>
@@ -1448,8 +1458,8 @@
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
-      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Mathematics">
@@ -1470,6 +1480,10 @@
     </Reference>
     <Reference Include="Unity.Multiplayer.Center.Common">
       <HintPath>Library\ScriptAssemblies\Unity.Multiplayer.Center.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.GPUDriven.Runtime">
+      <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.GPUDriven.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Services.Core.Environments">

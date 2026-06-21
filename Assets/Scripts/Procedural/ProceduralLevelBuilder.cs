@@ -215,7 +215,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
         List<int> validObstacleIndices = new List<int>();
         if (spawnObstacles)
         {
-            for (int i = 1; i < cells.Count - 1; i++)
+            for (int i = 2; i < cells.Count - 1; i++)
             {
                 if (i == checkpointTileIndex) continue;
                 validObstacleIndices.Add(i);
@@ -284,6 +284,59 @@ public class ProceduralLevelBuilder : MonoBehaviour
             }
         }
 
+        foreach (int hammer in hammerIndices) obstacleIndices.Add(hammer);
+        foreach (int laser in laserIndices) obstacleIndices.Add(laser);
+
+        HashSet<int> powerUpIndices = new HashSet<int>();
+        int lastPowerUpIndex = -1;
+        // End at cells.Count - 2 to ensure at least 1 tile for a coin after a powerup
+        for (int i = 1; i < cells.Count - 2; i++)
+        {
+            if (obstacleIndices.Contains(i) || i == checkpointTileIndex) continue;
+            
+            UnityEngine.Random.State oldState = UnityEngine.Random.state;
+            UnityEngine.Random.InitState(actualSeed + i * 97);
+            
+            float chance = powerUpSpawnChance;
+            if (i >= cells.Count - 6) chance *= 0.25f; // Reduce chance of powerups at the end of the level
+
+            if (UnityEngine.Random.value <= chance)
+            {
+                powerUpIndices.Add(i);
+                lastPowerUpIndex = i;
+            }
+            UnityEngine.Random.state = oldState;
+        }
+
+        HashSet<int> coinIndices = new HashSet<int>();
+        for (int i = 1; i < cells.Count - 1; i++)
+        {
+            UnityEngine.Random.State oldState = UnityEngine.Random.state;
+            UnityEngine.Random.InitState(actualSeed + i * 73);
+            
+            bool isTurnTile = ProceduralTilePlacement.IsTurnIndex(i + 1, cells);
+            float chance = isTurnTile ? 0.85f : 0.05f;
+
+            if (lastPowerUpIndex >= cells.Count - 6 && (i == lastPowerUpIndex + 1 || i == lastPowerUpIndex + 2))
+            {
+                chance = 1.0f; // Guarantee coins immediately after a late powerup
+            }
+
+            if (UnityEngine.Random.value <= chance)
+            {
+                int placement = i;
+                while (powerUpIndices.Contains(placement) || coinIndices.Contains(placement) || obstacleIndices.Contains(placement) || placement == checkpointTileIndex)
+                {
+                    placement++;
+                }
+                if (placement < cells.Count - 1)
+                {
+                    coinIndices.Add(placement);
+                }
+            }
+            UnityEngine.Random.state = oldState;
+        }
+
         for (int i = 0; i < cells.Count; i++)
         {
             LevelCell cell = cells[i];
@@ -316,26 +369,17 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 FitObstacleToTileSpan(laser, tile);
                 obstacleIndices.Add(i);
             }
-            else if (i > 0 && coinPrefab != null)
+            else if (coinIndices.Contains(i) && coinPrefab != null)
             {
-                // Deterministic random so the same level seed always has coins in the same spots
-                UnityEngine.Random.State oldState = UnityEngine.Random.state;
-                UnityEngine.Random.InitState(actualSeed + i * 73);
-                
-                if (UnityEngine.Random.value <= coinSpawnChance)
-                {
-                    Vector3 coinPos = tile.transform.position + Vector3.up * CampaignCoinPlacement.SpawnHeightFromProfile;
-                    Quaternion startingRot = CampaignCoinPlacement.RandomSpawnRotation(actualSeed, i);
-                    GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
-                    coinObj.name = "Coin_" + i;
-                }
-                
-                UnityEngine.Random.state = oldState;
+                Vector3 coinPos = tile.transform.position + Vector3.up * CampaignCoinPlacement.SpawnHeightFromProfile;
+                Quaternion startingRot = CampaignCoinPlacement.RandomSpawnRotation(actualSeed, i);
+                GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
+                coinObj.name = "Coin_" + i;
             }
         }
 
         SpawnCornerPads(cells);
-        SpawnPowerUps(cells, actualSeed, obstacleIndices);
+        SpawnPowerUps(cells, actualSeed, powerUpIndices);
         SpawnCheckpoint();
 
         PlaceBall(cells);
@@ -550,6 +594,14 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 pad.name = "Tile_corner_" + i + "_" + padIndex + "_" + cells[i - 1].GridPos.x + "_" + cells[i - 1].GridPos.y;
                 ApplyTileVisual(pad);
                 _spawnedTiles.Add(pad);
+
+                if (coinPrefab != null)
+                {
+                    Vector3 coinPos = pad.transform.position + Vector3.up * CampaignCoinPlacement.SpawnHeightFromProfile;
+                    Quaternion startingRot = CampaignCoinPlacement.RandomSpawnRotation(Seed, i * 100 + padIndex);
+                    GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
+                    coinObj.name = "Coin_CornerPad_" + i + "_" + padIndex;
+                }
 
                 placed.Add(new ProceduralTilePlacement.PlacedTile
                 {
@@ -857,32 +909,19 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
     }
 
-    private void SpawnPowerUps(IReadOnlyList<LevelCell> cells, int actualSeed, HashSet<int> obstacleIndices)
+    private void SpawnPowerUps(IReadOnlyList<LevelCell> cells, int actualSeed, HashSet<int> powerUpIndices)
     {
         if (cells == null || cells.Count < 3)
             return;
 
-        int checkpointTile = cells.Count / 2;
-        for (int i = 1; i < cells.Count - 1; i++)
+        foreach (int i in powerUpIndices)
         {
-            if (obstacleIndices.Contains(i) || i == checkpointTile)
-                continue;
-
             GameObject prefab = SelectRandomPowerUpPrefab(actualSeed + i * 31);
-            if (prefab == null)
-                continue;
+            if (prefab == null) continue;
 
-            UnityEngine.Random.State oldState = UnityEngine.Random.state;
-            UnityEngine.Random.InitState(actualSeed + i * 97);
-
-            if (UnityEngine.Random.value <= powerUpSpawnChance)
-            {
-                Vector3 pos = _spawnedTiles[i].transform.position + Vector3.up * powerUpSpawnHeight;
-                GameObject powerUp = Instantiate(prefab, pos, Quaternion.identity, levelRoot);
-                powerUp.name = prefab.name + "_" + i;
-            }
-
-            UnityEngine.Random.state = oldState;
+            Vector3 pos = _spawnedTiles[i].transform.position + Vector3.up * powerUpSpawnHeight;
+            GameObject powerUp = Instantiate(prefab, pos, Quaternion.identity, levelRoot);
+            powerUp.name = prefab.name + "_" + i;
         }
     }
 
