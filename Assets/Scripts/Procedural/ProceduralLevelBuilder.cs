@@ -288,15 +288,22 @@ public class ProceduralLevelBuilder : MonoBehaviour
         foreach (int laser in laserIndices) obstacleIndices.Add(laser);
 
         HashSet<int> powerUpIndices = new HashSet<int>();
-        for (int i = 1; i < cells.Count - 1; i++)
+        int lastPowerUpIndex = -1;
+        // End at cells.Count - 2 to ensure at least 1 tile for a coin after a powerup
+        for (int i = 1; i < cells.Count - 2; i++)
         {
             if (obstacleIndices.Contains(i) || i == checkpointTileIndex) continue;
             
             UnityEngine.Random.State oldState = UnityEngine.Random.state;
             UnityEngine.Random.InitState(actualSeed + i * 97);
-            if (UnityEngine.Random.value <= powerUpSpawnChance)
+            
+            float chance = powerUpSpawnChance;
+            if (i >= cells.Count - 6) chance *= 0.25f; // Reduce chance of powerups at the end of the level
+
+            if (UnityEngine.Random.value <= chance)
             {
                 powerUpIndices.Add(i);
+                lastPowerUpIndex = i;
             }
             UnityEngine.Random.state = oldState;
         }
@@ -306,7 +313,16 @@ public class ProceduralLevelBuilder : MonoBehaviour
         {
             UnityEngine.Random.State oldState = UnityEngine.Random.state;
             UnityEngine.Random.InitState(actualSeed + i * 73);
-            if (UnityEngine.Random.value <= coinSpawnChance)
+            
+            bool isTurnTile = ProceduralTilePlacement.IsTurnIndex(i + 1, cells);
+            float chance = isTurnTile ? 0.85f : 0.05f;
+
+            if (lastPowerUpIndex >= cells.Count - 6 && (i == lastPowerUpIndex + 1 || i == lastPowerUpIndex + 2))
+            {
+                chance = 1.0f; // Guarantee coins immediately after a late powerup
+            }
+
+            if (UnityEngine.Random.value <= chance)
             {
                 int placement = i;
                 while (powerUpIndices.Contains(placement) || coinIndices.Contains(placement) || obstacleIndices.Contains(placement) || placement == checkpointTileIndex)
@@ -578,6 +594,14 @@ public class ProceduralLevelBuilder : MonoBehaviour
                 pad.name = "Tile_corner_" + i + "_" + padIndex + "_" + cells[i - 1].GridPos.x + "_" + cells[i - 1].GridPos.y;
                 ApplyTileVisual(pad);
                 _spawnedTiles.Add(pad);
+
+                if (coinPrefab != null)
+                {
+                    Vector3 coinPos = pad.transform.position + Vector3.up * CampaignCoinPlacement.SpawnHeightFromProfile;
+                    Quaternion startingRot = CampaignCoinPlacement.RandomSpawnRotation(Seed, i * 100 + padIndex);
+                    GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
+                    coinObj.name = "Coin_CornerPad_" + i + "_" + padIndex;
+                }
 
                 placed.Add(new ProceduralTilePlacement.PlacedTile
                 {

@@ -8,4 +8,5 @@ public class BallSkinData : ScriptableObject
     public int price;
     public bool unlockedByDefault;
     public string prefabResourcePath;
+    public float speedMultiplier = 1f;
 }

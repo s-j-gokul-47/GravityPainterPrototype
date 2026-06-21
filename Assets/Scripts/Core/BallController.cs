@@ -48,6 +48,7 @@ public class BallController : MonoBehaviour
     private TileZone _crossSlideZone;
     private bool _crossSlideToLeft;
     private PowerUpManager _powerUpManager;
+    private float _skinSpeedMultiplier = 1f;
     private Vector3 _spawnPosition;
     private bool _hasSpawnPosition;
 
@@ -63,7 +64,14 @@ public class BallController : MonoBehaviour
         if (useSkinSystem)
         {
             Debug.Log("[BallController] Loading skin via BallSkinManager");
-            prefab = BallSkinManager.LoadSelectedSkin(FindAllSkins());
+            var allSkins = FindAllSkins();
+            BallSkinData skinData = BallSkinManager.GetSelectedSkinData(allSkins);
+            if (skinData != null)
+            {
+                _skinSpeedMultiplier = skinData.speedMultiplier;
+                if (_skinSpeedMultiplier <= 0f) _skinSpeedMultiplier = 1f; // safety
+            }
+            prefab = BallSkinManager.LoadSelectedSkin(allSkins);
         }
 
         if (prefab == null)
@@ -573,7 +581,7 @@ public class BallController : MonoBehaviour
             direction = AdjustRedDirectionForContinuity(direction);
             if (direction.sqrMagnitude > 0.0001f)
             {
-                float effectiveForce = forceStrength;
+                float effectiveForce = forceStrength * _skinSpeedMultiplier;
                 if (_powerUpManager != null)
                     effectiveForce *= _powerUpManager.CurrentSpeedMultiplier;
                 rb.AddForce(direction * effectiveForce, ForceMode.Acceleration);
@@ -768,7 +776,7 @@ public class BallController : MonoBehaviour
         Vector3 velocity = rb.linearVelocity;
         Vector3 planarVelocity = new Vector3(velocity.x, 0f, velocity.z);
 
-        float effectiveMaxSpeed = maxPlanarSpeed;
+        float effectiveMaxSpeed = maxPlanarSpeed * _skinSpeedMultiplier;
         if (_powerUpManager != null)
             effectiveMaxSpeed *= _powerUpManager.CurrentSpeedMultiplier;
 

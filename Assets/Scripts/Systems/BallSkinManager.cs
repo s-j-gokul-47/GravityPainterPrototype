@@ -47,9 +47,8 @@ public static class BallSkinManager
         return prefab;
     }
 
-    public static GameObject LoadSelectedSkin(List<BallSkinData> allSkins)
+    public static BallSkinData GetSelectedSkinData(List<BallSkinData> allSkins)
     {
-        Debug.Log("[BallSkinManager] LoadSelectedSkin()");
         string selectedId = GetSelectedSkinId();
         BallSkinData skin = allSkins.Find(s => s.skinId == selectedId);
         if (skin == null)
@@ -57,6 +56,13 @@ public static class BallSkinManager
             skin = allSkins.Find(s => s.unlockedByDefault);
             Debug.Log("[BallSkinManager] Selected skin not found, falling back to default");
         }
+        return skin;
+    }
+
+    public static GameObject LoadSelectedSkin(List<BallSkinData> allSkins)
+    {
+        Debug.Log("[BallSkinManager] LoadSelectedSkin()");
+        BallSkinData skin = GetSelectedSkinData(allSkins);
         if (skin == null)
         {
             Debug.LogError("[BallSkinManager] No skin found at all!");
