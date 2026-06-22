@@ -48,10 +48,12 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.3.11f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\ApplySpeedUpModel.cs" />
     <Compile Include="Assets\Editor\LaserGateModelUtility.cs" />
     <Compile Include="Assets\Scripts\Procedural\Editor\ProceduralPathVisualizerEditor.cs" />
     <Compile Include="Assets\Scripts\Procedural\Editor\DifficultyEditorMenu.cs" />
     <Compile Include="Assets\Editor\SetupTilesGlb.cs" />
+    <Compile Include="Assets\Editor\ApplyMagnetModel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
     <Compile Include="Assets\Editor\CoinAppearanceEditor.cs" />
     <Compile Include="Assets\Editor\ApplyThemeSkybox.cs" />

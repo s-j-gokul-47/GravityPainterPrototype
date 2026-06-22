@@ -509,7 +509,7 @@ public class BallController : MonoBehaviour
         }
 
         Scene active = SceneManager.GetActiveScene();
-        if (_checkpointPosition != null && LevelProgress.IsProceduralScene(active))
+        if (_checkpointPosition != null)
         {
             TeleportToCheckpoint();
             _restarting = false;

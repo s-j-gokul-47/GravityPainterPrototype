@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\UI\BallSkinData.cs" />
     <Compile Include="Assets\Scripts\Core\TileGlbVisualLayout.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SurfaceController.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\PowerUpVisual.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\UI\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\Core\TileZone.cs" />
