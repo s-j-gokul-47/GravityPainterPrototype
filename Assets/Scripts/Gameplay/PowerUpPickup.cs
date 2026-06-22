@@ -22,8 +22,37 @@ public class PowerUpPickup : MonoBehaviour
         if (visualRenderer == null)
             visualRenderer = GetComponentInChildren<Renderer>();
 
-        if (pointLight == null)
-            pointLight = GetComponentInChildren<Light>();
+        EnsurePickupLight();
+    }
+
+    private void EnsurePickupLight()
+    {
+        if (pointLight != null)
+        {
+            return;
+        }
+
+        pointLight = GetComponentInChildren<Light>();
+        if (pointLight != null)
+        {
+            return;
+        }
+
+        GameObject lightObj = new GameObject("PickupLight");
+        lightObj.transform.SetParent(transform, false);
+        lightObj.transform.localPosition = Vector3.zero;
+
+        pointLight = lightObj.AddComponent<Light>();
+        pointLight.type = LightType.Point;
+        pointLight.range = 3.5f;
+        pointLight.intensity = 0.9f;
+        pointLight.shadows = LightShadows.None;
+        pointLight.color = powerUpType switch
+        {
+            PowerUpType.Speed => new Color(1f, 0.7f, 0.25f),
+            PowerUpType.Magnet => new Color(1f, 0.98f, 0.95f),
+            _ => Color.white
+        };
     }
 
     private void Update()

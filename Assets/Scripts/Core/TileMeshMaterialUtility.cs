@@ -33,7 +33,14 @@ public static class TileMeshMaterialUtility
 
         for (int i = 0; i < source.Length; i++)
         {
-            if (source[i] != null && MaterialUsesUrp(source[i]))
+            if (source[i] == null)
+            {
+                converted[i] = CreateUrpMaterialPreservingSource(null);
+                changed = true;
+                continue;
+            }
+
+            if (MaterialUsesUrp(source[i]))
             {
                 converted[i] = source[i];
                 continue;
@@ -86,7 +93,7 @@ public static class TileMeshMaterialUtility
             return false;
         }
 
-        return name.Contains("Universal Render Pipeline") || name.Contains("glTF");
+        return name.Contains("Universal Render Pipeline");
     }
 
     private static Shader GetUrpLit()
@@ -124,6 +131,11 @@ public static class TileMeshMaterialUtility
         if (mat.HasProperty("_MainTex") && mat.GetTexture("_MainTex") != null)
         {
             return mat.GetTexture("_MainTex");
+        }
+
+        if (mat.HasProperty("baseColorTexture") && mat.GetTexture("baseColorTexture") != null)
+        {
+            return mat.GetTexture("baseColorTexture");
         }
 
         return mat.mainTexture;
