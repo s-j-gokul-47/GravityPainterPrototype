@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// Global coin look + motion settings used by every coin in campaign and procedural levels.
-/// Edit the master coin on Level 1 Tile (46), or this asset directly in the Project window.
+/// Edit the master coin on Level 2 Tile (48), or this asset directly in the Project window.
 /// </summary>
 [CreateAssetMenu(fileName = "CoinAppearanceProfile", menuName = "Gravity Painter/Coin Appearance Profile")]
 public class CoinAppearanceProfile : ScriptableObject
@@ -18,9 +18,11 @@ public class CoinAppearanceProfile : ScriptableObject
     public Vector3 visualRootLocalScale = Vector3.one;
 
     [Header("Coin Model (GLB child)")]
+    public Vector3 targetLocalBoundsSize = new Vector3(1f, 2f, 1f);
     public Vector3 modelLocalPosition = new Vector3(-0.0012304783f, 0.0009370446f, 0.0009524972f);
     public Vector3 modelLocalEuler = Vector3.zero;
     public Vector3 modelLocalScale = new Vector3(0.52705616f, 0.52705616f, 0.52705616f);
+    public Vector3 modelSpawnEuler = Vector3.zero;
 
     [Header("Motion")]
     [Range(0f, 1080f)]
@@ -60,6 +62,12 @@ public class CoinAppearanceProfile : ScriptableObject
             return;
         }
 
+        CoinVisual visual = coinRoot.GetComponent<CoinVisual>();
+        if (visual != null)
+        {
+            visual.ApplyFromProfile(this);
+        }
+
         coinRoot.localScale = rootLocalScale;
 
         Transform visualRoot = coinRoot.Find(CoinVisual.VisualRootName);
@@ -79,6 +87,11 @@ public class CoinAppearanceProfile : ScriptableObject
         }
     }
 
+    public void ApplyToPrefabContents(Transform coinRoot)
+    {
+        ApplyToHierarchy(coinRoot);
+    }
+
     public void CaptureFromHierarchy(Transform coinRoot)
     {
         if (coinRoot == null)
@@ -87,6 +100,12 @@ public class CoinAppearanceProfile : ScriptableObject
         }
 
         rootLocalScale = coinRoot.localScale;
+
+        CoinVisual visual = coinRoot.GetComponent<CoinVisual>();
+        if (visual != null)
+        {
+            visual.CaptureToProfile(this);
+        }
 
         Transform visualRoot = coinRoot.Find(CoinVisual.VisualRootName);
         if (visualRoot == null)

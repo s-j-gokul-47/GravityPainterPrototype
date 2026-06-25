@@ -63,11 +63,15 @@
     <Compile Include="Assets\Editor\SciFiPackMaterialFix.cs" />
     <Compile Include="Assets\Editor\ApplySciFiBall3DModel.cs" />
     <Compile Include="Assets\Scripts\Procedural\Editor\SetupProceduralLevelScene.cs" />
+    <Compile Include="Assets\Editor\SpikeTrapSync.cs" />
     <Compile Include="Assets\Editor\CoinAppearanceSync.cs" />
+    <Compile Include="Assets\Editor\ApplySpikesModel.cs" />
+    <Compile Include="Assets\Editor\SpikeTrapEditor.cs" />
     <Compile Include="Assets\Scripts\Procedural\Editor\ProceduralLevelBuilderEditor.cs" />
     <Compile Include="Assets\Scripts\Procedural\Editor\ProceduralPathGeneratorTest.cs" />
     <Compile Include="Assets\Editor\TileGlbUtility.cs" />
     <Compile Include="Assets\Editor\HammerModelBinder.cs" />
+    <Compile Include="Assets\Editor\PlaceLevel2Spikes.cs" />
     <Compile Include="Assets\Editor\HammerModelUtility.cs" />
     <Compile Include="Assets\Editor\ApplyFloor5ToTilePrefab.cs" />
     <Compile Include="Assets\Editor\SetupHammerObstacle.cs" />

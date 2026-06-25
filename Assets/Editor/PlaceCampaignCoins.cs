@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Bakes coin prefab instances into campaign Level 1 and Level 2 so models are visible in the Hierarchy without Play.
+/// Level 2 Tile (48) is the master coin for the whole game.
 /// </summary>
 public static class PlaceCampaignCoins
 {
@@ -16,7 +17,6 @@ public static class PlaceCampaignCoins
     private const string ProfileAssetPath = "Assets/Resources/Settings/CoinAppearanceProfile.asset";
     private const string Level1ScenePath = "Assets/Scenes/Levels/Level 1.unity";
     private const string Level2ScenePath = "Assets/Scenes/Levels/Level 2.unity";
-    private const string MasterTileName = "Tile (46)";
 
     private static readonly string[] CampaignScenePaths =
     {
@@ -44,7 +44,7 @@ public static class PlaceCampaignCoins
         EditorUtility.DisplayDialog(
             "Campaign coins placed",
             "Placed " + totalPlaced + " baked coin(s) across Level 1 and Level 2.\n\n" +
-            "Edit Coin_Master_Tile(46) on Level 1 to change every coin in the game.",
+            "Edit Coin_Master_Tile(48) on Level 2 to change every coin in the game.",
             "OK");
     }
 
@@ -99,7 +99,7 @@ public static class PlaceCampaignCoins
                 continue;
             }
 
-            Vector3 position = tile.position + Vector3.up * profile.spawnHeight;
+            Vector3 position = tile.position;
             Quaternion rotation = CampaignCoinPlacement.RandomSpawnRotation(
                 CampaignCoinPlacement.SeedForLevel(levelNumber),
                 tileSortKey);
@@ -107,53 +107,38 @@ public static class PlaceCampaignCoins
             GameObject coin = (GameObject)PrefabUtility.InstantiatePrefab(coinPrefab, coinsRoot);
             coin.transform.SetPositionAndRotation(position, rotation);
 
-            CoinAppearance appearance = coin.GetComponent<CoinAppearance>();
-            if (appearance != null)
-            {
-                appearance.ApplyFromProfile(profile);
-            }
-
             string coinName = "Coin_" + tile.name.Replace(" ", string.Empty);
             coin.name = coinName;
 
-            if (levelNumber == 1 && tile.name == MasterTileName)
+            bool isMaster = levelNumber == CoinAppearance.MasterLevelNumber
+                && tile.name == CoinAppearance.MasterTileName;
+            if (isMaster)
             {
                 masterCoin = coin;
+                CoinAppearanceSync.ConfigureMasterCoin(coin, profile);
             }
+            else
+            {
+                CoinAppearanceSync.ConfigureInstanceCoin(coin, profile);
+            }
+
+            CampaignCoinPlacement.SnapCoinToTile(coin.transform, tile);
 
             placed++;
         }
 
-        ConfigureMasterCoin(masterCoin, profile);
         CoinAppearance masterAppearance = masterCoin != null ? masterCoin.GetComponent<CoinAppearance>() : null;
-        CoinAppearanceSync.ApplyProfileEverywhere(profile, masterAppearance);
-
-        AssetDatabase.SaveAssets();
+        if (masterAppearance != null)
+        {
+            masterAppearance.PublishFromHierarchy();
+        }
+        else
+        {
+            CoinAppearanceSync.ApplyProfileEverywhere(profile);
+        }
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
         return placed;
-    }
-
-    private static void ConfigureMasterCoin(GameObject masterCoin, CoinAppearanceProfile profile)
-    {
-        if (masterCoin == null)
-        {
-            return;
-        }
-
-        masterCoin.name = CoinAppearance.MasterCoinName;
-
-        CoinAppearance appearance = masterCoin.GetComponent<CoinAppearance>();
-        if (appearance == null)
-        {
-            appearance = masterCoin.AddComponent<CoinAppearance>();
-        }
-
-        SerializedObject so = new SerializedObject(appearance);
-        so.FindProperty("profile").objectReferenceValue = profile;
-        so.FindProperty("publishChangesToProfile").boolValue = true;
-        so.ApplyModifiedPropertiesWithoutUndo();
-        EditorUtility.SetDirty(masterCoin);
     }
 
     private static int ResolveLevelNumber(string scenePath)

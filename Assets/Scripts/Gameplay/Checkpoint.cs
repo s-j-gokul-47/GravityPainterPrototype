@@ -9,7 +9,8 @@ public class Checkpoint : MonoBehaviour
         BuildFlagVisual();
         BoxCollider col = gameObject.AddComponent<BoxCollider>();
         col.isTrigger = true;
-        col.size = new Vector3(4f, 4f, 5f);
+        col.center = new Vector3(0f, 1f, 0f);
+        col.size = new Vector3(6f, 4f, 6f);
     }
 
     private void BuildFlagVisual()

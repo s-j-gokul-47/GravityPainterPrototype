@@ -16,14 +16,20 @@ public class CoinVisual : MonoBehaviour
     [SerializeField] private Vector3 modelLocalEuler = Vector3.zero;
     [SerializeField] private GameObject coinModelPrefab;
 
+    public Vector3 TargetLocalBoundsSize => targetLocalBoundsSize;
+    public Transform VisualRoot => transform.Find(VisualRootName);
+
     private void Awake()
     {
-        EnsureVisual();
+        if (!CoinAppearance.SyncInProgress)
+        {
+            EnsureVisual();
+        }
     }
 
     private void OnEnable()
     {
-        if (!Application.isPlaying)
+        if (!Application.isPlaying && !CoinAppearance.SyncInProgress)
         {
             EnsureVisual();
         }
@@ -32,6 +38,39 @@ public class CoinVisual : MonoBehaviour
     public void ConfigurePrefab(GameObject prefab)
     {
         coinModelPrefab = prefab;
+    }
+
+    public void ApplyFromProfile(CoinAppearanceProfile profile)
+    {
+        if (profile == null)
+        {
+            return;
+        }
+
+        Vector3 previousSize = targetLocalBoundsSize;
+        targetLocalBoundsSize = profile.targetLocalBoundsSize;
+        modelLocalEuler = profile.modelSpawnEuler;
+
+        if (VisualRoot == null || !Approximately(previousSize, targetLocalBoundsSize))
+        {
+            RebuildVisual();
+        }
+    }
+
+    public void CaptureToProfile(CoinAppearanceProfile profile)
+    {
+        if (profile == null)
+        {
+            return;
+        }
+
+        profile.targetLocalBoundsSize = targetLocalBoundsSize;
+        profile.modelSpawnEuler = modelLocalEuler;
+    }
+
+    private static bool Approximately(Vector3 a, Vector3 b)
+    {
+        return Vector3.SqrMagnitude(a - b) < 0.000001f;
     }
 
     public void EnsureVisual()
@@ -126,8 +165,9 @@ public class CoinVisual : MonoBehaviour
             bounds.Encapsulate(renderers[i].bounds);
         }
 
-        Vector3 localCenter = model.transform.InverseTransformPoint(bounds.center);
-        model.transform.localPosition -= localCenter;
+        Vector3 bottomCenter = new Vector3(bounds.center.x, bounds.min.y, bounds.center.z);
+        Vector3 localBottom = model.transform.InverseTransformPoint(bottomCenter);
+        model.transform.localPosition -= localBottom;
     }
 
     private static void StripPhysics(GameObject root)
