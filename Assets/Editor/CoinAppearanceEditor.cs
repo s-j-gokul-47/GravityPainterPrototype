@@ -12,7 +12,7 @@ public class CoinAppearanceEditor : Editor
         if (appearance.IsMaster)
         {
             EditorGUILayout.HelpBox(
-                "Master coin: edit CoinVisualRoot / CoinVisual in the Hierarchy, then click Publish below "
+                "Master coin (Level 2 Tile 48): edit CoinVisualRoot / CoinVisual in the Hierarchy, then click Publish below "
                 + "(or use Gravity Painter → Publish Master Coin To All Coins).",
                 MessageType.Info);
 

@@ -371,10 +371,11 @@ public class ProceduralLevelBuilder : MonoBehaviour
             }
             else if (coinIndices.Contains(i) && coinPrefab != null)
             {
-                Vector3 coinPos = tile.transform.position + Vector3.up * CampaignCoinPlacement.SpawnHeightFromProfile;
+                Vector3 coinPos = tile.transform.position;
                 Quaternion startingRot = CampaignCoinPlacement.RandomSpawnRotation(actualSeed, i);
                 GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
                 coinObj.name = "Coin_" + i;
+                CampaignCoinPlacement.SnapCoinToTile(coinObj.transform, tile.transform);
             }
         }
 
@@ -597,10 +598,11 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
                 if (coinPrefab != null)
                 {
-                    Vector3 coinPos = pad.transform.position + Vector3.up * CampaignCoinPlacement.SpawnHeightFromProfile;
+                    Vector3 coinPos = pad.transform.position;
                     Quaternion startingRot = CampaignCoinPlacement.RandomSpawnRotation(Seed, i * 100 + padIndex);
                     GameObject coinObj = Instantiate(coinPrefab, coinPos, startingRot, levelRoot);
                     coinObj.name = "Coin_CornerPad_" + i + "_" + padIndex;
+                    CampaignCoinPlacement.SnapCoinToTile(coinObj.transform, pad.transform);
                 }
 
                 placed.Add(new ProceduralTilePlacement.PlacedTile

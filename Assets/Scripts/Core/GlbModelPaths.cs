@@ -14,4 +14,5 @@ public static class GlbModelPaths
     public const string FinishLine = Folder + "Finish_Line.glb";
     public const string Coins = Folder + "coins.glb";
     public const string Magnet = Folder + "Magnet.glb";
+    public const string Spikes = Folder + "spikes.glb";
 }

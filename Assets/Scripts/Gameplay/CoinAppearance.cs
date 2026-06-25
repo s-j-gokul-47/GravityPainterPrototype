@@ -2,14 +2,16 @@ using UnityEngine;
 
 /// <summary>
 /// Applies shared coin appearance from CoinAppearanceProfile.
-/// The master coin (Tile 46 on Level 1) publishes edits back to the profile via the editor menu.
+/// The master coin (Tile 48 on Level 2) publishes edits back to the profile via the editor menu.
 /// </summary>
 [ExecuteAlways]
 [DisallowMultipleComponent]
 [DefaultExecutionOrder(-60)]
 public class CoinAppearance : MonoBehaviour
 {
-    public const string MasterCoinName = "Coin_Master_Tile(46)";
+    public const string MasterCoinName = "Coin_Master_Tile(48)";
+    public const string MasterTileName = "Tile (48)";
+    public const int MasterLevelNumber = 2;
 
     [SerializeField] private CoinAppearanceProfile profile;
     [SerializeField] private bool publishChangesToProfile;
@@ -35,7 +37,11 @@ public class CoinAppearance : MonoBehaviour
         }
 
         EnsureProfileReference();
-        ApplyFromProfile();
+
+        if (!publishChangesToProfile)
+        {
+            ApplyFromProfile();
+        }
     }
 
     private void OnValidate()
@@ -46,7 +52,11 @@ public class CoinAppearance : MonoBehaviour
         }
 
         EnsureProfileReference();
-        ApplyFromProfile();
+
+        if (!publishChangesToProfile)
+        {
+            ApplyFromProfile();
+        }
     }
 
     public void EnsureProfileReference()
@@ -105,9 +115,40 @@ public class CoinAppearance : MonoBehaviour
             FindObjectsInactive.Include,
             FindObjectsSortMode.None);
 
+        CoinAppearance namedMaster = null;
         foreach (CoinAppearance appearance in appearances)
         {
-            if (appearance != null && appearance.IsMaster)
+            if (appearance == null || !appearance.IsMaster)
+            {
+                continue;
+            }
+
+            if (appearance.gameObject.name == MasterCoinName)
+            {
+                return appearance;
+            }
+
+            namedMaster ??= appearance;
+        }
+
+        if (namedMaster != null)
+        {
+            return namedMaster;
+        }
+
+        Coin[] coins = Object.FindObjectsByType<Coin>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None);
+
+        foreach (Coin coin in coins)
+        {
+            if (coin == null || coin.name != MasterCoinName)
+            {
+                continue;
+            }
+
+            CoinAppearance appearance = coin.GetComponent<CoinAppearance>();
+            if (appearance != null)
             {
                 return appearance;
             }

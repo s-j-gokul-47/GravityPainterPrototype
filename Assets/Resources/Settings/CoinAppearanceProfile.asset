@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CoinAppearanceProfile
   rootLocalScale: {x: 2.5520947, y: 2.5047646, z: 0.5270562}
   visualRootLocalPosition: {x: 0, y: 0, z: 0}
-  visualRootLocalEuler: {x: -0, y: 0, z: 0}
+  visualRootLocalEuler: {x: -0, y: 279.22934, z: 0}
   visualRootLocalScale: {x: 1, y: 1, z: 1}
+  targetLocalBoundsSize: {x: 1, y: 2, z: 1}
   modelLocalPosition: {x: -0.0012304783, y: 0.0009370446, z: 0.0009524972}
   modelLocalEuler: {x: -0, y: 0, z: 0}
   modelLocalScale: {x: 0.52705616, y: 0.52705616, z: 0.52705616}
+  modelSpawnEuler: {x: 0, y: 0, z: 0}
   rotationSpeed: 180
   spawnHeight: 0.8

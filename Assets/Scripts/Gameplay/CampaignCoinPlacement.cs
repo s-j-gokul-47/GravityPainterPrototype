@@ -90,6 +90,103 @@ public static class CampaignCoinPlacement
         return tileName != null ? tileName.GetHashCode() : 0;
     }
 
+    public static void SnapCoinToTile(Transform coinRoot, Transform tile, float extraHeight = 0f)
+    {
+        if (coinRoot == null || tile == null)
+        {
+            return;
+        }
+
+        float bottomOffset = GetCoinBottomOffset(coinRoot);
+        Vector3 position = coinRoot.position;
+        position.y = GetTileTopY(tile.gameObject) + bottomOffset + extraHeight;
+        coinRoot.position = position;
+    }
+
+    public static Transform FindNearestTileForCoin(Transform coinRoot)
+    {
+        if (coinRoot == null)
+        {
+            return null;
+        }
+
+        TileZone[] zones = Object.FindObjectsByType<TileZone>(FindObjectsSortMode.None);
+        Transform best = null;
+        float bestDistance = float.MaxValue;
+
+        Vector2 coinXZ = new Vector2(coinRoot.position.x, coinRoot.position.z);
+        foreach (TileZone zone in zones)
+        {
+            if (zone == null)
+            {
+                continue;
+            }
+
+            Vector2 tileXZ = new Vector2(zone.transform.position.x, zone.transform.position.z);
+            float distance = (tileXZ - coinXZ).sqrMagnitude;
+            if (distance < bestDistance)
+            {
+                bestDistance = distance;
+                best = zone.transform;
+            }
+        }
+
+        return best;
+    }
+
+    public static float GetTileTopY(GameObject tile)
+    {
+        float maxY = float.NegativeInfinity;
+
+        Collider[] colliders = tile.GetComponentsInChildren<Collider>();
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider collider = colliders[i];
+            if (collider == null || collider.isTrigger)
+            {
+                continue;
+            }
+
+            maxY = Mathf.Max(maxY, collider.bounds.max.y);
+        }
+
+        if (maxY > float.NegativeInfinity)
+        {
+            return maxY;
+        }
+
+        Renderer[] renderers = tile.GetComponentsInChildren<Renderer>();
+        for (int i = 0; i < renderers.Length; i++)
+        {
+            if (renderers[i] != null)
+            {
+                maxY = Mathf.Max(maxY, renderers[i].bounds.max.y);
+            }
+        }
+
+        return maxY > float.NegativeInfinity ? maxY : tile.transform.position.y;
+    }
+
+    private static float GetCoinBottomOffset(Transform coinRoot)
+    {
+        Renderer[] renderers = coinRoot.GetComponentsInChildren<Renderer>(true);
+        if (renderers.Length == 0)
+        {
+            return SpawnHeightFromProfile;
+        }
+
+        Bounds bounds = renderers[0].bounds;
+        for (int i = 1; i < renderers.Length; i++)
+        {
+            if (renderers[i] != null)
+            {
+                bounds.Encapsulate(renderers[i].bounds);
+            }
+        }
+
+        return coinRoot.position.y - bounds.min.y;
+    }
+
     private static int CompareTilesByName(Transform a, Transform b)
     {
         int left = ParseTileSortKey(a.name);
