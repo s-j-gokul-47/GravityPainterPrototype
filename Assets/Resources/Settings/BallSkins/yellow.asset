@@ -17,3 +17,4 @@ MonoBehaviour:
   price: 50
   unlockedByDefault: 0
   prefabResourcePath: Prefabs/BallSkins/Ai_Nova_Yellow
+  speedMultiplier: 1.6
