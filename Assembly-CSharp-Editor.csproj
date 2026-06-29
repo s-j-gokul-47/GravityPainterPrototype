@@ -56,6 +56,7 @@
     <Compile Include="Assets\Editor\ApplyMagnetModel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
     <Compile Include="Assets\Editor\CoinAppearanceEditor.cs" />
+    <Compile Include="Assets\Scripts\UI\Editor\SetupMainMenuVideoBackground.cs" />
     <Compile Include="Assets\Editor\ApplyThemeSkybox.cs" />
     <Compile Include="Assets\Editor\RemoveMisplacedCameraFollow.cs" />
     <Compile Include="Assets\Editor\ApplyCoinModel.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Assets\Editor\ApplySciFiBall3DModel.cs" />
     <Compile Include="Assets\Scripts\Procedural\Editor\SetupProceduralLevelScene.cs" />
     <Compile Include="Assets\Editor\SpikeTrapSync.cs" />
+    <Compile Include="Assets\Scripts\UI\Editor\MainMenuVideoBackgroundEditor.cs" />
     <Compile Include="Assets\Editor\CoinAppearanceSync.cs" />
     <Compile Include="Assets\Editor\ApplySpikesModel.cs" />
     <Compile Include="Assets\Editor\SpikeTrapEditor.cs" />
