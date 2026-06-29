@@ -11,6 +11,35 @@ using UnityEngine.Rendering;
 [DefaultExecutionOrder(-200)]
 public class ProceduralLevelBuilder : MonoBehaviour
 {
+    private const int CheckpointObstacleBreatherRadius = 2;
+    private const int CheckpointPowerUpBreatherRadius = 1;
+    private const int CheckpointCoinBreatherRadius = 2;
+
+    private const int FinishObstacleBreatherRadius = 2;
+    private const int FinishPowerUpBreatherRadius = 1;
+    private const int FinishCoinBreatherRadius = 1;
+
+    private enum ObstacleKind
+    {
+        Hammer,
+        Laser,
+        Spikes,
+    }
+
+    private readonly struct ObstacleTypeDefinition
+    {
+        public readonly ObstacleKind Kind;
+        public readonly GameObject Prefab;
+        public readonly float IntroDifficulty;
+
+        public ObstacleTypeDefinition(ObstacleKind kind, GameObject prefab, float introDifficulty)
+        {
+            Kind = kind;
+            Prefab = prefab;
+            IntroDifficulty = introDifficulty;
+        }
+    }
+
     [Header("Generation")]
     [SerializeField] private LevelGenConfig config;
     [SerializeField] private int seed = 12345;
@@ -37,6 +66,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
     [Header("Obstacles")]
     [SerializeField] private GameObject hammerPrefab;
     [SerializeField] private GameObject laserBeamPrefab;
+    [SerializeField] private GameObject spikesPrefab;
 
     [Header("PowerUps")]
     [SerializeField] private GameObject speedCorePrefab;
@@ -137,6 +167,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
         if (hammerPrefab == null) hammerPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/Hammer.prefab");
         if (laserBeamPrefab == null) laserBeamPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/KorrathBeam.prefab");
+        if (spikesPrefab == null) spikesPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Obstacles/Spikes.prefab");
         if (speedCorePrefab == null) speedCorePrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/PowerUps/SpeedCore.prefab");
         if (magnetPrefab == null) magnetPrefab = UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/PowerUps/Magnet.prefab");
 
@@ -210,95 +241,32 @@ public class ProceduralLevelBuilder : MonoBehaviour
 
         GameObject goalTile = null;
         int checkpointTileIndex = cells.Count / 2;
-
-        bool spawnObstacles = LevelProgress.GetSelectedMenuLevel() >= 10;
-        List<int> validObstacleIndices = new List<int>();
-        if (spawnObstacles)
-        {
-            for (int i = 2; i < cells.Count - 1; i++)
-            {
-                if (i == checkpointTileIndex) continue;
-                validObstacleIndices.Add(i);
-            }
-            // Deterministic shuffle
-            UnityEngine.Random.State oldState = UnityEngine.Random.state;
-            UnityEngine.Random.InitState(actualSeed + 1234);
-            for (int i = 0; i < validObstacleIndices.Count; i++)
-            {
-                int temp = validObstacleIndices[i];
-                int randomIndex = UnityEngine.Random.Range(i, validObstacleIndices.Count);
-                validObstacleIndices[i] = validObstacleIndices[randomIndex];
-                validObstacleIndices[randomIndex] = temp;
-            }
-            UnityEngine.Random.state = oldState;
-        }
-
-        int targetHammers = 0;
-        int targetLasers = 0;
-        HashSet<int> obstacleIndices = new HashSet<int>();
-        if (spawnObstacles)
-        {
-            UnityEngine.Random.State state = UnityEngine.Random.state;
-            UnityEngine.Random.InitState(actualSeed + 999);
-            targetHammers = UnityEngine.Random.Range(2, 4); // 2 to 3
-            targetLasers = UnityEngine.Random.Range(2, 4); // 2 to 3
-            UnityEngine.Random.state = state;
-        }
-
-        List<int> hammerIndices = new List<int>();
-        List<int> laserIndices = new List<int>();
-        if (spawnObstacles)
-        {
-            List<int> pickedIndices = new List<int>();
-            int assignedHammers = 0;
-            int assignedLasers = 0;
-            for (int i = 0; i < validObstacleIndices.Count; i++)
-            {
-                if (assignedHammers == targetHammers && assignedLasers == targetLasers) break;
-                
-                int candidate = validObstacleIndices[i];
-                bool valid = true;
-                foreach (int picked in pickedIndices)
-                {
-                    if (Mathf.Abs(candidate - picked) < 3)
-                    {
-                        valid = false;
-                        break;
-                    }
-                }
-                
-                if (valid)
-                {
-                    pickedIndices.Add(candidate);
-                    if (assignedHammers < targetHammers)
-                    {
-                        hammerIndices.Add(candidate);
-                        assignedHammers++;
-                    }
-                    else if (assignedLasers < targetLasers)
-                    {
-                        laserIndices.Add(candidate);
-                        assignedLasers++;
-                    }
-                }
-            }
-        }
-
-        foreach (int hammer in hammerIndices) obstacleIndices.Add(hammer);
-        foreach (int laser in laserIndices) obstacleIndices.Add(laser);
+        int finishTileIndex = cells.Count - 1;
 
         HashSet<int> powerUpIndices = new HashSet<int>();
         int lastPowerUpIndex = -1;
         // End at cells.Count - 2 to ensure at least 1 tile for a coin after a powerup
         for (int i = 1; i < cells.Count - 2; i++)
         {
-            if (obstacleIndices.Contains(i) || i == checkpointTileIndex) continue;
+            if (IsWithinDistance(i, checkpointTileIndex, CheckpointPowerUpBreatherRadius)
+                || IsWithinFinishDistance(i, finishTileIndex, FinishPowerUpBreatherRadius))
+            {
+                continue;
+            }
             
             UnityEngine.Random.State oldState = UnityEngine.Random.state;
             UnityEngine.Random.InitState(actualSeed + i * 97);
             
             float chance = powerUpSpawnChance;
-            if (i >= cells.Count - 6) chance *= 0.25f; // Reduce chance of powerups at the end of the level
+            if (IsWithinDistance(i, checkpointTileIndex, CheckpointPowerUpBreatherRadius + 1))
+            {
+                chance *= 0.35f;
+            }
+
+            if (IsWithinFinishDistance(i, finishTileIndex, FinishPowerUpBreatherRadius + 1))
+            {
+                chance *= 0.35f;
+            }
 
             if (UnityEngine.Random.value <= chance)
             {
@@ -308,6 +276,15 @@ public class ProceduralLevelBuilder : MonoBehaviour
             UnityEngine.Random.state = oldState;
         }
 
+        Dictionary<int, ObstacleKind> obstaclesByIndex = BuildObstaclePlan(
+            cells,
+            checkpointTileIndex,
+            finishTileIndex,
+            powerUpIndices,
+            actualSeed,
+            difficulty);
+        HashSet<int> obstacleIndices = new HashSet<int>(obstaclesByIndex.Keys);
+
         HashSet<int> coinIndices = new HashSet<int>();
         for (int i = 1; i < cells.Count - 1; i++)
         {
@@ -316,6 +293,23 @@ public class ProceduralLevelBuilder : MonoBehaviour
             
             bool isTurnTile = ProceduralTilePlacement.IsTurnIndex(i + 1, cells);
             float chance = isTurnTile ? 0.85f : 0.05f;
+            if (IsWithinDistance(i, checkpointTileIndex, CheckpointCoinBreatherRadius))
+            {
+                chance *= 0.2f;
+            }
+            else if (IsWithinDistance(i, checkpointTileIndex, CheckpointCoinBreatherRadius + 1))
+            {
+                chance *= 0.5f;
+            }
+
+            if (IsWithinFinishDistance(i, finishTileIndex, FinishCoinBreatherRadius))
+            {
+                chance *= 0.2f;
+            }
+            else if (IsWithinFinishDistance(i, finishTileIndex, FinishCoinBreatherRadius + 1))
+            {
+                chance *= 0.5f;
+            }
 
             if (lastPowerUpIndex >= cells.Count - 6 && (i == lastPowerUpIndex + 1 || i == lastPowerUpIndex + 2))
             {
@@ -325,7 +319,8 @@ public class ProceduralLevelBuilder : MonoBehaviour
             if (UnityEngine.Random.value <= chance)
             {
                 int placement = i;
-                while (powerUpIndices.Contains(placement) || coinIndices.Contains(placement) || obstacleIndices.Contains(placement) || placement == checkpointTileIndex)
+                while (powerUpIndices.Contains(placement) || coinIndices.Contains(placement) || obstacleIndices.Contains(placement)
+                    || placement == checkpointTileIndex || placement == finishTileIndex)
                 {
                     placement++;
                 }
@@ -352,21 +347,9 @@ public class ProceduralLevelBuilder : MonoBehaviour
             {
                 goalTile = tile;
             }
-            else if (hammerIndices.Contains(i) && hammerPrefab != null)
+            else if (obstaclesByIndex.TryGetValue(i, out ObstacleKind obstacleKind))
             {
-                // Raise the hammer 2.75 units above the tile exactly like Level 2
-                Vector3 hammerPos = tile.transform.position + Vector3.up * 3f;
-                Quaternion hammerRot = tile.transform.rotation * Quaternion.Euler(0f, 0f, -75f);
-                GameObject hammer = Instantiate(hammerPrefab, hammerPos, hammerRot, levelRoot);
-                hammer.name = "Hammer_" + i;
-                hammer.transform.localScale = Vector3.one * 1.5f;
-                obstacleIndices.Add(i);
-            }
-            else if (laserIndices.Contains(i) && laserBeamPrefab != null)
-            {
-                GameObject laser = Instantiate(laserBeamPrefab, tile.transform.position, tile.transform.rotation, levelRoot);
-                laser.name = "LaserBeam_" + i;
-                FitObstacleToTileSpan(laser, tile);
+                SpawnObstacle(obstacleKind, tile, i);
                 obstacleIndices.Add(i);
             }
             else if (coinIndices.Contains(i) && coinPrefab != null)
@@ -397,6 +380,7 @@ public class ProceduralLevelBuilder : MonoBehaviour
             + ", path=" + _activeConfig.minPathLength + "-" + _activeConfig.maxPathLength
             + ", grid=" + _activeConfig.gridWidth + "x" + _activeConfig.gridDepth
             + ", turnFreq=" + _activeConfig.turnFrequency.ToString("F2")
+            + ", obstacles=" + obstaclesByIndex.Count
             + ", menuLevel=" + LevelProgress.GetSelectedMenuLevel()
             + ", requested seed=" + buildSeed
             + ", used seed=" + actualSeed
@@ -644,6 +628,674 @@ public class ProceduralLevelBuilder : MonoBehaviour
         }
 
         return false;
+    }
+
+    private Dictionary<int, ObstacleKind> BuildObstaclePlan(
+        IReadOnlyList<LevelCell> cells,
+        int checkpointTileIndex,
+        int finishTileIndex,
+        ICollection<int> powerUpIndices,
+        int seedForLevel,
+        float difficulty)
+    {
+        var plan = new Dictionary<int, ObstacleKind>();
+        if (cells == null || cells.Count < 5 || _activeConfig == null)
+        {
+            return plan;
+        }
+
+        List<ObstacleTypeDefinition> unlockedTypes = GetUnlockedObstacleTypes(difficulty);
+        if (unlockedTypes.Count == 0)
+        {
+            return plan;
+        }
+
+        List<int> validIndices = CollectValidObstacleIndices(
+            cells.Count,
+            checkpointTileIndex,
+            finishTileIndex,
+            powerUpIndices);
+        if (validIndices.Count == 0)
+        {
+            return plan;
+        }
+
+        int minGap = ResolveObstacleGap(difficulty);
+        int maxBySpace = Mathf.Max(0, (validIndices.Count + minGap - 1) / minGap);
+        int densityTarget = ResolveObstacleCountFromDensity(difficulty);
+        int targetCount = Mathf.Min(_activeConfig.maxObstaclesPerLevel, Mathf.Min(densityTarget, maxBySpace));
+        if (targetCount <= 0)
+        {
+            return plan;
+        }
+
+        Shuffle(validIndices, seedForLevel + 1234);
+        var picked = new List<int>();
+        EnsureAdvancedObstaclePresence(
+            plan,
+            picked,
+            unlockedTypes,
+            validIndices,
+            minGap,
+            cells,
+            checkpointTileIndex,
+            finishTileIndex,
+            powerUpIndices,
+            difficulty);
+
+        for (int i = 0; i < validIndices.Count && plan.Count < targetCount; i++)
+        {
+            int candidate = validIndices[i];
+            if (!HasRequiredGap(candidate, picked, minGap))
+            {
+                continue;
+            }
+
+            ObstacleTypeDefinition definition = PickObstacleType(
+                unlockedTypes,
+                candidate,
+                cells,
+                checkpointTileIndex,
+                finishTileIndex,
+                powerUpIndices,
+                difficulty,
+                seedForLevel + 7000 + candidate * 97);
+            if (definition.Prefab == null)
+            {
+                continue;
+            }
+
+            picked.Add(candidate);
+            plan[candidate] = definition.Kind;
+        }
+
+        return plan;
+    }
+
+    private void EnsureAdvancedObstaclePresence(
+        Dictionary<int, ObstacleKind> plan,
+        List<int> picked,
+        List<ObstacleTypeDefinition> unlockedTypes,
+        List<int> validIndices,
+        int minGap,
+        IReadOnlyList<LevelCell> cells,
+        int checkpointTileIndex,
+        int finishTileIndex,
+        ICollection<int> powerUpIndices,
+        float difficulty)
+    {
+        if (difficulty >= 0.55f)
+        {
+            TryPlaceRequiredObstacle(
+                ObstacleKind.Laser,
+                plan,
+                picked,
+                unlockedTypes,
+                validIndices,
+                minGap,
+                cells,
+                checkpointTileIndex,
+                finishTileIndex,
+                powerUpIndices,
+                difficulty);
+        }
+
+        if (difficulty >= 0.85f)
+        {
+            TryPlaceRequiredObstacle(
+                ObstacleKind.Spikes,
+                plan,
+                picked,
+                unlockedTypes,
+                validIndices,
+                minGap,
+                cells,
+                checkpointTileIndex,
+                finishTileIndex,
+                powerUpIndices,
+                difficulty);
+        }
+    }
+
+    private void TryPlaceRequiredObstacle(
+        ObstacleKind requiredKind,
+        Dictionary<int, ObstacleKind> plan,
+        List<int> picked,
+        List<ObstacleTypeDefinition> unlockedTypes,
+        List<int> validIndices,
+        int minGap,
+        IReadOnlyList<LevelCell> cells,
+        int checkpointTileIndex,
+        int finishTileIndex,
+        ICollection<int> powerUpIndices,
+        float difficulty)
+    {
+        bool isUnlocked = false;
+        for (int i = 0; i < unlockedTypes.Count; i++)
+        {
+            if (unlockedTypes[i].Kind == requiredKind && unlockedTypes[i].Prefab != null)
+            {
+                isUnlocked = true;
+                break;
+            }
+        }
+
+        if (!isUnlocked)
+        {
+            return;
+        }
+
+        int bestIndex = -1;
+        float bestWeight = 0f;
+        for (int i = 0; i < validIndices.Count; i++)
+        {
+            int candidate = validIndices[i];
+            if (plan.ContainsKey(candidate) || !HasRequiredGap(candidate, picked, minGap))
+            {
+                continue;
+            }
+
+            float weight = ResolveObstacleSpawnWeight(
+                requiredKind,
+                candidate,
+                cells,
+                checkpointTileIndex,
+                finishTileIndex,
+                powerUpIndices,
+                difficulty);
+            if (weight > bestWeight)
+            {
+                bestWeight = weight;
+                bestIndex = candidate;
+            }
+        }
+
+        if (bestIndex < 0 || bestWeight <= 0f)
+        {
+            return;
+        }
+
+        picked.Add(bestIndex);
+        plan[bestIndex] = requiredKind;
+    }
+
+    private List<ObstacleTypeDefinition> GetUnlockedObstacleTypes(float difficulty)
+    {
+        var types = new List<ObstacleTypeDefinition>(3);
+
+        if (hammerPrefab != null && difficulty >= 0.25f)
+        {
+            types.Add(new ObstacleTypeDefinition(ObstacleKind.Hammer, hammerPrefab, 0.25f));
+        }
+
+        if (laserBeamPrefab != null && difficulty >= 0.40f)
+        {
+            types.Add(new ObstacleTypeDefinition(ObstacleKind.Laser, laserBeamPrefab, 0.40f));
+        }
+
+        if (spikesPrefab != null && difficulty >= 0.80f)
+        {
+            types.Add(new ObstacleTypeDefinition(ObstacleKind.Spikes, spikesPrefab, 0.80f));
+        }
+
+        return types;
+    }
+
+    private List<int> CollectValidObstacleIndices(
+        int cellCount,
+        int checkpointTileIndex,
+        int finishTileIndex,
+        ICollection<int> powerUpIndices)
+    {
+        var valid = new List<int>();
+        for (int i = 2; i < cellCount - 2; i++)
+        {
+            if (IsWithinDistance(i, checkpointTileIndex, CheckpointObstacleBreatherRadius)
+                || IsWithinFinishDistance(i, finishTileIndex, FinishObstacleBreatherRadius))
+            {
+                continue;
+            }
+
+            if (powerUpIndices != null && powerUpIndices.Contains(i))
+            {
+                continue;
+            }
+
+            valid.Add(i);
+        }
+
+        return valid;
+    }
+
+    private static int ResolveObstacleGap(float difficulty)
+    {
+        if (difficulty >= 0.75f)
+        {
+            return 3;
+        }
+
+        return 4;
+    }
+
+    private int ResolveObstacleCountFromDensity(float difficulty)
+    {
+        AnimationCurve curve = _activeConfig.obstacleDensityCurve;
+        float density = curve != null && curve.length > 0
+            ? Mathf.Clamp01(curve.Evaluate(difficulty))
+            : Mathf.Clamp01(Mathf.InverseLerp(0.2f, 1f, difficulty));
+
+        int count = Mathf.CeilToInt(_activeConfig.maxObstaclesPerLevel * density);
+        return Mathf.Clamp(count, 0, _activeConfig.maxObstaclesPerLevel);
+    }
+
+    private static bool HasRequiredGap(int candidate, List<int> picked, int minGap)
+    {
+        for (int i = 0; i < picked.Count; i++)
+        {
+            if (Mathf.Abs(candidate - picked[i]) < minGap)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private ObstacleTypeDefinition PickObstacleType(
+        List<ObstacleTypeDefinition> types,
+        int tileIndex,
+        IReadOnlyList<LevelCell> cells,
+        int checkpointTileIndex,
+        int finishTileIndex,
+        ICollection<int> powerUpIndices,
+        float difficulty,
+        int randomSeed)
+    {
+        if (types.Count == 1)
+        {
+            float fit = ResolveObstacleFitWeight(
+                types[0].Kind,
+                tileIndex,
+                cells,
+                checkpointTileIndex,
+                finishTileIndex,
+                powerUpIndices,
+                difficulty);
+            return fit > 0f ? types[0] : default;
+        }
+
+        UnityEngine.Random.State oldState = UnityEngine.Random.state;
+        UnityEngine.Random.InitState(randomSeed);
+
+        float totalWeight = 0f;
+        for (int i = 0; i < types.Count; i++)
+        {
+            totalWeight += ResolveObstacleSpawnWeight(
+                types[i].Kind,
+                tileIndex,
+                cells,
+                checkpointTileIndex,
+                finishTileIndex,
+                powerUpIndices,
+                difficulty);
+        }
+
+        if (totalWeight <= 0.0001f)
+        {
+            UnityEngine.Random.state = oldState;
+            return default;
+        }
+
+        float roll = UnityEngine.Random.value * totalWeight;
+        UnityEngine.Random.state = oldState;
+
+        float cumulative = 0f;
+        for (int i = 0; i < types.Count; i++)
+        {
+            cumulative += ResolveObstacleSpawnWeight(
+                types[i].Kind,
+                tileIndex,
+                cells,
+                checkpointTileIndex,
+                finishTileIndex,
+                powerUpIndices,
+                difficulty);
+            if (roll <= cumulative)
+            {
+                return types[i];
+            }
+        }
+
+        return types[types.Count - 1];
+    }
+
+    private static float ResolveObstacleSpawnWeight(
+        ObstacleKind kind,
+        int tileIndex,
+        IReadOnlyList<LevelCell> cells,
+        int checkpointTileIndex,
+        int finishTileIndex,
+        ICollection<int> powerUpIndices,
+        float difficulty)
+    {
+        return ResolveObstacleBaseWeight(kind, difficulty)
+            * ResolveObstacleFitWeight(
+                kind,
+                tileIndex,
+                cells,
+                checkpointTileIndex,
+                finishTileIndex,
+                powerUpIndices,
+                difficulty);
+    }
+
+    private static float ResolveObstacleBaseWeight(ObstacleKind kind, float difficulty)
+    {
+        switch (kind)
+        {
+            case ObstacleKind.Hammer:
+                if (difficulty < 0.40f)
+                {
+                    return 1f;
+                }
+
+                if (difficulty < 0.80f)
+                {
+                    return 0.65f;
+                }
+
+                return 0.4f;
+
+            case ObstacleKind.Laser:
+                if (difficulty < 0.40f)
+                {
+                    return 0.01f;
+                }
+
+                if (difficulty < 0.65f)
+                {
+                    return 0.6f;
+                }
+
+                if (difficulty < 0.80f)
+                {
+                    return 0.95f;
+                }
+
+                return 1f;
+
+            case ObstacleKind.Spikes:
+                if (difficulty < 0.80f)
+                {
+                    return 0.01f;
+                }
+
+                if (difficulty < 0.90f)
+                {
+                    return 0.45f;
+                }
+
+                return 0.9f;
+
+            default:
+                return 0.1f;
+        }
+    }
+
+    private static float ResolveObstacleFitWeight(
+        ObstacleKind kind,
+        int tileIndex,
+        IReadOnlyList<LevelCell> cells,
+        int checkpointTileIndex,
+        int finishTileIndex,
+        ICollection<int> powerUpIndices,
+        float difficulty)
+    {
+        int straightRunLength = MeasureStraightRunLength(tileIndex, cells);
+        int turnDistance = DistanceToNearestTurn(tileIndex, cells);
+        bool isTurnTile = IsObstacleTurnTile(tileIndex, cells);
+        int checkpointDistance = Mathf.Abs(tileIndex - checkpointTileIndex);
+        int finishDistance = Mathf.Abs(tileIndex - finishTileIndex);
+        int powerUpDistance = DistanceToNearestIndex(tileIndex, powerUpIndices);
+        float pathProgress = cells != null && cells.Count > 1
+            ? tileIndex / (float)(cells.Count - 1)
+            : 0.5f;
+        bool nearFinish = IsWithinFinishDistance(tileIndex, finishTileIndex, FinishObstacleBreatherRadius);
+
+        switch (kind)
+        {
+            case ObstacleKind.Hammer:
+                if (isTurnTile)
+                {
+                    return 1f;
+                }
+
+                if (turnDistance <= 1)
+                {
+                    return 0.95f;
+                }
+
+                if (straightRunLength >= 4)
+                {
+                    return 0.75f;
+                }
+
+                return 0.85f;
+
+            case ObstacleKind.Laser:
+                if (isTurnTile)
+                {
+                    return 0.2f;
+                }
+
+                if (checkpointDistance <= 1 || powerUpDistance <= 1 || nearFinish)
+                {
+                    return 0f;
+                }
+
+                if (checkpointDistance == 2 || powerUpDistance == 2 || finishDistance == FinishObstacleBreatherRadius + 1)
+                {
+                    return 0.35f;
+                }
+
+                if (straightRunLength >= 4)
+                {
+                    return 1.25f;
+                }
+
+                if (straightRunLength >= 3)
+                {
+                    return 1.05f;
+                }
+
+                if (turnDistance <= 1)
+                {
+                    return 0.45f;
+                }
+
+                return 0.75f;
+
+            case ObstacleKind.Spikes:
+                if (difficulty < 0.80f || isTurnTile)
+                {
+                    return 0f;
+                }
+
+                if (nearFinish || checkpointDistance <= 1 || powerUpDistance <= 1)
+                {
+                    return 0f;
+                }
+
+                float midPathBias = 1f - Mathf.Clamp01(Mathf.Abs(pathProgress - 0.5f) / 0.5f);
+                if (midPathBias < 0.25f)
+                {
+                    return 0.15f;
+                }
+
+                if (straightRunLength >= 4)
+                {
+                    return 0.9f + midPathBias * 0.5f;
+                }
+
+                if (straightRunLength >= 3)
+                {
+                    return 0.75f + midPathBias * 0.45f;
+                }
+
+                return 0.2f + midPathBias * 0.25f;
+
+            default:
+                return 1f;
+        }
+    }
+
+    private static bool IsObstacleTurnTile(int tileIndex, IReadOnlyList<LevelCell> cells)
+    {
+        return ProceduralTilePlacement.IsTurnIndex(tileIndex, cells)
+            || ProceduralTilePlacement.IsTurnIndex(tileIndex + 1, cells);
+    }
+
+    private static int MeasureStraightRunLength(int tileIndex, IReadOnlyList<LevelCell> cells)
+    {
+        if (cells == null || tileIndex <= 0 || tileIndex >= cells.Count)
+        {
+            return 1;
+        }
+
+        int length = 1;
+
+        for (int i = tileIndex; i >= 2; i--)
+        {
+            if (ProceduralTilePlacement.IsTurnIndex(i, cells))
+            {
+                break;
+            }
+
+            length++;
+        }
+
+        for (int i = tileIndex + 1; i < cells.Count; i++)
+        {
+            if (ProceduralTilePlacement.IsTurnIndex(i, cells))
+            {
+                break;
+            }
+
+            length++;
+        }
+
+        return length;
+    }
+
+    private static int DistanceToNearestTurn(int tileIndex, IReadOnlyList<LevelCell> cells)
+    {
+        if (cells == null || cells.Count < 3)
+        {
+            return int.MaxValue;
+        }
+
+        int best = int.MaxValue;
+        for (int i = 2; i < cells.Count; i++)
+        {
+            if (!ProceduralTilePlacement.IsTurnIndex(i, cells))
+            {
+                continue;
+            }
+
+            best = Mathf.Min(best, Mathf.Abs(tileIndex - i));
+        }
+
+        return best;
+    }
+
+    private static int DistanceToNearestIndex(int tileIndex, ICollection<int> indices)
+    {
+        if (indices == null || indices.Count == 0)
+        {
+            return int.MaxValue;
+        }
+
+        int best = int.MaxValue;
+        foreach (int index in indices)
+        {
+            best = Mathf.Min(best, Mathf.Abs(tileIndex - index));
+        }
+
+        return best;
+    }
+
+    private static bool IsWithinDistance(int tileIndex, int targetIndex, int radius)
+    {
+        return Mathf.Abs(tileIndex - targetIndex) <= radius;
+    }
+
+    private static bool IsWithinFinishDistance(int tileIndex, int finishTileIndex, int radius)
+    {
+        return IsWithinDistance(tileIndex, finishTileIndex, radius);
+    }
+
+    private static void Shuffle(List<int> values, int randomSeed)
+    {
+        UnityEngine.Random.State oldState = UnityEngine.Random.state;
+        UnityEngine.Random.InitState(randomSeed);
+
+        for (int i = 0; i < values.Count; i++)
+        {
+            int swapIndex = UnityEngine.Random.Range(i, values.Count);
+            int temp = values[i];
+            values[i] = values[swapIndex];
+            values[swapIndex] = temp;
+        }
+
+        UnityEngine.Random.state = oldState;
+    }
+
+    private void SpawnObstacle(ObstacleKind obstacleKind, GameObject tile, int index)
+    {
+        switch (obstacleKind)
+        {
+            case ObstacleKind.Hammer:
+            {
+                if (hammerPrefab == null)
+                {
+                    return;
+                }
+
+                Vector3 hammerPos = tile.transform.position + Vector3.up * 3f;
+                Quaternion hammerRot = tile.transform.rotation * Quaternion.Euler(0f, 0f, -75f);
+                GameObject hammer = Instantiate(hammerPrefab, hammerPos, hammerRot, levelRoot);
+                hammer.name = "Hammer_" + index;
+                return;
+            }
+
+            case ObstacleKind.Laser:
+            {
+                if (laserBeamPrefab == null)
+                {
+                    return;
+                }
+
+                GameObject laser = Instantiate(laserBeamPrefab, tile.transform.position, tile.transform.rotation, levelRoot);
+                laser.name = "LaserBeam_" + index;
+                FitObstacleToTileSpan(laser, tile);
+                return;
+            }
+
+            case ObstacleKind.Spikes:
+            {
+                if (spikesPrefab == null)
+                {
+                    return;
+                }
+
+                GameObject spikes = Instantiate(spikesPrefab, levelRoot);
+                spikes.name = "Spike_" + index;
+                Vector3 position = tile.transform.position;
+                position.y = GetTileTopY(tile) + 0.01f;
+                spikes.transform.SetPositionAndRotation(position, tile.transform.rotation);
+                return;
+            }
+        }
     }
 
     private void ApplyTileVisual(GameObject tile)

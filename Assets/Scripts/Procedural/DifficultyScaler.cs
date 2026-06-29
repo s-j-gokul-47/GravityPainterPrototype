@@ -39,5 +39,32 @@ public static class DifficultyScaler
 
         int gridSpan = Mathf.Max(config.gridWidth, config.gridDepth);
         config.minFinishDistance = gridSpan * 0.4f;
+
+        config.maxObstaclesPerLevel = ResolveMaxObstacles(difficulty);
+    }
+
+    private static int ResolveMaxObstacles(float difficulty)
+    {
+        if (difficulty < 0.25f)
+        {
+            return 0;
+        }
+
+        if (difficulty < 0.50f)
+        {
+            return 1;
+        }
+
+        if (difficulty < 0.65f)
+        {
+            return 2;
+        }
+
+        if (difficulty < 1f)
+        {
+            return 3;
+        }
+
+        return 4;
     }
 }

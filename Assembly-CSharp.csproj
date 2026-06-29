@@ -94,6 +94,7 @@
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\Scripts\UI\LevelCompleteUI.cs" />
     <Compile Include="Assets\Scripts\UI\BallSkinData.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuVideoBackground.cs" />
     <Compile Include="Assets\Scripts\Core\TileGlbVisualLayout.cs" />
     <Compile Include="Assets\Scripts\Gameplay\SurfaceController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PowerUpVisual.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Assets\Scripts\Gameplay\CoinAppearanceProfile.cs" />
     <Compile Include="Assets\Scripts\UI\TestStoreWiring.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\Scripts\UI\DeveloperProceduralLevelSelect.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\ThirdParty\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />

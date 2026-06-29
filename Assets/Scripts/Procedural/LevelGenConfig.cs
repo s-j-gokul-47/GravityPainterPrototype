@@ -37,6 +37,18 @@ public class LevelGenConfig : ScriptableObject
     [Tooltip("Minimum start-to-finish grid distance (set by DifficultyScaler).")]
     public float minFinishDistance = 2f;
 
+    [Tooltip("Controls how quickly obstacle slots fill as difficulty rises.")]
+    public AnimationCurve obstacleDensityCurve = new AnimationCurve(
+        new Keyframe(0f, 0f),
+        new Keyframe(0.2f, 0f),
+        new Keyframe(0.25f, 0.25f),
+        new Keyframe(0.5f, 0.6f),
+        new Keyframe(0.75f, 0.85f),
+        new Keyframe(1f, 1f));
+
+    [Tooltip("Runtime cap on how many obstacles a procedural level may spawn.")]
+    public int maxObstaclesPerLevel = 0;
+
     [Header("Tile Footprint")]
     [Tooltip("Local scale applied to spawned tiles (matches Level 2 GLB tiles).")]
     public Vector3 tileLocalScale = new Vector3(9.764219f, 0.20627001f, 4.5902023f);
