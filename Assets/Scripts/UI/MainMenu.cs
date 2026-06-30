@@ -1,52 +1,195 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[ExecuteAlways]
 public class MainMenu : MonoBehaviour
 {
     public const string OpenLevelSelectKey = "OpenLevelSelect";
 
     [SerializeField] private GameObject mainMenuRoot;
     [SerializeField] private GameObject levelsPanel;
+    [SerializeField] private GameObject howToPanel;
+    [SerializeField] private GameObject settingsPanel;
     [SerializeField] private Button storeButton;
     public StoreUI storeUI;
 
+    [Header("Menu Root Layout")]
+    [SerializeField] private Vector2 menuRootPosition = new Vector2(0f, -40f);
+    [SerializeField] private Vector2 menuRootSize = new Vector2(560f, 720f);
+
+    [Header("Button Layout")]
+    [SerializeField] private bool useManualButtonLayout = true;
+    [SerializeField] private MainMenuButtonLayout playButtonLayout = new MainMenuButtonLayout("Play", new Vector2(0f, 240f), new Vector2(520f, 120f));
+    [SerializeField] private MainMenuButtonLayout settingsButtonLayout = new MainMenuButtonLayout("Settings", new Vector2(0f, 120f), new Vector2(520f, 120f));
+    [SerializeField] private MainMenuButtonLayout storeButtonLayout = new MainMenuButtonLayout("Store", new Vector2(0f, 0f), new Vector2(520f, 120f));
+    [SerializeField] private MainMenuButtonLayout levelsButtonLayout = new MainMenuButtonLayout("Levels", new Vector2(0f, -120f), new Vector2(520f, 120f));
+    [SerializeField] private MainMenuButtonLayout howToPlayButtonLayout = new MainMenuButtonLayout("HowToPlay", new Vector2(0f, -240f), new Vector2(520f, 120f));
+
+    private void OnValidate()
+    {
+        if (!useManualButtonLayout)
+            return;
+
+        ApplyButtonLayout();
+    }
+
     private void Start()
     {
+        if (mainMenuRoot == null)
+        {
+            Canvas canvas = FindFirstObjectByType<Canvas>();
+            if (canvas != null)
+            {
+                Transform menu = canvas.transform.Find("MainMenu");
+                if (menu != null)
+                    mainMenuRoot = menu.gameObject;
+            }
+        }
+
+        if (levelsPanel == null)
+        {
+            Canvas canvas = FindFirstObjectByType<Canvas>();
+            if (canvas != null)
+            {
+                Transform panel = canvas.transform.Find("Levels Panel");
+                if (panel != null)
+                    levelsPanel = panel.gameObject;
+            }
+        }
+
+        if (howToPanel == null)
+        {
+            Canvas canvas = FindFirstObjectByType<Canvas>();
+            if (canvas != null)
+            {
+                Transform panel = canvas.transform.Find("HowTo");
+                if (panel != null)
+                    howToPanel = panel.gameObject;
+            }
+        }
+
+        if (settingsPanel == null)
+        {
+            Canvas canvas = FindFirstObjectByType<Canvas>();
+            if (canvas != null)
+            {
+                Transform panel = canvas.transform.Find("Settings");
+                if (panel != null)
+                    settingsPanel = panel.gameObject;
+            }
+        }
+
         if (storeUI == null)
         {
             Canvas canvas = FindFirstObjectByType<Canvas>();
             if (canvas != null)
             {
-                Transform t = canvas.transform.Find("StorePanel");
-                if (t != null) storeUI = t.GetComponent<StoreUI>();
+                Transform store = canvas.transform.Find("StorePanel");
+                if (store != null)
+                    storeUI = store.GetComponent<StoreUI>();
             }
         }
+
         if (storeUI != null && storeUI.storePanel != null)
             storeUI.storePanel.SetActive(false);
 
-        WireStoreButton();
+        if (howToPanel != null)
+            howToPanel.SetActive(false);
+
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
+
+        ApplyButtonLayout();
+        WireMenuButtons();
 
         if (ConsumeOpenLevelSelectFlag())
             ShowLevelSelect();
     }
 
-    private void WireStoreButton()
+    [ContextMenu("Apply Button Layout")]
+    public void ApplyButtonLayout()
     {
-        Button btn = storeButton;
-        if (btn == null)
+        if (!useManualButtonLayout)
+            return;
+
+        Transform root = ResolveMainMenuRoot();
+        if (root == null)
+            return;
+
+        RectTransform menuRect = root as RectTransform;
+        if (menuRect != null)
         {
-            Canvas canvas = FindFirstObjectByType<Canvas>();
-            if (canvas != null)
-            {
-                Transform t = canvas.transform.Find("MainMenu/Store");
-                if (t != null) btn = t.GetComponent<Button>();
-            }
+            menuRect.anchorMin = new Vector2(0.5f, 0.5f);
+            menuRect.anchorMax = new Vector2(0.5f, 0.5f);
+            menuRect.pivot = new Vector2(0.5f, 0.5f);
+            menuRect.anchoredPosition = menuRootPosition;
+            menuRect.sizeDelta = menuRootSize;
         }
-        if (btn != null)
-        {
-            btn.onClick.RemoveAllListeners();
-            btn.onClick.AddListener(OpenStore);
-        }
+
+        if (root.TryGetComponent(out VerticalLayoutGroup layoutGroup))
+            layoutGroup.enabled = false;
+
+        ApplyButtonLayoutEntry(root, playButtonLayout);
+        ApplyButtonLayoutEntry(root, settingsButtonLayout);
+        ApplyButtonLayoutEntry(root, storeButtonLayout);
+        ApplyButtonLayoutEntry(root, levelsButtonLayout);
+        ApplyButtonLayoutEntry(root, howToPlayButtonLayout);
+    }
+
+    private Transform ResolveMainMenuRoot()
+    {
+        if (mainMenuRoot != null)
+            return mainMenuRoot.transform;
+
+        Canvas canvas = FindFirstObjectByType<Canvas>();
+        if (canvas == null)
+            return null;
+
+        Transform menu = canvas.transform.Find("MainMenu");
+        return menu;
+    }
+
+    private static void ApplyButtonLayoutEntry(Transform root, MainMenuButtonLayout layout)
+    {
+        if (layout == null || string.IsNullOrWhiteSpace(layout.buttonName))
+            return;
+
+        Transform buttonTransform = root.Find(layout.buttonName);
+        if (buttonTransform == null || !buttonTransform.TryGetComponent(out RectTransform rect))
+            return;
+
+        rect.anchorMin = new Vector2(0.5f, 0.5f);
+        rect.anchorMax = new Vector2(0.5f, 0.5f);
+        rect.pivot = new Vector2(0.5f, 0.5f);
+        rect.anchoredPosition = layout.anchoredPosition;
+        rect.sizeDelta = layout.sizeDelta;
+
+        if (buttonTransform.TryGetComponent(out Image image))
+            image.preserveAspect = true;
+    }
+
+    private void WireMenuButtons()
+    {
+        Transform root = mainMenuRoot != null ? mainMenuRoot.transform : null;
+        if (root == null)
+            return;
+
+        WireButton(root, "Play", PlayGame);
+        WireButton(root, "Settings", OpenSettings);
+        WireButton(root, "Store", OpenStore);
+        WireButton(root, "Levels", ShowLevelSelect);
+        WireButton(root, "HowToPlay", OpenHowToPlay);
+    }
+
+    private void WireButton(Transform root, string childName, UnityEngine.Events.UnityAction action)
+    {
+        Transform child = root.Find(childName);
+        if (child == null || !child.TryGetComponent(out Button button))
+            return;
+
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(action);
     }
 
     public static void RequestOpenLevelSelect()
@@ -58,9 +201,7 @@ public class MainMenu : MonoBehaviour
     public static bool ConsumeOpenLevelSelectFlag()
     {
         if (PlayerPrefs.GetInt(OpenLevelSelectKey, 0) != 1)
-        {
             return false;
-        }
 
         PlayerPrefs.DeleteKey(OpenLevelSelectKey);
         PlayerPrefs.Save();
@@ -79,6 +220,42 @@ public class MainMenu : MonoBehaviour
             if (levelMenu != null)
                 levelMenu.RefreshLevelList();
         }
+    }
+
+    public void OpenHowToPlay()
+    {
+        if (mainMenuRoot != null)
+            mainMenuRoot.SetActive(false);
+
+        if (howToPanel != null)
+            howToPanel.SetActive(true);
+    }
+
+    public void CloseHowToPlay()
+    {
+        if (howToPanel != null)
+            howToPanel.SetActive(false);
+
+        if (mainMenuRoot != null)
+            mainMenuRoot.SetActive(true);
+    }
+
+    public void OpenSettings()
+    {
+        if (mainMenuRoot != null)
+            mainMenuRoot.SetActive(false);
+
+        if (settingsPanel != null)
+            settingsPanel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
+
+        if (mainMenuRoot != null)
+            mainMenuRoot.SetActive(true);
     }
 
     public void OpenStore()
@@ -101,11 +278,21 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        ShowLevelSelect();
-    }
+        int level = LevelProgress.GetFocusLevel();
+        if (!LevelProgress.IsLevelUnlocked(level))
+            level = 1;
 
-    public void QuitGame()
-    {
-        Application.Quit();
+        string sceneName = LevelProgress.GetSceneNameForLevel(level);
+        if (!Application.CanStreamedLevelBeLoaded(sceneName))
+        {
+            ShowLevelSelect();
+            return;
+        }
+
+        LevelProgress.SetSelectedMenuLevel(level);
+        if (LevelProgress.IsProceduralMenuLevel(level))
+            ProceduralSession.MarkFreshRunFromMenu();
+
+        SceneManager.LoadScene(sceneName);
     }
 }
