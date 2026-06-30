@@ -15,16 +15,16 @@ public class MainMenu : MonoBehaviour
     public StoreUI storeUI;
 
     [Header("Menu Root Layout")]
-    [SerializeField] private Vector2 menuRootPosition = new Vector2(0f, -40f);
-    [SerializeField] private Vector2 menuRootSize = new Vector2(560f, 720f);
+    [SerializeField] private Vector2 menuRootPosition = new Vector2(0f, 0f);
+    [SerializeField] private Vector2 menuRootSize = new Vector2(1100f, 820f);
 
     [Header("Button Layout")]
     [SerializeField] private bool useManualButtonLayout = true;
-    [SerializeField] private MainMenuButtonLayout playButtonLayout = new MainMenuButtonLayout("Play", new Vector2(0f, 240f), new Vector2(520f, 120f));
-    [SerializeField] private MainMenuButtonLayout settingsButtonLayout = new MainMenuButtonLayout("Settings", new Vector2(0f, 120f), new Vector2(520f, 120f));
-    [SerializeField] private MainMenuButtonLayout storeButtonLayout = new MainMenuButtonLayout("Store", new Vector2(0f, 0f), new Vector2(520f, 120f));
-    [SerializeField] private MainMenuButtonLayout levelsButtonLayout = new MainMenuButtonLayout("Levels", new Vector2(0f, -120f), new Vector2(520f, 120f));
-    [SerializeField] private MainMenuButtonLayout howToPlayButtonLayout = new MainMenuButtonLayout("HowToPlay", new Vector2(0f, -240f), new Vector2(520f, 120f));
+    [SerializeField] private MainMenuButtonLayout playButtonLayout = new MainMenuButtonLayout("Play", new Vector2(0f, 290f), new Vector2(640f, 140f));
+    [SerializeField] private MainMenuButtonLayout levelsButtonLayout = new MainMenuButtonLayout("Levels", new Vector2(-339f, -50f), new Vector2(420f, 240f));
+    [SerializeField] private MainMenuButtonLayout howToPlayButtonLayout = new MainMenuButtonLayout("HowToPlay", new Vector2(-116f, -50f), new Vector2(420f, 240f));
+    [SerializeField] private MainMenuButtonLayout storeButtonLayout = new MainMenuButtonLayout("Store", new Vector2(122f, -50f), new Vector2(420f, 240f));
+    [SerializeField] private MainMenuButtonLayout settingsButtonLayout = new MainMenuButtonLayout("Settings", new Vector2(354f, -50f), new Vector2(420f, 240f));
 
     private void OnValidate()
     {
@@ -74,7 +74,7 @@ public class MainMenu : MonoBehaviour
             Canvas canvas = FindFirstObjectByType<Canvas>();
             if (canvas != null)
             {
-                Transform panel = canvas.transform.Find("Settings");
+                Transform panel = canvas.transform.Find("SettingsPanel");
                 if (panel != null)
                     settingsPanel = panel.gameObject;
             }
@@ -130,11 +130,18 @@ public class MainMenu : MonoBehaviour
         if (root.TryGetComponent(out VerticalLayoutGroup layoutGroup))
             layoutGroup.enabled = false;
 
+        EnsureChildOfRoot(root, "Store");
+        EnsureChildOfRoot(root, "Settings");
+
         ApplyButtonLayoutEntry(root, playButtonLayout);
-        ApplyButtonLayoutEntry(root, settingsButtonLayout);
-        ApplyButtonLayoutEntry(root, storeButtonLayout);
         ApplyButtonLayoutEntry(root, levelsButtonLayout);
         ApplyButtonLayoutEntry(root, howToPlayButtonLayout);
+        ApplyButtonLayoutEntry(root, storeButtonLayout);
+        ApplyButtonLayoutEntry(root, settingsButtonLayout);
+
+        string[] stretchButtons = { "Levels", "HowToPlay", "Store", "Settings" };
+        foreach (string name in stretchButtons)
+            SetButtonStretch(root, name);
     }
 
     private Transform ResolveMainMenuRoot()
@@ -169,6 +176,62 @@ public class MainMenu : MonoBehaviour
             image.preserveAspect = true;
     }
 
+    private static void EnsureChildOfRoot(Transform root, string childName)
+    {
+        Transform existing = root.Find(childName);
+        if (existing != null) return;
+
+        Transform canvas = root.parent;
+        if (canvas == null) return;
+
+        Transform childOnCanvas = canvas.Find(childName);
+        if (childOnCanvas != null)
+            childOnCanvas.SetParent(root, false);
+    }
+
+    private static void SetButtonStretch(Transform root, string buttonName)
+    {
+        Transform child = root.Find(buttonName);
+        if (child == null || !child.TryGetComponent(out Image image))
+            return;
+
+        image.preserveAspect = false;
+    }
+
+    private static void ApplyCornerButtonLayout(Transform searchRoot, Transform canvas, MainMenuButtonLayout layout, bool leftCorner)
+    {
+        if (layout == null || string.IsNullOrWhiteSpace(layout.buttonName))
+            return;
+
+        Transform child = searchRoot.Find(layout.buttonName);
+        if (child == null)
+            child = canvas.Find(layout.buttonName);
+
+        if (child == null || !child.TryGetComponent(out RectTransform rt))
+            return;
+
+        rt.SetParent(canvas, false);
+
+        if (leftCorner)
+        {
+            rt.anchorMin = Vector2.zero;
+            rt.anchorMax = Vector2.zero;
+            rt.pivot = Vector2.zero;
+        }
+        else
+        {
+            rt.anchorMin = new Vector2(1f, 0f);
+            rt.anchorMax = new Vector2(1f, 0f);
+            rt.pivot = new Vector2(1f, 0f);
+        }
+
+        rt.anchoredPosition = layout.anchoredPosition;
+        rt.sizeDelta = layout.sizeDelta;
+
+        if (child.TryGetComponent(out Image image))
+            image.preserveAspect = true;
+    }
+
     private void WireMenuButtons()
     {
         Transform root = mainMenuRoot != null ? mainMenuRoot.transform : null;
@@ -176,10 +239,10 @@ public class MainMenu : MonoBehaviour
             return;
 
         WireButton(root, "Play", PlayGame);
-        WireButton(root, "Settings", OpenSettings);
-        WireButton(root, "Store", OpenStore);
         WireButton(root, "Levels", ShowLevelSelect);
         WireButton(root, "HowToPlay", OpenHowToPlay);
+        WireButton(root, "Store", OpenStore);
+        WireButton(root, "Settings", OpenSettings);
     }
 
     private void WireButton(Transform root, string childName, UnityEngine.Events.UnityAction action)
