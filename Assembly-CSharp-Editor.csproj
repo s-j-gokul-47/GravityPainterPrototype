@@ -52,6 +52,7 @@
     <Compile Include="Assets\Editor\LaserGateModelUtility.cs" />
     <Compile Include="Assets\Scripts\Procedural\Editor\ProceduralPathVisualizerEditor.cs" />
     <Compile Include="Assets\Scripts\Procedural\Editor\DifficultyEditorMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\Editor\MainMenuEditor.cs" />
     <Compile Include="Assets\Editor\SetupTilesGlb.cs" />
     <Compile Include="Assets\Editor\ApplyMagnetModel.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Assets\Scripts\UI\Editor\SetupMainMenuVideoBackground.cs" />
     <Compile Include="Assets\Editor\ApplyThemeSkybox.cs" />
     <Compile Include="Assets\Editor\RemoveMisplacedCameraFollow.cs" />
+    <Compile Include="Assets\Scripts\UI\Editor\SetupMainMenuButtons.cs" />
     <Compile Include="Assets\Editor\ApplyCoinModel.cs" />
     <Compile Include="Assets\Editor\PlaceCampaignCoins.cs" />
     <Compile Include="Assets\Editor\SciFiPackMaterialFix.cs" />
