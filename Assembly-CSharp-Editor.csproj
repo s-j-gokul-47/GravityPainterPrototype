@@ -76,6 +76,7 @@
     <Compile Include="Assets\Editor\TileGlbUtility.cs" />
     <Compile Include="Assets\Editor\HammerModelBinder.cs" />
     <Compile Include="Assets\Editor\PlaceLevel2Spikes.cs" />
+    <Compile Include="Assets\Scripts\Systems\Editor\SetupGameplayMusic.cs" />
     <Compile Include="Assets\Editor\HammerModelUtility.cs" />
     <Compile Include="Assets\Editor\ApplyFloor5ToTilePrefab.cs" />
     <Compile Include="Assets\Editor\SetupHammerObstacle.cs" />
