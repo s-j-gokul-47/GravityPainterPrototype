@@ -69,6 +69,11 @@ public class LevelCompleteUI : MonoBehaviour
         UpdateNextLevelButton();
         UpdateProceduralTitle();
         GameplayMusicController.NotifyLevelCompleteOverlayVisible(true);
+        
+        if (PauseUI.Instance != null)
+        {
+            PauseUI.Instance.Hide();
+        }
     }
 
     private void OnDisable()
@@ -355,6 +360,10 @@ public class LevelCompleteUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         gameObject.SetActive(false);
+        if (PauseUI.Instance != null)
+        {
+            PauseUI.Instance.Show();
+        }
     }
 
     private Vector2 GetButtonSize(Sprite sprite)
