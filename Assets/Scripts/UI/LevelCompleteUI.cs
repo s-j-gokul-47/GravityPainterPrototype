@@ -68,6 +68,12 @@ public class LevelCompleteUI : MonoBehaviour
         EnsureBackgroundVisible();
         UpdateNextLevelButton();
         UpdateProceduralTitle();
+        GameplayMusicController.NotifyLevelCompleteOverlayVisible(true);
+    }
+
+    private void OnDisable()
+    {
+        GameplayMusicController.NotifyLevelCompleteOverlayVisible(false);
     }
 
     private void EnsureBackgroundVisible()
